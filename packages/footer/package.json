@@ -1,0 +1,27 @@
+{
+	"name": "@ag.common/footer",
+	"version": "0.0.1",
+	"main": "dist/ag.common-footer.cjs.js",
+	"module": "dist/ag.common-footer.esm.js",
+	"license": "MIT",
+	"peerDependencies": {
+		"@ag.ds-next/box": "*",
+		"@ag.ds-next/core": "*",
+		"@ag.ds-next/footer": "*",
+		"@ag.ds-next/link-list": "*",
+		"@ag.ds-next/text": "*",
+		"@emotion/react": "^11.7.0",
+		"facepaint": "^1.2.1",
+		"react": "^16.14.0 || ^17.0.0"
+	},
+	"devDependencies": {
+		"@ag.ds-next/box": "*",
+		"@ag.ds-next/core": "*",
+		"@ag.ds-next/footer": "*",
+		"@ag.ds-next/link-list": "*",
+		"@ag.ds-next/text": "*",
+		"@emotion/react": "^11.7.0",
+		"facepaint": "^1.2.1",
+		"react": "17.0.2"
+	}
+}
