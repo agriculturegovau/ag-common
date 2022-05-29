@@ -2,7 +2,7 @@
 
 > ⚠️ Draft process. Things may change!
 
-These instructions capture the internal process for making releases of the `@ag.ds-next` packages.
+These instructions capture the internal process for making releases of the `@ag.common` packages.
 
 ## npm release
 
@@ -23,24 +23,18 @@ Then publish all new tags (releases plus release date version) to GitHub with `g
 Copy the successful output of the published packages from the above npm release, example output:
 
 ```sh
-@ag.ds-next/core@1.0.0
-@ag.ds-next/box@1.0.0
-@ag.ds-next/text@1.0.0
+@ag.common/footer@1.0.0
+@ag.common/header@1.0.0
 ```
 
 Translate to a `package.json` style syntax for ease of copying, example:
 
 ```json
-"@ag.ds-next/core": "1.0.0",
-"@ag.ds-next/box": "1.0.0",
-"@ag.ds-next/text": "1.0.0",
+"@ag.common/footer": "1.0.0",
+"@ag.common/header": "1.0.0",
 ```
 
 Use this output in the next step.
-
-## Docs Website release notes
-
-TODO
 
 ## Github release notes
 
@@ -68,18 +62,18 @@ Use the template below and update the following details:
 
 [release description]
 
-> ⚠️ Note: All releases under the `@ag.ds-next` package scope should be considered alpha pre-releases. Expect breaking changes. Once we are happy with the state of the core packages we will migrate all packages to `@ag.ds`.
+> ⚠️ Note: All releases under the `@ag.common` package scope should be considered alpha pre-releases. Expect breaking changes. Once we are happy with the state of the core packages we will migrate all packages to `@ag.ds`.
 
-### **View the [complete release notes on the AG DS website](https://steelthreads.github.io/agds-next/releases/YYYY-MM-DD)**.
+### **View the [complete release notes on the AG DS website](https://steelthreads.github.io/ag-common/releases/YYYY-MM-DD)**.
 
 ```sh
-"@ag.ds-next/core": "x.x.x"
+"@ag.common/core": "x.x.x"
 [place the packages output here]
 ```
 
 ## Changelog
 
-Aside from the [complete release notes on the @ag.ds-next website](https://steelthreads.github.io/agds-next/releases/YYYY-MM-DD), you can also view the [verbose change log](https://github.com/steelthreads/agds-next/pull/XXXX) in the related PR (https://github.com/steelthreads/agds-next/pull/XXXX) for this release.
+Aside from the [complete release notes on the @ag.common website](https://steelthreads.github.io/ag-common/releases/YYYY-MM-DD), you can also view the [verbose change log](https://github.com/steelthreads/ag-common/pull/XXXX) in the related PR (https://github.com/steelthreads/ag-common/pull/XXXX) for this release.
 
 ---
 
