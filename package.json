@@ -22,10 +22,8 @@
 		"storybook:dev": "start-storybook -p 6006",
 		"storybook:build": "build-storybook -o docs/public/storybook"
 	},
-	"dependencies": {
-		"@ag.ds-next/ag-branding": "^5.0.0"
-	},
 	"devDependencies": {
+		"@ag.ds-next/ag-branding": "^5.0.0",
 		"@babel/core": "^7.16.5",
 		"@babel/plugin-transform-runtime": "^7.16.4",
 		"@babel/preset-env": "^7.16.5",
