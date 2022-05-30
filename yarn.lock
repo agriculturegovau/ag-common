@@ -7,30 +7,30 @@
   resolved "https://registry.yarnpkg.com/@ag.ds-next/ag-branding/-/ag-branding-5.0.0.tgz#7a7ea466c963332dbca35dcfe26901a060667868"
   integrity sha512-xtMNxI37/FN9VTEmdyEzjqhYBGCrePTRyPLE/TsRCz3Vo0SnALMjIG0/JwvtZW3s8ApsqMlSnVaEtnM9nT1xJA==
 
-"@ag.ds-next/box@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/box/-/box-5.0.0.tgz#860277cf17ffd4ddf1b0343b00737ee7938117f0"
-  integrity sha512-K1JvBltGlt1X5FvA6fBtv0+Cq+1H8fKiLKchExwWLQYKBXHvBAra8IPerylzyYchlpjla+5qBPDzuGJMdqd4Gw==
+"@ag.ds-next/box@^5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/box/-/box-5.0.1.tgz#df577745e75832f46f57bb20cb99bd6b32fb63c2"
+  integrity sha512-RrqW5SPOuGY0UWs32ZxPyTDCUajDCmSOlKZ8UIohFiX6pN2mUrqCKmJ5Y9J0HjIfihvZmkJuapW3W+Sq9XT+gA==
 
-"@ag.ds-next/core@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/core/-/core-2.2.0.tgz#fa72662064aa075db4090b4c7730103e18ee76ae"
-  integrity sha512-DTQ3Ihq2MvCLxjS9x2466doY9Dko5IgJpqbhqQMA9AQvKU1V9g8+jntf463D03y5vLrFXbMpgKTWHc7R80kNMA==
+"@ag.ds-next/core@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/core/-/core-2.2.1.tgz#f0aa0028819c8287e90bd9aa51d6080437bd2b1b"
+  integrity sha512-mDA46YYkznVxXOFhBT/laSK60Mur60EvK4yNSj+etPEW1oS5VtgrVkt5E43ipKlFzWQAkOimpbcVVrxB7fK1xA==
 
-"@ag.ds-next/footer@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/footer/-/footer-6.0.0.tgz#ccf305e673ad9e6945808635cd43943bbf918b00"
-  integrity sha512-JLsGGIDnFnap2L5bgGcb2qRT+hjQXyMLdR161lXZLdmwOvIsuVrDSt64ItfPxGddHc6ju3v/QVZbUHJ7ErOFpQ==
+"@ag.ds-next/footer@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/footer/-/footer-6.0.1.tgz#2f9b78854679ec696558641d3754fb6d7552712f"
+  integrity sha512-5iXY2/xxR/SNlnkCzEppfy+P+319LMAVuQMel0CusFxhM0r+puU/bbd14VLs2UQP/9DBatKSiOBtqYdHl8qniQ==
 
-"@ag.ds-next/link-list@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/link-list/-/link-list-6.0.0.tgz#f72e7b65e66918e94bef4730ac90f1978781a83f"
-  integrity sha512-ZYmogVUMZohqD2/ioDgqxlAotMUhbjoZuJpMgFS/nPoaJf3KS1ldxbb8kNQhs2R13CM/V5Yt3g+BEDpVc0lzwQ==
+"@ag.ds-next/link-list@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/link-list/-/link-list-7.0.0.tgz#79b493e9409d5f6d404e0a3e1cc9d6b1e4c15560"
+  integrity sha512-DInUE654GANLQvDDyTo0xjpMItEwv24F6dzWN1Eve8eaB6QFR3xC2FYTdug5FTB5WkHjVlr9gBbK5ca7uD64gQ==
 
-"@ag.ds-next/text@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/text/-/text-6.0.0.tgz#0dc451f3275a8ed910675ed75463f6c628e7d646"
-  integrity sha512-gkc3PclkK8y4RTmEoUCs5bAzgWUhA5M/s6B2GUUlDu5DEftIat1Lc6SVsuT6DjJD6v1Mc8k4XkSlknNp/IwOWg==
+"@ag.ds-next/text@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/text/-/text-7.0.0.tgz#e214e3f79eb9f7d3f30c269d46e0fdf07c735093"
+  integrity sha512-bp0EkvOY2OI/ActAwq//y/Akk1dv7A9jPeWFVq7k1Gpsai2wQtvG73FXvl5ug/Al737C+LvSgu/9q+mlNr01HQ==
 
 "@ampproject/remapping@^2.1.0":
   version "2.2.0"
