@@ -1,53 +1,69 @@
-import { tokens } from '@ag.ds-next/core';
-import { LinkList } from '@ag.ds-next/link-list';
-import { Text } from '@ag.ds-next/text';
-import { Footer as AgDsFooter, FooterDivider } from '@ag.ds-next/footer';
-import { CoreProvider } from '@ag.ds-next/core';
+import { CoreProvider, tokens } from '@ag.ds-next/core';
+import { Header as AgDsHeader } from '@ag.ds-next/header';
+import { AvatarIcon } from '@ag.ds-next/icon';
+import { MainNav, MainNavLink } from '@ag.ds-next/main-nav';
+import { Logo } from '@ag.ds-next/ag-branding';
 import { useMemo } from 'react';
 
-const footerLinks = [
+interface HeaderProps {
+	authenticated?: boolean;
+	mode?: 'authenticated' | 'unauthenticated';
+	handleSignIn?: () => Promise<void>;
+	handleSignOut?: () => Promise<void>;
+}
+
+const authenticatedLinks = [
 	{
-		href: '/about',
-		label: 'About',
+		href: '/account',
+		label: 'Home',
 	},
 	{
-		href: '/account/help',
-		rel: 'external',
-		label: 'Help',
+		href: '/establishments',
+		label: 'Establishments',
 	},
 	{
-		href: 'https://www.awe.gov.au/about/commitment/accessibility',
-		rel: 'external',
-		label: 'Accessibility',
+		href: '/intelligence',
+		label: 'Data and insights',
 	},
 	{
-		href: 'https://www.awe.gov.au/about/disclaimer',
-		rel: 'external',
-		label: 'Disclaimer',
-	},
-	{
-		href: '/privacy',
-		label: 'Privacy',
+		href: '/compliance',
+		label: 'Compliance',
 	},
 ];
 
-export const Header = () => {
-	const year = useMemo(() => new Date().getFullYear(), []);
+export const Header = ({
+	authenticated,
+	mode = 'authenticated',
+	handleSignIn,
+	handleSignOut,
+}: HeaderProps) => (
+	<CoreProvider>
+		<AgDsHeader
+			heading="Export Service"
+			subline="Supporting Australian agricultural exports"
+			logo={<Logo />}
+			variant="dark"
+			badgeLabel="beta"
+		/>
 
-	return (
-		<CoreProvider>
-			<AgDsFooter variant="agriculture">
-				<LinkList links={footerLinks} horizontal />
-				<FooterDivider />
-				<Text fontSize="xs" maxWidth={tokens.maxWidth.bodyText}>
-					We acknowledge the traditional owners of country throughout Australia
-					and recognise their continuing connection to land, waters and culture.
-					We pay our respects to their Elders past, present and emerging.
-				</Text>
-				<Text fontSize="xs" maxWidth={tokens.maxWidth.bodyText}>
-					&copy; {year} Department of Agriculture, Water and the Environment
-				</Text>
-			</AgDsFooter>
-		</CoreProvider>
-	);
-};
+		<MainNav
+			variant="agriculture"
+			links={mode === 'authenticated' ? authenticatedLinks : []}
+			rightContent={
+				authenticated ? (
+					<MainNavLink
+						onClick={handleSignOut}
+						label="Sign out"
+						icon={AvatarIcon}
+					/>
+				) : (
+					<MainNavLink
+						onClick={handleSignIn}
+						label="Sign in"
+						icon={AvatarIcon}
+					/>
+				)
+			}
+		/>
+	</CoreProvider>
+);
