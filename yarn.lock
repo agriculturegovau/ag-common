@@ -2,10 +2,15 @@
 # yarn lockfile v1
 
 
-"@ag.ds-next/ag-branding@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/ag-branding/-/ag-branding-5.0.0.tgz#7a7ea466c963332dbca35dcfe26901a060667868"
-  integrity sha512-xtMNxI37/FN9VTEmdyEzjqhYBGCrePTRyPLE/TsRCz3Vo0SnALMjIG0/JwvtZW3s8ApsqMlSnVaEtnM9nT1xJA==
+"@ag.ds-next/a11y@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/a11y/-/a11y-1.1.0.tgz#a3e9170b0b4d2ce4b5cbaba8e80e44933e10fe6f"
+  integrity sha512-w/yCc34WNvk1+A3IPwHAPQpPdkvlus1rTcIq2q5Jl17pIWMKZ9CnQN97Bk7eqmebkR3KetaG0SZdg7Y7dIwf1Q==
+
+"@ag.ds-next/ag-branding@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/ag-branding/-/ag-branding-5.1.0.tgz#3b649f55579e9b65276c00bdac99d30267efd492"
+  integrity sha512-bTXuLdPEKHcdGD13XgoygkDdUm+2EtV1+Pox5KHjctqTWYWllvkH0gHikp+prjIQRCJYiRUMYHvv516ZUT+rPQ==
 
 "@ag.ds-next/box@^5.0.1":
   version "5.0.1"
@@ -21,6 +26,11 @@
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/@ag.ds-next/footer/-/footer-6.0.1.tgz#2f9b78854679ec696558641d3754fb6d7552712f"
   integrity sha512-5iXY2/xxR/SNlnkCzEppfy+P+319LMAVuQMel0CusFxhM0r+puU/bbd14VLs2UQP/9DBatKSiOBtqYdHl8qniQ==
+
+"@ag.ds-next/icon@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/icon/-/icon-8.0.0.tgz#2c57d667d59d26c5358b26e10e701c45841b32b0"
+  integrity sha512-cG+FoVkOpfOteLNJECScXJb6KwDcLyOjsEb0h0nB4+50/3BQrwvhwRTngfEEE1MckeVYeTDFHz9av+26XlgGmg==
 
 "@ag.ds-next/link-list@^7.0.0":
   version "7.0.0"
