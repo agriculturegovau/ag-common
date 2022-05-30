@@ -37,7 +37,9 @@ export const Footer = () => {
 	return (
 		<CoreProvider>
 			<AgDsFooter variant="agriculture">
-				<LinkList links={footerLinks} horizontal />
+				<nav aria-label="footer">
+					<LinkList links={footerLinks} horizontal />
+				</nav>
 				<FooterDivider />
 				<Text fontSize="xs" maxWidth={tokens.maxWidth.bodyText}>
 					We acknowledge the traditional owners of country throughout Australia
