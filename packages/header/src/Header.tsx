@@ -3,11 +3,11 @@ import { Header as AgDsHeader } from '@ag.ds-next/header';
 import { AvatarIcon } from '@ag.ds-next/icon';
 import { MainNav, MainNavLink } from '@ag.ds-next/main-nav';
 import { Logo } from '@ag.ds-next/ag-branding';
-import { useMemo } from 'react';
 
 interface HeaderProps {
 	authenticated?: boolean;
 	mode?: 'authenticated' | 'unauthenticated';
+	activePath: React.ComponentProps<typeof MainNav>['activePath'];
 	handleSignIn?: () => Promise<void>;
 	handleSignOut?: () => Promise<void>;
 }
@@ -34,6 +34,7 @@ const authenticatedLinks = [
 export const Header = ({
 	authenticated,
 	mode = 'authenticated',
+	activePath,
 	handleSignIn,
 	handleSignOut,
 }: HeaderProps) => (
@@ -49,6 +50,7 @@ export const Header = ({
 		<MainNav
 			variant="agriculture"
 			links={mode === 'authenticated' ? authenticatedLinks : []}
+			activePath={activePath}
 			rightContent={
 				authenticated ? (
 					<MainNavLink
