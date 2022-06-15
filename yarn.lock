@@ -17,6 +17,16 @@
   resolved "https://registry.yarnpkg.com/@ag.ds-next/box/-/box-6.0.0.tgz#b2d3eb5a92ed0fc2e7ae82f2186cd7b7d9de6a51"
   integrity sha512-iIjiYwSkGcewbQHRrTd3Rv3j5F9ewlGL+0aSE6FqZPufnPLt7K3Q+cSDcvx20+4gWvuNUGw/dzaHEVaciEPKgw==
 
+"@ag.ds-next/button@^9.0.0":
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/button/-/button-9.0.0.tgz#0e7e4cdf33f99374c2ab1d88cca558adfd870391"
+  integrity sha512-tJmJuniwzSgqd708Wu6zxI9/ZfD0mVD/sEk40OwIR93eyCRZHYSXaa5gS8N+7/EdM1WTFCTqreiwAA77k2LTdQ==
+
+"@ag.ds-next/content@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/content/-/content-7.0.0.tgz#317c57b38fb624b1a96acd38bad9ff23f802fdbb"
+  integrity sha512-XSQ2ygXlIKJ8PUYQgENmnVWgtLSA1mB2vjey//hFK2P5oTWFHNAd4JmbeZCy33mOBOq6IzhV1RbpvKusjXQjXQ==
+
 "@ag.ds-next/core@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@ag.ds-next/core/-/core-3.0.0.tgz#555b4cbb9a27c30a6f14be5e81557bbb7238c30b"
@@ -36,6 +46,13 @@
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/@ag.ds-next/link-list/-/link-list-9.0.0.tgz#4e474f26e1f1d0ef478db98a65682a63cb8e215f"
   integrity sha512-UdMOLqcR0t87HeCYiRHVgDRDgQTuOK/GibDlNCx4iCIV2UAKftLQYBlpMSlpKxxCyjcaV5r5ph+tLUNDyDm8Gg==
+
+"@ag.ds-next/loading@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/loading/-/loading-4.0.0.tgz#02556adc350ba558b9891cee83fa275afcb5d6c3"
+  integrity sha512-lhiVhjX1XwfqtPnm++IurWc+5T7iXuO9TEn3KPIOpVFLwTAuzhMHfiDm3KfECu7aMZJZDZVjyzU8ab/OBIY8lQ==
+  dependencies:
+    "@react-spring/web" "^9.4.5"
 
 "@ag.ds-next/text-link@^3.0.0":
   version "3.0.0"
@@ -2014,6 +2031,52 @@
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@preconstruct/next/-/next-3.0.1.tgz#7070edaf7adb350010114adbbc90079a98b0f31a"
   integrity sha512-b9q1US5vsUzHPeMGlCFGWdttAHQ2q6raFlY1vf5binrKMkki/gt6GvskTJ4RXfFCt7QmVx9tRcuTFXMhUDgb6A==
+
+"@react-spring/animated@~9.4.5":
+  version "9.4.5"
+  resolved "https://registry.yarnpkg.com/@react-spring/animated/-/animated-9.4.5.tgz#dd9921c716a4f4a3ed29491e0c0c9f8ca0eb1a54"
+  integrity sha512-KWqrtvJSMx6Fj9nMJkhTwM9r6LIriExDRV6YHZV9HKQsaolUFppgkOXpC+rsL1JEtEvKv6EkLLmSqHTnuYjiIA==
+  dependencies:
+    "@react-spring/shared" "~9.4.5"
+    "@react-spring/types" "~9.4.5"
+
+"@react-spring/core@~9.4.5":
+  version "9.4.5"
+  resolved "https://registry.yarnpkg.com/@react-spring/core/-/core-9.4.5.tgz#4616e1adc18dd10f5731f100ebdbe9518b89ba3c"
+  integrity sha512-83u3FzfQmGMJFwZLAJSwF24/ZJctwUkWtyPD7KYtNagrFeQKUH1I05ZuhmCmqW+2w1KDW1SFWQ43RawqfXKiiQ==
+  dependencies:
+    "@react-spring/animated" "~9.4.5"
+    "@react-spring/rafz" "~9.4.5"
+    "@react-spring/shared" "~9.4.5"
+    "@react-spring/types" "~9.4.5"
+
+"@react-spring/rafz@~9.4.5":
+  version "9.4.5"
+  resolved "https://registry.yarnpkg.com/@react-spring/rafz/-/rafz-9.4.5.tgz#84f809f287f2a66bbfbc66195db340482f886bd7"
+  integrity sha512-swGsutMwvnoyTRxvqhfJBtGM8Ipx6ks0RkIpNX9F/U7XmyPvBMGd3GgX/mqxZUpdlsuI1zr/jiYw+GXZxAlLcQ==
+
+"@react-spring/shared@~9.4.5":
+  version "9.4.5"
+  resolved "https://registry.yarnpkg.com/@react-spring/shared/-/shared-9.4.5.tgz#4c3ad817bca547984fb1539204d752a412a6d829"
+  integrity sha512-JhMh3nFKsqyag0KM5IIM8BQANGscTdd0mMv3BXsUiMZrcjQTskyfnv5qxEeGWbJGGar52qr5kHuBHtCjQOzniA==
+  dependencies:
+    "@react-spring/rafz" "~9.4.5"
+    "@react-spring/types" "~9.4.5"
+
+"@react-spring/types@~9.4.5":
+  version "9.4.5"
+  resolved "https://registry.yarnpkg.com/@react-spring/types/-/types-9.4.5.tgz#9c71e5ff866b5484a7ef3db822bf6c10e77bdd8c"
+  integrity sha512-mpRIamoHwql0ogxEUh9yr4TP0xU5CWyZxVQeccGkHHF8kPMErtDXJlxyo0lj+telRF35XNihtPTWoflqtyARmg==
+
+"@react-spring/web@^9.4.5":
+  version "9.4.5"
+  resolved "https://registry.yarnpkg.com/@react-spring/web/-/web-9.4.5.tgz#b92f05b87cdc0963a59ee149e677dcaff09f680e"
+  integrity sha512-NGAkOtKmOzDEctL7MzRlQGv24sRce++0xAY7KlcxmeVkR7LRSGkoXHaIfm9ObzxPMcPHQYQhf3+X9jepIFNHQA==
+  dependencies:
+    "@react-spring/animated" "~9.4.5"
+    "@react-spring/core" "~9.4.5"
+    "@react-spring/shared" "~9.4.5"
+    "@react-spring/types" "~9.4.5"
 
 "@rollup/plugin-alias@^3.1.1":
   version "3.1.9"
