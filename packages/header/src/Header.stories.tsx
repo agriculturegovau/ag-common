@@ -36,12 +36,18 @@ export const Authentication = () => {
 
 	const handleSignOut = async () => {
 		setAuthenticated(false);
+		await new Promise((resolve) => setTimeout(resolve, 1000));
+		setAuthenticated(true);
+		await new Promise((resolve) => setTimeout(resolve, 1000));
+		setAuthenticated(false);
+		await new Promise((resolve) => setTimeout(resolve, 1000));
 	};
 
 	return (
 		<Header
 			handleSignIn={handleSignIn}
 			handleSignOut={handleSignOut}
+			handleSignOutx={handleSignOut}
 			authenticated={authenticated}
 		/>
 	);
