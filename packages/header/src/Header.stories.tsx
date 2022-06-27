@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { useState } from 'react';
 import { Header } from './Header';
 
 export default {
@@ -22,4 +23,26 @@ Unauthenticated.args = {
 	authenticated: false,
 	handleSignIn: console.log,
 	handleSignOut: console.log,
+};
+
+export const Basic = Header;
+
+export const Authentication = () => {
+	const [authenticated, setAuthenticated] = useState<boolean>(false);
+
+	const handleSignIn = async () => {
+		setAuthenticated(true);
+	};
+
+	const handleSignOut = async () => {
+		setAuthenticated(false);
+	};
+
+	return (
+		<Header
+			handleSignIn={handleSignIn}
+			handleSignOut={handleSignOut}
+			authenticated={authenticated}
+		/>
+	);
 };

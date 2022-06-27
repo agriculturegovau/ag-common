@@ -5,8 +5,8 @@ import { MainNav, MainNavButton } from '@ag.ds-next/main-nav';
 import { Logo } from '@ag.ds-next/ag-branding';
 
 export type HeaderProps = {
-	authenticated: boolean;
-	activePath: string;
+	authenticated?: boolean;
+	activePath?: string;
 	handleSignIn?: React.MouseEventHandler<HTMLButtonElement>;
 	handleSignOut?: React.MouseEventHandler<HTMLButtonElement>;
 };
