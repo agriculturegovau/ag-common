@@ -30,15 +30,12 @@ import { useMsal } from '@azure/msal-react';
 
 function App() {
 	const { instance } = useMsal();
-	const { isAuthenticated, setIsAuthenticated } = useState();
-
 	const SCOPE = '...';
 
 	const handleSignOut = async () => {
 		await instance.logoutRedirect({
 			postLogoutRedirectUri: '/signout',
 		});
-		setIsAuthenticated(false);
 	};
 
 	const handleSignIn = async () => {
@@ -46,7 +43,6 @@ function App() {
 			scopes: [SCOPE],
 			prompt: 'login',
 		});
-		setIsAuthenticated(true);
 	};
 
 	return (
