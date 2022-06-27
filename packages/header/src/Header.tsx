@@ -39,6 +39,7 @@ export const Header = ({
 	return (
 		<CoreProvider>
 			<AgDsHeader
+				href={authenticated ? '/account' : '/'}
 				heading="Export Service"
 				subline="Supporting Australian agricultural exports"
 				logo={<Logo />}
