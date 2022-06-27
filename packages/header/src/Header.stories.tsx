@@ -9,8 +9,6 @@ export default {
 
 const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;
 
-export const Basic = Header;
-
 export const Authenticated = Template.bind({});
 Authenticated.args = {
 	activePath: '/account',
