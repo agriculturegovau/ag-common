@@ -22,10 +22,10 @@
   resolved "https://registry.yarnpkg.com/@ag.ds-next/button/-/button-9.0.0.tgz#0e7e4cdf33f99374c2ab1d88cca558adfd870391"
   integrity sha512-tJmJuniwzSgqd708Wu6zxI9/ZfD0mVD/sEk40OwIR93eyCRZHYSXaa5gS8N+7/EdM1WTFCTqreiwAA77k2LTdQ==
 
-"@ag.ds-next/columns@^5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/columns/-/columns-5.0.1.tgz#3f65dd100b9c7e85eb1d2a54d76c1ef92af2f590"
-  integrity sha512-lxrmRnYqohAqM+FKfmh9yYyvuZ44iFaD+X2t54qLprHEItfgee1Wbg5COh7Ur3rDn35H2eBK+52s53US3jV2jg==
+"@ag.ds-next/columns@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/columns/-/columns-6.0.0.tgz#44268ee2ee39156505d72b76ad0c6841b1062b79"
+  integrity sha512-p89zvCdyUSVW94yug64Pac9oSt3bBPa55Uta2v+Mnl65Np4AmIshl0FKjJqGeIoAStPMq6fQLMqpb0iVnWg48Q==
 
 "@ag.ds-next/content@^7.0.0":
   version "7.0.0"
@@ -42,10 +42,10 @@
   resolved "https://registry.yarnpkg.com/@ag.ds-next/footer/-/footer-7.0.0.tgz#04b818fc391ccde478e5259328c059b2a7d0294b"
   integrity sha512-Hq1dgX2PpvJMrs4qnJpOYEPl08rbGKLBVOrY4/WkxCh1bQMVpXafAYqFmvoyS85vevxkX2SpUeR6XopmegtjVQ==
 
-"@ag.ds-next/header@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/header/-/header-8.0.0.tgz#02f87422d26de81d8636cdb77c02823706539af6"
-  integrity sha512-yhAwgCoAu8ZGTCLxUYtZKqQ/SVjiJb87gLFz2jMarjRZPD+bXpBQ1VuG5Iql7tkkMZYiAlqzqKGUOCeY4SOn7g==
+"@ag.ds-next/header@^9.0.0":
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/header/-/header-9.0.0.tgz#fe085c4d4a38338980317300c5f9362070dbaa00"
+  integrity sha512-ybZCE8gmG3rr7HpLNb+mXVBCOyCCrWf5ZdB+qDL0gYpOnNaJ2mV7+XhHItUCpQXFyShxRyhbNnPFsKmavzYqvQ==
 
 "@ag.ds-next/icon@^9.0.0":
   version "9.0.0"
@@ -64,10 +64,10 @@
   dependencies:
     "@react-spring/web" "^9.4.5"
 
-"@ag.ds-next/main-nav@^10.0.0":
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/main-nav/-/main-nav-10.0.0.tgz#63782b51c4a027fcc46b8db450feff05c6677c5e"
-  integrity sha512-He+EL9QsUbe+RfNcPHpf07/364sF/yeb7dcGNGH8egYaNq92KKSbPP0G+le8Lsh2cXhkDZHUQddndxuisJpwfA==
+"@ag.ds-next/main-nav@^11.0.0":
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/main-nav/-/main-nav-11.0.0.tgz#3354bda5b13bed75fdcf108cff2ca59b614991a2"
+  integrity sha512-cjsIP0ifuxTTsEEX/OZyBp8RjZjFGMn8cYi3K3ytqPoly3yf2jhr7NN0rrqv58OuUgFEWr6tymsJW9BuAuJxaQ==
   dependencies:
     react-focus-lock "^2.8.1"
 
