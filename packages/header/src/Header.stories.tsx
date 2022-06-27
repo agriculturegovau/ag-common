@@ -9,6 +9,8 @@ export default {
 
 const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;
 
+export const Basic = Header;
+
 export const Authenticated = Template.bind({});
 Authenticated.args = {
 	activePath: '/account',
@@ -25,8 +27,6 @@ Unauthenticated.args = {
 	handleSignOut: console.log,
 };
 
-export const Basic = Header;
-
 export const Authentication = () => {
 	const [authenticated, setAuthenticated] = useState<boolean>(false);
 
@@ -36,18 +36,12 @@ export const Authentication = () => {
 
 	const handleSignOut = async () => {
 		setAuthenticated(false);
-		await new Promise((resolve) => setTimeout(resolve, 1000));
-		setAuthenticated(true);
-		await new Promise((resolve) => setTimeout(resolve, 1000));
-		setAuthenticated(false);
-		await new Promise((resolve) => setTimeout(resolve, 1000));
 	};
 
 	return (
 		<Header
 			handleSignIn={handleSignIn}
 			handleSignOut={handleSignOut}
-			handleSignOutx={handleSignOut}
 			authenticated={authenticated}
 		/>
 	);

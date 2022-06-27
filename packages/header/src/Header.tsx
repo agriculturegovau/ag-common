@@ -9,7 +9,6 @@ export type HeaderProps = {
 	activePath?: string;
 	handleSignIn?: React.MouseEventHandler<HTMLButtonElement>;
 	handleSignOut?: React.MouseEventHandler<HTMLButtonElement>;
-	handleSignOutx?: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 const authenticatedLinks = [
@@ -35,7 +34,7 @@ export const Header = ({
 	authenticated,
 	activePath,
 	handleSignIn,
-	handleSignOutx,
+	handleSignOut,
 }: HeaderProps) => {
 	return (
 		<CoreProvider>
@@ -53,18 +52,11 @@ export const Header = ({
 				activePath={activePath}
 				rightContent={
 					authenticated ? (
-						<>
-							<MainNavButton
-								onClick={(e) => handleSignOutx?.(e)}
-								label="Sign out"
-								icon={AvatarIcon}
-							/>
-							<MainNavButton
-								onClick={(e) => handleSignOutx?.(e)}
-								label={<>Yeah</>}
-								icon={AvatarIcon}
-							/>
-						</>
+						<MainNavButton
+							onClick={handleSignOut}
+							label="Sign out"
+							icon={AvatarIcon}
+						/>
 					) : (
 						<MainNavButton
 							onClick={handleSignIn}
