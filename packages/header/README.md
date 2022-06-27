@@ -1,4 +1,4 @@
-# Footer
+# Header
 
 ## Installation
 
