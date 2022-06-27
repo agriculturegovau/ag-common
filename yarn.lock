@@ -2,25 +2,15 @@
 # yarn lockfile v1
 
 
-"@ag.ds-next/a11y@^1.1.0", "@ag.ds-next/a11y@^1.2.0":
+"@ag.ds-next/a11y@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@ag.ds-next/a11y/-/a11y-1.2.0.tgz#eb7e36f04be81f0acf7141c62e5618387adb6935"
   integrity sha512-tCQz+ZODTp6i4+CZd/aZ6THPzKrH529ndgJ4mowUfSL3D3eb2RVt7yyDfA+GZeML+n0CfkWUIgSJ0dWB141+7w==
-
-"@ag.ds-next/ag-branding@^5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/ag-branding/-/ag-branding-5.1.0.tgz#3b649f55579e9b65276c00bdac99d30267efd492"
-  integrity sha512-bTXuLdPEKHcdGD13XgoygkDdUm+2EtV1+Pox5KHjctqTWYWllvkH0gHikp+prjIQRCJYiRUMYHvv516ZUT+rPQ==
 
 "@ag.ds-next/ag-branding@^6.0.0":
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/@ag.ds-next/ag-branding/-/ag-branding-6.0.0.tgz#279485b69c16a6802dce02e14741c061992c1fe8"
   integrity sha512-9ANOdY15Pbk/6abOI+V1sDwQzKLRiOfGaQxltfr1UsEQ0khtKiZWe0FD98iI+CAV8oMpEl1hrVeV+qlRI+ciXA==
-
-"@ag.ds-next/box@^5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/box/-/box-5.0.1.tgz#df577745e75832f46f57bb20cb99bd6b32fb63c2"
-  integrity sha512-RrqW5SPOuGY0UWs32ZxPyTDCUajDCmSOlKZ8UIohFiX6pN2mUrqCKmJ5Y9J0HjIfihvZmkJuapW3W+Sq9XT+gA==
 
 "@ag.ds-next/box@^6.0.0":
   version "6.0.0"
@@ -42,11 +32,6 @@
   resolved "https://registry.yarnpkg.com/@ag.ds-next/content/-/content-7.0.0.tgz#317c57b38fb624b1a96acd38bad9ff23f802fdbb"
   integrity sha512-XSQ2ygXlIKJ8PUYQgENmnVWgtLSA1mB2vjey//hFK2P5oTWFHNAd4JmbeZCy33mOBOq6IzhV1RbpvKusjXQjXQ==
 
-"@ag.ds-next/core@^2.2.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/core/-/core-2.2.1.tgz#f0aa0028819c8287e90bd9aa51d6080437bd2b1b"
-  integrity sha512-mDA46YYkznVxXOFhBT/laSK60Mur60EvK4yNSj+etPEW1oS5VtgrVkt5E43ipKlFzWQAkOimpbcVVrxB7fK1xA==
-
 "@ag.ds-next/core@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@ag.ds-next/core/-/core-3.0.0.tgz#555b4cbb9a27c30a6f14be5e81557bbb7238c30b"
@@ -62,20 +47,10 @@
   resolved "https://registry.yarnpkg.com/@ag.ds-next/header/-/header-8.0.0.tgz#02f87422d26de81d8636cdb77c02823706539af6"
   integrity sha512-yhAwgCoAu8ZGTCLxUYtZKqQ/SVjiJb87gLFz2jMarjRZPD+bXpBQ1VuG5Iql7tkkMZYiAlqzqKGUOCeY4SOn7g==
 
-"@ag.ds-next/icon@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/icon/-/icon-8.0.0.tgz#2c57d667d59d26c5358b26e10e701c45841b32b0"
-  integrity sha512-cG+FoVkOpfOteLNJECScXJb6KwDcLyOjsEb0h0nB4+50/3BQrwvhwRTngfEEE1MckeVYeTDFHz9av+26XlgGmg==
-
 "@ag.ds-next/icon@^9.0.0":
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/@ag.ds-next/icon/-/icon-9.0.0.tgz#34cabdb51743a39a89bcf1eb96da3565e7221571"
   integrity sha512-uLaUA1yY7E9HS7OIGdMf7ia8dxf9A/flUy0jqn/5DCJ7OhGIAvk8zJtmrf6MhnaYf6tyYK083G3faXK0lUS48Q==
-
-"@ag.ds-next/link-list@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/link-list/-/link-list-7.0.0.tgz#79b493e9409d5f6d404e0a3e1cc9d6b1e4c15560"
-  integrity sha512-DInUE654GANLQvDDyTo0xjpMItEwv24F6dzWN1Eve8eaB6QFR3xC2FYTdug5FTB5WkHjVlr9gBbK5ca7uD64gQ==
 
 "@ag.ds-next/link-list@^9.0.0":
   version "9.0.0"
@@ -100,11 +75,6 @@
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@ag.ds-next/text-link/-/text-link-3.0.0.tgz#b473f59d2504b1c2ef868b6fcaf1b6079bb691a5"
   integrity sha512-E+aoY5m9rzWqOHSKpssL5NafqW0dHurRYorLfK8wTlPUqFZKJ7Gy+jAkveL7znaGMrT5KMkNeqkuP9fvN+DF5A==
-
-"@ag.ds-next/text@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/text/-/text-7.0.0.tgz#e214e3f79eb9f7d3f30c269d46e0fdf07c735093"
-  integrity sha512-bp0EkvOY2OI/ActAwq//y/Akk1dv7A9jPeWFVq7k1Gpsai2wQtvG73FXvl5ug/Al737C+LvSgu/9q+mlNr01HQ==
 
 "@ag.ds-next/text@^8.0.0":
   version "8.0.0"
@@ -10746,14 +10716,6 @@ react-syntax-highlighter@^15.4.5:
     lowlight "^1.17.0"
     prismjs "^1.27.0"
     refractor "^3.6.0"
-
-react@17.0.2:
-  version "17.0.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
-  integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
 
 react@18.1.0:
   version "18.1.0"
