@@ -11,3 +11,8 @@ Include screenshots, photos or links if necessary.
 - [ ] Run `yarn changeset` to create a changeset file
 - [ ] Write documentation (README.md)
 - [ ] Create stories for Storybook
+
+For new components...
+
+- [ ] Version number in package.json is set to 0.0.1
+- [ ] Create changelog file (packages/component/CHANGELOG.md)
