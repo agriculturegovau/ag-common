@@ -49,7 +49,7 @@ export const Authentication = () => {
 	return (
 		<Fragment>
 			<Header
-				activePath={authenticated ? '/account' : '/'}
+				activePath="/account"
 				handleSignIn={handleSignIn}
 				handleSignOut={handleSignOut}
 				authenticated={authenticated}

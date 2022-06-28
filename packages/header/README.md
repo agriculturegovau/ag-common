@@ -25,12 +25,14 @@ function App() {
 
 ```tsx
 import { Fragment, useState } from 'react';
+import { useRouter } from 'next/router';
 import { Header } from '@ag.common/header';
 import { useMsal, useIsAuthenticated } from '@azure/msal-react';
 
 function App() {
+	const router = useRouter();
 	const { instance } = useMsal();
-	const isAuthenticated = useIsAuthenticated();
+	const authenticated = useIsAuthenticated();
 	const [isAuthenticating, setIsAuthenticating] = useState(false);
 	const SCOPE = '...';
 
@@ -54,7 +56,8 @@ function App() {
 	return (
 		<Fragment>
 			<Header
-				authenticated={isAuthenticated}
+				activePath={asPath}
+				authenticated={authenticated}
 				handleSignIn={handleSignIn}
 				handleSignOut={handleSignOut}
 			/>
