@@ -56,7 +56,7 @@ function App() {
 	return (
 		<Fragment>
 			<Header
-				activePath={asPath}
+				activePath={router.asPath}
 				authenticated={authenticated}
 				handleSignIn={handleSignIn}
 				handleSignOut={handleSignOut}
