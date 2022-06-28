@@ -1,6 +1,6 @@
 {
 	"name": "@ag.common/header",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"main": "dist/ag.common-header.cjs.js",
 	"module": "dist/ag.common-header.esm.js",
 	"license": "MIT",

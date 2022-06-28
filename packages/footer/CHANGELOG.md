@@ -1,5 +1,11 @@
 # @ag.common/footer
 
+## 0.2.1
+
+### Patch Changes
+
+- 3ac2a0c: Upgrade dependencies
+
 ## 0.2.0
 
 ### Minor Changes
