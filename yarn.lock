@@ -7,20 +7,20 @@
   resolved "https://registry.yarnpkg.com/@ag.ds-next/a11y/-/a11y-1.2.0.tgz#eb7e36f04be81f0acf7141c62e5618387adb6935"
   integrity sha512-tCQz+ZODTp6i4+CZd/aZ6THPzKrH529ndgJ4mowUfSL3D3eb2RVt7yyDfA+GZeML+n0CfkWUIgSJ0dWB141+7w==
 
-"@ag.ds-next/ag-branding@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/ag-branding/-/ag-branding-6.0.0.tgz#279485b69c16a6802dce02e14741c061992c1fe8"
-  integrity sha512-9ANOdY15Pbk/6abOI+V1sDwQzKLRiOfGaQxltfr1UsEQ0khtKiZWe0FD98iI+CAV8oMpEl1hrVeV+qlRI+ciXA==
+"@ag.ds-next/ag-branding@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/ag-branding/-/ag-branding-6.1.0.tgz#1b5b8c24d09a03b748e56a0e70d35f3ec5b08329"
+  integrity sha512-6UmKWc66pT+UmPUCNeV0X9MdKF0PjixncihsQuh9DreCkGe0FkKhZhgeHQ1Klwwe+Uo1EPg6oaoviDGsUBdCDA==
 
 "@ag.ds-next/box@^6.0.0":
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/@ag.ds-next/box/-/box-6.0.0.tgz#b2d3eb5a92ed0fc2e7ae82f2186cd7b7d9de6a51"
   integrity sha512-iIjiYwSkGcewbQHRrTd3Rv3j5F9ewlGL+0aSE6FqZPufnPLt7K3Q+cSDcvx20+4gWvuNUGw/dzaHEVaciEPKgw==
 
-"@ag.ds-next/button@^9.0.0":
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/button/-/button-9.0.0.tgz#0e7e4cdf33f99374c2ab1d88cca558adfd870391"
-  integrity sha512-tJmJuniwzSgqd708Wu6zxI9/ZfD0mVD/sEk40OwIR93eyCRZHYSXaa5gS8N+7/EdM1WTFCTqreiwAA77k2LTdQ==
+"@ag.ds-next/button@^9.1.0":
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/button/-/button-9.1.0.tgz#5e36bc1b83d1ea9989a508284deee177785b5f69"
+  integrity sha512-8aMaKDuj/3inF+iULoUZjtePMcjm7YIkl7yr41XqQlX8oPtNEmtPiwHhs6mddm4Vpk1HKlhGYJ5GHJ1kkoyaYQ==
 
 "@ag.ds-next/columns@^6.0.0":
   version "6.0.0"
@@ -52,10 +52,10 @@
   resolved "https://registry.yarnpkg.com/@ag.ds-next/icon/-/icon-9.0.0.tgz#34cabdb51743a39a89bcf1eb96da3565e7221571"
   integrity sha512-uLaUA1yY7E9HS7OIGdMf7ia8dxf9A/flUy0jqn/5DCJ7OhGIAvk8zJtmrf6MhnaYf6tyYK083G3faXK0lUS48Q==
 
-"@ag.ds-next/link-list@^9.0.0":
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/link-list/-/link-list-9.0.0.tgz#4e474f26e1f1d0ef478db98a65682a63cb8e215f"
-  integrity sha512-UdMOLqcR0t87HeCYiRHVgDRDgQTuOK/GibDlNCx4iCIV2UAKftLQYBlpMSlpKxxCyjcaV5r5ph+tLUNDyDm8Gg==
+"@ag.ds-next/link-list@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/link-list/-/link-list-10.0.0.tgz#a5bb20fd55341736468781d8bf42f7db833bfa09"
+  integrity sha512-57Q2ui5E+feu9Sw8McR24mPMBcR+nWjaHIhqlV/Gn3gMqnH79Ri1J1Tg/VnzR/nKuNM0O2891YkuqkPXS6lY2w==
 
 "@ag.ds-next/loading@^4.0.0":
   version "4.0.0"
@@ -64,17 +64,17 @@
   dependencies:
     "@react-spring/web" "^9.4.5"
 
-"@ag.ds-next/main-nav@^11.0.0":
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/main-nav/-/main-nav-11.0.0.tgz#3354bda5b13bed75fdcf108cff2ca59b614991a2"
-  integrity sha512-cjsIP0ifuxTTsEEX/OZyBp8RjZjFGMn8cYi3K3ytqPoly3yf2jhr7NN0rrqv58OuUgFEWr6tymsJW9BuAuJxaQ==
+"@ag.ds-next/main-nav@^12.0.0":
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/main-nav/-/main-nav-12.0.0.tgz#0ce75db19ea45d000b1b2313b05dc935924f1022"
+  integrity sha512-mZ+GXSYK/xMOMj5HWYhvPEjzXNB/cnDrbI/BCgddj4wygjijVdT4uRu/FHmFQI5t2dKTdPeKxsARksS2LPT78Q==
   dependencies:
     react-focus-lock "^2.8.1"
 
-"@ag.ds-next/text-link@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/text-link/-/text-link-3.0.0.tgz#b473f59d2504b1c2ef868b6fcaf1b6079bb691a5"
-  integrity sha512-E+aoY5m9rzWqOHSKpssL5NafqW0dHurRYorLfK8wTlPUqFZKJ7Gy+jAkveL7znaGMrT5KMkNeqkuP9fvN+DF5A==
+"@ag.ds-next/text-link@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/text-link/-/text-link-4.0.0.tgz#406764a0a7f3f3e04dac3c62c7b78ebc27e8276c"
+  integrity sha512-0v+dJITVhzfLgOu//Idrx5XonVrdIw0h1w3sduGXACEXffqhnmLphzNBZermdkpPA/lyPZaG7kmjSwMvuBp1Jw==
 
 "@ag.ds-next/text@^8.0.0":
   version "8.0.0"

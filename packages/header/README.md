@@ -59,7 +59,10 @@ function App() {
 				handleSignOut={handleSignOut}
 			/>
 			{isAuthenticating && (
-				<LoadingBlanket fullScreen label="You are being redirected to myGovID" />
+				<LoadingBlanket
+					fullScreen
+					label="You are being redirected to myGovID"
+				/>
 			)}
 			<YourApplication />
 		</Fragment>
