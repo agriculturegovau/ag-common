@@ -22,6 +22,11 @@
   resolved "https://registry.yarnpkg.com/@ag.ds-next/button/-/button-9.0.0.tgz#0e7e4cdf33f99374c2ab1d88cca558adfd870391"
   integrity sha512-tJmJuniwzSgqd708Wu6zxI9/ZfD0mVD/sEk40OwIR93eyCRZHYSXaa5gS8N+7/EdM1WTFCTqreiwAA77k2LTdQ==
 
+"@ag.ds-next/columns@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/columns/-/columns-6.0.0.tgz#44268ee2ee39156505d72b76ad0c6841b1062b79"
+  integrity sha512-p89zvCdyUSVW94yug64Pac9oSt3bBPa55Uta2v+Mnl65Np4AmIshl0FKjJqGeIoAStPMq6fQLMqpb0iVnWg48Q==
+
 "@ag.ds-next/content@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@ag.ds-next/content/-/content-7.0.0.tgz#317c57b38fb624b1a96acd38bad9ff23f802fdbb"
@@ -36,6 +41,11 @@
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@ag.ds-next/footer/-/footer-7.0.0.tgz#04b818fc391ccde478e5259328c059b2a7d0294b"
   integrity sha512-Hq1dgX2PpvJMrs4qnJpOYEPl08rbGKLBVOrY4/WkxCh1bQMVpXafAYqFmvoyS85vevxkX2SpUeR6XopmegtjVQ==
+
+"@ag.ds-next/header@^9.0.0":
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/header/-/header-9.0.0.tgz#fe085c4d4a38338980317300c5f9362070dbaa00"
+  integrity sha512-ybZCE8gmG3rr7HpLNb+mXVBCOyCCrWf5ZdB+qDL0gYpOnNaJ2mV7+XhHItUCpQXFyShxRyhbNnPFsKmavzYqvQ==
 
 "@ag.ds-next/icon@^9.0.0":
   version "9.0.0"
@@ -53,6 +63,13 @@
   integrity sha512-lhiVhjX1XwfqtPnm++IurWc+5T7iXuO9TEn3KPIOpVFLwTAuzhMHfiDm3KfECu7aMZJZDZVjyzU8ab/OBIY8lQ==
   dependencies:
     "@react-spring/web" "^9.4.5"
+
+"@ag.ds-next/main-nav@^11.0.0":
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/main-nav/-/main-nav-11.0.0.tgz#3354bda5b13bed75fdcf108cff2ca59b614991a2"
+  integrity sha512-cjsIP0ifuxTTsEEX/OZyBp8RjZjFGMn8cYi3K3ytqPoly3yf2jhr7NN0rrqv58OuUgFEWr6tymsJW9BuAuJxaQ==
+  dependencies:
+    react-focus-lock "^2.8.1"
 
 "@ag.ds-next/text-link@^3.0.0":
   version "3.0.0"
@@ -1162,7 +1179,7 @@
     core-js-pure "^3.20.2"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.4", "@babel/runtime@^7.12.5", "@babel/runtime@^7.13.10", "@babel/runtime@^7.16.3", "@babel/runtime@^7.17.8", "@babel/runtime@^7.3.1", "@babel/runtime@^7.5.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6", "@babel/runtime@^7.7.7", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.4", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.13.10", "@babel/runtime@^7.16.3", "@babel/runtime@^7.17.8", "@babel/runtime@^7.3.1", "@babel/runtime@^7.5.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6", "@babel/runtime@^7.7.7", "@babel/runtime@^7.8.4":
   version "7.18.3"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.18.3.tgz#c7b654b57f6f63cf7f8b418ac9ca04408c4579f4"
   integrity sha512-38Y8f7YUhce/K7RMwTp7m0uCumpv9hZkitCbBClqQIow1qSbCvGkcegKOXpEWCQLfWmevgRiWokZ1GkpfhbZug==
@@ -5649,6 +5666,11 @@ detect-newline@^3.0.0:
   resolved "https://registry.yarnpkg.com/detect-newline/-/detect-newline-3.1.0.tgz#576f5dfc63ae1a192ff192d8ad3af6308991b651"
   integrity sha512-TLz+x/vEXm/Y7P7wn1EJFNLxYpUD4TgMosxY6fAVJUnJMbupHBOncxyWUG9OpTaH9EBD7uFI5LfEgmMOc54DsA==
 
+detect-node-es@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/detect-node-es/-/detect-node-es-1.1.0.tgz#163acdf643330caa0b4cd7c21e7ee7755d6fa493"
+  integrity sha512-ypdmJU/TbBby2Dxibuv7ZLW3Bs1QEmM7nHjEANfohJLvE0XVujisn1qPJcZxg+qDucsr+bP6fLD1rPS3AhJ7EQ==
+
 detect-package-manager@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/detect-package-manager/-/detect-package-manager-2.0.1.tgz#6b182e3ae5e1826752bfef1de9a7b828cffa50d8"
@@ -6687,6 +6709,13 @@ flush-write-stream@^1.0.0:
   dependencies:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
+
+focus-lock@^0.11.2:
+  version "0.11.2"
+  resolved "https://registry.yarnpkg.com/focus-lock/-/focus-lock-0.11.2.tgz#aeef3caf1cea757797ac8afdebaec8fd9ab243ed"
+  integrity sha512-pZ2bO++NWLHhiKkgP1bEXHhR1/OjVcSvlCJ98aNJDFeb7H5OOQaO+SKOZle6041O9rv2tmbrO4JzClAvDUHf0g==
+  dependencies:
+    tslib "^2.0.3"
 
 for-in@^1.0.2:
   version "1.0.2"
@@ -10392,7 +10421,7 @@ prompts@^2.0.1, prompts@^2.4.0:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@^15.0.0, prop-types@^15.7.2, prop-types@^15.8.1:
+prop-types@^15.0.0, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -10573,6 +10602,13 @@ rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-clientside-effect@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/react-clientside-effect/-/react-clientside-effect-1.2.6.tgz#29f9b14e944a376b03fb650eed2a754dd128ea3a"
+  integrity sha512-XGGGRQAKY+q25Lz9a/4EPqom7WRjz3z9R2k4jhVKA/puQFH/5Nt27vFZYql4m4NVNdUvX8PS3O7r/Zzm7cjUlg==
+  dependencies:
+    "@babel/runtime" "^7.12.13"
+
 react-docgen-typescript@^2.1.1:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/react-docgen-typescript/-/react-docgen-typescript-2.2.2.tgz#4611055e569edc071204aadb20e1c93e1ab1659c"
@@ -10610,6 +10646,18 @@ react-element-to-jsx-string@^14.3.4:
     "@base2/pretty-print-object" "1.0.1"
     is-plain-object "5.0.0"
     react-is "17.0.2"
+
+react-focus-lock@^2.8.1:
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/react-focus-lock/-/react-focus-lock-2.9.1.tgz#094cfc19b4f334122c73bb0bff65d77a0c92dd16"
+  integrity sha512-pSWOQrUmiKLkffPO6BpMXN7SNKXMsuOakl652IBuALAu1esk+IcpJyM+ALcYzPTTFz1rD0R54aB9A4HuP5t1Wg==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    focus-lock "^0.11.2"
+    prop-types "^15.6.2"
+    react-clientside-effect "^1.2.6"
+    use-callback-ref "^1.3.0"
+    use-sidecar "^1.1.2"
 
 react-inspector@^5.1.0:
   version "5.1.1"
@@ -12465,6 +12513,21 @@ url@^0.11.0:
   dependencies:
     punycode "1.3.2"
     querystring "0.2.0"
+
+use-callback-ref@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/use-callback-ref/-/use-callback-ref-1.3.0.tgz#772199899b9c9a50526fedc4993fc7fa1f7e32d5"
+  integrity sha512-3FT9PRuRdbB9HfXhEq35u4oZkvpJ5kuYbpqhCfmiZyReuRgpnhDlbr2ZEnnuS0RrJAPn6l23xjFg9kpDM+Ms7w==
+  dependencies:
+    tslib "^2.0.0"
+
+use-sidecar@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/use-sidecar/-/use-sidecar-1.1.2.tgz#2f43126ba2d7d7e117aa5855e5d8f0276dfe73c2"
+  integrity sha512-epTbsLuzZ7lPClpz2TyryBfztm7m+28DlEv2ZCQ3MDr5ssiwyOwGH/e5F9CkfWjJ1t4clvI58yF822/GUkjjhw==
+  dependencies:
+    detect-node-es "^1.1.0"
+    tslib "^2.0.0"
 
 use@^3.1.0:
   version "3.1.1"
