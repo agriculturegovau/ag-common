@@ -1,5 +1,6 @@
+import { Fragment, useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { useState } from 'react';
+import { LoadingBlanket } from '@ag.ds-next/loading';
 import { Header } from './Header';
 
 export default {
@@ -26,21 +27,38 @@ Unauthenticated.args = {
 };
 
 export const Authentication = () => {
-	const [authenticated, setAuthenticated] = useState<boolean>(false);
+	const [isAuthenticating, setIsAuthenticating] = useState(false);
+	const [authenticated, setAuthenticated] = useState(false);
 
 	const handleSignIn = async () => {
-		setAuthenticated(true);
+		setIsAuthenticating(true);
+		setTimeout(() => {
+			setIsAuthenticating(false);
+			setAuthenticated(true);
+		}, 3000);
 	};
 
 	const handleSignOut = async () => {
-		setAuthenticated(false);
+		setIsAuthenticating(true);
+		setTimeout(() => {
+			setIsAuthenticating(false);
+			setAuthenticated(false);
+		}, 3000);
 	};
 
 	return (
-		<Header
-			handleSignIn={handleSignIn}
-			handleSignOut={handleSignOut}
-			authenticated={authenticated}
-		/>
+		<Fragment>
+			<Header
+				handleSignIn={handleSignIn}
+				handleSignOut={handleSignOut}
+				authenticated={authenticated}
+			/>
+			{isAuthenticating && (
+				<LoadingBlanket
+					fullScreen
+					label="You are being redirected to myGovID"
+				/>
+			)}
+		</Fragment>
 	);
 };
