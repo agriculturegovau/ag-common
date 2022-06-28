@@ -20,7 +20,7 @@ Authenticated.args = {
 
 export const Unauthenticated = Template.bind({});
 Unauthenticated.args = {
-	activePath: '/account',
+	activePath: '/',
 	authenticated: false,
 	handleSignIn: console.log,
 	handleSignOut: console.log,
@@ -49,6 +49,7 @@ export const Authentication = () => {
 	return (
 		<Fragment>
 			<Header
+				activePath="/account"
 				handleSignIn={handleSignIn}
 				handleSignOut={handleSignOut}
 				authenticated={authenticated}
