@@ -1,5 +1,11 @@
 # @ag.common/footer
 
+## 0.2.2
+
+### Patch Changes
+
+- a141a11: Replace `Department of Agriculture, Water and the Environment` with `Department of Agriculture, Fisheries and Forestry`
+
 ## 0.2.1
 
 ### Patch Changes
