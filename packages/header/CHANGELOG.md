@@ -1,5 +1,12 @@
 # @ag.common/header
 
+## 0.1.2
+
+### Patch Changes
+
+- c49fb06: - Added `mainNavId` prop
+  - Improved documentation
+
 ## 0.1.1
 
 ### Patch Changes
