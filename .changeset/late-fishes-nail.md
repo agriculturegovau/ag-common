@@ -2,4 +2,4 @@
 '@ag.common/footer': patch
 ---
 
-Drop fullstop from copyright declararion
+Drop fullstop from copyright declaration
