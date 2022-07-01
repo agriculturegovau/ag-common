@@ -14,8 +14,39 @@ import { Header } from '@ag.common/header';
 function App() {
 	return (
 		<>
-			<Header />
+			<Header
+				activePath="/"
+				authenticated={false}
+				handleSignIn={console.log}
+				handleSignOut={console.log}
+			/>
 			<YourApplication />
+		</>
+	);
+}
+```
+
+## Usage with skip links
+
+By default, this component renders the main navigation element with the ID of `main-nav`. This can be overridden using the `mainNavId` prop.
+
+We encourage this component to be paired with the `SkipLinks` component available from the `@ag.ds-next/skip-link` package.
+
+```tsx
+import { Header } from '@ag.common/header';
+import { SkipLinks } from '@ag.ds-next/skip-link';
+
+function App() {
+	return (
+		<>
+			<SkipLinks
+				links={[
+					{ href: '#main-content', label: 'Skip to main content' },
+					{ href: '#main-nav', label: 'Skip to main navigation' },
+				]}
+			/>
+			<Header />
+			<YourApplication id="main-content" />
 		</>
 	);
 }

@@ -9,6 +9,7 @@ export type HeaderProps = {
 	activePath?: string;
 	handleSignIn?: React.MouseEventHandler<HTMLButtonElement>;
 	handleSignOut?: React.MouseEventHandler<HTMLButtonElement>;
+	mainNavId?: string;
 };
 
 const authenticatedLinks = [
@@ -35,6 +36,7 @@ export const Header = ({
 	activePath,
 	handleSignIn,
 	handleSignOut,
+	mainNavId = 'main-nav',
 }: HeaderProps) => {
 	return (
 		<CoreProvider>
@@ -47,6 +49,7 @@ export const Header = ({
 				badgeLabel="beta"
 			/>
 			<MainNav
+				id={mainNavId}
 				variant="agriculture"
 				links={authenticated ? authenticatedLinks : []}
 				activePath={activePath}
