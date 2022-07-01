@@ -16,12 +16,12 @@ const footerLinks = [
 		label: 'Help',
 	},
 	{
-		href: 'https://www.awe.gov.au/about/commitment/accessibility',
+		href: 'https://www.agriculture.gov.au/about/commitment/accessibility',
 		rel: 'external',
 		label: 'Accessibility',
 	},
 	{
-		href: 'https://www.awe.gov.au/about/disclaimer',
+		href: 'https://www.agriculture.gov.au/about/disclaimer',
 		rel: 'external',
 		label: 'Disclaimer',
 	},
