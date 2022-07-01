@@ -47,7 +47,7 @@ export const Footer = () => {
 					We pay our respects to their Elders past, present and emerging.
 				</Text>
 				<Text fontSize="xs" maxWidth={tokens.maxWidth.bodyText}>
-					&copy; {year} Department of Agriculture, Fisheries and Forestry.
+					&copy; {year} Department of Agriculture, Fisheries and Forestry
 				</Text>
 			</AgDsFooter>
 		</CoreProvider>
