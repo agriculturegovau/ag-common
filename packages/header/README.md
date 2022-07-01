@@ -30,11 +30,11 @@ function App() {
 
 By default, this component renders the main navigation element with the ID of `main-nav`. This can be overridden using the `mainNavId` prop.
 
-We encourage this component to be paired with the `SkipLinks` component available from the `@ag.ds-next/skip-links` package.
+We encourage this component to be paired with the `SkipLinks` component available from the `@ag.ds-next/skip-link` package.
 
 ```tsx
 import { Header } from '@ag.common/header';
-import { SkipLinks } from '@ag.ds-next/skip-links';
+import { SkipLinks } from '@ag.ds-next/skip-link';
 
 function App() {
 	return (
