@@ -1,5 +1,12 @@
 # @ag.common/footer
 
+## 0.2.3
+
+### Patch Changes
+
+- a6c4731: Drop fullstop from copyright declaration
+- 270ced7: Replace awe.gov.au links with agriculture.gov.au
+
 ## 0.2.2
 
 ### Patch Changes
