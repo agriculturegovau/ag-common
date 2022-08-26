@@ -1,6 +1,6 @@
 ---
-'@ag.common/footer': patch
-'@ag.common/header': patch
+'@ag.common/footer': minor
+'@ag.common/header': minor
 ---
 
-Update dependencies
+Update to latest design system dependencies
