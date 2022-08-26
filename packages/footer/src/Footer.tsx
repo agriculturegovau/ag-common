@@ -36,7 +36,7 @@ export const Footer = () => {
 	return (
 		<CoreProvider>
 			<Box palette="dark">
-				<AgDsFooter>
+				<AgDsFooter background="bodyAlt">
 					<nav aria-label="footer">
 						<LinkList links={footerLinks} horizontal />
 					</nav>

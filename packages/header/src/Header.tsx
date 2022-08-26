@@ -1,7 +1,7 @@
 import { CoreProvider } from '@ag.ds-next/core';
 import { Header as AgDsHeader } from '@ag.ds-next/header';
 import { AvatarIcon } from '@ag.ds-next/icon';
-import { MainNav, MainNavButton } from '@ag.ds-next/main-nav';
+import { MainNav } from '@ag.ds-next/main-nav';
 import { Logo } from '@ag.ds-next/ag-branding';
 import { Box } from '@ag.ds-next/box';
 
@@ -48,6 +48,7 @@ export const Header = ({
 					subline="Supporting Australian agricultural exports"
 					logo={<Logo />}
 					badgeLabel="beta"
+					background="bodyAlt"
 				/>
 				<MainNav
 					id={mainNavId}
