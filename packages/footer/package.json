@@ -1,6 +1,6 @@
 {
 	"name": "@ag.common/footer",
-	"version": "0.2.3",
+	"version": "0.3.0",
 	"main": "dist/ag.common-footer.cjs.js",
 	"module": "dist/ag.common-footer.esm.js",
 	"license": "MIT",

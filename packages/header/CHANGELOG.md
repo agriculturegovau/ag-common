@@ -1,5 +1,11 @@
 # @ag.common/header
 
+## 0.2.0
+
+### Minor Changes
+
+- 237ff31: Update to latest design system dependencies
+
 ## 0.1.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @ag.common/footer
 
+## 0.3.0
+
+### Minor Changes
+
+- 237ff31: Update to latest design system dependencies
+
 ## 0.2.3
 
 ### Patch Changes
