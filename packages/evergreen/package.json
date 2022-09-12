@@ -1,0 +1,16 @@
+{
+	"name": "@ag.common/evergreen",
+	"version": "0.0.1",
+	"main": "dist/ag.common-evergreen.cjs.js",
+	"module": "dist/ag.common-evergreen.esm.js",
+	"license": "MIT",
+	"peerDependencies": {
+		"react": "^16.14.0 || ^17.0.0 || ^18.0.0"
+	},
+	"devDependencies": {
+		"react": "18.1.0"
+	},
+	"dependencies": {
+		"next": "^12.3.0"
+	}
+}

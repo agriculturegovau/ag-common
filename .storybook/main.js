@@ -33,3 +33,10 @@ module.exports = {
 		return config;
 	},
 };
+
+/*
+	previewHead: (head) => `
+	${head}
+		<script type="module" src="http://localhost:8003/index.js"></script>
+	`,
+	*/
