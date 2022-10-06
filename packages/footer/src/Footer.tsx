@@ -11,7 +11,7 @@ const footerLinks = [
 		label: 'About',
 	},
 	{
-		href: '/account/help',
+		href: '/help',
 		rel: 'external',
 		label: 'Help',
 	},
