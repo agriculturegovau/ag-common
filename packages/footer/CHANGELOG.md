@@ -1,5 +1,12 @@
 # @ag.common/footer
 
+## 0.3.1
+
+### Patch Changes
+
+- 4444720: Add @ag.ds-next/ag.branding as a dependency
+- 4836e05: update help link to refer to landing page
+
 ## 0.3.0
 
 ### Minor Changes
