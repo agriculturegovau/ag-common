@@ -11,6 +11,7 @@ const config: StorybookConfig = {
 			},
 		},
 		'@storybook/addon-a11y',
+		'@storybook/addon-postcss',
 	],
 	core: {
 		builder: 'webpack5',
