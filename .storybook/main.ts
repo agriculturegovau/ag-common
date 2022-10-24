@@ -1,4 +1,6 @@
-module.exports = {
+import type { StorybookConfig } from '@storybook/core-common';
+
+const config: StorybookConfig = {
 	stories: ['../packages/*/src/**/*.stories.@(ts|tsx)'],
 	addons: [
 		'@storybook/addon-links',
@@ -9,10 +11,21 @@ module.exports = {
 			},
 		},
 		'@storybook/addon-a11y',
+		'@storybook/addon-postcss',
 	],
+	core: {
+		builder: 'webpack5',
+	},
+	features: {
+		/**
+		 * Enable code splitting
+		 * @see https://storybook.js.org/docs/react/builders/webpack#code-splitting
+		 */
+		storyStoreV7: true,
+	},
 	framework: '@storybook/react',
 	webpackFinal: (config) => {
-		config.module.rules.push({
+		config.module?.rules.push({
 			test: /\.esm.js?$/,
 			use: [
 				{
@@ -33,3 +46,5 @@ module.exports = {
 		return config;
 	},
 };
+
+export default config;
