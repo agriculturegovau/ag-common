@@ -1,5 +1,11 @@
 # @ag.common/header
 
+## 0.2.1
+
+### Patch Changes
+
+- 10f0986: Upgrade dependencies
+
 ## 0.2.0
 
 ### Minor Changes
