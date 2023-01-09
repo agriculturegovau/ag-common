@@ -1,9 +1,9 @@
-import { CoreProvider } from '@ag.ds-next/core';
-import { Header as AgDsHeader } from '@ag.ds-next/header';
-import { AvatarIcon } from '@ag.ds-next/icon';
-import { MainNav } from '@ag.ds-next/main-nav';
-import { Logo } from '@ag.ds-next/ag-branding';
-import { Box } from '@ag.ds-next/box';
+import { CoreProvider } from '@ag.ds-next/react/core';
+import { Header as AgDsHeader } from '@ag.ds-next/react/header';
+import { AvatarIcon } from '@ag.ds-next/react/icon';
+import { MainNav } from '@ag.ds-next/react/main-nav';
+import { Logo } from '@ag.ds-next/react/ag-branding';
+import { Box } from '@ag.ds-next/react/box';
 
 export type HeaderProps = {
 	authenticated?: boolean;

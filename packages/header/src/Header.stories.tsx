@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { LoadingBlanket } from '@ag.ds-next/loading';
+import { LoadingBlanket } from '@ag.ds-next/react/loading';
 import { Header } from './Header';
 
 export default {
