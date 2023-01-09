@@ -6,6 +6,7 @@
 	"license": "MIT",
 	"peerDependencies": {
 		"@ag.ds-next/react": "^1.0.0",
+		"@emotion/react": "^11.7.0",
 		"facepaint": "^1.2.1",
 		"react": "^16.14.0 || ^17.0.0 || ^18.0.0"
 	},
