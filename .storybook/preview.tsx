@@ -1,6 +1,6 @@
 import React from 'react';
-import { Core, tokens } from '@ag.ds-next/core';
-import { theme } from '@ag.ds-next/ag-branding';
+import { Core, tokens } from '@ag.ds-next/react/core';
+import { theme } from '@ag.ds-next/react/ag-branding';
 
 const viewportMap = {
 	xs: 'mobile',

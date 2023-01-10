@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
-import { Box } from '@ag.ds-next/box';
-import { CoreProvider, tokens } from '@ag.ds-next/core';
-import { Footer as AgDsFooter, FooterDivider } from '@ag.ds-next/footer';
-import { LinkList } from '@ag.ds-next/link-list';
-import { Text } from '@ag.ds-next/text';
+import { Box } from '@ag.ds-next/react/box';
+import { CoreProvider, tokens } from '@ag.ds-next/react/core';
+import { Footer as AgDsFooter, FooterDivider } from '@ag.ds-next/react/footer';
+import { LinkList } from '@ag.ds-next/react/link-list';
+import { Text } from '@ag.ds-next/react/text';
 
 const footerLinks = [
 	{

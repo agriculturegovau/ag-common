@@ -34,7 +34,7 @@ We encourage this component to be paired with the `SkipLinks` component availabl
 
 ```tsx
 import { Header } from '@ag.common/header';
-import { SkipLinks } from '@ag.ds-next/skip-link';
+import { SkipLinks } from '@ag.ds-next/react/skip-link';
 
 function App() {
 	return (
