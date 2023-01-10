@@ -1,5 +1,11 @@
 # @ag.common/header
 
+## 1.0.0
+
+### Major Changes
+
+- e910941: Update dependencies to `@ag.ds-next/react`
+
 ## 0.2.1
 
 ### Patch Changes
