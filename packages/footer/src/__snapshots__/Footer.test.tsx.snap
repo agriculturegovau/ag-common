@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders correctly 1`] = `
+<div>
+  <div
+    class="css-p98pg-dark-dark-boxStyles-boxStyles"
+  >
+    <footer
+      class="css-1cwb5oi-boxStyles-boxStyles-Footer"
+    >
+      <div
+        class="css-1a1hdgf-boxStyles-boxStyles"
+      >
+        <nav
+          aria-label="footer"
+        >
+          <ul
+            class="css-q7n2pk-boxStyles-boxStyles"
+          >
+            <li
+              class="css-1b13c5y-boxStyles-boxStyles"
+            >
+              <a
+                class="css-116cbrl-TextLink-TextLink"
+                href="/about"
+              >
+                About
+              </a>
+            </li>
+            <li
+              class="css-1b13c5y-boxStyles-boxStyles"
+            >
+              <a
+                class="css-116cbrl-TextLink-TextLink"
+                href="/help"
+                rel="external"
+              >
+                Help
+              </a>
+            </li>
+            <li
+              class="css-1b13c5y-boxStyles-boxStyles"
+            >
+              <a
+                class="css-116cbrl-TextLink-TextLink"
+                href="https://www.agriculture.gov.au/about/commitment/accessibility"
+                rel="external"
+              >
+                Accessibility
+              </a>
+            </li>
+            <li
+              class="css-1b13c5y-boxStyles-boxStyles"
+            >
+              <a
+                class="css-116cbrl-TextLink-TextLink"
+                href="https://www.agriculture.gov.au/about/disclaimer"
+                rel="external"
+              >
+                Disclaimer
+              </a>
+            </li>
+            <li
+              class="css-1b13c5y-boxStyles-boxStyles"
+            >
+              <a
+                class="css-116cbrl-TextLink-TextLink"
+                href="/privacy"
+              >
+                Privacy
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <hr
+          aria-hidden="true"
+          class="css-m1ii31-FooterDivider"
+        />
+        <span
+          class="css-1owyagw-boxStyles-boxStyles-Text"
+        >
+          We acknowledge the traditional owners of country throughout Australia and recognise their continuing connection to land, waters and culture. We pay our respects to their Elders past, present and emerging.
+        </span>
+        <span
+          class="css-1owyagw-boxStyles-boxStyles-Text"
+        >
+          © 
+          2023
+           Department of Agriculture, Fisheries and Forestry
+        </span>
+      </div>
+    </footer>
+  </div>
+</div>
+`;

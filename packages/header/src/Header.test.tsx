@@ -1,7 +1,83 @@
+import '@testing-library/jest-dom';
+import 'html-validate/jest';
+import userEvent from '@testing-library/user-event';
+import { render, screen, cleanup } from '../../../test-utils';
 import { Header } from './Header';
 
+afterEach(cleanup);
+
 describe('Header', () => {
-	it('exists', () => {
-		expect(Header).toBeDefined();
+	describe('unauthenticated', () => {
+		it('renders correctly', () => {
+			const { container } = render(
+				<Header authenticated={false} activePath="/" />
+			);
+			expect(container).toMatchSnapshot();
+		});
+
+		it('renders a valid HTML structure', () => {
+			const { container } = render(
+				<Header authenticated={false} activePath="/" />
+			);
+			expect(container).toHTMLValidate({
+				extends: ['html-validate:recommended'],
+				rules: { 'no-inline-style': 'off' },
+			});
+		});
+
+		it('sign in button calls handleSignIn when clicked', async () => {
+			const handleSignIn = jest.fn();
+			render(
+				<Header
+					authenticated={false}
+					activePath="/"
+					handleSignIn={handleSignIn}
+				/>
+			);
+			const signInButton = screen.getByText('Sign in')
+				.parentElement as HTMLButtonElement;
+			expect(signInButton).toBeInTheDocument();
+			expect(signInButton.tagName).toBe('BUTTON');
+			expect(signInButton).toHaveAccessibleName('Sign in');
+			await userEvent.click(signInButton);
+			expect(handleSignIn).toHaveBeenCalledTimes(1);
+		});
+	});
+
+	describe('authenticated', () => {
+		it('renders correctly', () => {
+			const { container } = render(
+				<Header activePath="/account" authenticated={true} />
+			);
+			expect(container).toMatchSnapshot();
+		});
+
+		it('renders a valid HTML structure', () => {
+			const { container } = render(
+				<Header activePath="/account" authenticated={true} />
+			);
+			expect(container).toHTMLValidate({
+				extends: ['html-validate:recommended'],
+				rules: { 'no-inline-style': 'off' },
+			});
+		});
+
+		it('sign out button calls handleSignOut when clicked', async () => {
+			const handleSignOut = jest.fn();
+			render(
+				<Header
+					authenticated={true}
+					activePath="/account"
+					handleSignOut={handleSignOut}
+				/>
+			);
+			const signOutButton = screen.getByText('Sign out')
+				.parentElement as HTMLButtonElement;
+			expect(signOutButton).toBeInTheDocument();
+			expect(signOutButton.tagName).toBe('BUTTON');
+			expect(signOutButton).toHaveAccessibleName('Sign out');
+			await userEvent.click(signOutButton);
+			expect(handleSignOut).toHaveBeenCalledTimes(1);
+		});
 	});
 });
