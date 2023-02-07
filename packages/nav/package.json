@@ -1,0 +1,24 @@
+{
+	"name": "@ag.common/nav",
+	"version": "1.0.0",
+	"main": "dist/ag.common-nav.cjs.js",
+	"module": "dist/ag.common-nav.esm.js",
+	"license": "MIT",
+	"peerDependencies": {
+		"@ag.ds-next/react": "^1.0.0",
+		"@emotion/react": "^11.7.0",
+		"@emotion/styled": "^11.10.5",
+		"facepaint": "^1.2.1",
+		"react": "^16.14.0 || ^17.0.0 || ^18.0.0"
+	},
+	"devDependencies": {
+		"@ag.ds-next/react": "^1.0.0",
+		"@emotion/react": "^11.7.0",
+		"@emotion/styled": "^11.10.5",
+		"facepaint": "^1.2.1",
+		"react": "18.1.0"
+	},
+	"dependencies": {
+		"@headlessui/react": "^1.7.10"
+	}
+}
