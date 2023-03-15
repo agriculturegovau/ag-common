@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Box, Flex, Stack } from '@ag.ds-next/react/box';
 import styled from '@emotion/styled';
-import { Button } from '@ag.ds-next/react/button';
+import { Button, ButtonLink } from '@ag.ds-next/react/button';
 import { boxPalette, tokens } from '@ag.ds-next/react/core';
 import { Logo } from '@ag.ds-next/react/ag-branding';
 import { DirectionButton } from '@ag.ds-next/react/direction-link';
@@ -97,14 +97,33 @@ const Panels = styled(Flex)<{ active?: boolean }>`
 
 const TFlex = themed(Flex);
 
-export interface SideProps extends ShowingState<boolean> {
+export interface SideProps {
 	activePath?: string;
 	messages?: {
 		unreadMessageCount: number;
 	};
 }
 
-export const Side: FC<SideProps> = ({ messages, showing, setShowing }) => {
+type SectionProps = React.ComponentProps<typeof Button>;
+
+interface SideItem extends React.ComponentProps<typeof ButtonLink> {
+	extras?: React.ReactNode;
+}
+
+const SideItem = ({ extras, ...props }: SideItem) => {
+	return (
+		<ActiveButton active={props.href === '/establishments'}>
+			<ButtonLink variant="text" {...props} />
+			{extras ?? null}
+		</ActiveButton>
+	);
+};
+
+export const Side: FC<SideProps & ShowingState<boolean>> = ({
+	messages,
+	showing,
+	setShowing,
+}) => {
 	return showing ? (
 		<Sidenav
 			css={{ width: 'clamp(18rem, 25%, 24rem)' }}
@@ -132,46 +151,37 @@ export const Side: FC<SideProps> = ({ messages, showing, setShowing }) => {
 					</DirectionButton>
 				</ActiveButton>
 
-				<ActiveButton active>
-					<Button variant="text" iconBefore={HomeIcon}>
-						Dashboard
-					</Button>
-				</ActiveButton>
+				<SideItem iconBefore={HomeIcon} href="/dashboard">
+					Dashboard
+				</SideItem>
 
-				<ActiveButton>
-					<Button variant="text" iconBefore={FactoryIcon}>
-						Establishments
-					</Button>
-				</ActiveButton>
+				<SideItem iconBefore={FactoryIcon} href="/establishments">
+					Establishments
+				</SideItem>
 
-				<ActiveButton>
-					<Button variant="text" iconBefore={ChartIcon}>
-						Data and insights
-					</Button>
-				</ActiveButton>
+				<SideItem iconBefore={ChartIcon} href="/intelligence">
+					Data and insights
+				</SideItem>
 
-				<ActiveButton>
-					<Button variant="text" iconBefore={TickIcon}>
-						Compliance
-					</Button>
-				</ActiveButton>
+				<SideItem iconBefore={TickIcon} href="/compliance">
+					Compliance
+				</SideItem>
 
 				<Divider />
 
-				<ActiveButton>
-					<Button variant="text" iconBefore={MailIcon}>
-						Messages
-					</Button>
-					{messages === undefined ? null : (
-						<Bauble>{messages.unreadMessageCount}</Bauble>
-					)}
-				</ActiveButton>
+				<SideItem
+					href="/messages"
+					iconBefore={MailIcon}
+					extras={
+						messages === undefined ? undefined : (
+							<Bauble>{messages.unreadMessageCount}</Bauble>
+						)
+					}
+				>
+					Messages
+				</SideItem>
 
-				<ActiveButton>
-					<Button variant="text" iconBefore={QuestionIcon}>
-						Help
-					</Button>
-				</ActiveButton>
+				<SideItem iconBefore={QuestionIcon}>Help</SideItem>
 			</Stack>
 		</Sidenav>
 	) : null;

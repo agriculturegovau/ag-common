@@ -27,7 +27,6 @@ export const supportedSubnavs = {
 	sidenav: SideNav,
 	progressindicator: ProgressIndicator,
 	custom: ({ render: Render }: { render: FC }) => <Render />,
-	// tags: Tags,
 } as const;
 
 export type SupportedSubnavs = typeof supportedSubnavs;

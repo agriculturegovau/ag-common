@@ -3,7 +3,7 @@ import { Box, Flex, Stack } from '@ag.ds-next/react/box';
 import { FC } from './FC';
 import { Contents, Footer, SampleContent } from './Parts';
 import { SubnavContext } from './NavCtx';
-import { ShowingState, Side, SideProps } from './Side';
+import { Side, SideProps } from './Side';
 import { Top, TopProps } from './Top';
 
 export const App: FC<React.ComponentProps<typeof Box>> = ({
@@ -24,7 +24,7 @@ export const App: FC<React.ComponentProps<typeof Box>> = ({
 	</Box>
 );
 
-type PartsProps = Omit<SideProps & TopProps, keyof ShowingState>;
+type PartsProps = SideProps & TopProps;
 
 export interface NavProps extends PartsProps {
 	space?: 'public' | 'authenticated';

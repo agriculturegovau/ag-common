@@ -67,7 +67,7 @@ export interface Role {
 	activate: () => Promise<void>;
 }
 
-export interface TopProps extends ShowingState<boolean> {
+export interface TopProps {
 	activeUser?: {
 		name: string;
 		organisation?: string;
@@ -75,7 +75,7 @@ export interface TopProps extends ShowingState<boolean> {
 	roleSwitcher?: { roles: Role[] };
 }
 
-export const Top: FC<TopProps> = ({
+export const Top: FC<TopProps & ShowingState<boolean>> = ({
 	showing,
 	setShowing,
 	activeUser,
