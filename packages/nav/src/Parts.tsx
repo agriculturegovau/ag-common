@@ -24,8 +24,6 @@ export const Divider = () => (
 			borderTopStyle: 'solid',
 			borderColor: boxPalette.borderMuted,
 			width: '100%',
-			// marginTop: mapSpacing(2),
-			// marginBottom: mapSpacing(2),
 		}}
 	/>
 );

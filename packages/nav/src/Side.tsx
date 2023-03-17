@@ -110,7 +110,7 @@ interface SideItem extends React.ComponentProps<typeof ButtonLink> {
 	extras?: React.ReactNode;
 }
 
-const SideItem = ({ extras, ...props }: SideItem) => {
+export const SideItem = ({ extras, ...props }: SideItem) => {
 	return (
 		<ActiveButton active={props.href === '/establishments'}>
 			<ButtonLink variant="text" {...props} />
@@ -119,12 +119,8 @@ const SideItem = ({ extras, ...props }: SideItem) => {
 	);
 };
 
-export const Side: FC<SideProps & ShowingState<boolean>> = ({
-	messages,
-	showing,
-	setShowing,
-}) => {
-	return showing ? (
+export const SideComponent: FC = ({ children }) => {
+	return (
 		<Sidenav
 			css={{ width: 'clamp(18rem, 25%, 24rem)' }}
 			palette="dark"
@@ -139,50 +135,128 @@ export const Side: FC<SideProps & ShowingState<boolean>> = ({
 
 				<Divider />
 
-				<ActiveButton>
-					<Box />
-
-					<DirectionButton
-						css={{ fontSize: '0.8em' }}
-						direction="left"
-						onClick={() => setShowing(() => false)}
-					>
-						Hide menu
-					</DirectionButton>
-				</ActiveButton>
-
-				<SideItem iconBefore={HomeIcon} href="/dashboard">
-					Dashboard
-				</SideItem>
-
-				<SideItem iconBefore={FactoryIcon} href="/establishments">
-					Establishments
-				</SideItem>
-
-				<SideItem iconBefore={ChartIcon} href="/intelligence">
-					Data and insights
-				</SideItem>
-
-				<SideItem iconBefore={TickIcon} href="/compliance">
-					Compliance
-				</SideItem>
-
-				<Divider />
-
-				<SideItem
-					href="/messages"
-					iconBefore={MailIcon}
-					extras={
-						messages === undefined ? undefined : (
-							<Bauble>{messages.unreadMessageCount}</Bauble>
-						)
-					}
-				>
-					Messages
-				</SideItem>
-
-				<SideItem iconBefore={QuestionIcon}>Help</SideItem>
+				{children}
 			</Stack>
 		</Sidenav>
+	);
+};
+
+const f1 = {
+	dashboard: {
+		icon: HomeIcon,
+		href: '/dashboard',
+		label: 'Dashboard',
+	},
+	establishments: {
+		icon: FactoryIcon,
+		href: '/establishments',
+		label: 'Establishments',
+	},
+	intelligence: {
+		icon: ChartIcon,
+		href: '/intelligence',
+		label: 'Data and insights',
+	},
+	compliance: {
+		icon: TickIcon,
+		href: '/compliance',
+		label: 'Compliance',
+	},
+	messages: {
+		icon: MailIcon,
+		label: 'messages',
+		extras: ({ unreadMessageCount }: { unreadMessageCount?: number }) =>
+			unreadMessageCount === undefined ? undefined : (
+				<Bauble>{unreadMessageCount}</Bauble>
+			),
+	},
+	help: {
+		icon: QuestionIcon,
+		label: 'Help',
+		href: '/help',
+	},
+};
+
+type Featured<T> = {
+	[K in keyof T]?: boolean;
+};
+
+type F1 = Featured<typeof f1>;
+
+type Values<T> = T[keyof T];
+
+type Sections<T> = { config: T; sections: (keyof T)[][] };
+
+type Surely = Sections<typeof f1>;
+
+export const SideX = <T,>({ config, sections }: Sections<T>) => <></>;
+
+export const Tester = () => (
+	<SideX
+		config={f1}
+		sections={[
+			[
+				'dashboard',
+				'establishments',
+				'establishments',
+				'intelligence',
+				'compliance',
+			],
+			['messages', 'help'],
+		]}
+	/>
+);
+
+export const Side: FC<SideProps & ShowingState<boolean>> = ({
+	messages,
+	showing,
+	setShowing,
+}) => {
+	return showing ? (
+		<SideComponent>
+			<ActiveButton>
+				<Box />
+
+				<DirectionButton
+					css={{ fontSize: '0.8em' }}
+					direction="left"
+					onClick={() => setShowing(() => false)}
+				>
+					Hide menu
+				</DirectionButton>
+			</ActiveButton>
+
+			<SideItem iconBefore={HomeIcon} href="/dashboard">
+				Dashboard
+			</SideItem>
+
+			<SideItem iconBefore={FactoryIcon} href="/establishments">
+				Establishments
+			</SideItem>
+
+			<SideItem iconBefore={ChartIcon} href="/intelligence">
+				Data and insights
+			</SideItem>
+
+			<SideItem iconBefore={TickIcon} href="/compliance">
+				Compliance
+			</SideItem>
+
+			<Divider />
+
+			<SideItem
+				href="/messages"
+				iconBefore={MailIcon}
+				extras={
+					messages === undefined ? undefined : (
+						<Bauble>{messages.unreadMessageCount}</Bauble>
+					)
+				}
+			>
+				Messages
+			</SideItem>
+
+			<SideItem iconBefore={QuestionIcon}>Help</SideItem>
+		</SideComponent>
 	) : null;
 };
