@@ -68,11 +68,13 @@ export interface Role {
 }
 
 export interface TopProps {
-	activeUser?: {
+	activeUser: {
 		name: string;
 		organisation?: string;
 	};
 	roleSwitcher?: { roles: Role[] };
+	handleSignIn?: () => Promise<void>;
+	handleSignOut?: () => Promise<void>;
 }
 
 export const Top: FC<TopProps & ShowingState<boolean>> = ({

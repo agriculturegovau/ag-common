@@ -1,31 +1,50 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { fakeMessages, fakeRoleSwitcher, fakeUser, Nav } from './Nav';
+import { fakeMessages, fakeRoleSwitcher, fakeUser, Layout } from './Nav';
 import { SetSubnav } from './NavCtx';
 import { SampleContent } from './Parts';
 
 export default {
-	title: 'Nav',
-	component: Nav,
-} as ComponentMeta<typeof Nav>;
+	title: 'Layout',
+	component: Layout,
+} as ComponentMeta<typeof Layout>;
 
-const Template: ComponentStory<typeof Nav> = (args) => <Nav {...args} />;
+const Template: ComponentStory<typeof Layout> = (args) => <Layout {...args} />;
 
 export const Expanded = Template.bind({});
 Expanded.args = {};
 
 export const CustomChildren = () => {
 	return (
-		<Nav
+		<Layout
+			mode="export-layout"
+			space="authenticated"
 			messages={fakeMessages}
 			activeUser={fakeUser}
 			roleSwitcher={fakeRoleSwitcher}
 		>
 			<SampleContent />
+
 			<SetSubnav
 				c="progressindicator"
 				identifier="progress"
 				items={[{ label: 'First step', status: 'blocked' }]}
 			/>
-		</Nav>
+		</Layout>
+	);
+};
+
+export const Unauth = () => {
+	return (
+		<Layout mode="export-layout" space="public">
+			<SampleContent />
+		</Layout>
+	);
+};
+
+export const Classic = () => {
+	return (
+		<Layout mode="classic" authenticated activePath="/compliance">
+			<SampleContent />
+		</Layout>
 	);
 };
