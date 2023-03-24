@@ -14,8 +14,8 @@ import {
 import { AuthenticatedAppShellContext } from './AuthenticatedAppShellContext';
 import {
 	useIsMobile,
-	useManageSidebarTriggerFocus,
 	useSidebarMenuState,
+	useSidebarMenuToggles,
 } from './utils';
 
 export type AuthenticatedAppShellProps = PropsWithChildren<{
@@ -57,14 +57,16 @@ export function AuthenticatedAppShell({
 }: AuthenticatedAppShellProps) {
 	const isMobile = useIsMobile();
 
-	const [isMenuOpen, showMenu, hideMenu] = useSidebarMenuState({
+	const [isMenuOpen, _showMenu, _hideMenu] = useSidebarMenuState({
 		isFocusMode,
 		isMobile,
 	});
 
-	const { showMenuButtonRef, hideMenuButtonRef } = useManageSidebarTriggerFocus(
-		{ isMenuOpen, isMobile }
-	);
+	const { showMenu, showMenuButtonRef, hideMenu, hideMenuButtonRef } =
+		useSidebarMenuToggles({
+			showMenu: _showMenu,
+			hideMenu: _hideMenu,
+		});
 
 	return (
 		<AuthenticatedAppShellContext.Provider
