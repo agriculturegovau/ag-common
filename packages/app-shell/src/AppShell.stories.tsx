@@ -1,11 +1,13 @@
+import { ComponentMeta } from '@storybook/react';
 import { AppShell } from './AppShell';
 
 export default {
 	title: 'App Shell',
+	component: AppShell,
 	parameters: {
 		layout: 'fullscreen',
 	},
-};
+} as ComponentMeta<typeof AppShell>;
 
 export const Main = () => {
 	return (
