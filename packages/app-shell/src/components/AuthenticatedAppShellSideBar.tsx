@@ -57,6 +57,7 @@ export function AuthenticatedAppShellSideBar({
 				alignItems="center"
 				color="text"
 				height={authenticatedAppShellHeaderHeight}
+				flexShrink={0}
 				maxWidth={tokens.maxWidth.mobileMenu}
 				borderBottom
 				borderColor="muted"
