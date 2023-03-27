@@ -30,7 +30,21 @@ export function AuthenticatedAppShellHeaderMenu() {
 	return (
 		<Menu>
 			<AuthenticatedAppShellHeaderMenuButton ref={setRefEl} />
-			<Box as={MenuList} background="body" focus>
+			<Box
+				as={MenuList}
+				background="body"
+				border
+				borderColor="muted"
+				rounded
+				css={{
+					borderTopLeftRadius: 0,
+					borderTopRightRadius: 0,
+					boxShadow: '0 1px 1px rgba(0, 0, 0, 0.3)',
+					// borderBottomRightRadius: 9,
+					// borderBottomLeftRadius: 9,
+					'&:focus': { outline: 'none' },
+				}}
+			>
 				{userMenu.items.map((item, idx) => {
 					const { icon: Icon } = item;
 					if ('href' in item) {
@@ -74,11 +88,14 @@ const menuItemStyles = {
 	minWidth: '14rem',
 	width: '100%',
 	textDecoration: 'none',
-	'&:hover': {
-		textDecoration: 'underline',
-	},
+	cursor: 'pointer',
+
 	['&[data-selected]']: {
 		background: boxPalette.backgroundShade,
+	},
+
+	'&:hover': {
+		textDecoration: 'underline',
 	},
 } as const;
 
@@ -96,7 +113,6 @@ function AuthenticatedAppShellHeaderMenuButtonAvatar({
 			>
 				<Avatar name={name} tone="action" aria-hidden size="sm" />
 			</div>
-
 			<div
 				css={mq({
 					display: mapResponsiveProp({ xs: 'block', lg: 'none' }),
