@@ -62,6 +62,7 @@ function AuthenticatedAppShellHeaderButton() {
 			as={BaseButton}
 			onClick={showMenu}
 			borderRight
+			borderColor="muted"
 			flexDirection="column"
 			alignItems="center"
 			justifyContent="center"
