@@ -1,9 +1,10 @@
 import { useMemo } from 'react';
-import { Flex, Stack } from '@ag.ds-next/react/box';
+import { Box, Flex, Stack } from '@ag.ds-next/react/box';
 import { tokens } from '@ag.ds-next/react/core';
 import { FooterDivider } from '@ag.ds-next/react/footer';
 import { LinkList } from '@ag.ds-next/react/link-list';
 import { Text } from '@ag.ds-next/react/text';
+import { Logo } from '@ag.ds-next/react/ag-branding';
 
 export function AuthenticatedAppShellFooter() {
 	const year = useMemo(() => new Date().getFullYear(), []);
@@ -36,6 +37,16 @@ export function AuthenticatedAppShellFooter() {
 				<Text fontSize="xs" maxWidth={tokens.maxWidth.bodyText}>
 					&copy; {year} Department of Agriculture, Fisheries and Forestry
 				</Text>
+
+				<Box
+					width={230}
+					display={{
+						xs: 'block',
+						lg: 'none',
+					}}
+				>
+					<Logo />
+				</Box>
 			</Stack>
 		</Flex>
 	);
