@@ -40,7 +40,11 @@ export function AuthenticatedAppShellHeader({
 					<Text fontSize={{ xs: 'md', sm: 'lg' }} fontWeight="bold">
 						{title}
 					</Text>
-					<Text color="muted" fontSize="xs">
+					<Text
+						color="muted"
+						fontSize="xs"
+						display={{ xs: 'none', lg: 'block' }}
+					>
 						{subtitle}
 					</Text>
 				</Flex>
@@ -61,7 +65,7 @@ function AuthenticatedAppShellHeaderButton() {
 			ref={showMenuButtonRef}
 			as={BaseButton}
 			onClick={showMenu}
-			borderRight
+			borderRight={{ xs: false, lg: true }}
 			borderColor="muted"
 			flexDirection="column"
 			alignItems="center"
