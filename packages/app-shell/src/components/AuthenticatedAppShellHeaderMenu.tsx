@@ -89,7 +89,7 @@ const AuthenticatedAppShellHeaderMenuButton = forwardRef<HTMLButtonElement>(
 				background="body"
 				alignItems="center"
 				paddingX={1}
-				gap={1}
+				gap={{ xs: 0.5, lg: 1 }}
 				height={authenticatedAppShellHeaderHeight}
 				aria-label={`User menu, ${userMenu.name}`}
 				css={{
@@ -100,8 +100,8 @@ const AuthenticatedAppShellHeaderMenuButton = forwardRef<HTMLButtonElement>(
 				}}
 				focus
 			>
-				<Flex as="span" gap={0.5}>
-					<Avatar name={userMenu.name} tone="action" aria-hidden />
+				<Flex as="span" gap={0.5} alignItems="center">
+					<Avatar name={userMenu.name} tone="action" aria-hidden size="sm" />
 					<Box
 						as="span"
 						display={{ xs: 'none', lg: 'flex' }}
