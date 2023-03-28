@@ -13,7 +13,6 @@ export type AppShellProps = {
 	isFocusMode?: boolean;
 	userName: string;
 	userOrganisation?: string;
-	userMenuHref: string;
 	unreadMessageCount?: number;
 	activePath: string;
 	onSignOut: () => void;
@@ -25,7 +24,6 @@ export const AppShell = ({
 	isFocusMode,
 	userName,
 	userOrganisation,
-	userMenuHref,
 	unreadMessageCount,
 	activePath,
 	onSignOut,
@@ -57,7 +55,7 @@ export const AppShell = ({
 			{
 				label: 'Messages',
 				icon: EmailIcon,
-				href: '#messages', // TODO: get a real url for this. enable when we've got it
+				href: '/account/messages',
 				badgeCount: unreadMessageCount,
 			},
 			{ label: 'Help', icon: HelpIcon, href: '/help' },
@@ -76,7 +74,7 @@ export const AppShell = ({
 			userMenu={{
 				name: userName,
 				organisation: userOrganisation,
-				href: userMenuHref,
+				href: '/account/preferences',
 			}}
 			mainNavItems={mainNavItems}
 			isFocusMode={isFocusMode}

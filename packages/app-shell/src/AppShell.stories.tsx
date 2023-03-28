@@ -13,7 +13,6 @@ export default {
 const commonProps: AppShellProps = {
 	userName: 'Toto Wolff',
 	userOrganisation: 'Orange Meat Works',
-	userMenuHref: '/account',
 	activePath: '/account',
 	unreadMessageCount: 3,
 	onSignOut: () => console.log('sign out'),
