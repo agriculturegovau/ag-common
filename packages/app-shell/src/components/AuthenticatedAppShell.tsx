@@ -3,6 +3,7 @@ import { Box, Flex, Stack } from '@ag.ds-next/react/box';
 import { tokens } from '@ag.ds-next/react/core';
 import { IconProps } from '@ag.ds-next/react/icon';
 import { SkipLinks } from '@ag.ds-next/react/skip-link';
+import { Content } from '@ag.ds-next/react/content';
 import { AuthenticatedAppShellHeader } from './AuthenticatedAppShellHeader';
 import { AuthenticatedAppShellSideBar } from './AuthenticatedAppShellSideBar';
 import { AuthenticatedAppShellFooter } from './AuthenticatedAppShellFooter';
@@ -112,23 +113,17 @@ export function AuthenticatedAppShell({
 						title={siteTitle}
 						subtitle={siteSubtitle}
 					/>
-					<Flex alignItems="center" flexDirection="column">
+					<Content>
 						<Box
-							width="100%"
-							maxWidth={tokens.maxWidth.container}
-							paddingX={tokens.containerPadding}
+							as="main"
+							id="main-content"
+							paddingTop={{ xs: 2, md: 3 }}
+							paddingBottom={{ xs: 3, md: 4 }}
 						>
-							<Box
-								as="main"
-								id="main-content"
-								paddingTop={{ xs: 2, md: 3 }}
-								paddingBottom={{ xs: 3, md: 4 }}
-							>
-								{children}
-							</Box>
-							<AuthenticatedAppShellFooter />
+							{children}
 						</Box>
-					</Flex>
+						<AuthenticatedAppShellFooter />
+					</Content>
 				</Box>
 			</Box>
 		</AuthenticatedAppShellContext.Provider>

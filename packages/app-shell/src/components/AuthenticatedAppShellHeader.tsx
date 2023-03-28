@@ -28,6 +28,7 @@ export function AuthenticatedAppShellHeader({
 			css={{
 				boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
 			}}
+			paddingRight={tokens.containerPadding}
 		>
 			<Flex alignItems="center">
 				<AuthenticatedAppShellHeaderButton />
@@ -49,7 +50,6 @@ export function AuthenticatedAppShellHeader({
 					</Text>
 				</Flex>
 			</Flex>
-
 			<AuthenticatedAppShellHeaderMenu />
 		</Flex>
 	);
