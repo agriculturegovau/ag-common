@@ -8,7 +8,7 @@ import '@testing-library/jest-dom';
 import 'html-validate/jest';
 import { Prose } from '@ag.ds-next/react/prose';
 import { cleanup, render } from '../../../../test-utils';
-import { CogIcon, ExitIcon, FactoryIcon, HomeIcon } from './icons';
+import { FactoryIcon, HomeIcon } from './icons';
 import { AuthenticatedAppShell } from './AuthenticatedAppShell';
 
 afterEach(cleanup);
