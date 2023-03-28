@@ -35,32 +35,32 @@ export const AppShell = ({
 			{
 				label: 'Dashboard',
 				icon: HomeIcon,
-				href: '#home',
+				href: '/account',
 			},
 			{
 				label: 'Establishments',
 				icon: FactoryIcon,
-				href: '#establishments',
+				href: '/establishments',
 			},
 			{
 				label: 'Data and Insights',
 				icon: ChartLineIcon,
-				href: '#data',
+				href: '/intelligence',
 			},
 			{
 				label: 'Compliance',
 				icon: SuccessIcon,
-				href: '#compliance',
+				href: '/compliance',
 			},
 		],
 		[
 			{
 				label: 'Messages',
 				icon: EmailIcon,
-				href: '#messages',
+				href: '#messages', // TODO: get a real url for this. enable when we've got it
 				badgeCount: unreadMessageCount,
 			},
-			{ label: 'Help', icon: HelpIcon, href: '#help' },
+			{ label: 'Help', icon: HelpIcon, href: '/help' },
 		],
 	];
 

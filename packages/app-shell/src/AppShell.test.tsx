@@ -13,7 +13,7 @@ function AppShellTest({ isFocusMode = false }) {
 			activePath="#home"
 			userName="Toto Wolff"
 			userOrganisation="Orange Meat Works"
-			userMenuHref="#account"
+			userMenuHref="/account"
 			unreadMessageCount={3}
 			onSignOut={() => console.log('sign out')}
 		>

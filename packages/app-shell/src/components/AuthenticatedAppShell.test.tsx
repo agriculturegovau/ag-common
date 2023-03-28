@@ -51,7 +51,7 @@ function AppShellTest({ isFocusMode = false }) {
 			userMenu={{
 				name: 'Toto Wolff',
 				organisation: 'Orange Meat Works',
-				href: '#account',
+				href: '/account',
 			}}
 			mainNavItems={navItems}
 			isFocusMode={isFocusMode}
