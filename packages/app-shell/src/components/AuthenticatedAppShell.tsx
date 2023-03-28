@@ -98,18 +98,26 @@ export function AuthenticatedAppShell({
 						</Stack>
 					</Box>
 				</AuthenticatedAppShellSideBar>
-				<Box width="100%">
+				<Stack width="100%" minHeight={'100vh'}>
 					<AuthenticatedAppShellHeader
 						title={siteTitle}
 						subtitle={siteSubtitle}
 					/>
+
+					<Box
+						as="main"
+						id="main-content"
+						paddingTop={2}
+						paddingBottom={3}
+						flexGrow={1}
+					>
+						<Content>{children}</Content>
+					</Box>
+
 					<Content>
-						<Box as="main" id="main-content" paddingTop={2} paddingBottom={3}>
-							{children}
-						</Box>
 						<AuthenticatedAppShellFooter />
 					</Content>
-				</Box>
+				</Stack>
 			</Box>
 		</AuthenticatedAppShellContext.Provider>
 	);
