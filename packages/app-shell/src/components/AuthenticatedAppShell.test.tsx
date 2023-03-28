@@ -6,6 +6,7 @@ import {
 } from '@ag.ds-next/react/icon';
 import '@testing-library/jest-dom';
 import 'html-validate/jest';
+import { Prose } from '@ag.ds-next/react/prose';
 import { cleanup, render } from '../../../../test-utils';
 import { CogIcon, ExitIcon, FactoryIcon, HomeIcon } from './icons';
 import { AuthenticatedAppShell } from './AuthenticatedAppShell';
@@ -67,8 +68,10 @@ function AppShellTest({ isFocusMode = false }) {
 			isFocusMode={isFocusMode}
 			activePath="#home"
 		>
-			<h1>Authenticated App Shell</h1>
-			<p>Some content</p>
+			<Prose>
+				<h1>Authenticated App Shell</h1>
+				<p>Some content</p>
+			</Prose>
 		</AuthenticatedAppShell>
 	);
 }
