@@ -1,6 +1,6 @@
-import { ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Prose } from '@ag.ds-next/react/prose';
-import { AppShell } from './AppShell';
+import { AppShell, AppShellProps } from './AppShell';
 
 export default {
 	title: 'App Shell',
@@ -10,24 +10,36 @@ export default {
 	},
 } as ComponentMeta<typeof AppShell>;
 
-export const Main = () => {
-	return (
-		<AppShell>
-			<Prose>
-				<h1>Authenticated App Shell</h1>
-				<p>Some content</p>
-			</Prose>
-		</AppShell>
-	);
+const commonProps: AppShellProps = {
+	userName: 'Toto Wolff',
+	userOrganisation: 'Orange Meat Works',
+	activePath: '#home',
+	unreadMessageCount: 3,
+	onSignOut: () => console.log('sign out'),
 };
 
-export const FocusMode = () => {
-	return (
-		<AppShell isFocusMode={true}>
-			<Prose>
-				<h1>Authenticated App Shell</h1>
-				<p>Some content</p>
-			</Prose>
-		</AppShell>
-	);
+const Template: ComponentStory<typeof AppShell> = (args: AppShellProps) => (
+	<AppShell {...args}>
+		<Prose>
+			<h1>Authenticated App Shell</h1>
+			<p>Some content</p>
+		</Prose>
+	</AppShell>
+);
+
+export const Main = Template.bind({});
+Main.args = {
+	...commonProps,
+};
+
+export const FocusMode = Template.bind({});
+FocusMode.args = {
+	...commonProps,
+	isFocusMode: true,
+};
+
+export const NoOrganisation = Template.bind({});
+NoOrganisation.args = {
+	...commonProps,
+	userOrganisation: undefined,
 };

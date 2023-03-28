@@ -31,7 +31,7 @@ export type AuthenticatedAppShellProps = PropsWithChildren<{
 	/** Configuration of the user dropdown menu. */
 	userMenu: {
 		name: string;
-		organisation: string;
+		organisation?: string;
 		items: (
 			| {
 					label: string;

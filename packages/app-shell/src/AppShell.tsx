@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 import { AuthenticatedAppShell } from './components/AuthenticatedAppShell';
 import {
 	ChartLineIcon,
@@ -8,54 +8,66 @@ import {
 } from '@ag.ds-next/react/icon';
 import { CogIcon, ExitIcon, FactoryIcon, HomeIcon } from './components/icons';
 
-const mainNavItems = [
-	[
-		{
-			label: 'Dashboard',
-			icon: HomeIcon,
-			href: '#home',
-		},
-		{
-			label: 'Establishments',
-			icon: FactoryIcon,
-			href: '#establishments',
-		},
-		{
-			label: 'Data and Insights',
-			icon: ChartLineIcon,
-			href: '#data',
-		},
-		{
-			label: 'Compliance',
-			icon: SuccessIcon,
-			href: '#compliance',
-		},
-	],
-	[
-		{
-			label: 'Messages',
-			icon: EmailIcon,
-			href: '#messages',
-			badgeCount: 3,
-		},
-		{ label: 'Help', icon: HelpIcon, href: '#help' },
-	],
-];
+export type AppShellProps = {
+	isFocusMode?: boolean;
+	userName: string;
+	userOrganisation?: string;
+	unreadMessageCount?: number;
+	activePath: string;
+	onSignOut: () => void;
+};
 
+/** Common application shell for apps in the user-facing authenticated space of the Export Service */
 export const AppShell = ({
 	children,
 	isFocusMode,
-}: {
-	children: ReactNode;
-	isFocusMode?: boolean;
-}) => {
+	userName,
+	userOrganisation,
+	unreadMessageCount,
+	activePath,
+	onSignOut,
+}: PropsWithChildren<AppShellProps>) => {
+	const mainNavItems = [
+		[
+			{
+				label: 'Dashboard',
+				icon: HomeIcon,
+				href: '#home',
+			},
+			{
+				label: 'Establishments',
+				icon: FactoryIcon,
+				href: '#establishments',
+			},
+			{
+				label: 'Data and Insights',
+				icon: ChartLineIcon,
+				href: '#data',
+			},
+			{
+				label: 'Compliance',
+				icon: SuccessIcon,
+				href: '#compliance',
+			},
+		],
+		[
+			{
+				label: 'Messages',
+				icon: EmailIcon,
+				href: '#messages',
+				badgeCount: unreadMessageCount,
+			},
+			{ label: 'Help', icon: HelpIcon, href: '#help' },
+		],
+	];
+
 	return (
 		<AuthenticatedAppShell
 			siteTitle="Export Service"
 			siteSubtitle="Supporting Australian agricultural exports"
 			userMenu={{
-				name: 'Toto Wolff',
-				organisation: 'Orange Meat Works',
+				name: userName,
+				organisation: userOrganisation,
 				items: [
 					{
 						label: 'Account settings',
@@ -64,14 +76,14 @@ export const AppShell = ({
 					},
 					{
 						label: 'Sign out',
-						onClick: () => console.log('sign out'),
+						onClick: onSignOut,
 						icon: ExitIcon,
 					},
 				],
 			}}
 			mainNavItems={mainNavItems}
 			isFocusMode={isFocusMode}
-			activePath="#home"
+			activePath={activePath}
 		>
 			{children}
 		</AuthenticatedAppShell>
