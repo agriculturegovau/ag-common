@@ -1,68 +1,27 @@
-import {
-	ChartLineIcon,
-	EmailIcon,
-	HelpIcon,
-	SuccessIcon,
-} from '@ag.ds-next/react/icon';
 import '@testing-library/jest-dom';
 import 'html-validate/jest';
 import { Prose } from '@ag.ds-next/react/prose';
-import { cleanup, render } from '../../../../test-utils';
-import { CogIcon, ExitIcon, FactoryIcon, HomeIcon } from './icons';
-import { AuthenticatedAppShell } from './AuthenticatedAppShell';
+import { cleanup, render } from '../../../test-utils';
+import { AppShell } from './AppShell';
 
 afterEach(cleanup);
 
-const navItems = [
-	[
-		{ label: 'Dashboard', icon: HomeIcon, href: '#home' },
-		{
-			label: 'Establishments',
-			icon: FactoryIcon,
-			href: '#establishments',
-		},
-		{
-			label: 'Data and Insights',
-			icon: ChartLineIcon,
-			href: '#data',
-		},
-		{
-			label: 'Compliance',
-			icon: SuccessIcon,
-			href: '#compliance',
-		},
-	],
-	[
-		{
-			label: 'Messages',
-			icon: EmailIcon,
-			href: '#messages',
-			badgeCount: 3,
-		},
-		{ label: 'Help', icon: HelpIcon, href: '#help' },
-	],
-];
-
 function AppShellTest({ isFocusMode = false }) {
 	return (
-		<AuthenticatedAppShell
-			siteTitle="Export Service"
-			siteSubtitle="Supporting Australian agricultural exports"
-			userMenu={{
-				name: 'Toto Wolff',
-				organisation: 'Orange Meat Works',
-				href: '#account',
-			}}
-			mainNavItems={navItems}
+		<AppShell
 			isFocusMode={isFocusMode}
 			activePath="#home"
+			userName="Toto Wolff"
+			userOrganisation="Orange Meat Works"
+			userMenuHref="#account"
+			unreadMessageCount={3}
 			onSignOut={() => console.log('sign out')}
 		>
 			<Prose>
 				<h1>Authenticated App Shell</h1>
 				<p>Some content</p>
 			</Prose>
-		</AuthenticatedAppShell>
+		</AppShell>
 	);
 }
 

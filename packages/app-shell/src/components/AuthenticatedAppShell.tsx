@@ -1,7 +1,5 @@
-import { PropsWithChildren, ComponentType, Fragment } from 'react';
-import { Box, Flex, Stack } from '@ag.ds-next/react/box';
-import { tokens } from '@ag.ds-next/react/core';
-import { IconProps } from '@ag.ds-next/react/icon';
+import { PropsWithChildren, Fragment } from 'react';
+import { Box, Stack } from '@ag.ds-next/react/box';
 import { SkipLinks } from '@ag.ds-next/react/skip-link';
 import { Content } from '@ag.ds-next/react/content';
 import { AuthenticatedAppShellHeader } from './AuthenticatedAppShellHeader';
@@ -32,19 +30,9 @@ export type AuthenticatedAppShellProps = PropsWithChildren<{
 	userMenu: {
 		name: string;
 		organisation?: string;
-		items: (
-			| {
-					label: string;
-					icon?: ComponentType<IconProps>;
-					href: string;
-			  }
-			| {
-					label: string;
-					icon?: ComponentType<IconProps>;
-					onClick: () => void;
-			  }
-		)[];
+		href: string;
 	};
+	onSignOut: () => void;
 }>;
 
 export function AuthenticatedAppShell({
@@ -55,6 +43,7 @@ export function AuthenticatedAppShell({
 	mainNavItems,
 	userMenu,
 	children,
+	onSignOut,
 }: AuthenticatedAppShellProps) {
 	const isMobile = useIsMobile();
 
@@ -79,6 +68,7 @@ export function AuthenticatedAppShell({
 				userMenu,
 				showMenuButtonRef,
 				hideMenuButtonRef,
+				onSignOut,
 			}}
 		>
 			<SkipLinks

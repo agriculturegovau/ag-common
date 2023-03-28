@@ -8,6 +8,7 @@ export type AuthenticatedAppShellContextType = {
 	hideMenu: () => void;
 	showMenuButtonRef: RefObject<HTMLButtonElement>;
 	hideMenuButtonRef: RefObject<HTMLButtonElement>;
+	onSignOut: () => void;
 } & Pick<NonNullable<AuthenticatedAppShellProps>, 'userMenu'>;
 
 // create new context

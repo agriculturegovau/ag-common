@@ -6,12 +6,13 @@ import {
 	HelpIcon,
 	SuccessIcon,
 } from '@ag.ds-next/react/icon';
-import { CogIcon, ExitIcon, FactoryIcon, HomeIcon } from './components/icons';
+import { FactoryIcon, HomeIcon } from './components/icons';
 
 export type AppShellProps = {
 	isFocusMode?: boolean;
 	userName: string;
 	userOrganisation?: string;
+	userMenuHref: string;
 	unreadMessageCount?: number;
 	activePath: string;
 	onSignOut: () => void;
@@ -23,6 +24,7 @@ export const AppShell = ({
 	isFocusMode,
 	userName,
 	userOrganisation,
+	userMenuHref,
 	unreadMessageCount,
 	activePath,
 	onSignOut,
@@ -68,22 +70,12 @@ export const AppShell = ({
 			userMenu={{
 				name: userName,
 				organisation: userOrganisation,
-				items: [
-					{
-						label: 'Account settings',
-						href: '#account',
-						icon: CogIcon,
-					},
-					{
-						label: 'Sign out',
-						onClick: onSignOut,
-						icon: ExitIcon,
-					},
-				],
+				href: userMenuHref,
 			}}
 			mainNavItems={mainNavItems}
 			isFocusMode={isFocusMode}
 			activePath={activePath}
+			onSignOut={onSignOut}
 		>
 			{children}
 		</AuthenticatedAppShell>

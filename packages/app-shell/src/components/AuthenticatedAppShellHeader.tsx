@@ -1,9 +1,15 @@
-import { Flex } from '@ag.ds-next/react/box';
-import { boxPalette, tokens } from '@ag.ds-next/react/core';
+import { Fragment } from 'react';
+import { Avatar } from '@ag.ds-next/react/avatar';
+import { Box, Flex } from '@ag.ds-next/react/box';
+import {
+	boxPalette,
+	tokens,
+	mapResponsiveProp,
+	mq,
+} from '@ag.ds-next/react/core';
 import { Text } from '@ag.ds-next/react/text';
-import { MenuIcon } from '@ag.ds-next/react/icon';
+import { AvatarIcon, MenuIcon } from '@ag.ds-next/react/icon';
 import { BaseButton } from '@ag.ds-next/react/button';
-import { AuthenticatedAppShellHeaderMenu } from './AuthenticatedAppShellHeaderMenu';
 import { authenticatedAppShellHeaderHeight } from './utils';
 import { useAuthenticatedAppShellContext } from './AuthenticatedAppShellContext';
 
@@ -16,6 +22,7 @@ export function AuthenticatedAppShellHeader({
 	title,
 	subtitle,
 }: AuthenticatedAppShellHeaderProps) {
+	const { userMenu } = useAuthenticatedAppShellContext();
 	return (
 		<Flex
 			as="header"
@@ -31,7 +38,7 @@ export function AuthenticatedAppShellHeader({
 			paddingRight={tokens.containerPadding}
 		>
 			<Flex alignItems="center">
-				<AuthenticatedAppShellHeaderButton />
+				<ShowMenuButton />
 				<Flex
 					flexDirection="column"
 					justifyContent="center"
@@ -50,12 +57,12 @@ export function AuthenticatedAppShellHeader({
 					</Text>
 				</Flex>
 			</Flex>
-			<AuthenticatedAppShellHeaderMenu />
+			<UserLink name={userMenu.name} organisation={userMenu.organisation} />
 		</Flex>
 	);
 }
 
-function AuthenticatedAppShellHeaderButton() {
+function ShowMenuButton() {
 	const { isMenuOpen, showMenu, showMenuButtonRef } =
 		useAuthenticatedAppShellContext();
 	return (
@@ -91,3 +98,70 @@ function AuthenticatedAppShellHeaderButton() {
 		</Flex>
 	);
 }
+
+function UserLinkAvatar({ name }: { name: string }) {
+	return (
+		<Fragment>
+			<div
+				css={mq({
+					display: mapResponsiveProp({ xs: 'none', lg: 'block' }),
+				})}
+			>
+				<Avatar name={name} tone="action" aria-hidden size="sm" />
+			</div>
+			<div
+				css={mq({
+					display: mapResponsiveProp({ xs: 'block', lg: 'none' }),
+				})}
+			>
+				<AvatarIcon color="action" aria-hidden />
+			</div>
+		</Fragment>
+	);
+}
+
+export const UserLink = ({
+	name,
+	organisation,
+}: {
+	name: string;
+	organisation?: string;
+}) => {
+	return (
+		<Flex
+			gap={{
+				xs: 0,
+				lg: 0.5,
+			}}
+			alignItems="center"
+			flexDirection={{
+				xs: 'column',
+				lg: 'row',
+			}}
+		>
+			<UserLinkAvatar name={name} />
+			<Box
+				display={{ xs: 'none', lg: 'flex' }}
+				flexDirection="column"
+				css={{ textAlign: 'left' }}
+			>
+				<Text color="action" fontWeight="bold" fontSize="xs">
+					{name}
+				</Text>
+				<Text color="muted" fontSize="xs">
+					{organisation}
+				</Text>
+			</Box>
+
+			<Text
+				color="action"
+				display={{
+					xs: 'block',
+					lg: 'none',
+				}}
+			>
+				Account
+			</Text>
+		</Flex>
+	);
+};
