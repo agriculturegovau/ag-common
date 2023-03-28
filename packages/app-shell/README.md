@@ -1,6 +1,6 @@
 # AppShell
 
-Common application shell for apps in the authenticated space of the Export Service
+Common application shell for apps in the user-facing authenticated space of the Export Service
 
 ## Installation
 
