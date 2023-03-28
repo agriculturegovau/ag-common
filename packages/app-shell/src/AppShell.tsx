@@ -7,6 +7,7 @@ import {
 	SuccessIcon,
 } from '@ag.ds-next/react/icon';
 import { FactoryIcon, HomeIcon } from './components/icons';
+import { findBestMatch } from './components/utils';
 
 export type AppShellProps = {
 	isFocusMode?: boolean;
@@ -63,6 +64,11 @@ export const AppShell = ({
 		],
 	];
 
+	const bestActivePath = findBestMatch(
+		mainNavItems.flatMap((xs) => xs),
+		activePath
+	);
+
 	return (
 		<AuthenticatedAppShell
 			siteTitle="Export Service"
@@ -74,7 +80,7 @@ export const AppShell = ({
 			}}
 			mainNavItems={mainNavItems}
 			isFocusMode={isFocusMode}
-			activePath={activePath}
+			activePath={bestActivePath}
 			onSignOut={onSignOut}
 		>
 			{children}

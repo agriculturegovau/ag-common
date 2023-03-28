@@ -77,3 +77,21 @@ export function useSidebarMenuToggles({
 
 	return { showMenuButtonRef, hideMenuButtonRef, showMenu, hideMenu };
 }
+
+// Ported from main-nav/utils
+export function findBestMatch(links: { href: string }[], activePath: string) {
+	let bestMatch = '';
+
+	for (const link of links) {
+		if (link.href === activePath) return link.href;
+		if (
+			activePath?.startsWith(link.href) &&
+			link.href !== '/' &&
+			link.href.length > bestMatch.length
+		) {
+			bestMatch = link.href;
+		}
+	}
+
+	return bestMatch;
+}
