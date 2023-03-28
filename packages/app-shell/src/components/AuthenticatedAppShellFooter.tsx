@@ -21,10 +21,24 @@ export function AuthenticatedAppShellFooter() {
 				<LinkList
 					horizontal
 					links={[
-						{ href: '#', label: 'Home' },
-						{ href: '#', label: 'Terms and conditions' },
-						{ href: '#', label: 'Privacy policy' },
-						{ href: '#', label: 'A really long link title' },
+						{
+							href: '/about',
+							label: 'About',
+						},
+						{
+							href: 'https://www.agriculture.gov.au/about/commitment/accessibility',
+							rel: 'external',
+							label: 'Accessibility',
+						},
+						{
+							href: 'https://www.agriculture.gov.au/about/disclaimer',
+							rel: 'external',
+							label: 'Disclaimer',
+						},
+						{
+							href: '/privacy',
+							label: 'Privacy',
+						},
 					]}
 				/>
 			</nav>
