@@ -114,12 +114,7 @@ export function AuthenticatedAppShell({
 						subtitle={siteSubtitle}
 					/>
 					<Content>
-						<Box
-							as="main"
-							id="main-content"
-							paddingTop={{ xs: 2, md: 3 }}
-							paddingBottom={{ xs: 3, md: 4 }}
-						>
+						<Box as="main" id="main-content" paddingTop={2} paddingBottom={3}>
 							{children}
 						</Box>
 						<AuthenticatedAppShellFooter />
