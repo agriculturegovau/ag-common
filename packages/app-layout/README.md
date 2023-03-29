@@ -1,23 +1,23 @@
-# AppShell
+# AppLayout
 
 Common application shell for apps in the user-facing authenticated space of the Export Service
 
 ## Installation
 
 ```sh
-yarn add @ag.common/app-shell
+yarn add @ag.common/app-layout
 ```
 
 ## Usage
 
 ```tsx
-import { AppShell } from '@ag.common/app-shell';
+import { AppLayout } from '@ag.common/app-layout';
 
 function App() {
 	return (
-		<AppShell>
+		<AppLayout>
 			<YourApplication />
-		</AppShell>
+		</AppLayout>
 	);
 }
 ```

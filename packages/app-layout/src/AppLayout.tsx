@@ -9,7 +9,7 @@ import {
 import { FactoryIcon, HomeIcon } from './components/icons';
 import { findBestMatch } from './components/utils';
 
-export type AppShellProps = {
+export type AppLayoutProps = {
 	isFocusMode?: boolean;
 	userName: string;
 	userOrganisation?: string;
@@ -19,7 +19,7 @@ export type AppShellProps = {
 };
 
 /** Common application shell for apps in the user-facing authenticated space of the Export Service */
-export const AppShell = ({
+export const AppLayout = ({
 	children,
 	isFocusMode,
 	userName,
@@ -27,7 +27,7 @@ export const AppShell = ({
 	unreadMessageCount,
 	activePath,
 	onSignOut,
-}: PropsWithChildren<AppShellProps>) => {
+}: PropsWithChildren<AppLayoutProps>) => {
 	const mainNavItems = [
 		[
 			{

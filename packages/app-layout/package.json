@@ -1,8 +1,8 @@
 {
-	"name": "@ag.common/app-shell",
+	"name": "@ag.common/app-layout",
 	"version": "0.1.0",
-	"main": "dist/ag.common-app-shell.cjs.js",
-	"module": "dist/ag.common-app-shell.esm.js",
+	"main": "dist/ag.common-app-layout.cjs.js",
+	"module": "dist/ag.common-app-layout.esm.js",
 	"license": "MIT",
 	"peerDependencies": {
 		"@ag.ds-next/react": "^1.3.0",

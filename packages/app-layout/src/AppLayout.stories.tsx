@@ -1,16 +1,16 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Prose } from '@ag.ds-next/react/prose';
-import { AppShell, AppShellProps } from './AppShell';
+import { AppLayout, AppLayoutProps } from './AppLayout';
 
 export default {
 	title: 'App Shell',
-	component: AppShell,
+	component: AppLayout,
 	parameters: {
 		layout: 'fullscreen',
 	},
-} as ComponentMeta<typeof AppShell>;
+} as ComponentMeta<typeof AppLayout>;
 
-const commonProps: AppShellProps = {
+const commonProps: AppLayoutProps = {
 	userName: 'Toto Wolff',
 	userOrganisation: 'Orange Meat Works',
 	activePath: '/account',
@@ -18,13 +18,13 @@ const commonProps: AppShellProps = {
 	onSignOut: () => console.log('sign out'),
 };
 
-const Template: ComponentStory<typeof AppShell> = (args: AppShellProps) => (
-	<AppShell {...args}>
+const Template: ComponentStory<typeof AppLayout> = (args: AppLayoutProps) => (
+	<AppLayout {...args}>
 		<Prose>
 			<h1>Authenticated App Shell</h1>
 			<p>Some content</p>
 		</Prose>
-	</AppShell>
+	</AppLayout>
 );
 
 export const Main = Template.bind({});

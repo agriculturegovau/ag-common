@@ -2,13 +2,13 @@ import '@testing-library/jest-dom';
 import 'html-validate/jest';
 import { Prose } from '@ag.ds-next/react/prose';
 import { cleanup, render } from '../../../test-utils';
-import { AppShell } from './AppShell';
+import { AppLayout } from './AppLayout';
 
 afterEach(cleanup);
 
-function AppShellTest({ isFocusMode = false }) {
+function AppLayoutTest({ isFocusMode = false }) {
 	return (
-		<AppShell
+		<AppLayout
 			isFocusMode={isFocusMode}
 			activePath="#home"
 			userName="Toto Wolff"
@@ -20,13 +20,13 @@ function AppShellTest({ isFocusMode = false }) {
 				<h1>Authenticated App Shell</h1>
 				<p>Some content</p>
 			</Prose>
-		</AppShell>
+		</AppLayout>
 	);
 }
 
-describe('AuthenticatedAppShell', () => {
+describe('AuthenticatedAppLayout', () => {
 	it('renders a valid HTML structure', () => {
-		const { container } = render(<AppShellTest />);
+		const { container } = render(<AppLayoutTest />);
 		expect(container).toHTMLValidate({
 			extends: ['html-validate:recommended'],
 			rules: {
@@ -38,7 +38,7 @@ describe('AuthenticatedAppShell', () => {
 	});
 
 	it('renders a valid HTML structure when in focus mode', () => {
-		const { container } = render(<AppShellTest isFocusMode />);
+		const { container } = render(<AppLayoutTest isFocusMode />);
 		expect(container).toHTMLValidate({
 			extends: ['html-validate:recommended'],
 			rules: {
