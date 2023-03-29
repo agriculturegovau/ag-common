@@ -35,6 +35,9 @@ export function AuthenticatedAppShellHeader({
 			borderColor="muted"
 			css={{
 				boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+				[tokens.mediaQuery.max.md]: {
+					borderBottom: `8px solid ${boxPalette.accent}`,
+				},
 			}}
 			paddingRight={tokens.containerPadding}
 		>
@@ -146,6 +149,7 @@ export const UserLink = ({
 				lg: 0.5,
 			}}
 			alignItems="center"
+			align-self="flex-end"
 			flexDirection={{
 				xs: 'column',
 				lg: 'row',
