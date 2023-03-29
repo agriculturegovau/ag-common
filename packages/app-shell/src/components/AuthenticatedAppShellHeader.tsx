@@ -6,6 +6,7 @@ import {
 	tokens,
 	mapResponsiveProp,
 	mq,
+	useLinkComponent,
 } from '@ag.ds-next/react/core';
 import { Text } from '@ag.ds-next/react/text';
 import { AvatarIcon, MenuIcon } from '@ag.ds-next/react/icon';
@@ -57,7 +58,11 @@ export function AuthenticatedAppShellHeader({
 					</Text>
 				</Flex>
 			</Flex>
-			<UserLink name={userMenu.name} organisation={userMenu.organisation} />
+			<UserLink
+				name={userMenu.name}
+				organisation={userMenu.organisation}
+				href={userMenu.href}
+			/>
 		</Flex>
 	);
 }
@@ -124,12 +129,18 @@ function UserLinkAvatar({ name }: { name: string }) {
 export const UserLink = ({
 	name,
 	organisation,
+	href,
 }: {
 	name: string;
 	organisation?: string;
+	href?: string;
 }) => {
+	const Link = useLinkComponent();
 	return (
 		<Flex
+			as={Link}
+			href={href}
+			focus
 			gap={{
 				xs: 0,
 				lg: 0.5,
@@ -138,6 +149,14 @@ export const UserLink = ({
 			flexDirection={{
 				xs: 'column',
 				lg: 'row',
+			}}
+			css={{
+				textDecoration: 'none',
+				'&:hover': {
+					'& span:first-of-type': {
+						textDecoration: 'underline',
+					},
+				},
 			}}
 		>
 			<UserLinkAvatar name={name} />
