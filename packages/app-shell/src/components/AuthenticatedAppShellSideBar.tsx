@@ -133,7 +133,7 @@ function AuthenticatedAppShellSideBarMobile({
 	return createPortal(
 		<Fragment>
 			<LockScroll />
-			<Overlay onClick={close} />
+			<Overlay onClick={hideMenu} />
 			<FocusLock returnFocus disabled={!isMenuOpen}>
 				<Stack
 					dark
