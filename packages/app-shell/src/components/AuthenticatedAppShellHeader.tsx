@@ -72,8 +72,9 @@ function ShowMenuButton() {
 			ref={showMenuButtonRef}
 			as={BaseButton}
 			onClick={showMenu}
-			borderRight={{ xs: false, lg: true }}
+			borderRight
 			borderColor="muted"
+			borderRightWidth={{ xs: undefined, lg: 'xl' }}
 			flexDirection="column"
 			alignItems="center"
 			justifyContent="center"
