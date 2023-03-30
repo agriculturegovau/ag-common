@@ -116,7 +116,7 @@ function UserLinkAvatar({ name }: { name: string }) {
 					display: mapResponsiveProp({ xs: 'none', lg: 'block' }),
 				})}
 			>
-				<Avatar name={name} tone="action" aria-hidden size="sm" />
+				<Avatar name={name} tone="action" aria-hidden size="md" />
 			</div>
 			<div
 				css={mq({

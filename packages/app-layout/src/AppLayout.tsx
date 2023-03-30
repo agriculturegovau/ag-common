@@ -15,7 +15,7 @@ export type AppLayoutProps = {
 	userOrganisation?: string;
 	unreadMessageCount?: number;
 	activePath: string;
-	onSignOut: () => void;
+	handleSignOut: () => Promise<void>;
 };
 
 /** Common application shell for apps in the user-facing authenticated space of the Export Service */
@@ -26,7 +26,7 @@ export const AppLayout = ({
 	userOrganisation,
 	unreadMessageCount,
 	activePath,
-	onSignOut,
+	handleSignOut,
 }: PropsWithChildren<AppLayoutProps>) => {
 	const mainNavItems = [
 		[
@@ -79,7 +79,7 @@ export const AppLayout = ({
 			mainNavItems={mainNavItems}
 			isFocusMode={isFocusMode}
 			activePath={bestActivePath}
-			onSignOut={onSignOut}
+			handleSignOut={handleSignOut}
 		>
 			{children}
 		</AuthenticatedAppShell>

@@ -14,7 +14,7 @@ function AppLayoutTest({ isFocusMode = false }) {
 			userName="Toto Wolff"
 			userOrganisation="Orange Meat Works"
 			unreadMessageCount={3}
-			onSignOut={() => console.log('sign out')}
+			handleSignOut={async () => console.log('sign out')}
 		>
 			<Prose>
 				<h1>Authenticated App Shell</h1>

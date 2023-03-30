@@ -17,6 +17,15 @@ export function AuthenticatedAppShellFooter() {
 			borderTop
 			borderTopWidth="xl"
 		>
+			<Box
+				width={230}
+				display={{
+					xs: 'block',
+					lg: 'none',
+				}}
+			>
+				<Logo />
+			</Box>
 			<nav aria-label="footer">
 				<LinkList
 					horizontal
@@ -51,15 +60,6 @@ export function AuthenticatedAppShellFooter() {
 			<Text fontSize="xs" maxWidth={tokens.maxWidth.bodyText}>
 				&copy; {year} Department of Agriculture, Fisheries and Forestry
 			</Text>
-			<Box
-				width={230}
-				display={{
-					xs: 'block',
-					lg: 'none',
-				}}
-			>
-				<Logo />
-			</Box>
 		</Stack>
 	);
 }

@@ -56,7 +56,7 @@ function AppShellTest({ isFocusMode = false }) {
 			mainNavItems={navItems}
 			isFocusMode={isFocusMode}
 			activePath="#home"
-			onSignOut={() => console.log('sign out')}
+			handleSignOut={async () => console.log('sign out')}
 		>
 			<Prose>
 				<h1>Authenticated App Shell</h1>

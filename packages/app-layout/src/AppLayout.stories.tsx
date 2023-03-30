@@ -15,7 +15,7 @@ const commonProps: AppLayoutProps = {
 	userOrganisation: 'Orange Meat Works',
 	activePath: '/account',
 	unreadMessageCount: 3,
-	onSignOut: () => console.log('sign out'),
+	handleSignOut: async () => console.log('sign out'),
 };
 
 const Template: ComponentStory<typeof AppLayout> = (args: AppLayoutProps) => (

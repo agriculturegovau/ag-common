@@ -32,7 +32,7 @@ export type AuthenticatedAppShellProps = PropsWithChildren<{
 		organisation?: string;
 		href: string;
 	};
-	onSignOut: () => void;
+	handleSignOut: () => Promise<void>;
 }>;
 
 export function AuthenticatedAppShell({
@@ -43,7 +43,7 @@ export function AuthenticatedAppShell({
 	mainNavItems,
 	userMenu,
 	children,
-	onSignOut,
+	handleSignOut,
 }: AuthenticatedAppShellProps) {
 	const isMobile = useIsMobile();
 
@@ -68,7 +68,7 @@ export function AuthenticatedAppShell({
 				userMenu,
 				showMenuButtonRef,
 				hideMenuButtonRef,
-				onSignOut,
+				handleSignOut,
 			}}
 		>
 			<SkipLinks
