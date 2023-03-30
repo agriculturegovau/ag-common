@@ -146,7 +146,7 @@ export const UserLink = ({
 			focus
 			gap={{
 				xs: 0,
-				lg: 0.5,
+				lg: 1,
 			}}
 			alignItems="center"
 			align-self="flex-end"
@@ -163,11 +163,10 @@ export const UserLink = ({
 				},
 			}}
 		>
-			<UserLinkAvatar name={name} />
 			<Box
 				display={{ xs: 'none', lg: 'flex' }}
 				flexDirection="column"
-				css={{ textAlign: 'left' }}
+				css={{ textAlign: 'right' }}
 			>
 				<Text color="action" fontWeight="bold" fontSize="xs">
 					{name}
@@ -176,6 +175,7 @@ export const UserLink = ({
 					{organisation}
 				</Text>
 			</Box>
+			<UserLinkAvatar name={name} />
 
 			<Text
 				color="action"
