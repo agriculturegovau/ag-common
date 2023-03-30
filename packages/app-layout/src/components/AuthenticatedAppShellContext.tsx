@@ -9,6 +9,7 @@ export type AuthenticatedAppShellContextType = {
 	showMenuButtonRef: RefObject<HTMLButtonElement>;
 	hideMenuButtonRef: RefObject<HTMLButtonElement>;
 	handleSignOut: () => Promise<void>;
+	unreadMessageCount?: number;
 } & Pick<NonNullable<AuthenticatedAppShellProps>, 'userMenu'>;
 
 // create new context

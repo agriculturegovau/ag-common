@@ -80,6 +80,7 @@ export const AppLayout = ({
 			isFocusMode={isFocusMode}
 			activePath={bestActivePath}
 			handleSignOut={handleSignOut}
+			unreadMessageCount={unreadMessageCount}
 		>
 			{children}
 		</AuthenticatedAppShell>
