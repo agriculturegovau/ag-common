@@ -13,6 +13,8 @@ import { AvatarIcon, MenuIcon } from '@ag.ds-next/react/icon';
 import { BaseButton } from '@ag.ds-next/react/button';
 import { authenticatedAppShellHeaderHeight } from './utils';
 import { useAuthenticatedAppShellContext } from './AuthenticatedAppShellContext';
+import { NotificationBadge } from '@ag.ds-next/react/badge';
+import { VisuallyHidden } from '@ag.ds-next/react/a11y';
 
 export type AuthenticatedAppShellHeaderProps = {
 	title: string;
@@ -71,7 +73,7 @@ export function AuthenticatedAppShellHeader({
 }
 
 function ShowMenuButton() {
-	const { isMenuOpen, showMenu, showMenuButtonRef } =
+	const { isMenuOpen, showMenu, showMenuButtonRef, unreadMessageCount } =
 		useAuthenticatedAppShellContext();
 	return (
 		<Flex
@@ -91,6 +93,7 @@ function ShowMenuButton() {
 			color="action"
 			focus
 			css={{
+				position: 'relative',
 				flexShrink: 0,
 				'&:hover': {
 					background: boxPalette.backgroundShade,
@@ -102,8 +105,27 @@ function ShowMenuButton() {
 				}),
 			}}
 		>
+			{unreadMessageCount && (
+				<Box
+					css={{
+						position: 'absolute',
+						top: 18,
+						left: 48,
+					}}
+				>
+					<NotificationBadge
+						aria-hidden
+						value={unreadMessageCount}
+						max={99}
+						tone="action"
+					/>
+				</Box>
+			)}
 			<MenuIcon aria-hidden />
 			Menu
+			{unreadMessageCount && (
+				<VisuallyHidden>{`, ${unreadMessageCount} unread messages`}</VisuallyHidden>
+			)}
 		</Flex>
 	);
 }
