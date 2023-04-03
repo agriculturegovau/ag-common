@@ -1,24 +1,46 @@
-import React from 'react';
-import { Core, tokens } from '@ag.ds-next/react/core';
+import { Preview } from '@storybook/react';
+import { Box } from '@ag.ds-next/react/box';
+import { Core } from '@ag.ds-next/react/core';
 import { theme } from '@ag.ds-next/react/ag-branding';
 
-const viewportMap = {
-	xs: 'mobile',
-	sm: 'mobile',
-	md: 'tablet',
-	lg: 'laptop',
-	xl: 'desktop',
-};
-
-function makeViewports(breakpoints) {
+function makeViewports() {
+	const viewports = [
+		{
+			width: 320,
+			breakpoint: 'xs',
+		},
+		{
+			width: 375,
+			breakpoint: 'xs',
+		},
+		{
+			width: 576,
+			breakpoint: 'sm',
+		},
+		{
+			width: 768,
+			breakpoint: 'md',
+		},
+		{
+			width: 992,
+			breakpoint: 'lg',
+		},
+		{
+			width: 1024,
+			breakpoint: 'lg',
+		},
+		{
+			width: 1200,
+			breakpoint: 'xl',
+		},
+	];
 	return Object.fromEntries(
-		Object.entries(breakpoints).map(([key, size]) => [
-			key,
+		viewports.map((viewport) => [
+			viewport.width,
 			{
-				name: `${key} ${viewportMap[key]} (${size === 0 ? 320 : size}) `,
-				type: viewportMap[key],
+				name: `${viewport.breakpoint} (${viewport.width}px)`,
 				styles: {
-					width: `${size === 0 ? 320 : size}px`,
+					width: `${viewport.width}px`,
 					height: '100%',
 				},
 			},
@@ -26,7 +48,7 @@ function makeViewports(breakpoints) {
 	);
 }
 
-export const parameters = {
+const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },
 	controls: {
 		matchers: {
@@ -35,16 +57,29 @@ export const parameters = {
 		},
 	},
 	viewport: {
-		viewports: makeViewports(tokens.breakpoint),
+		viewports: makeViewports(),
 	},
 };
 
-const withBrandTheme = (Story, context) => {
-	return (
-		<Core theme={theme}>
-			<Story />
-		</Core>
-	);
+const preview: Preview = {
+	parameters,
+	decorators: [
+		(Story, context) => {
+			const palette = context.globals.palette;
+			return (
+				<Core theme={theme}>
+					<Box
+						width="100%"
+						minHeight="100vh"
+						palette={palette}
+						background="body"
+					>
+						<Story />
+					</Box>
+				</Core>
+			);
+		},
+	],
 };
 
-export const decorators = [withBrandTheme];
+export default preview;
