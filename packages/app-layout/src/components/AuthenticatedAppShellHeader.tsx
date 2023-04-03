@@ -13,6 +13,7 @@ import { AvatarIcon, MenuIcon } from '@ag.ds-next/react/icon';
 import { BaseButton } from '@ag.ds-next/react/button';
 import { authenticatedAppShellHeaderHeight } from './utils';
 import { useAuthenticatedAppShellContext } from './AuthenticatedAppShellContext';
+import { Logo } from '@ag.ds-next/react/ag-branding';
 
 export type AuthenticatedAppShellHeaderProps = {
 	title: string;
@@ -43,6 +44,23 @@ export function AuthenticatedAppShellHeader({
 		>
 			<Flex alignItems="center">
 				<ShowMenuButton />
+
+				<Box
+					color="text"
+					paddingY={1}
+					paddingLeft={1}
+					display={{
+						xs: 'none',
+						md: 'block',
+						lg: 'none',
+					}}
+					css={{
+						width: 200,
+						svg: { height: '100%' },
+					}}
+				>
+					<Logo />
+				</Box>
 				<Flex
 					flexDirection="column"
 					justifyContent="center"
