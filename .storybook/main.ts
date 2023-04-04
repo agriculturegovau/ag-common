@@ -8,6 +8,9 @@ const config: StorybookConfig = {
 	core: {
 		builder: '@storybook/builder-vite',
 	},
+	features: {
+		storyStoreV7: false,
+	},
 	addons: [
 		'@storybook/addon-links',
 		'@storybook/addon-a11y',
