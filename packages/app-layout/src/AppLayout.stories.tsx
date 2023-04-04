@@ -1,45 +1,46 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Prose } from '@ag.ds-next/react/prose';
-import { AppLayout, AppLayoutProps } from './AppLayout';
+import type { Meta, StoryObj } from '@storybook/react';
+import { AppLayout } from './AppLayout';
 
-export default {
-	title: 'App Shell',
+const meta: Meta<typeof AppLayout> = {
+	title: 'AppLayout',
 	component: AppLayout,
 	parameters: {
 		layout: 'fullscreen',
 	},
-} as ComponentMeta<typeof AppLayout>;
-
-const commonProps: AppLayoutProps = {
-	userName: 'Toto Wolff',
-	userOrganisation: 'Orange Meat Works',
-	activePath: '/account',
-	unreadMessageCount: 3,
-	handleSignOut: async () => console.log('sign out'),
+	args: {
+		userName: 'Toto Wolff',
+		userOrganisation: 'Orange Meat Works',
+		activePath: '/account',
+		unreadMessageCount: 3,
+		handleSignOut: async () => console.log('sign out'),
+	},
+	render: (args) => (
+		<AppLayout {...args}>
+			<Prose>
+				<h1>Authenticated App Shell</h1>
+				<p>Some content</p>
+			</Prose>
+		</AppLayout>
+	),
 };
 
-const Template: ComponentStory<typeof AppLayout> = (args: AppLayoutProps) => (
-	<AppLayout {...args}>
-		<Prose>
-			<h1>Authenticated App Shell</h1>
-			<p>Some content</p>
-		</Prose>
-	</AppLayout>
-);
+export default meta;
 
-export const Main = Template.bind({});
-Main.args = {
-	...commonProps,
+type Story = StoryObj<typeof AppLayout>;
+
+export const Basic: Story = {
+	args: {},
 };
 
-export const FocusMode = Template.bind({});
-FocusMode.args = {
-	...commonProps,
-	isFocusMode: true,
+export const FocusMode: Story = {
+	args: {
+		isFocusMode: true,
+	},
 };
 
-export const NoOrganisation = Template.bind({});
-NoOrganisation.args = {
-	...commonProps,
-	userOrganisation: undefined,
+export const NoOrganisation: Story = {
+	args: {
+		userOrganisation: undefined,
+	},
 };

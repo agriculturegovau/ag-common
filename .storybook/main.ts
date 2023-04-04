@@ -1,50 +1,22 @@
-import type { StorybookConfig } from '@storybook/core-common';
+import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
-	stories: ['../packages/*/src/**/*.stories.@(ts|tsx)'],
-	addons: [
-		'@storybook/addon-links',
-		{
-			name: '@storybook/addon-essentials',
-			options: {
-				backgrounds: false,
-			},
-		},
-		'@storybook/addon-a11y',
-		'@storybook/addon-postcss',
-	],
+	framework: {
+		name: '@storybook/react-vite',
+		options: {},
+	},
 	core: {
-		builder: 'webpack5',
+		builder: '@storybook/builder-vite',
 	},
 	features: {
-		/**
-		 * Enable code splitting
-		 * @see https://storybook.js.org/docs/react/builders/webpack#code-splitting
-		 */
-		storyStoreV7: true,
+		storyStoreV7: false,
 	},
-	framework: '@storybook/react',
-	webpackFinal: (config) => {
-		config.module?.rules.push({
-			test: /\.esm.js?$/,
-			use: [
-				{
-					loader: require.resolve('babel-loader'),
-					options: {
-						presets: [
-							require('@babel/preset-typescript').default,
-							[
-								require('@babel/preset-react').default,
-								{ runtime: 'automatic' },
-							],
-							require('@babel/preset-env').default,
-						],
-					},
-				},
-			],
-		});
-		return config;
-	},
+	addons: [
+		'@storybook/addon-links',
+		'@storybook/addon-a11y',
+		{ name: '@storybook/addon-essentials', options: { background: false } },
+	],
+	stories: ['../packages/*/src/**/*.stories.@(ts|tsx)'],
 };
 
 export default config;
