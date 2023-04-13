@@ -32,7 +32,7 @@
 		"@emotion/babel-preset-css-prop": "^11.2.0",
 		"@emotion/react": "^11.7.0",
 		"@manypkg/cli": "^0.20.0",
-		"@preconstruct/cli": "^2.4.4",
+		"@preconstruct/cli": "^2.5.0",
 		"@preconstruct/next": "^4.0.0",
 		"@storybook/addon-a11y": "^7.0.2",
 		"@storybook/addon-actions": "^7.0.2",
