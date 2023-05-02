@@ -1,5 +1,4 @@
-import { ComponentProps, ReactNode } from 'react';
-
+import { ComponentProps } from 'react';
 import { Box, Flex, Stack } from '@ag.ds-next/react/box';
 import { Button, ButtonLink, ButtonSize } from '@ag.ds-next/react/button';
 import { TextLinkExternal } from '@ag.ds-next/react/text-link';
@@ -90,12 +89,12 @@ export const DigitalIdentityButton = ({
 		>
 			{narrow === true ? (
 				<Stack gap={0.5}>
-					<DigitalID_Logo variant={variant} />
+					<DigitalID_Logo />
 					<span>Continue with Digital Identity</span>
 				</Stack>
 			) : (
 				<Flex alignItems={'center'} gap={0.5}>
-					<DigitalID_Logo variant={variant} />
+					<DigitalID_Logo />
 					<span>Continue with Digital Identity</span>
 				</Flex>
 			)}
@@ -139,21 +138,17 @@ export const DigitalIdentity = ({
 
 	return outerContent === true ? (
 		<Stack css={outerCSS} {...outerProps}>
-			<Box css={{ alignSelf: 'center' }}>
-				<Box padding={1.5}>
-					<DigitalIdentityButton block variant={variant} {...props} />
-				</Box>
+			<Box padding={1.5} css={{ alignSelf: 'center' }}>
+				<DigitalIdentityButton block variant={variant} {...props} />
 			</Box>
 			<Box {...innerProps}>
-				<Box padding={1.5}>
-					<Text as="p">
-						<TextLinkExternal href="https://www.digitalidentity.gov.au/">
-							Digital Identity
-						</TextLinkExternal>{' '}
-						is a safe, secure and convenient way to prove and reuse your
-						identity online.
-					</Text>
-				</Box>
+				<Text padding={1.5} as="p">
+					<TextLinkExternal href="https://www.digitalidentity.gov.au/">
+						Digital Identity
+					</TextLinkExternal>{' '}
+					is a safe, secure and convenient way to prove and reuse your identity
+					online.
+				</Text>
 			</Box>
 		</Stack>
 	) : (
