@@ -53,12 +53,11 @@ interface DigitalIdentityButtonProps {
 // Props for the entire component including outer content
 interface DigitalIdentityProps extends DigitalIdentityButtonProps {
 	container?: boolean;
-	outerContent?: boolean;
 }
 
 const variantDefault = 'light';
 
-// Just the identity button on its own
+// The inner identity button
 const DigitalIdentityButton = ({
 	variant = variantDefault,
 	squared,
@@ -103,7 +102,6 @@ const DigitalIdentityButton = ({
 };
 
 export const DigitalIdentity = ({
-	outerContent,
 	container,
 	variant: variant_,
 	...props
@@ -136,7 +134,7 @@ export const DigitalIdentity = ({
 	const innerProps =
 		container === true ? ({ borderTop: true, borderWidth: 'md' } as const) : {};
 
-	return outerContent === true ? (
+	return (
 		<Stack css={outerCSS} {...outerProps}>
 			<Box padding={1.5} css={{ alignSelf: 'center' }}>
 				<DigitalIdentityButton block variant={variant} {...props} />
@@ -151,7 +149,5 @@ export const DigitalIdentity = ({
 				</Text>
 			</Box>
 		</Stack>
-	) : (
-		<DigitalIdentityButton variant={variant} {...props} />
 	);
 };

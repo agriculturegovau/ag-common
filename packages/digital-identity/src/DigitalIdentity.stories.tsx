@@ -26,14 +26,12 @@ export const Recommended: Story = {
 	args: {
 		href: '#',
 		container: true,
-		outerContent: true,
 	},
 };
 
 export const ClickLoadingBanner: Story = {
 	args: {
 		container: true,
-		outerContent: true,
 	},
 	render: function Render({ href: _, ...props }) {
 		const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
