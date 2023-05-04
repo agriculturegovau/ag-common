@@ -1,5 +1,5 @@
 ---
-'@ag.common/identity': patch
+'@ag.common/digital-identity': patch
 ---
 
-Create Identity package
+Create DigitalIdentity package

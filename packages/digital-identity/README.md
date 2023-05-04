@@ -3,13 +3,13 @@
 ## Installation
 
 ```sh
-yarn add @ag.common/identity
+yarn add @ag.common/digital-identity
 ```
 
 ## Usage
 
 ```tsx
-import { DigitalIdentity } from '@ag.common/identity';
+import { DigitalIdentity } from '@ag.common/digital-identity';
 
 function Page() {
 	return (

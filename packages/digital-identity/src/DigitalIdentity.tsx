@@ -3,7 +3,7 @@ import { Box, Flex, Stack } from '@ag.ds-next/react/box';
 import { Button, ButtonLink, ButtonSize } from '@ag.ds-next/react/button';
 import { TextLinkExternal } from '@ag.ds-next/react/text-link';
 import { Text } from '@ag.ds-next/react/text';
-import { DigitalID_Logo } from './Assets';
+import { DigitalIdentityLogo } from './Assets';
 
 type LinkParams = { href: string };
 type ButtonParams = { onClick: () => Promise<void> };
@@ -59,7 +59,7 @@ interface DigitalIdentityProps extends DigitalIdentityButtonProps {
 const variantDefault = 'light';
 
 // Just the identity button on its own
-export const DigitalIdentityButton = ({
+const DigitalIdentityButton = ({
 	variant = variantDefault,
 	squared,
 	narrow,
@@ -89,12 +89,12 @@ export const DigitalIdentityButton = ({
 		>
 			{narrow === true ? (
 				<Stack gap={0.5}>
-					<DigitalID_Logo />
+					<DigitalIdentityLogo />
 					<span>Continue with Digital Identity</span>
 				</Stack>
 			) : (
 				<Flex alignItems={'center'} gap={0.5}>
-					<DigitalID_Logo />
+					<DigitalIdentityLogo />
 					<span>Continue with Digital Identity</span>
 				</Flex>
 			)}

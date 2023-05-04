@@ -1,4 +1,4 @@
-export const DigitalID_Logo = () => (
+export const DigitalIdentityLogo = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 250 185"
