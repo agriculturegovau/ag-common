@@ -15,13 +15,6 @@ export default meta;
 
 type Story = StoryObj<typeof DigitalIdentity>;
 
-export const Basic: Story = {
-	args: {
-		href: '#',
-		variant: 'dark',
-	},
-};
-
 export const Recommended: Story = {
 	args: {
 		href: '#',
@@ -29,7 +22,104 @@ export const Recommended: Story = {
 	},
 };
 
-export const ClickLoadingBanner: Story = {
+export const BlackRoundedContainer: Story = {
+	name: 'Black button, rounded corners, container',
+	args: {
+		href: '#',
+		container: true,
+	},
+};
+
+export const BlackSquareContainer: Story = {
+	name: 'Black button, square corners, container',
+	args: {
+		href: '#',
+		container: true,
+		squared: true,
+	},
+};
+
+export const WhiteRoundedContainer: Story = {
+	name: 'White button, rounded corners, container',
+	args: {
+		href: '#',
+		container: true,
+		variant: 'dark',
+	},
+};
+
+export const WhiteSquareContainer: Story = {
+	name: 'White button, square corners, container',
+	args: {
+		href: '#',
+		container: true,
+		squared: true,
+		variant: 'dark',
+	},
+};
+
+export const BlackRounded: Story = {
+	name: 'Black button, rounded corners, no container',
+	args: {
+		href: '#',
+		container: true,
+		squared: true,
+		variant: 'dark',
+	},
+};
+
+export const WhiteRounded: Story = {
+	name: 'White button, rounded corners, no container',
+	args: {
+		href: '#',
+		container: true,
+		squared: true,
+		variant: 'dark',
+	},
+};
+
+export const BlackNarrowRoundedContainer: Story = {
+	name: 'Black button, narrow variant, rounded corners, container',
+	args: {
+		href: '#',
+		container: true,
+		squared: true,
+		variant: 'dark',
+	},
+};
+
+export const WhiteNarrowRoundedContainer: Story = {
+	name: 'White button, narrow variant, rounded corners, container',
+	args: {
+		href: '#',
+		container: true,
+		squared: true,
+		variant: 'dark',
+	},
+};
+
+export const BlackNarrowRounded: Story = {
+	name: 'Black button, narrow variant, rounded corners, no container',
+	args: {
+		href: '#',
+		container: true,
+		squared: true,
+		variant: 'dark',
+	},
+};
+
+export const WhiteNarrowRounded: Story = {
+	name: 'White button, narrow variant, rounded corners, no container',
+	args: {
+		href: '#',
+		container: true,
+		squared: true,
+		variant: 'dark',
+	},
+};
+
+export const Loading: Story = {
+	name: 'OnClick loading banner',
 	args: {
 		container: true,
 	},
