@@ -83,7 +83,7 @@ const DigitalIdentityButton = ({
 				height: narrow === true ? 'auto' : undefined,
 				width: narrow === true ? '150px' : undefined,
 			}}
-			variant={variant === 'light' ? 'secondary' : 'primary'}
+			variant={variant === 'light' ? 'primary' : 'secondary'}
 			{...commonProps}
 		>
 			{narrow === true ? (

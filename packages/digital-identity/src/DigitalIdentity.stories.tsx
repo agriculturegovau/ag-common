@@ -62,9 +62,7 @@ export const BlackRounded: Story = {
 	name: 'Black button, rounded corners, no container',
 	args: {
 		href: '#',
-		container: true,
-		squared: true,
-		variant: 'dark',
+		variant: 'light',
 	},
 };
 
@@ -72,8 +70,6 @@ export const WhiteRounded: Story = {
 	name: 'White button, rounded corners, no container',
 	args: {
 		href: '#',
-		container: true,
-		squared: true,
 		variant: 'dark',
 	},
 };
@@ -83,8 +79,8 @@ export const BlackNarrowRoundedContainer: Story = {
 	args: {
 		href: '#',
 		container: true,
-		squared: true,
-		variant: 'dark',
+		narrow: true,
+		variant: 'light',
 	},
 };
 
@@ -93,7 +89,7 @@ export const WhiteNarrowRoundedContainer: Story = {
 	args: {
 		href: '#',
 		container: true,
-		squared: true,
+		narrow: true,
 		variant: 'dark',
 	},
 };
@@ -102,9 +98,8 @@ export const BlackNarrowRounded: Story = {
 	name: 'Black button, narrow variant, rounded corners, no container',
 	args: {
 		href: '#',
-		container: true,
-		squared: true,
-		variant: 'dark',
+		narrow: true,
+		variant: 'light',
 	},
 };
 
@@ -112,8 +107,7 @@ export const WhiteNarrowRounded: Story = {
 	name: 'White button, narrow variant, rounded corners, no container',
 	args: {
 		href: '#',
-		container: true,
-		squared: true,
+		narrow: true,
 		variant: 'dark',
 	},
 };
