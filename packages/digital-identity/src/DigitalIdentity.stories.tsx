@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { DigitalIdentity } from './DigitalIdentity';
 import { LoadingBlanket } from '@ag.ds-next/react/loading';
+import { Box, Flex } from '@ag.ds-next/react/box';
 
 const meta: Meta<typeof DigitalIdentity> = {
 	title: 'DigitalIdentity',
@@ -9,6 +10,11 @@ const meta: Meta<typeof DigitalIdentity> = {
 	parameters: {
 		layout: 'fullscreen',
 	},
+	render: (args) => (
+		<Box padding={2}>
+			<DigitalIdentity {...args} />
+		</Box>
+	),
 };
 
 export default meta;
@@ -72,6 +78,11 @@ export const WhiteRounded: Story = {
 		href: '#',
 		variant: 'dark',
 	},
+	render: (args) => (
+		<Box padding={2} minHeight={'100vh'} css={{ backgroundColor: 'black' }}>
+			<DigitalIdentity {...args} />
+		</Box>
+	),
 };
 
 export const BlackNarrowRoundedContainer: Story = {
@@ -110,6 +121,11 @@ export const WhiteNarrowRounded: Story = {
 		narrow: true,
 		variant: 'dark',
 	},
+	render: (args) => (
+		<Box padding={2} minHeight={'100vh'} css={{ backgroundColor: 'black' }}>
+			<DigitalIdentity {...args} />
+		</Box>
+	),
 };
 
 export const Loading: Story = {
