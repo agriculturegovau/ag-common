@@ -1,9 +1,10 @@
 import { Box, Flex, Stack } from '@ag.ds-next/react/box';
 import { BaseButton, buttonStyles } from '@ag.ds-next/react/button';
-import { TextLinkExternal } from '@ag.ds-next/react/text-link';
-import { Text } from '@ag.ds-next/react/text';
-import { DigitalIdentityLogo } from './Assets';
 import { useLinkComponent } from '@ag.ds-next/react/core';
+import { Text } from '@ag.ds-next/react/text';
+import { TextLinkExternal } from '@ag.ds-next/react/text-link';
+
+import { DigitalIdentityLogo } from './Assets';
 
 type LinkParams = { href: string };
 type ButtonParams = { onClick: () => Promise<void> };
@@ -36,6 +37,36 @@ interface DigitalIdentityProps extends DigitalIdentityButtonProps {
 
 const variantDefault = 'light';
 
+interface ButtonVariantPalette {
+	foreground: string;
+	background: string;
+	outline: string;
+}
+
+const buttonVariantStyles = (t: ButtonVariantPalette) => ({
+	background: t.background,
+	borderColor: t.background,
+	color: t.foreground,
+	textDecoration: 'none',
+
+	'&:focus': {
+		outlineWidth: '3px',
+		outlineStyle: 'solid',
+		outlineOffset: 2,
+		outlineColor: t.outline,
+	},
+	'&:not(:disabled):hover': {
+		background: t.outline,
+		borderColor: t.background,
+		color: t.foreground,
+	},
+});
+
+const buttonVariantPalettes: Record<'dark' | 'light', ButtonVariantPalette> = {
+	light: { foreground: '#FFF', background: '#000', outline: '#333' },
+	dark: { foreground: '#000', background: '#FFF', outline: '#EEE' },
+};
+
 // The inner identity button
 const DigitalIdentityButton = ({
 	variant = variantDefault,
@@ -46,21 +77,21 @@ const DigitalIdentityButton = ({
 	block,
 }: DigitalIdentityButtonProps & Action & CommonButtonProps) => {
 	const Link = useLinkComponent();
-	const styles = {
+	const palette = buttonVariantPalettes[variant];
+
+	const buttonCSS = {
 		...buttonStyles({
 			block: block ?? false,
 			size: 'md',
 			variant: variant === 'light' ? 'primary' : 'secondary',
 		}),
-		['--agds-foreground-action']: '#000',
-		['--agds-foreground-text']: '#000',
-		['--agds-background-body']: '#FFF',
-		['--agds-foreground-focus']: 'var(--agds-border)',
+		...buttonVariantStyles(palette),
+		...(narrow === true ? { height: 'auto', width: '150px' } : undefined),
+
 		borderWidth: '2px',
 		padding: '12.5px 10px',
 		borderRadius: squared === true ? 0 : '5px',
-		...(narrow === true ? { height: 'auto', width: '150px' } : undefined),
-	};
+	} as const;
 
 	const children =
 		narrow === true ? (
@@ -69,42 +100,21 @@ const DigitalIdentityButton = ({
 				<span>Continue with Digital Identity</span>
 			</Stack>
 		) : (
-			<Flex alignItems={'center'} gap={0.5}>
+			<Flex gap={0.5} alignItems={'center'}>
 				<DigitalIdentityLogo />
 				<span>Continue with Digital Identity</span>
 			</Flex>
 		);
 
 	return href === undefined ? (
-		<BaseButton onClick={onClick} css={styles}>
+		<BaseButton onClick={onClick} css={buttonCSS}>
 			{children}
 		</BaseButton>
 	) : (
-		<Link href={href} css={styles}>
+		<Link href={href} css={buttonCSS}>
 			{children}
 		</Link>
 	);
-
-	/*
-		<Btn
-			css={{
-				['--agds-foreground-action']: '#000',
-				['--agds-foreground-text']: '#000',
-				['--agds-background-body']: '#FFF',
-				['--agds-foreground-focus']: 'var(--agds-border)',
-				borderRadius: squared === true ? 0 : undefined,
-				borderWidth: '2px',
-				padding: '12.5px 10px',
-				height: narrow === true ? 'auto' : undefined,
-				width: narrow === true ? '150px' : undefined,
-			}}
-			variant={variant === 'light' ? 'primary' : 'secondary'}
-			{...commonProps}
-		>
-			{children}
-		</Btn>
-	);
-	*/
 };
 
 export const DigitalIdentity = ({

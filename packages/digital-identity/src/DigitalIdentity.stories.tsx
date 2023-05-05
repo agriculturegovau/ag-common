@@ -25,7 +25,11 @@ const Layout = (
 			{args.children}
 
 			{darkMode ? (
-				<Text as="p" css={{ color: 'white', alignSelf: 'center' }}>
+				<Text
+					as="p"
+					fontSize="xs"
+					css={{ color: 'white', alignSelf: 'center' }}
+				>
 					❗️ dark background set by your page
 				</Text>
 			) : null}
