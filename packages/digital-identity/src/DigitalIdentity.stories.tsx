@@ -1,8 +1,50 @@
-import { useState } from 'react';
+import { ComponentProps, ReactNode, useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { DigitalIdentity } from './DigitalIdentity';
 import { LoadingBlanket } from '@ag.ds-next/react/loading';
-import { Box, Flex } from '@ag.ds-next/react/box';
+import { Box, Flex, Stack } from '@ag.ds-next/react/box';
+import { Text } from '@ag.ds-next/react/text';
+
+const Layout = (
+	args: Pick<
+		ComponentProps<typeof DigitalIdentity>,
+		'variant' | 'container'
+	> & { children: ReactNode }
+) => {
+	const darkMode = args.variant === 'dark' && args.container !== true;
+
+	return (
+		<Stack
+			padding={2}
+			minHeight={'100vh'}
+			justifyContent={'space-between'}
+			css={{
+				backgroundColor: darkMode ? 'black' : 'white',
+			}}
+		>
+			{args.children}
+
+			{darkMode ? (
+				<Text as="p" css={{ color: 'white', alignSelf: 'center' }}>
+					❗️ dark background set by your page
+				</Text>
+			) : null}
+		</Stack>
+	);
+};
+
+const RenderWithBackground = (args: ComponentProps<typeof DigitalIdentity>) => (
+	<Box
+		padding={2}
+		minHeight={'100vh'}
+		css={{
+			backgroundColor:
+				args.variant === 'dark' && args.container !== true ? 'blue' : 'red',
+		}}
+	>
+		<DigitalIdentity {...args} />
+	</Box>
+);
 
 const meta: Meta<typeof DigitalIdentity> = {
 	title: 'DigitalIdentity',
@@ -11,9 +53,9 @@ const meta: Meta<typeof DigitalIdentity> = {
 		layout: 'fullscreen',
 	},
 	render: (args) => (
-		<Box padding={2}>
+		<Layout {...args}>
 			<DigitalIdentity {...args} />
-		</Box>
+		</Layout>
 	),
 };
 
@@ -78,11 +120,6 @@ export const WhiteRounded: Story = {
 		href: '#',
 		variant: 'dark',
 	},
-	render: (args) => (
-		<Box padding={2} minHeight={'100vh'} css={{ backgroundColor: 'black' }}>
-			<DigitalIdentity {...args} />
-		</Box>
-	),
 };
 
 export const BlackNarrowRoundedContainer: Story = {
@@ -121,11 +158,6 @@ export const WhiteNarrowRounded: Story = {
 		narrow: true,
 		variant: 'dark',
 	},
-	render: (args) => (
-		<Box padding={2} minHeight={'100vh'} css={{ backgroundColor: 'black' }}>
-			<DigitalIdentity {...args} />
-		</Box>
-	),
 };
 
 export const Loading: Story = {
@@ -137,7 +169,7 @@ export const Loading: Story = {
 		const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 		const [loading, setLoading] = useState(false);
 		return (
-			<>
+			<Layout {...props}>
 				{loading === true ? (
 					<LoadingBlanket label="Redirecting you to Digital Identity" />
 				) : null}
@@ -149,7 +181,7 @@ export const Loading: Story = {
 						setLoading(false);
 					}}
 				/>
-			</>
+			</Layout>
 		);
 	},
 };

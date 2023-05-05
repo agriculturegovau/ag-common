@@ -1,4 +1,3 @@
-import { ComponentProps } from 'react';
 import { Box, Flex, Stack } from '@ag.ds-next/react/box';
 import { BaseButton, buttonStyles } from '@ag.ds-next/react/button';
 import { TextLinkExternal } from '@ag.ds-next/react/text-link';
