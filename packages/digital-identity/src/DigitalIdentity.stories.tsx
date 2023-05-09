@@ -2,7 +2,7 @@ import { ComponentProps, ReactNode, useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { DigitalIdentity } from './DigitalIdentity';
 import { LoadingBlanket } from '@ag.ds-next/react/loading';
-import { Box, Flex, Stack } from '@ag.ds-next/react/box';
+import { Box, Stack } from '@ag.ds-next/react/box';
 import { Text } from '@ag.ds-next/react/text';
 
 const Layout = (
@@ -36,19 +36,6 @@ const Layout = (
 		</Stack>
 	);
 };
-
-const RenderWithBackground = (args: ComponentProps<typeof DigitalIdentity>) => (
-	<Box
-		padding={2}
-		minHeight={'100vh'}
-		css={{
-			backgroundColor:
-				args.variant === 'dark' && args.container !== true ? 'blue' : 'red',
-		}}
-	>
-		<DigitalIdentity {...args} />
-	</Box>
-);
 
 const meta: Meta<typeof DigitalIdentity> = {
 	title: 'DigitalIdentity',
@@ -169,7 +156,7 @@ export const Loading: Story = {
 	args: {
 		container: true,
 	},
-	render: function Render({ href: _, ...props }) {
+	render: function Render({ href, ...props }) {
 		const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 		const [loading, setLoading] = useState(false);
 		return (
