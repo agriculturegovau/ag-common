@@ -65,7 +65,7 @@ const buttonVariantPalettes: Record<'dark' | 'light', ButtonVariantPalette> = {
 // The inner identity button
 const DigitalIdentityButton = ({
 	variant = variantDefault,
-	squared,
+	squareCorners,
 	narrow,
 	href,
 	onClick,
@@ -85,7 +85,7 @@ const DigitalIdentityButton = ({
 
 		borderWidth: '2px',
 		padding: '12.5px 10px',
-		borderRadius: squared === true ? 0 : '5px',
+		borderRadius: squareCorners === true ? 0 : '5px',
 	} as const;
 
 	const children =
@@ -140,7 +140,7 @@ export const DigitalIdentity = ({
 						background: variant === 'light' ? '#EEE' : '#3F3F3F',
 						border: '2px solid',
 						borderColor: variant === 'light' ? '#979797' : '#000',
-						borderRadius: props.squared === true ? 0 : '6px',
+						borderRadius: props.squareCorners === true ? 0 : '6px',
 						maxWidth: props.narrow === true ? 230 : 430,
 						...textColour,
 					} as const,

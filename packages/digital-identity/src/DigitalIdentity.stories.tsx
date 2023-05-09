@@ -57,7 +57,6 @@ type Story = StoryObj<typeof DigitalIdentity>;
 export const Recommended: Story = {
 	args: {
 		href: '#',
-		container: true,
 	},
 };
 
@@ -74,7 +73,7 @@ export const BlackSquareContainer: Story = {
 	args: {
 		href: '#',
 		container: true,
-		squared: true,
+		squareCorners: true,
 	},
 };
 
@@ -92,7 +91,7 @@ export const WhiteSquareContainer: Story = {
 	args: {
 		href: '#',
 		container: true,
-		squared: true,
+		squareCorners: true,
 		variant: 'dark',
 	},
 };
@@ -102,6 +101,7 @@ export const BlackRounded: Story = {
 	args: {
 		href: '#',
 		variant: 'light',
+		container: false,
 	},
 };
 
@@ -110,6 +110,7 @@ export const WhiteRounded: Story = {
 	args: {
 		href: '#',
 		variant: 'dark',
+		container: false,
 	},
 };
 
@@ -139,6 +140,7 @@ export const BlackNarrowRounded: Story = {
 		href: '#',
 		narrow: true,
 		variant: 'light',
+		container: false,
 	},
 };
 
@@ -148,6 +150,7 @@ export const WhiteNarrowRounded: Story = {
 		href: '#',
 		narrow: true,
 		variant: 'dark',
+		container: false,
 	},
 };
 

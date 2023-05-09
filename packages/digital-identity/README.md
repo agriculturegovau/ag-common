@@ -16,7 +16,7 @@ function Page() {
 		<Prose>
 			<h1>Sign in with Digital Identity</h1>
 			<p>...<p>
-			<DigitalIdentity container href="/account" />
+			<DigitalIdentity href="/account" />
 		</Prose>
 	);
 }
