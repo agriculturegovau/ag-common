@@ -1,6 +1,6 @@
 import { Box, Flex, Stack } from '@ag.ds-next/react/box';
 import { BaseButton, buttonStyles } from '@ag.ds-next/react/button';
-import { useLinkComponent } from '@ag.ds-next/react/core';
+import { packs, useLinkComponent } from '@ag.ds-next/react/core';
 import { Text } from '@ag.ds-next/react/text';
 import { TextLinkExternal } from '@ag.ds-next/react/text-link';
 
@@ -26,7 +26,7 @@ interface CommonButtonProps {
 // Props for the inner Identity button
 interface DigitalIdentityButtonProps {
 	variant?: 'dark' | 'light';
-	squared?: boolean;
+	squareCorners?: boolean;
 	narrow?: boolean;
 }
 
@@ -49,12 +49,7 @@ const buttonVariantStyles = (t: ButtonVariantPalette) => ({
 	color: t.foreground,
 	textDecoration: 'none',
 
-	'&:focus': {
-		outlineWidth: '3px',
-		outlineStyle: 'solid',
-		outlineOffset: 2,
-		outlineColor: t.outline,
-	},
+	'&:focus': packs.outline,
 	'&:not(:disabled):hover': {
 		background: t.outline,
 		borderColor: t.background,
@@ -118,7 +113,7 @@ const DigitalIdentityButton = ({
 };
 
 export const DigitalIdentity = ({
-	container,
+	container = true,
 	variant: variant_,
 	...props
 }: DigitalIdentityProps & Action) => {
