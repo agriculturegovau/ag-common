@@ -2,7 +2,7 @@ import { ComponentProps, ReactNode, useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { DigitalIdentity } from './DigitalIdentity';
 import { LoadingBlanket } from '@ag.ds-next/react/loading';
-import { Box, Stack } from '@ag.ds-next/react/box';
+import { Stack } from '@ag.ds-next/react/box';
 import { Text } from '@ag.ds-next/react/text';
 
 const Layout = (
