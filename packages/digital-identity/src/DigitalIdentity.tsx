@@ -57,9 +57,29 @@ const buttonVariantStyles = (t: ButtonVariantPalette) => ({
 	},
 });
 
+const palette = {
+	white: '#FFF',
+	black: '#000',
+	lightOutline: '#333',
+	darkOutline: '#EEE',
+	lightBG: '#EEE',
+	darkBG: '#3F3F3F',
+	lightText: '#313131',
+	lightBorder: '#979797',
+	babyBlue: '#B6D2FF',
+};
+
 const buttonVariantPalettes: Record<'dark' | 'light', ButtonVariantPalette> = {
-	light: { foreground: '#FFF', background: '#000', outline: '#333' },
-	dark: { foreground: '#000', background: '#FFF', outline: '#EEE' },
+	light: {
+		foreground: palette.white,
+		background: palette.black,
+		outline: palette.lightOutline,
+	},
+	dark: {
+		foreground: palette.black,
+		background: palette.white,
+		outline: palette.darkOutline,
+	},
 };
 
 // The inner identity button
@@ -120,16 +140,16 @@ export const DigitalIdentity = ({
 	const variant = variant_ ?? variantDefault;
 
 	const textColour = {
-		color: variant === 'light' ? '#313131' : '#FFF',
+		color: variant === 'light' ? palette.lightText : palette.white,
 	} as const;
 
 	const externalLinkCSS =
 		variant === 'light'
 			? {}
 			: ({
-					color: '#B6D2FF',
+					color: palette.babyBlue,
 					'&:hover': {
-						color: '#B6D2FF',
+						color: palette.babyBlue,
 					},
 			  } as const);
 
@@ -137,9 +157,10 @@ export const DigitalIdentity = ({
 		container === true
 			? [
 					{
-						background: variant === 'light' ? '#EEE' : '#3F3F3F',
+						background: variant === 'light' ? palette.lightBG : palette.darkBG,
 						border: '2px solid',
-						borderColor: variant === 'light' ? '#979797' : '#000',
+						borderColor:
+							variant === 'light' ? palette.lightBorder : palette.black,
 						borderRadius: props.squareCorners === true ? 0 : '6px',
 						maxWidth: props.narrow === true ? 230 : 430,
 						...textColour,
