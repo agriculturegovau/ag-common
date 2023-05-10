@@ -7,16 +7,16 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
-"@ag.ds-next/react@^1.3.1":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/react/-/react-1.3.1.tgz#30d25d6f2ba4c32ddd52de3d543407025c20be1b"
-  integrity sha512-thWyOKCZEnUVFjzkom84Lf6Z9usdh9w9CQ43l6wJ4NI5FpiiYJxo5VoyFzD9zAMbyRv1IvnoJLd/VSbMwgVf/Q==
+"@ag.ds-next/react@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/react/-/react-1.5.0.tgz#f57bda5dbfe74e656c8f7c73dcaa44ac5fd761bc"
+  integrity sha512-abJsI7vctQ0gaJFJkTMvOPWHp+RgFx6ycTLzjmvEoHF4DdUQRUc8432116nurSwHS92ZCkoMz1k6U2WM8laP8A==
   dependencies:
     "@babel/runtime" "^7.4.5"
     "@popperjs/core" "^2.11.4"
     "@react-spring/web" "^9.4.5"
     date-fns "^2.28.0"
-    downshift "^6.1.7"
+    downshift "^7.4.1"
     filesize "^8.0.7"
     react-day-picker "^8.3.5"
     react-dropzone "^12.0.5"
@@ -5302,10 +5302,10 @@ compression@^1.7.4:
     safe-buffer "5.1.2"
     vary "~1.1.2"
 
-compute-scroll-into-view@^1.0.17:
-  version "1.0.20"
-  resolved "https://registry.yarnpkg.com/compute-scroll-into-view/-/compute-scroll-into-view-1.0.20.tgz#1768b5522d1172754f5d0c9b02de3af6be506a43"
-  integrity sha512-UCB0ioiyj8CRjtrvaceBLqqhZCVP+1B8+NWQhmdsm0VXOJtobBCf1dBQmebCCo34qZmUwZfIH2MZLqNHazrfjg==
+compute-scroll-into-view@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/compute-scroll-into-view/-/compute-scroll-into-view-2.0.4.tgz#2b444b2b9e4724819d2531efacb7ac094155fdf6"
+  integrity sha512-y/ZA3BGnxoM/QHHQ2Uy49CLtnWPbt4tTPpEEZiEmmiWBFKjej7nEyH8Ryz54jH0MLXflUYA3Er2zUxPSJu5R+g==
 
 concat-map@0.0.1:
   version "0.0.1"
@@ -5740,13 +5740,13 @@ dotenv@^16.0.0:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.3.tgz#115aec42bac5053db3c456db30cc243a5a836a07"
   integrity sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==
 
-downshift@^6.1.7:
-  version "6.1.12"
-  resolved "https://registry.yarnpkg.com/downshift/-/downshift-6.1.12.tgz#f14476b41a6f6fd080c340bad1ddf449f7143f6f"
-  integrity sha512-7XB/iaSJVS4T8wGFT3WRXmSF1UlBHAA40DshZtkrIscIN+VC+Lh363skLxFTvJwtNgHxAMDGEHT4xsyQFWL+UA==
+downshift@^7.4.1:
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/downshift/-/downshift-7.6.0.tgz#de04fb2962bd6c4ea94589c797c91f34aa9816f3"
+  integrity sha512-VSoTVynTAsabou/hbZ6HJHUVhtBiVOjQoBsCPcQq5eAROIGP+9XKMp9asAKQ3cEcUP4oe0fFdD2pziUjhFY33Q==
   dependencies:
     "@babel/runtime" "^7.14.8"
-    compute-scroll-into-view "^1.0.17"
+    compute-scroll-into-view "^2.0.4"
     prop-types "^15.7.2"
     react-is "^17.0.2"
     tslib "^2.3.0"

@@ -1,8 +1,8 @@
 {
-	"name": "@ag.common/digital-identity",
-	"version": "0.0.1",
-	"main": "dist/ag.common-digital-identity.cjs.js",
-	"module": "dist/ag.common-digital-identity.esm.js",
+	"name": "@ag.common/app-layout",
+	"version": "0.1.0",
+	"main": "dist/ag.common-app-layout.cjs.js",
+	"module": "dist/ag.common-app-layout.esm.js",
 	"license": "MIT",
 	"peerDependencies": {
 		"@ag.ds-next/react": "^1.5.0",
