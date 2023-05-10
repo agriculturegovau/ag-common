@@ -54,7 +54,7 @@ export function AppLayout({
 				subLine="Supporting Australian agricultural exports"
 				logo={<Logo />}
 				accountDetails={{
-					href: '#',
+					href: '/account',
 					name: userName,
 					secondaryText: userOrganisation,
 				}}
