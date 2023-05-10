@@ -1,13 +1,13 @@
+import { MouseEventHandler } from 'react';
 import { Box, Flex, Stack } from '@ag.ds-next/react/box';
 import { BaseButton, buttonStyles } from '@ag.ds-next/react/button';
 import { packs, useLinkComponent } from '@ag.ds-next/react/core';
 import { Text } from '@ag.ds-next/react/text';
 import { TextLinkExternal } from '@ag.ds-next/react/text-link';
-
 import { DigitalIdentityLogo } from './Assets';
 
 type LinkParams = { href: string };
-type ButtonParams = { onClick: () => Promise<void> };
+type ButtonParams = { onClick: MouseEventHandler<HTMLButtonElement> };
 
 // Support one type while disallowing another
 type Without<Keep, Remove> = Keep & {
@@ -19,29 +19,29 @@ type Action =
 	| Without<LinkParams, ButtonParams>
 	| Without<ButtonParams, LinkParams>;
 
-interface CommonButtonProps {
+type CommonButtonProps = {
 	block?: boolean;
-}
+};
 
 // Props for the inner Identity button
-interface DigitalIdentityButtonProps {
+type DigitalIdentityButtonProps = {
 	variant?: 'dark' | 'light';
 	squareCorners?: boolean;
 	narrow?: boolean;
-}
+};
 
 // Props for the entire component including outer content
-interface DigitalIdentityProps extends DigitalIdentityButtonProps {
+type DigitalIdentityProps = DigitalIdentityButtonProps & {
 	container?: boolean;
-}
+};
 
 const variantDefault = 'light';
 
-interface ButtonVariantPalette {
+type ButtonVariantPalette = {
 	foreground: string;
 	background: string;
 	outline: string;
-}
+};
 
 const buttonVariantStyles = (t: ButtonVariantPalette) => ({
 	background: t.background,
@@ -87,22 +87,21 @@ const DigitalIdentityButton = ({
 	variant = variantDefault,
 	squareCorners,
 	narrow,
+	block = true,
 	href,
 	onClick,
-	block,
 }: DigitalIdentityButtonProps & Action & CommonButtonProps) => {
 	const Link = useLinkComponent();
 	const palette = buttonVariantPalettes[variant];
 
 	const buttonCSS = {
 		...buttonStyles({
-			block: block ?? false,
+			block,
 			size: 'md',
 			variant: variant === 'light' ? 'primary' : 'secondary',
 		}),
 		...buttonVariantStyles(palette),
 		...(narrow === true ? { height: 'auto', width: '150px' } : undefined),
-
 		borderWidth: '2px',
 		padding: '12.5px 10px',
 		borderRadius: squareCorners === true ? 0 : '5px',
@@ -134,11 +133,9 @@ const DigitalIdentityButton = ({
 
 export const DigitalIdentity = ({
 	container = true,
-	variant: variant_,
+	variant = variantDefault,
 	...props
 }: DigitalIdentityProps & Action) => {
-	const variant = variant_ ?? variantDefault;
-
 	const textColour = {
 		color: variant === 'light' ? palette.lightText : palette.white,
 	} as const;
@@ -179,10 +176,10 @@ export const DigitalIdentity = ({
 	return (
 		<Stack css={outerCSS}>
 			<Box padding={1.5} css={{ alignSelf: 'center' }}>
-				<DigitalIdentityButton block variant={variant} {...props} />
+				<DigitalIdentityButton variant={variant} {...props} />
 			</Box>
 			<Box css={innerCSS}>
-				<Text padding={1.5} as="p" css={textColour}>
+				<Text as="p" padding={1.5} css={textColour}>
 					<TextLinkExternal
 						href="https://www.digitalidentity.gov.au/"
 						css={externalLinkCSS}
