@@ -62,7 +62,7 @@ exports[`AppLayout renders correctly 1`] = `
         </a>
         <a
           class="css-bezxru-boxStyles-boxStyles-AppLayoutHeaderAccount"
-          href="#"
+          href="/account"
         >
           <div
             class="css-12mz2vv-boxStyles-boxStyles-AppLayoutHeaderAccount"
@@ -120,7 +120,7 @@ exports[`AppLayout renders correctly 1`] = `
         </button>
         <a
           class="css-1wjgr9d-boxStyles-boxStyles-AppLayoutHeaderAccount"
-          href="#"
+          href="/account"
         >
           <div
             class="css-12mz2vv-boxStyles-boxStyles-AppLayoutHeaderAccount"
@@ -159,7 +159,7 @@ exports[`AppLayout renders correctly 1`] = `
             class="css-1t06xnm-AppLayoutSidebarNavItemInner"
           >
             <a
-              href="#dashboard"
+              href="/account"
             >
               <svg
                 aria-hidden="true"
@@ -188,7 +188,7 @@ exports[`AppLayout renders correctly 1`] = `
             class="css-1t06xnm-AppLayoutSidebarNavItemInner"
           >
             <a
-              href="#establishments"
+              href="/establishments"
             >
               <svg
                 aria-hidden="true"
@@ -227,7 +227,7 @@ exports[`AppLayout renders correctly 1`] = `
             class="css-1t06xnm-AppLayoutSidebarNavItemInner"
           >
             <a
-              href="#intelligence"
+              href="/intelligence"
             >
               <svg
                 aria-hidden="true"
@@ -253,7 +253,7 @@ exports[`AppLayout renders correctly 1`] = `
             class="css-1t06xnm-AppLayoutSidebarNavItemInner"
           >
             <a
-              href="#compliance"
+              href="/compliance"
             >
               <svg
                 aria-hidden="true"
@@ -292,7 +292,7 @@ exports[`AppLayout renders correctly 1`] = `
             class="css-1c7lu52-AppLayoutSidebarNavItemInner"
           >
             <a
-              href="#account/messages"
+              href="/account/messages"
             >
               <svg
                 aria-hidden="true"
@@ -323,7 +323,7 @@ exports[`AppLayout renders correctly 1`] = `
             class="css-1t06xnm-AppLayoutSidebarNavItemInner"
           >
             <a
-              href="#account/settings"
+              href="/account/preferences"
             >
               <svg
                 aria-hidden="true"
@@ -354,7 +354,7 @@ exports[`AppLayout renders correctly 1`] = `
             class="css-1t06xnm-AppLayoutSidebarNavItemInner"
           >
             <a
-              href="#help"
+              href="/help"
             >
               <svg
                 aria-hidden="true"
