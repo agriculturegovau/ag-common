@@ -1,4 +1,4 @@
-# @ag.common/app-layout
+# @ag.common/digital-identity
 
 ## 0.1.0
 
