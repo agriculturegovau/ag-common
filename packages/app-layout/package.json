@@ -1,6 +1,6 @@
 {
 	"name": "@ag.common/app-layout",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"main": "dist/ag.common-app-layout.cjs.js",
 	"module": "dist/ag.common-app-layout.esm.js",
 	"license": "MIT",
