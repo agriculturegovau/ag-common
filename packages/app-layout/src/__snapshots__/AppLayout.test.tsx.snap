@@ -61,7 +61,7 @@ exports[`AppLayout renders correctly 1`] = `
           </div>
         </a>
         <a
-          class="css-bezxru-boxStyles-boxStyles-AppLayoutHeaderAccount"
+          class="css-1e1fhpm-boxStyles-boxStyles-AppLayoutHeaderAccount"
           href="/account"
         >
           <div
@@ -119,7 +119,7 @@ exports[`AppLayout renders correctly 1`] = `
           </span>
         </button>
         <a
-          class="css-1wjgr9d-boxStyles-boxStyles-AppLayoutHeaderAccount"
+          class="css-1el7o1g-boxStyles-boxStyles-AppLayoutHeaderAccount"
           href="/account"
         >
           <div
