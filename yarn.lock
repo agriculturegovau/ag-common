@@ -7,10 +7,10 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
-"@ag.ds-next/react@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/react/-/react-1.5.0.tgz#f57bda5dbfe74e656c8f7c73dcaa44ac5fd761bc"
-  integrity sha512-abJsI7vctQ0gaJFJkTMvOPWHp+RgFx6ycTLzjmvEoHF4DdUQRUc8432116nurSwHS92ZCkoMz1k6U2WM8laP8A==
+"@ag.ds-next/react@^1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/react/-/react-1.5.1.tgz#0b5c63d76875f834c9ee0d31444b410b5c39a1d8"
+  integrity sha512-8gDf2hMfajbiDdclhC/U8gnwH9AhZPKoFcXxxZq/HW+G1fA/9hI1d+LyZ1mqJ017dvJ6p3UER5+bHMW+4roWAQ==
   dependencies:
     "@babel/runtime" "^7.4.5"
     "@popperjs/core" "^2.11.4"
