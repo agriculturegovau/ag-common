@@ -1,10 +1,4 @@
-import {
-	createContext,
-	Fragment,
-	PropsWithChildren,
-	ReactElement,
-	useContext,
-} from 'react';
+import { createContext, Fragment, PropsWithChildren, useContext } from 'react';
 
 // The properties that a Script component should support
 export type ScriptComponentProps = PropsWithChildren<{
@@ -14,11 +8,11 @@ export type ScriptComponentProps = PropsWithChildren<{
 
 export type ScriptComponentsContextType = {
 	/** Provide a component that can render a script tag for your web framework such as `next/script` */
-	Script: (props: ScriptComponentProps) => ReactElement;
+	Script: (props: ScriptComponentProps) => JSX.Element | null;
 };
 
 const ScriptComponentsContext = createContext<ScriptComponentsContextType>({
-	Script: () => <Fragment />,
+	Script: () => null,
 });
 
 export type ScriptComponentProviderProps =
