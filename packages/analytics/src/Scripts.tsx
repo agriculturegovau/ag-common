@@ -10,6 +10,7 @@ import {
 export type ScriptComponentProps = PropsWithChildren<{
 	id: string;
 	src?: string;
+	strategy?: 'afterInteractive';
 }>;
 
 const NullScript = () => null;
@@ -53,8 +54,9 @@ export const GoogleAnalytics = ({ measurementID }: GoogleAnalyticsProps) => {
 			<Script
 				id="ag-common-analytics:google-src"
 				src={`https://www.googletagmanager.com/gtag/js?id=${measurementID}`}
+				strategy="afterInteractive"
 			/>
-			<Script id="ag-common-analytics:google-init">
+			<Script id="ag-common-analytics:google-init" strategy="afterInteractive">
 				{`
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}

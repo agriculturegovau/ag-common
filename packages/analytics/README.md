@@ -20,11 +20,7 @@ import { Analytics } from '@ag.common/analytics';
 
 function App() {
 	return (
-		<Analytics
-			scriptComponents={{
-				Script: (props) => <Script {...props} strategy="afterInteractive" />,
-			}}
-		>
+		<Analytics scriptComponents={{ Script }}>
 			<YourApplication />
 		</Analytics>
 	);
