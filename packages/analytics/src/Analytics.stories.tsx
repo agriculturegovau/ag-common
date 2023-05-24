@@ -1,5 +1,4 @@
-import * as React from 'react';
-
+import { ComponentProps, ReactNode } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import {
 	Analytics,
@@ -32,18 +31,17 @@ export default meta;
 type Story = StoryObj<typeof Analytics>;
 
 export const Default: Story = {
-	render: (args) => (
+	render: () => (
 		<PageContent>
 			<Stack gap={1}>
 				<Analytics
-					{...args}
 					scriptComponents={{
-						Script: (s) => (
-							<>
-								<Box border rounded padding={1}>
-									<pre>#{s.id}</pre>
-								</Box>
-							</>
+						Script: (props) => (
+							<Box border rounded padding={1}>
+								<pre>
+									<code>#{props.id}</code>
+								</pre>
+							</Box>
 						),
 					}}
 				>
@@ -70,8 +68,8 @@ const EventButton = ({
 }: {
 	name: string;
 	data?: {};
-	children?: React.ReactNode;
-} & React.ComponentProps<typeof Button>) => {
+	children?: ReactNode;
+} & ComponentProps<typeof Button>) => {
 	const { trackEvent } = useAnalytics();
 
 	return (
@@ -122,9 +120,7 @@ export const CustomEventHandler: Story = {
 	),
 };
 
-const VisibleContext = (
-	args: React.ComponentProps<typeof AnalyticsContext>
-) => (
+const VisibleContext = (args: ComponentProps<typeof AnalyticsContext>) => (
 	<Stack gap={1} css={{ border: '2px dashed #fec0ff', padding: '2px' }}>
 		<Box css={{ background: '#fec0ff', padding: '2px 2px' }}>
 			<code>{JSON.stringify(args.data)}</code>
@@ -138,7 +134,7 @@ const VisibleListener = ({
 	children,
 }: {
 	label: string;
-	children: React.ReactNode;
+	children: ReactNode;
 }) => (
 	<Stack gap={1} css={{ border: '2px dashed #fec0ff', padding: '2px' }}>
 		<Box css={{ background: '#fec0ff', padding: '2px 2px' }}>
