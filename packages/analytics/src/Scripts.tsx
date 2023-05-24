@@ -26,15 +26,13 @@ const ScriptComponentsContext = createContext<ScriptComponentsContextType>({
 export type ScriptComponentProviderProps =
 	PropsWithChildren<ScriptComponentsContextType>;
 
-export const ScriptComponentProvider = (
-	props: ScriptComponentProviderProps
-) => {
-	const parentContext = useContext(ScriptComponentsContext);
+export const ScriptComponentProvider = ({
+	children,
+	Script,
+}: ScriptComponentProviderProps) => {
 	return (
-		<ScriptComponentsContext.Provider
-			value={{ Script: props.Script ?? parentContext?.Script ?? NullScript }}
-		>
-			{props.children}
+		<ScriptComponentsContext.Provider value={{ Script }}>
+			{children}
 		</ScriptComponentsContext.Provider>
 	);
 };
