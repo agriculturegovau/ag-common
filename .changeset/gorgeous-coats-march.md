@@ -1,5 +1,5 @@
 ---
-'@ag.common/analytics': patch
+'@ag.common/analytics': minor
 ---
 
-add new analytics component
+Created new `analytics` package
