@@ -1,11 +1,5 @@
 import { ComponentProps, ReactNode } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import {
-	Analytics,
-	AnalyticsContext,
-	AnalyticsListener,
-	useAnalytics,
-} from '.';
 import { Box, Stack } from '@ag.ds-next/react/box';
 import { PageContent } from '@ag.ds-next/react/content';
 import { Prose } from '@ag.ds-next/react/prose';
@@ -19,6 +13,13 @@ import {
 } from '@ag.ds-next/react/card';
 import { Text } from '@ag.ds-next/react/text';
 import { Heading } from '@ag.ds-next/react/heading';
+import {
+	Analytics,
+	AnalyticsContext,
+	AnalyticsEventData,
+	AnalyticsListener,
+	useAnalytics,
+} from './index';
 
 const meta: Meta<typeof Analytics> = {
 	title: 'Analytics',
@@ -67,7 +68,7 @@ const EventButton = ({
 	...more
 }: {
 	name: string;
-	data?: {};
+	data?: AnalyticsEventData;
 	children?: ReactNode;
 } & ComponentProps<typeof Button>) => {
 	const { trackEvent } = useAnalytics();
