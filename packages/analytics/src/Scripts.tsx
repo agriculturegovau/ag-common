@@ -12,8 +12,6 @@ export type ScriptComponentProps = PropsWithChildren<{
 	src?: string;
 }>;
 
-const NullScript = () => null;
-
 export type ScriptComponentsContextType = {
 	/** Provide a component that can render a script tag for your web framework such as `next/script` */
 	Script: (props: ScriptComponentProps) => ReactElement;
@@ -37,7 +35,7 @@ export const ScriptComponentProvider = ({
 	);
 };
 
-export const useScriptComponents = () => {
+const useScriptComponents = () => {
 	const context = useContext(ScriptComponentsContext);
 	return { Script: context.Script };
 };
