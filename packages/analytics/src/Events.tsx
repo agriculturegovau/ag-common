@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { createContext, useContext, PropsWithChildren } from 'react';
 
 export type AnalyticsEventData = Record<string, string | number>;
 
@@ -9,32 +9,28 @@ export type AnalyticsEventHandler = (
 	eventData: AnalyticsEventData
 ) => void;
 
-const AnalyticsListenerContext = React.createContext<AnalyticsEventHandler>(
+const AnalyticsListenerContext = createContext<AnalyticsEventHandler>(
 	() => null
 );
 
-const AnalyticsContextContext = React.createContext<AnalyticsEventData>({});
+const AnalyticsContextContext = createContext<AnalyticsEventData>({});
 
-export type AnalyticsContextProps = {
+export type AnalyticsContextProps = PropsWithChildren<{
 	/** Data will be merged and sent with each event's data when fired */
 	data: AnalyticsEventData;
+}>;
 
-	children: React.ReactNode;
-};
-
-export type AnalyticsListenerProps = {
+export type AnalyticsListenerProps = PropsWithChildren<{
 	/** Callback that will be invoked with fired analytics events. */
 	onEvent: AnalyticsEventHandler;
-
-	children: React.ReactNode;
-};
+}>;
 
 /** Invoke this callback with any events triggered inside this provider */
 export const AnalyticsListener = ({
 	children,
 	onEvent,
 }: AnalyticsListenerProps) => {
-	const parentContext = React.useContext<AnalyticsEventHandler>(
+	const parentContext = useContext<AnalyticsEventHandler>(
 		AnalyticsListenerContext
 	);
 
@@ -52,7 +48,7 @@ export const AnalyticsListener = ({
 
 /** Create a context that merges its data with parent contexts and each triggered event */
 export const AnalyticsContext = ({ data, children }: AnalyticsContextProps) => {
-	const parentContext = React.useContext(AnalyticsContextContext) || {};
+	const parentContext = useContext(AnalyticsContextContext) || {};
 	const childContext = { ...parentContext, ...data };
 
 	return (
@@ -68,9 +64,9 @@ export type AnalyticsHookType = {
 };
 
 /** Track an event with merged context data to all listeners  */
-export const useAnalytics = (): AnalyticsHookType => {
-	const analyticsContext = React.useContext(AnalyticsContextContext);
-	const listenerContext = React.useContext(AnalyticsListenerContext);
+export const useAnalytics = () => {
+	const analyticsContext = useContext(AnalyticsContextContext);
+	const listenerContext = useContext(AnalyticsListenerContext);
 	const trackEvent = (
 		name: AnalyticsEventName,
 		data?: AnalyticsEventData
