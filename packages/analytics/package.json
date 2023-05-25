@@ -5,10 +5,7 @@
 	"module": "dist/ag.common-analytics.esm.js",
 	"license": "MIT",
 	"peerDependencies": {
-		"@ag.ds-next/react": "^1.5.1",
-		"@emotion/react": "^11.7.0",
 		"@types/gtag.js": "^0.0.12",
-		"facepaint": "^1.2.1",
 		"react": "^16.14.0 || ^17.0.0 || ^18.0.0"
 	},
 	"devDependencies": {
