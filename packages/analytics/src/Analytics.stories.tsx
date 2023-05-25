@@ -27,7 +27,7 @@ const meta: Meta<typeof Analytics> = {
 	parameters: { layout: 'fullscreen' },
 	args: {
 		scriptComponents: {
-			Script: ({ id }) => <div>{id}</div>,
+			Script: () => null,
 		},
 	},
 };
