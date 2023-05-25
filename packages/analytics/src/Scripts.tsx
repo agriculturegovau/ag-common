@@ -20,7 +20,7 @@ export type ScriptComponentProviderProps =
 
 export const ScriptComponentProvider = ({
 	children,
-	Script,
+	Script = () => null,
 }: ScriptComponentProviderProps) => {
 	return (
 		<ScriptComponentsContext.Provider value={{ Script }}>
