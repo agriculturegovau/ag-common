@@ -25,6 +25,11 @@ const meta: Meta<typeof Analytics> = {
 	title: 'Analytics',
 	component: Analytics,
 	parameters: { layout: 'fullscreen' },
+	args: {
+		scriptComponents: {
+			Script: () => null,
+		},
+	},
 };
 
 export default meta;
@@ -32,20 +37,21 @@ export default meta;
 type Story = StoryObj<typeof Analytics>;
 
 export const Default: Story = {
-	render: () => (
+	args: {
+		scriptComponents: {
+			Script: (props) => (
+				<Box border rounded padding={1}>
+					<pre>
+						<code>#{props.id}</code>
+					</pre>
+				</Box>
+			),
+		},
+	},
+	render: (args) => (
 		<PageContent>
 			<Stack gap={1}>
-				<Analytics
-					scriptComponents={{
-						Script: (props) => (
-							<Box border rounded padding={1}>
-								<pre>
-									<code>#{props.id}</code>
-								</pre>
-							</Box>
-						),
-					}}
-				>
+				<Analytics {...args}>
 					<Prose>
 						<h1>Your app code here</h1>
 						<p>
