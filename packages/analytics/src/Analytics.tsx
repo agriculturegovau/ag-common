@@ -20,7 +20,9 @@ export type AnalyticsProps = PropsWithChildren<{
 	scriptComponents: ScriptComponentsContextType;
 }>;
 
-const emptyEvent = () => undefined;
+const emptyEvent: AnalyticsEventHandler = () => {
+	return;
+};
 
 export const Analytics = ({
 	children,
@@ -36,8 +38,16 @@ export const Analytics = ({
 			)}
 			{hotjar === false ? null : <Hotjar hjid={vars.hotjarID} />}
 			<AnalyticsListener
-				// Just fail silently if we don't have any event handlers
-				onEvent={onEvent ?? gtagEventHandler()?.onEvent ?? emptyEvent}
+				onEvent={(...params) => {
+					/* !!! this is a load-bearing line.
+					 *  we need to resolve handler here instead of inlined on one line below,
+					 * otherwise it will cause runtime issues after problematic babel inlining.
+					 */
+					const gtagHandler = gtagEventHandler();
+
+					// fail silently with emptyEvent if we don't have any event handlers
+					return (onEvent ?? gtagHandler?.onEvent ?? emptyEvent)(...params);
+				}}
 			>
 				{children}
 			</AnalyticsListener>
