@@ -1,5 +1,11 @@
 # @ag.common/analytics
 
+## 0.3.1
+
+### Patch Changes
+
+- 0662451: fixes syntax error in production builds
+
 ## 0.3.0
 
 ### Minor Changes

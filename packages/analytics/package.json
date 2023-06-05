@@ -1,6 +1,6 @@
 {
 	"name": "@ag.common/analytics",
-	"version": "0.3.0",
+	"version": "0.3.1",
 	"main": "dist/ag.common-analytics.cjs.js",
 	"module": "dist/ag.common-analytics.esm.js",
 	"license": "MIT",
