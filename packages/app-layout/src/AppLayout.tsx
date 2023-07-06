@@ -53,13 +53,13 @@ export function AppLayout({
 		<AgDsAppLayout focusMode={focusMode}>
 			<CoreProvider>
 				<AgDsAppLayoutHeader
-					href="/"
+					href="/account/"
 					heading="Export Service"
 					subLine="Supporting Australian agricultural exports"
 					badgeLabel="Beta"
 					logo={<Logo />}
 					accountDetails={{
-						href: '/account',
+						href: '/account/settings/', // trailing slash because acct app uses `trailingSlash: true` in next config
 						name: userName,
 						secondaryText: userOrganisation,
 					}}
