@@ -3,7 +3,7 @@
 exports[`Header authenticated renders correctly 1`] = `
 <div>
   <div
-    class="css-p98pg-dark-dark-boxStyles-boxStyles"
+    class="css-nkayd1-dark-dark-boxStyles-boxStyles"
   >
     <header
       class="css-941epv-boxStyles-boxStyles"
@@ -135,7 +135,7 @@ exports[`Header authenticated renders correctly 1`] = `
             </button>
           </div>
           <div
-            class="css-1xw5835-dark-dark-boxStyles-boxStyles-element"
+            class="css-1voda1h-dark-dark-boxStyles-boxStyles-element"
             id="main-nav-dialog"
           >
             <div
@@ -185,7 +185,7 @@ exports[`Header authenticated renders correctly 1`] = `
                   class="css-qlv0q-boxStyles-boxStyles-NavListContainer"
                 >
                   <li
-                    class="css-p90541-boxStyles-boxStyles-NavListItem-NavListItem"
+                    class="css-lmu7qf-boxStyles-boxStyles-NavListItem-NavListItem"
                   >
                     <a
                       aria-current="page"
@@ -197,7 +197,7 @@ exports[`Header authenticated renders correctly 1`] = `
                     </a>
                   </li>
                   <li
-                    class="css-jtvcxp-boxStyles-boxStyles-NavListItem-NavListItem"
+                    class="css-avlaf5-boxStyles-boxStyles-NavListItem-NavListItem"
                   >
                     <a
                       href="/establishments"
@@ -208,7 +208,7 @@ exports[`Header authenticated renders correctly 1`] = `
                     </a>
                   </li>
                   <li
-                    class="css-jtvcxp-boxStyles-boxStyles-NavListItem-NavListItem"
+                    class="css-avlaf5-boxStyles-boxStyles-NavListItem-NavListItem"
                   >
                     <a
                       href="/intelligence"
@@ -219,7 +219,7 @@ exports[`Header authenticated renders correctly 1`] = `
                     </a>
                   </li>
                   <li
-                    class="css-jtvcxp-boxStyles-boxStyles-NavListItem-NavListItem"
+                    class="css-avlaf5-boxStyles-boxStyles-NavListItem-NavListItem"
                   >
                     <a
                       href="/compliance"
@@ -246,7 +246,7 @@ exports[`Header authenticated renders correctly 1`] = `
               class="css-4o8k9b-boxStyles-boxStyles"
             >
               <li
-                class="css-cuqc7n-boxStyles-boxStyles-NavListItem-NavListItem"
+                class="css-4hva1r-boxStyles-boxStyles-NavListItem-NavListItem"
               >
                 <button
                   class="css-6e6ykx-BaseButton"
@@ -289,7 +289,7 @@ exports[`Header authenticated renders correctly 1`] = `
 exports[`Header unauthenticated renders correctly 1`] = `
 <div>
   <div
-    class="css-p98pg-dark-dark-boxStyles-boxStyles"
+    class="css-nkayd1-dark-dark-boxStyles-boxStyles"
   >
     <header
       class="css-941epv-boxStyles-boxStyles"
@@ -387,7 +387,7 @@ exports[`Header unauthenticated renders correctly 1`] = `
           class="css-1321z7s-boxStyles-boxStyles"
         >
           <div
-            class="css-1xw5835-dark-dark-boxStyles-boxStyles-element"
+            class="css-1voda1h-dark-dark-boxStyles-boxStyles-element"
             id="main-nav-dialog"
           >
             <div
@@ -452,7 +452,7 @@ exports[`Header unauthenticated renders correctly 1`] = `
               class="css-4o8k9b-boxStyles-boxStyles"
             >
               <li
-                class="css-cuqc7n-boxStyles-boxStyles-NavListItem-NavListItem"
+                class="css-4hva1r-boxStyles-boxStyles-NavListItem-NavListItem"
               >
                 <button
                   class="css-6e6ykx-BaseButton"
