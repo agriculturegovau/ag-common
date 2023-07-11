@@ -45,7 +45,7 @@ export function getSidebarLinks({
 			{
 				label: 'Dashboard',
 				icon: HomeIcon,
-				href: '/account/', // trailing slash because acct app uses `trailingSlash: true` in next config
+				href: '/account',
 			},
 			{
 				label: 'Establishments',
@@ -67,7 +67,7 @@ export function getSidebarLinks({
 			{
 				label: 'Messages',
 				icon: EmailIcon,
-				href: '/account/messages/', // trailing slash because acct app uses `trailingSlash: true` in next config
+				href: '/account/messages',
 				endElement:
 					typeof unreadMessageCount === 'number' && unreadMessageCount > 0 ? (
 						<NotificationBadge
@@ -80,7 +80,7 @@ export function getSidebarLinks({
 			{
 				label: 'Account settings',
 				icon: SettingsIcon,
-				href: '/account/settings/', // trailing slash because acct app uses `trailingSlash: true` in next config
+				href: '/account/settings',
 			},
 			{
 				label: 'Help',
