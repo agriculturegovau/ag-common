@@ -11,7 +11,7 @@ import { Logo } from '@ag.ds-next/react/ag-branding';
 import { CoreProvider, coreContext, tokens } from '@ag.ds-next/react/core';
 import { LinkList } from '@ag.ds-next/react/link-list';
 import { Text } from '@ag.ds-next/react/text';
-import { footerNavigationItems, getSidebarLinks } from './utils';
+import { findBestMatch, footerNavigationItems, getSidebarLinks } from './utils';
 
 export type AppLayoutProps = PropsWithChildren<{
 	activePath: string;
@@ -49,6 +49,16 @@ export function AppLayout({
 		return getSidebarLinks({ unreadMessageCount, onSignOutClick });
 	}, [onSignOutClick, unreadMessageCount]);
 
+	const sidebarHrefs = sidebarLinks.flatMap((links) =>
+		links.flatMap((navitem) =>
+			'href' in navitem && navitem['href'] !== undefined
+				? [{ href: navitem.href }]
+				: []
+		)
+	);
+
+	const bestActivePath = findBestMatch(sidebarHrefs, activePath);
+
 	return (
 		<AgDsAppLayout focusMode={focusMode}>
 			<CoreProvider>
@@ -64,7 +74,10 @@ export function AppLayout({
 						secondaryText: userOrganisation,
 					}}
 				/>
-				<AgDsAppLayoutSidebar activePath={activePath} items={sidebarLinks} />
+				<AgDsAppLayoutSidebar
+					activePath={bestActivePath}
+					items={sidebarLinks}
+				/>
 
 				<AgDSAppLayoutContent>
 					<CoreProvider {...parentCoreContext}>
