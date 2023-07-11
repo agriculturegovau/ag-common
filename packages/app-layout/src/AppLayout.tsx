@@ -56,6 +56,7 @@ export function AppLayout({
 					href="/"
 					heading="Export Service"
 					subLine="Supporting Australian agricultural exports"
+					badgeLabel="Beta"
 					logo={<Logo />}
 					accountDetails={{
 						href: '/account',
