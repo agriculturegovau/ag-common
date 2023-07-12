@@ -80,7 +80,7 @@ export function getSidebarLinks({
 			{
 				label: 'Account settings',
 				icon: SettingsIcon,
-				href: '/account/preferences',
+				href: '/account/settings',
 			},
 			{
 				label: 'Help',

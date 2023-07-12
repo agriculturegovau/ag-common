@@ -13,7 +13,7 @@ exports[`AppLayout renders correctly 1`] = `
       >
         <a
           class="css-db8ofu-boxStyles-boxStyles-AppLayoutHeaderBrand"
-          href="/"
+          href="/account"
         >
           <svg
             aria-label="Australian Government, Department of Agriculture, Fisheries and Forestry"
@@ -71,7 +71,7 @@ exports[`AppLayout renders correctly 1`] = `
         </a>
         <a
           class="css-wilqkj-boxStyles-boxStyles-AppLayoutHeaderAccount"
-          href="/account"
+          href="/account/settings"
         >
           <div
             class="css-12mz2vv-boxStyles-boxStyles-AppLayoutHeaderAccount"
@@ -129,7 +129,7 @@ exports[`AppLayout renders correctly 1`] = `
         </button>
         <a
           class="css-vnz3gr-boxStyles-boxStyles-AppLayoutHeaderAccount"
-          href="/account"
+          href="/account/settings"
         >
           <div
             class="css-12mz2vv-boxStyles-boxStyles-AppLayoutHeaderAccount"
@@ -319,7 +319,7 @@ exports[`AppLayout renders correctly 1`] = `
             class="css-1t06xnm-AppLayoutSidebarNavItemInner"
           >
             <a
-              href="/account/preferences"
+              href="/account/settings"
             >
               <svg
                 aria-hidden="true"

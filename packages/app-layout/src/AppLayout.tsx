@@ -53,13 +53,13 @@ export function AppLayout({
 		<AgDsAppLayout focusMode={focusMode}>
 			<CoreProvider>
 				<AgDsAppLayoutHeader
-					href="/"
+					href="/account"
 					heading="Export Service"
 					subLine="Supporting Australian agricultural exports"
 					badgeLabel="Beta"
 					logo={<Logo />}
 					accountDetails={{
-						href: '/account',
+						href: '/account/settings',
 						name: userName,
 						secondaryText: userOrganisation,
 					}}
