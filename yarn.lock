@@ -7,10 +7,10 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
-"@ag.ds-next/react@^1.7.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/react/-/react-1.7.0.tgz#39a7fe0708bbae2102d22481e2c3df578be0b978"
-  integrity sha512-ZPPlXnd+qJqBt3qaGjYUyfwZb8hhQYTPQ6iGX7B5w1jeguJw9jWyH1wCppI7zUISS4II7HkQA2jECAD0oObjLA==
+"@ag.ds-next/react@^1.7.1":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/react/-/react-1.7.1.tgz#41b90dc248842cbe7450769937c0bb21d47c9e25"
+  integrity sha512-Yb8t6RwDs0N+ssPayEem7z5a+qOBEcD/YOf+OwcBPeDhPqWJomsCx7vDHzWnMg7vOOGj2wNTQ9puKvOiMVCyjw==
   dependencies:
     "@babel/runtime" "^7.4.5"
     "@floating-ui/react-dom" "^2.0.1"
