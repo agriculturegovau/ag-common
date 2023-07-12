@@ -1,5 +1,11 @@
 # @ag.common/footer
 
+## 1.2.0
+
+### Minor Changes
+
+- 4c2fbf5: Updated peer dependency on `@ag.ds-next/react` to latest version
+
 ## 1.1.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @ag.common/digital-identity
 
+## 0.2.0
+
+### Minor Changes
+
+- 4c2fbf5: Updated peer dependency on `@ag.ds-next/react` to latest version
+
 ## 0.1.1
 
 ### Patch Changes
