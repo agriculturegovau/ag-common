@@ -1,5 +1,11 @@
 # @ag.common/analytics
 
+## 0.4.0
+
+### Minor Changes
+
+- 4c2fbf5: Updated peer dependency on `@ag.ds-next/react` to latest version
+
 ## 0.3.1
 
 ### Patch Changes
