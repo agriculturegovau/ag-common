@@ -87,12 +87,12 @@ exports[`Header authenticated renders correctly 1`] = `
       </div>
     </header>
     <div
-      class="css-1rfm9l1-boxStyles-boxStyles-NavContainer"
+      class="css-1vvugk7-boxStyles-boxStyles-NavContainer"
       id="main-nav"
       tabindex="-1"
     >
       <div
-        class="css-mjjk5o-boxStyles-boxStyles-BottomBar"
+        class="css-1j9xn4a-boxStyles-boxStyles-BottomBar"
       />
       <div
         class="css-1do7ch1-boxStyles-boxStyles-NavContainer"
@@ -373,12 +373,12 @@ exports[`Header unauthenticated renders correctly 1`] = `
       </div>
     </header>
     <div
-      class="css-1rfm9l1-boxStyles-boxStyles-NavContainer"
+      class="css-1vvugk7-boxStyles-boxStyles-NavContainer"
       id="main-nav"
       tabindex="-1"
     >
       <div
-        class="css-mjjk5o-boxStyles-boxStyles-BottomBar"
+        class="css-1j9xn4a-boxStyles-boxStyles-BottomBar"
       />
       <div
         class="css-1do7ch1-boxStyles-boxStyles-NavContainer"

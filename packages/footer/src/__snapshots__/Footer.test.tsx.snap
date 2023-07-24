@@ -6,7 +6,7 @@ exports[`Footer renders correctly 1`] = `
     class="css-nkayd1-dark-dark-boxStyles-boxStyles"
   >
     <footer
-      class="css-1cwb5oi-boxStyles-boxStyles-Footer"
+      class="css-16rf0on-boxStyles-boxStyles-Footer"
     >
       <div
         class="css-1a1hdgf-boxStyles-boxStyles"
@@ -74,7 +74,7 @@ exports[`Footer renders correctly 1`] = `
         </nav>
         <hr
           aria-hidden="true"
-          class="css-m1ii31-FooterDivider"
+          class="css-jcokw4-FooterDivider"
         />
         <span
           class="css-1owyagw-boxStyles-boxStyles-Text"
