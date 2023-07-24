@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 0.3.0
+
+### Minor Changes
+
+- 698aa92: Updated peer dependency on `@ag.ds-next/react` to latest version
+
 ## 0.2.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @ag.common/header
 
+## 1.3.0
+
+### Minor Changes
+
+- 698aa92: Updated peer dependency on `@ag.ds-next/react` to latest version
+
 ## 1.2.0
 
 ### Minor Changes
