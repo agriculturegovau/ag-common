@@ -6,7 +6,7 @@ exports[`AppLayout renders correctly 1`] = `
     class="css-4lqw0h-AppLayoutGrid"
   >
     <header
-      class="css-ulhxvz-dark-dark-boxStyles-boxStyles-AppLayoutHeader"
+      class="css-112q4uw-dark-dark-boxStyles-boxStyles-AppLayoutHeader"
     >
       <div
         class="css-gwzou5-boxStyles-boxStyles"
