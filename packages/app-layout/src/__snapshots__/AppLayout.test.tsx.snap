@@ -313,6 +313,13 @@ exports[`AppLayout renders correctly 1`] = `
               >
                 6
               </span>
+              <span
+                class="css-avudkd-VisuallyHidden"
+              >
+                , 
+                6
+                 unread
+              </span>
             </a>
           </li>
           <li
