@@ -9,6 +9,7 @@ import {
 	SettingsIcon,
 	FactoryIcon,
 } from '@ag.ds-next/react/icon';
+import { VisuallyHidden } from '@ag.ds-next/react/a11y';
 
 export const footerNavigationItems = [
 	{
@@ -70,11 +71,15 @@ export function getSidebarLinks({
 				href: '/account/messages',
 				endElement:
 					typeof unreadMessageCount === 'number' && unreadMessageCount > 0 ? (
-						<NotificationBadge
-							tone="action"
-							value={unreadMessageCount}
-							max={99}
-						/>
+						<span>
+							<NotificationBadge
+								tone="action"
+								value={unreadMessageCount}
+								max={99}
+								aria-hidden
+							/>
+							<VisuallyHidden>, {unreadMessageCount} unread</VisuallyHidden>
+						</span>
 					) : undefined,
 			},
 			{
@@ -88,7 +93,6 @@ export function getSidebarLinks({
 				href: '/help',
 			},
 		],
-
 		[
 			{
 				label: 'Sign out',
