@@ -1,5 +1,12 @@
 # @ag.common/app-layout
 
+## 0.3.1
+
+### Patch Changes
+
+- 657adc3: app-layout: Improve screen reader experience of "messages" menu item when there is an unread message. Instead of announcing "Messages 6", it will now announce "Messages, 6 unread".
+- 3f67db5: open help link in a new tab
+
 ## 0.3.0
 
 ### Minor Changes
