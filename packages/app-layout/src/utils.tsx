@@ -8,8 +8,11 @@ import {
 	SuccessIcon,
 	SettingsIcon,
 	FactoryIcon,
+	ExternalLinkIcon,
 } from '@ag.ds-next/react/icon';
 import { VisuallyHidden } from '@ag.ds-next/react/a11y';
+import { Flex } from '@ag.ds-next/react/flex';
+import { ExternalLinkCallout } from '@ag.ds-next/react/a11y';
 
 export const footerNavigationItems = [
 	{
@@ -88,9 +91,17 @@ export function getSidebarLinks({
 				href: '/account/settings',
 			},
 			{
-				label: 'Help',
+				label: (
+					<Flex as="span" alignItems="center" gap={0.5}>
+						Help
+						<ExternalLinkCallout />
+						<ExternalLinkIcon weight="regular" size="sm" />
+					</Flex>
+				),
 				icon: HelpIcon,
 				href: '/help',
+				target: '_blank',
+				rel: 'noopener',
 			},
 		],
 		[
