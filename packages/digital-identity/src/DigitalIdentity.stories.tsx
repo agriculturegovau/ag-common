@@ -2,7 +2,7 @@ import { ComponentProps, ReactNode, useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { DigitalIdentity } from './DigitalIdentity';
 import { LoadingBlanket } from '@ag.ds-next/react/loading';
-import { Stack } from '@ag.ds-next/react/box';
+import { Stack } from '@ag.ds-next/react/stack';
 import { Text } from '@ag.ds-next/react/text';
 
 const Layout = (
@@ -159,7 +159,7 @@ export const Loading: Story = {
 	args: {
 		container: true,
 	},
-	render: function Render({ href, ...props }) {
+	render: function Render(props) {
 		const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 		const [loading, setLoading] = useState(false);
 		return (
@@ -169,6 +169,7 @@ export const Loading: Story = {
 				) : null}
 				<DigitalIdentity
 					{...props}
+					href={undefined}
 					onClick={async () => {
 						setLoading(true);
 						await sleep(1500);
