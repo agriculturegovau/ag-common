@@ -62,13 +62,8 @@ describe('Header', () => {
 			});
 		});
 
-		it('authenticated: sign out button calls handleSignOut when clicked',  () => {
-			render(
-				<Header
-					authenticated={true}
-					activePath="/account"
-				/>
-			);
+		it('authenticated: sign out button calls handleSignOut when clicked', () => {
+			render(<Header authenticated={true} activePath="/account" />);
 			const myAccountLink = screen.getByText('My account')
 				.parentElement as HTMLAnchorElement;
 			expect(myAccountLink).toBeInTheDocument();

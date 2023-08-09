@@ -31,13 +31,12 @@ export const Unauthenticated: Story = {
 	},
 };
 
-
 export const FocusMode: Story = {
 	args: {
 		activePath: '/',
 		authenticated: true,
 		handleSignIn: console.log,
-		focusMode: true, 
+		focusMode: true,
 	},
 };
 
