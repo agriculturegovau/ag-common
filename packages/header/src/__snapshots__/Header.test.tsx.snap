@@ -189,7 +189,7 @@ exports[`Header authenticated renders correctly 1`] = `
                   >
                     <a
                       aria-current="page"
-                      href="/account"
+                      href="/"
                     >
                       <span>
                         Home
@@ -200,10 +200,10 @@ exports[`Header authenticated renders correctly 1`] = `
                     class="css-avlaf5-boxStyles-boxStyles-NavListItem-NavListItem"
                   >
                     <a
-                      href="/establishments"
+                      href="/about"
                     >
                       <span>
-                        Establishments
+                        About
                       </span>
                     </a>
                   </li>
@@ -211,10 +211,10 @@ exports[`Header authenticated renders correctly 1`] = `
                     class="css-avlaf5-boxStyles-boxStyles-NavListItem-NavListItem"
                   >
                     <a
-                      href="/intelligence"
+                      href="/services"
                     >
                       <span>
-                        Data and insights
+                        Services
                       </span>
                     </a>
                   </li>
@@ -222,10 +222,10 @@ exports[`Header authenticated renders correctly 1`] = `
                     class="css-avlaf5-boxStyles-boxStyles-NavListItem-NavListItem"
                   >
                     <a
-                      href="/compliance"
+                      href="/help"
                     >
                       <span>
-                        Compliance
+                        Help
                       </span>
                     </a>
                   </li>
@@ -248,12 +248,11 @@ exports[`Header authenticated renders correctly 1`] = `
               <li
                 class="css-4hva1r-boxStyles-boxStyles-NavListItem-NavListItem"
               >
-                <button
-                  class="css-6e6ykx-BaseButton"
-                  type="button"
+                <a
+                  href="/account"
                 >
                   <span>
-                    Sign out
+                    My account
                   </span>
                   <svg
                     aria-hidden="true"
@@ -275,7 +274,7 @@ exports[`Header authenticated renders correctly 1`] = `
                       r="10.5"
                     />
                   </svg>
-                </button>
+                </a>
               </li>
             </ul>
           </nav>
@@ -387,6 +386,40 @@ exports[`Header unauthenticated renders correctly 1`] = `
           class="css-1321z7s-boxStyles-boxStyles"
         >
           <div
+            class="css-r0elim-boxStyles-boxStyles"
+          >
+            <button
+              aria-controls="main-nav-dialog"
+              aria-expanded="false"
+              aria-label="Open main menu"
+              class="css-12a7350-BaseButton-boxStyles-boxStyles-MainNavButton"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="css-9s3cfn-Icon"
+                clip-rule="evenodd"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3 6H21"
+                />
+                <path
+                  d="M3 12H21"
+                />
+                <path
+                  d="M3 18H21"
+                />
+              </svg>
+              Menu
+            </button>
+          </div>
+          <div
             class="css-1voda1h-dark-dark-boxStyles-boxStyles-element"
             id="main-nav-dialog"
           >
@@ -435,7 +468,53 @@ exports[`Header unauthenticated renders correctly 1`] = `
               >
                 <ul
                   class="css-qlv0q-boxStyles-boxStyles-NavListContainer"
-                />
+                >
+                  <li
+                    class="css-lmu7qf-boxStyles-boxStyles-NavListItem-NavListItem"
+                  >
+                    <a
+                      aria-current="page"
+                      href="/"
+                    >
+                      <span>
+                        Home
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="css-avlaf5-boxStyles-boxStyles-NavListItem-NavListItem"
+                  >
+                    <a
+                      href="/about"
+                    >
+                      <span>
+                        About
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="css-avlaf5-boxStyles-boxStyles-NavListItem-NavListItem"
+                  >
+                    <a
+                      href="/services"
+                    >
+                      <span>
+                        Services
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="css-avlaf5-boxStyles-boxStyles-NavListItem-NavListItem"
+                  >
+                    <a
+                      href="/help"
+                    >
+                      <span>
+                        Help
+                      </span>
+                    </a>
+                  </li>
+                </ul>
               </nav>
             </div>
             <div

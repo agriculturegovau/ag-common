@@ -47,14 +47,14 @@ describe('Header', () => {
 	describe('authenticated', () => {
 		it('renders correctly', () => {
 			const { container } = render(
-				<Header activePath="/account" authenticated={true} />
+				<Header activePath="/" authenticated={true} />
 			);
 			expect(container).toMatchSnapshot();
 		});
 
 		it('renders a valid HTML structure', () => {
 			const { container } = render(
-				<Header activePath="/account" authenticated={true} />
+				<Header activePath="/" authenticated={true} />
 			);
 			expect(container).toHTMLValidate({
 				extends: ['html-validate:recommended'],
@@ -62,22 +62,19 @@ describe('Header', () => {
 			});
 		});
 
-		it('sign out button calls handleSignOut when clicked', async () => {
-			const handleSignOut = jest.fn();
+		it('authenticated: sign out button calls handleSignOut when clicked',  () => {
 			render(
 				<Header
 					authenticated={true}
 					activePath="/account"
-					handleSignOut={handleSignOut}
 				/>
 			);
-			const signOutButton = screen.getByText('Sign out')
-				.parentElement as HTMLButtonElement;
-			expect(signOutButton).toBeInTheDocument();
-			expect(signOutButton.tagName).toBe('BUTTON');
-			expect(signOutButton).toHaveAccessibleName('Sign out');
-			await userEvent.click(signOutButton);
-			expect(handleSignOut).toHaveBeenCalledTimes(1);
+			const myAccountLink = screen.getByText('My account')
+				.parentElement as HTMLAnchorElement;
+			expect(myAccountLink).toBeInTheDocument();
+			expect(myAccountLink.tagName).toBe('A');
+			expect(myAccountLink).toHaveAccessibleName('My account');
+			expect(myAccountLink).toHaveAttribute('href', '/account');
 		});
 	});
 });

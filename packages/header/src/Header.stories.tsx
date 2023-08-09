@@ -17,10 +17,9 @@ type Story = StoryObj<typeof Header>;
 
 export const Authenticated: Story = {
 	args: {
-		activePath: '/account',
+		activePath: '/',
 		authenticated: true,
 		handleSignIn: console.log,
-		handleSignOut: console.log,
 	},
 };
 
@@ -29,7 +28,16 @@ export const Unauthenticated: Story = {
 		activePath: '/',
 		authenticated: false,
 		handleSignIn: console.log,
-		handleSignOut: console.log,
+	},
+};
+
+
+export const FocusMode: Story = {
+	args: {
+		activePath: '/',
+		authenticated: true,
+		handleSignIn: console.log,
+		focusMode: true, 
 	},
 };
 
@@ -46,20 +54,11 @@ export const Authentication: Story = {
 			}, 3000);
 		};
 
-		const handleSignOut = async () => {
-			setIsAuthenticating(true);
-			setTimeout(() => {
-				setIsAuthenticating(false);
-				setAuthenticated(false);
-			}, 3000);
-		};
-
 		return (
 			<Fragment>
 				<Header
 					activePath="/account"
 					handleSignIn={handleSignIn}
-					handleSignOut={handleSignOut}
 					authenticated={authenticated}
 				/>
 				{isAuthenticating && (
