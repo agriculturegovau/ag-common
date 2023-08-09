@@ -14,12 +14,7 @@ import { Header } from '@ag.common/header';
 function App() {
 	return (
 		<>
-			<Header
-				activePath="/"
-				authenticated={false}
-				handleSignIn={console.log}
-				handleSignOut={console.log}
-			/>
+			<Header activePath="/" authenticated={false} handleSignIn={console.log} />
 			<YourApplication />
 		</>
 	);
@@ -67,14 +62,6 @@ function App() {
 	const [isAuthenticating, setIsAuthenticating] = useState(false);
 	const SCOPE = '...';
 
-	const handleSignOut = async () => {
-		setIsAuthenticating(true);
-		await instance.logoutRedirect({
-			postLogoutRedirectUri: '/signout',
-		});
-		setIsAuthenticating(false);
-	};
-
 	const handleSignIn = async () => {
 		setIsAuthenticating(true);
 		await instance.loginRedirect({
@@ -90,7 +77,6 @@ function App() {
 				activePath={router.asPath}
 				authenticated={authenticated}
 				handleSignIn={handleSignIn}
-				handleSignOut={handleSignOut}
 			/>
 			{isAuthenticating && (
 				<LoadingBlanket
