@@ -19,7 +19,7 @@ export type AppLayoutProps = PropsWithChildren<{
 	handleSignOut: () => Promise<void>;
 	mainContentId?: string;
 	unreadMessageCount?: number;
-	userName: string;
+	userName?: string;
 	userOrganisation?: string;
 }>;
 
@@ -58,11 +58,15 @@ export function AppLayout({
 					subLine="Supporting Australian agricultural exports"
 					badgeLabel="Beta"
 					logo={<Logo />}
-					accountDetails={{
-						href: '/account/settings',
-						name: userName,
-						secondaryText: userOrganisation,
-					}}
+					accountDetails={
+						userName
+							? {
+									href: '/account/settings',
+									name: userName,
+									secondaryText: userOrganisation,
+							  }
+							: undefined
+					}
 				/>
 				<AgDsAppLayoutSidebar activePath={activePath} items={sidebarLinks} />
 
