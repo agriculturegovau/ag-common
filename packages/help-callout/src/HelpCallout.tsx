@@ -1,4 +1,4 @@
-import { Box } from '@ag.ds-next/react/box';
+import { Text } from '@ag.ds-next/react/text';
 import { Callout } from '@ag.ds-next/react/callout';
 import { CoreProvider } from '@ag.ds-next/react/core';
 import { TextLink, TextLinkExternal } from '@ag.ds-next/react/text-link';
@@ -12,25 +12,23 @@ export const HelpCallout = (props: HelpCalloutProps) => (
 	<CoreProvider>
 		<Callout title="Need more help?">
 			{props.hideHelpArticles === true ? null : (
-				<Box>
+				<Text>
 					Access our{' '}
 					<TextLinkExternal href={props.helpHref ?? '/help'}>
 						help articles
 					</TextLinkExternal>
-				</Box>
+				</Text>
 			)}
-
-			<Box>
+			<Text>
 				Email{' '}
 				<TextLink href="mailto:exportservice@aff.gov.au">
 					exportservice@aff.gov.au
 				</TextLink>
-			</Box>
-
-			<Box>
+			</Text>
+			<Text>
 				Call <TextLink href="tel:1800571125">1800&nbsp;571&nbsp;125</TextLink>,
 				Monday to Friday, 9 am to 5 pm AEST
-			</Box>
+			</Text>
 		</Callout>
 	</CoreProvider>
 );
