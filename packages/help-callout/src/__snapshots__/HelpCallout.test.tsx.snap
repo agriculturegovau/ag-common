@@ -10,8 +10,8 @@ exports[`HelpCallout renders correctly 1`] = `
     >
       Need more help?
     </h2>
-    <div
-      class="css-1b13c5y-boxStyles-boxStyles"
+    <span
+      class="css-pn1kbs-boxStyles-boxStyles-Text"
     >
       Access our
        
@@ -52,9 +52,9 @@ exports[`HelpCallout renders correctly 1`] = `
           />
         </svg>
       </a>
-    </div>
-    <div
-      class="css-1b13c5y-boxStyles-boxStyles"
+    </span>
+    <span
+      class="css-pn1kbs-boxStyles-boxStyles-Text"
     >
       Email
        
@@ -64,9 +64,9 @@ exports[`HelpCallout renders correctly 1`] = `
       >
         exportservice@aff.gov.au
       </a>
-    </div>
-    <div
-      class="css-1b13c5y-boxStyles-boxStyles"
+    </span>
+    <span
+      class="css-pn1kbs-boxStyles-boxStyles-Text"
     >
       Call 
       <a
@@ -76,7 +76,7 @@ exports[`HelpCallout renders correctly 1`] = `
         1800 571 125
       </a>
       , Monday to Friday, 9 am to 5 pm AEST
-    </div>
+    </span>
   </div>
 </div>
 `;
