@@ -14,6 +14,13 @@ import { VisuallyHidden } from '@ag.ds-next/react/a11y';
 import { Flex } from '@ag.ds-next/react/flex';
 import { ExternalLinkCallout } from '@ag.ds-next/react/a11y';
 
+export const hrefs = {
+	profile: '/account/profile',
+	dashboard: '/account/dashboard',
+	messages: '/account/messages',
+	settings: '/account/settings',
+};
+
 export const footerNavigationItems = [
 	{
 		href: '/about',
@@ -49,7 +56,7 @@ export function getSidebarLinks({
 			{
 				label: 'Dashboard',
 				icon: HomeIcon,
-				href: '/account',
+				href: hrefs.dashboard,
 			},
 			{
 				label: 'Establishments',
@@ -71,7 +78,7 @@ export function getSidebarLinks({
 			{
 				label: 'Messages',
 				icon: EmailIcon,
-				href: '/account/messages',
+				href: hrefs.messages,
 				endElement:
 					typeof unreadMessageCount === 'number' && unreadMessageCount > 0 ? (
 						<span>
@@ -88,7 +95,7 @@ export function getSidebarLinks({
 			{
 				label: 'Account settings',
 				icon: SettingsIcon,
-				href: '/account/settings',
+				href: hrefs.settings,
 			},
 			{
 				label: (

@@ -3,7 +3,7 @@
 exports[`Header authenticated renders correctly 1`] = `
 <div>
   <div
-    class="css-nkayd1-dark-dark-boxStyles-boxStyles"
+    class="css-vjk8gl-dark-dark-boxStyles-boxStyles"
   >
     <header
       class="css-941epv-boxStyles-boxStyles"
@@ -18,7 +18,7 @@ exports[`Header authenticated renders correctly 1`] = `
             class="css-19x0q49-boxStyles-boxStyles-Column"
           >
             <a
-              class="css-1hg8qrd-boxStyles-boxStyles-HeaderBrand"
+              class="css-1oqp1fk-boxStyles-boxStyles-HeaderBrand"
               href="/account"
             >
               <div
@@ -107,7 +107,7 @@ exports[`Header authenticated renders correctly 1`] = `
               aria-controls="main-nav-dialog"
               aria-expanded="false"
               aria-label="Open main menu"
-              class="css-12a7350-BaseButton-boxStyles-boxStyles-MainNavButton"
+              class="css-15b2miz-BaseButton-boxStyles-boxStyles-MainNavButton"
               type="button"
             >
               <svg
@@ -135,7 +135,7 @@ exports[`Header authenticated renders correctly 1`] = `
             </button>
           </div>
           <div
-            class="css-1voda1h-dark-dark-boxStyles-boxStyles-element"
+            class="css-1czok4-dark-dark-boxStyles-boxStyles-element"
             id="main-nav-dialog"
           >
             <div
@@ -153,7 +153,7 @@ exports[`Header authenticated renders correctly 1`] = `
                   aria-controls="main-nav-dialog"
                   aria-expanded="true"
                   aria-label="Close main menu"
-                  class="css-12a7350-BaseButton-boxStyles-boxStyles-MainNavButton"
+                  class="css-15b2miz-BaseButton-boxStyles-boxStyles-MainNavButton"
                   type="button"
                 >
                   <svg
@@ -167,11 +167,17 @@ exports[`Header authenticated renders correctly 1`] = `
                     width="24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path
-                      d="M5 19L19 5"
+                    <line
+                      x1="18"
+                      x2="6"
+                      y1="6"
+                      y2="18"
                     />
-                    <path
-                      d="M19 19L5 5"
+                    <line
+                      x1="6"
+                      x2="18"
+                      y1="6"
+                      y2="18"
                     />
                   </svg>
                   Close
@@ -185,7 +191,7 @@ exports[`Header authenticated renders correctly 1`] = `
                   class="css-qlv0q-boxStyles-boxStyles-NavListContainer"
                 >
                   <li
-                    class="css-lmu7qf-boxStyles-boxStyles-NavListItem-NavListItem"
+                    class="css-cb22ga-boxStyles-boxStyles-NavListItem-NavListItem"
                   >
                     <a
                       aria-current="page"
@@ -197,7 +203,7 @@ exports[`Header authenticated renders correctly 1`] = `
                     </a>
                   </li>
                   <li
-                    class="css-avlaf5-boxStyles-boxStyles-NavListItem-NavListItem"
+                    class="css-1axgnc2-boxStyles-boxStyles-NavListItem-NavListItem"
                   >
                     <a
                       href="/about"
@@ -208,7 +214,7 @@ exports[`Header authenticated renders correctly 1`] = `
                     </a>
                   </li>
                   <li
-                    class="css-avlaf5-boxStyles-boxStyles-NavListItem-NavListItem"
+                    class="css-1axgnc2-boxStyles-boxStyles-NavListItem-NavListItem"
                   >
                     <a
                       href="/services"
@@ -219,7 +225,7 @@ exports[`Header authenticated renders correctly 1`] = `
                     </a>
                   </li>
                   <li
-                    class="css-avlaf5-boxStyles-boxStyles-NavListItem-NavListItem"
+                    class="css-1axgnc2-boxStyles-boxStyles-NavListItem-NavListItem"
                   >
                     <a
                       href="/help"
@@ -246,7 +252,7 @@ exports[`Header authenticated renders correctly 1`] = `
               class="css-4o8k9b-boxStyles-boxStyles"
             >
               <li
-                class="css-4hva1r-boxStyles-boxStyles-NavListItem-NavListItem"
+                class="css-sxw0ck-boxStyles-boxStyles-NavListItem-NavListItem"
               >
                 <a
                   href="/account"
@@ -288,7 +294,7 @@ exports[`Header authenticated renders correctly 1`] = `
 exports[`Header unauthenticated renders correctly 1`] = `
 <div>
   <div
-    class="css-nkayd1-dark-dark-boxStyles-boxStyles"
+    class="css-vjk8gl-dark-dark-boxStyles-boxStyles"
   >
     <header
       class="css-941epv-boxStyles-boxStyles"
@@ -303,7 +309,7 @@ exports[`Header unauthenticated renders correctly 1`] = `
             class="css-19x0q49-boxStyles-boxStyles-Column"
           >
             <a
-              class="css-1hg8qrd-boxStyles-boxStyles-HeaderBrand"
+              class="css-1oqp1fk-boxStyles-boxStyles-HeaderBrand"
               href="/"
             >
               <div
@@ -392,7 +398,7 @@ exports[`Header unauthenticated renders correctly 1`] = `
               aria-controls="main-nav-dialog"
               aria-expanded="false"
               aria-label="Open main menu"
-              class="css-12a7350-BaseButton-boxStyles-boxStyles-MainNavButton"
+              class="css-15b2miz-BaseButton-boxStyles-boxStyles-MainNavButton"
               type="button"
             >
               <svg
@@ -420,7 +426,7 @@ exports[`Header unauthenticated renders correctly 1`] = `
             </button>
           </div>
           <div
-            class="css-1voda1h-dark-dark-boxStyles-boxStyles-element"
+            class="css-1czok4-dark-dark-boxStyles-boxStyles-element"
             id="main-nav-dialog"
           >
             <div
@@ -438,7 +444,7 @@ exports[`Header unauthenticated renders correctly 1`] = `
                   aria-controls="main-nav-dialog"
                   aria-expanded="true"
                   aria-label="Close main menu"
-                  class="css-12a7350-BaseButton-boxStyles-boxStyles-MainNavButton"
+                  class="css-15b2miz-BaseButton-boxStyles-boxStyles-MainNavButton"
                   type="button"
                 >
                   <svg
@@ -452,11 +458,17 @@ exports[`Header unauthenticated renders correctly 1`] = `
                     width="24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path
-                      d="M5 19L19 5"
+                    <line
+                      x1="18"
+                      x2="6"
+                      y1="6"
+                      y2="18"
                     />
-                    <path
-                      d="M19 19L5 5"
+                    <line
+                      x1="6"
+                      x2="18"
+                      y1="6"
+                      y2="18"
                     />
                   </svg>
                   Close
@@ -470,7 +482,7 @@ exports[`Header unauthenticated renders correctly 1`] = `
                   class="css-qlv0q-boxStyles-boxStyles-NavListContainer"
                 >
                   <li
-                    class="css-lmu7qf-boxStyles-boxStyles-NavListItem-NavListItem"
+                    class="css-cb22ga-boxStyles-boxStyles-NavListItem-NavListItem"
                   >
                     <a
                       aria-current="page"
@@ -482,7 +494,7 @@ exports[`Header unauthenticated renders correctly 1`] = `
                     </a>
                   </li>
                   <li
-                    class="css-avlaf5-boxStyles-boxStyles-NavListItem-NavListItem"
+                    class="css-1axgnc2-boxStyles-boxStyles-NavListItem-NavListItem"
                   >
                     <a
                       href="/about"
@@ -493,7 +505,7 @@ exports[`Header unauthenticated renders correctly 1`] = `
                     </a>
                   </li>
                   <li
-                    class="css-avlaf5-boxStyles-boxStyles-NavListItem-NavListItem"
+                    class="css-1axgnc2-boxStyles-boxStyles-NavListItem-NavListItem"
                   >
                     <a
                       href="/services"
@@ -504,7 +516,7 @@ exports[`Header unauthenticated renders correctly 1`] = `
                     </a>
                   </li>
                   <li
-                    class="css-avlaf5-boxStyles-boxStyles-NavListItem-NavListItem"
+                    class="css-1axgnc2-boxStyles-boxStyles-NavListItem-NavListItem"
                   >
                     <a
                       href="/help"
@@ -531,7 +543,7 @@ exports[`Header unauthenticated renders correctly 1`] = `
               class="css-4o8k9b-boxStyles-boxStyles"
             >
               <li
-                class="css-4hva1r-boxStyles-boxStyles-NavListItem-NavListItem"
+                class="css-sxw0ck-boxStyles-boxStyles-NavListItem-NavListItem"
               >
                 <button
                   class="css-6e6ykx-BaseButton"

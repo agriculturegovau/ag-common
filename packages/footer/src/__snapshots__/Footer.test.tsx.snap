@@ -3,7 +3,7 @@
 exports[`Footer renders correctly 1`] = `
 <div>
   <div
-    class="css-nkayd1-dark-dark-boxStyles-boxStyles"
+    class="css-vjk8gl-dark-dark-boxStyles-boxStyles"
   >
     <footer
       class="css-16rf0on-boxStyles-boxStyles-Footer"
@@ -21,7 +21,7 @@ exports[`Footer renders correctly 1`] = `
               class="css-1b13c5y-boxStyles-boxStyles"
             >
               <a
-                class="css-116cbrl-TextLink-TextLink"
+                class="css-rkqsq-TextLink-TextLink"
                 href="/about"
               >
                 About
@@ -31,7 +31,7 @@ exports[`Footer renders correctly 1`] = `
               class="css-1b13c5y-boxStyles-boxStyles"
             >
               <a
-                class="css-116cbrl-TextLink-TextLink"
+                class="css-rkqsq-TextLink-TextLink"
                 href="/help"
                 rel="external"
               >
@@ -42,7 +42,7 @@ exports[`Footer renders correctly 1`] = `
               class="css-1b13c5y-boxStyles-boxStyles"
             >
               <a
-                class="css-116cbrl-TextLink-TextLink"
+                class="css-rkqsq-TextLink-TextLink"
                 href="https://www.agriculture.gov.au/about/commitment/accessibility"
                 rel="external"
               >
@@ -53,7 +53,7 @@ exports[`Footer renders correctly 1`] = `
               class="css-1b13c5y-boxStyles-boxStyles"
             >
               <a
-                class="css-116cbrl-TextLink-TextLink"
+                class="css-rkqsq-TextLink-TextLink"
                 href="https://www.agriculture.gov.au/about/disclaimer"
                 rel="external"
               >
@@ -64,7 +64,7 @@ exports[`Footer renders correctly 1`] = `
               class="css-1b13c5y-boxStyles-boxStyles"
             >
               <a
-                class="css-116cbrl-TextLink-TextLink"
+                class="css-rkqsq-TextLink-TextLink"
                 href="/privacy"
               >
                 Privacy

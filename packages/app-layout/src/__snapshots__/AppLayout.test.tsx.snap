@@ -3,16 +3,16 @@
 exports[`AppLayout renders correctly 1`] = `
 <div>
   <div
-    class="css-4lqw0h-AppLayoutGrid"
+    class="css-jlzmfo-AppLayoutGrid"
   >
     <header
-      class="css-112q4uw-dark-dark-boxStyles-boxStyles-AppLayoutHeader"
+      class="css-9uxuvn-dark-dark-boxStyles-boxStyles-AppLayoutHeader"
     >
       <div
-        class="css-gwzou5-boxStyles-boxStyles"
+        class="css-rkcm0d-boxStyles-boxStyles"
       >
         <a
-          class="css-db8ofu-boxStyles-boxStyles-AppLayoutHeaderBrand"
+          class="css-sn4xgn-boxStyles-boxStyles-AppLayoutHeaderBrand"
           href="/account"
         >
           <svg
@@ -69,37 +69,41 @@ exports[`AppLayout renders correctly 1`] = `
             </span>
           </div>
         </a>
-        <a
-          class="css-wilqkj-boxStyles-boxStyles-AppLayoutHeaderAccount"
-          href="/account/settings"
+        <div
+          class="css-flzfhi-boxStyles-boxStyles"
         >
-          <div
-            class="css-12mz2vv-boxStyles-boxStyles-AppLayoutHeaderAccount"
+          <a
+            class="css-1bys8uw-boxStyles-boxStyles-AppLayoutHeaderAccount"
+            href="/account/settings"
           >
             <span
-              class="css-yadxtk-boxStyles-boxStyles-Text"
+              class="css-ais1wj-boxStyles-boxStyles-AppLayoutHeaderAccount"
             >
-              Toto Wolff
+              <span
+                class="css-simcfd-boxStyles-boxStyles-Text-AppLayoutHeaderAccount"
+              >
+                Toto Wolff
+              </span>
+              <span
+                class="css-1hcdsyf-boxStyles-boxStyles-Text-AppLayoutHeaderAccount"
+              >
+                Orange Meat Works
+              </span>
             </span>
             <span
-              class="css-1v060cb-boxStyles-boxStyles-Text"
+              aria-hidden="true"
+              class="css-1vq6953-boxStyles-boxStyles-Avatar"
             >
-              Orange Meat Works
+              TW
             </span>
-          </div>
-          <span
-            aria-hidden="true"
-            class="css-1vq6953-boxStyles-boxStyles-Avatar"
-          >
-            TW
-          </span>
-        </a>
+          </a>
+        </div>
       </div>
       <div
-        class="css-d4tlov-boxStyles-boxStyles-AppLayoutHeaderNav"
+        class="css-3ma9ke-boxStyles-boxStyles-AppLayoutHeaderNav"
       >
         <button
-          class="css-17zzl51-BaseButton-boxStyles-boxStyles-AppLayoutHeaderNavMenuButton"
+          class="css-ai1nwg-BaseButton-boxStyles-boxStyles-AppLayoutHeaderNavMenuButton"
           type="button"
         >
           <svg
@@ -128,23 +132,23 @@ exports[`AppLayout renders correctly 1`] = `
           </span>
         </button>
         <a
-          class="css-vnz3gr-boxStyles-boxStyles-AppLayoutHeaderAccount"
+          class="css-1bys8uw-boxStyles-boxStyles-AppLayoutHeaderAccount"
           href="/account/settings"
         >
-          <div
-            class="css-12mz2vv-boxStyles-boxStyles-AppLayoutHeaderAccount"
+          <span
+            class="css-ais1wj-boxStyles-boxStyles-AppLayoutHeaderAccount"
           >
             <span
-              class="css-yadxtk-boxStyles-boxStyles-Text"
+              class="css-simcfd-boxStyles-boxStyles-Text-AppLayoutHeaderAccount"
             >
               Toto Wolff
             </span>
             <span
-              class="css-1v060cb-boxStyles-boxStyles-Text"
+              class="css-1hcdsyf-boxStyles-boxStyles-Text-AppLayoutHeaderAccount"
             >
               Orange Meat Works
             </span>
-          </div>
+          </span>
           <span
             aria-hidden="true"
             class="css-1vq6953-boxStyles-boxStyles-Avatar"
@@ -155,20 +159,20 @@ exports[`AppLayout renders correctly 1`] = `
       </div>
     </header>
     <aside
-      class="css-1nlszwv-boxStyles-boxStyles-AppLayoutSidebar"
+      class="css-17g9ee3-boxStyles-boxStyles-AppLayoutSidebar"
     >
       <nav
         aria-label="main"
-        class="css-1fpnq4t-boxStyles-boxStyles"
+        class="css-1h7u8v-boxStyles-boxStyles"
       >
         <ul
           class="css-1l7zya1-boxStyles-boxStyles"
         >
           <li
-            class="css-1t06xnm-AppLayoutSidebarNavItemInner"
+            class="css-1qdaebs-AppLayoutSidebarNavItemInner"
           >
             <a
-              href="/account"
+              href="/account/dashboard"
             >
               <svg
                 aria-hidden="true"
@@ -194,7 +198,7 @@ exports[`AppLayout renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="css-1t06xnm-AppLayoutSidebarNavItemInner"
+            class="css-1qdaebs-AppLayoutSidebarNavItemInner"
           >
             <a
               href="/establishments"
@@ -220,7 +224,7 @@ exports[`AppLayout renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="css-1t06xnm-AppLayoutSidebarNavItemInner"
+            class="css-1qdaebs-AppLayoutSidebarNavItemInner"
           >
             <a
               href="/intelligence"
@@ -246,7 +250,7 @@ exports[`AppLayout renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="css-1t06xnm-AppLayoutSidebarNavItemInner"
+            class="css-1qdaebs-AppLayoutSidebarNavItemInner"
           >
             <a
               href="/compliance"
@@ -278,14 +282,14 @@ exports[`AppLayout renders correctly 1`] = `
           </li>
           <li
             aria-hidden="true"
-            class="css-l9x0as-boxStyles-boxStyles"
+            class="css-ryhy6t-boxStyles-boxStyles"
           >
             <hr
               class="css-166wurb-AppLayoutSidebarNavDivider"
             />
           </li>
           <li
-            class="css-1c7lu52-AppLayoutSidebarNavItemInner"
+            class="css-13mhly7-AppLayoutSidebarNavItemInner"
           >
             <a
               href="/account/messages"
@@ -326,7 +330,7 @@ exports[`AppLayout renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="css-1t06xnm-AppLayoutSidebarNavItemInner"
+            class="css-1qdaebs-AppLayoutSidebarNavItemInner"
           >
             <a
               href="/account/settings"
@@ -357,7 +361,7 @@ exports[`AppLayout renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="css-1t06xnm-AppLayoutSidebarNavItemInner"
+            class="css-1qdaebs-AppLayoutSidebarNavItemInner"
           >
             <a
               href="/help"
@@ -419,14 +423,14 @@ exports[`AppLayout renders correctly 1`] = `
           </li>
           <li
             aria-hidden="true"
-            class="css-l9x0as-boxStyles-boxStyles"
+            class="css-1bsnmn1-boxStyles-boxStyles"
           >
             <hr
               class="css-166wurb-AppLayoutSidebarNavDivider"
             />
           </li>
           <li
-            class="css-1t06xnm-AppLayoutSidebarNavItemInner"
+            class="css-1qdaebs-AppLayoutSidebarNavItemInner"
           >
             <button
               class="css-6e6ykx-BaseButton"
@@ -462,7 +466,7 @@ exports[`AppLayout renders correctly 1`] = `
       </nav>
     </aside>
     <div
-      class="css-9uuqth-boxStyles-boxStyles-AppLayoutContent"
+      class="css-19bfxwr-boxStyles-boxStyles-AppLayoutContent"
     >
       <main
         class="css-1dkabg7-AppLayout"
@@ -495,7 +499,7 @@ exports[`AppLayout renders correctly 1`] = `
                     class="css-1b13c5y-boxStyles-boxStyles"
                   >
                     <a
-                      class="css-116cbrl-TextLink-TextLink"
+                      class="css-rkqsq-TextLink-TextLink"
                       href="/about"
                     >
                       About
@@ -505,7 +509,7 @@ exports[`AppLayout renders correctly 1`] = `
                     class="css-1b13c5y-boxStyles-boxStyles"
                   >
                     <a
-                      class="css-116cbrl-TextLink-TextLink"
+                      class="css-rkqsq-TextLink-TextLink"
                       href="/help"
                       rel="external"
                     >
@@ -516,7 +520,7 @@ exports[`AppLayout renders correctly 1`] = `
                     class="css-1b13c5y-boxStyles-boxStyles"
                   >
                     <a
-                      class="css-116cbrl-TextLink-TextLink"
+                      class="css-rkqsq-TextLink-TextLink"
                       href="https://www.agriculture.gov.au/about/commitment/accessibility"
                       rel="external"
                     >
@@ -527,7 +531,7 @@ exports[`AppLayout renders correctly 1`] = `
                     class="css-1b13c5y-boxStyles-boxStyles"
                   >
                     <a
-                      class="css-116cbrl-TextLink-TextLink"
+                      class="css-rkqsq-TextLink-TextLink"
                       href="https://www.agriculture.gov.au/about/disclaimer"
                       rel="external"
                     >
@@ -538,7 +542,7 @@ exports[`AppLayout renders correctly 1`] = `
                     class="css-1b13c5y-boxStyles-boxStyles"
                   >
                     <a
-                      class="css-116cbrl-TextLink-TextLink"
+                      class="css-rkqsq-TextLink-TextLink"
                       href="/privacy"
                     >
                       Privacy

@@ -9,7 +9,7 @@ exports[`DigitalIdentity renders correctly 1`] = `
       class="css-7yhir6-boxStyles-boxStyles-DigitalIdentity"
     >
       <a
-        class="css-nhki8u-DigitalIdentityButton"
+        class="css-1wayqxl-DigitalIdentityButton"
         href="/account"
       >
         <div
@@ -608,7 +608,7 @@ exports[`DigitalIdentity renders correctly 1`] = `
         class="css-1scmya3-boxStyles-boxStyles-Text-DigitalIdentity"
       >
         <a
-          class="css-qu8kjz-TextLink-TextLink-DigitalIdentity"
+          class="css-ftmsoe-TextLink-TextLink-DigitalIdentity"
           href="https://www.digitalidentity.gov.au/"
           rel="noopener"
           target="_blank"

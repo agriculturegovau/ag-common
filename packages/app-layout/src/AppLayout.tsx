@@ -11,9 +11,15 @@ import { Logo } from '@ag.ds-next/react/ag-branding';
 import { CoreProvider, coreContext, tokens } from '@ag.ds-next/react/core';
 import { LinkList } from '@ag.ds-next/react/link-list';
 import { Text } from '@ag.ds-next/react/text';
-import { footerNavigationItems, getSidebarLinks } from './utils';
+import { footerNavigationItems, getSidebarLinks, hrefs } from './utils';
+import {
+	Business,
+	BusinessDetails,
+	BusinessDropdown,
+	getBusinessSidebarLinks,
+} from './AppLayoutDropdown';
 
-export type AppLayoutProps = PropsWithChildren<{
+export type AppLayoutProps<B extends Business> = PropsWithChildren<{
 	activePath: string;
 	focusMode?: boolean;
 	handleSignOut: () => Promise<void>;
@@ -21,9 +27,10 @@ export type AppLayoutProps = PropsWithChildren<{
 	unreadMessageCount?: number;
 	userName?: string;
 	userOrganisation?: string;
+	businessDetails?: BusinessDetails<B>;
 }>;
 
-export function AppLayout({
+export function AppLayout<B extends Business>({
 	activePath,
 	children,
 	focusMode = false,
@@ -32,7 +39,8 @@ export function AppLayout({
 	unreadMessageCount,
 	userName,
 	userOrganisation,
-}: AppLayoutProps) {
+	businessDetails,
+}: AppLayoutProps<B>) {
 	const year = useMemo(() => new Date().getFullYear(), []);
 
 	// Preserve link behaviour for main content
@@ -45,9 +53,13 @@ export function AppLayout({
 		[handleSignOut]
 	);
 
-	const sidebarLinks = useMemo(() => {
-		return getSidebarLinks({ unreadMessageCount, onSignOutClick });
-	}, [onSignOutClick, unreadMessageCount]);
+	const sidebarLinks = useMemo(
+		() => [
+			...getBusinessSidebarLinks(businessDetails),
+			...getSidebarLinks({ unreadMessageCount, onSignOutClick }),
+		],
+		[onSignOutClick, unreadMessageCount, businessDetails]
+	);
 
 	return (
 		<AgDsAppLayout focusMode={focusMode}>
@@ -61,9 +73,20 @@ export function AppLayout({
 					accountDetails={
 						userName
 							? {
-									href: '/account/settings',
+									href: hrefs.settings,
 									name: userName,
-									secondaryText: userOrganisation,
+									secondaryText:
+										businessDetails?.selectedBusiness?.partyDisplayName ??
+										userOrganisation ??
+										'My account',
+									dropdown: businessDetails ? (
+										<BusinessDropdown
+											businessDetails={businessDetails}
+											unreadMessageCount={unreadMessageCount}
+											focusMode={focusMode}
+											onSignOutClick={onSignOutClick}
+										/>
+									) : undefined,
 							  }
 							: undefined
 					}
