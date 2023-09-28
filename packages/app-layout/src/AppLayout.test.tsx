@@ -2,22 +2,21 @@ import '@testing-library/jest-dom';
 import 'html-validate/jest';
 import { render, cleanup } from '../../../test-utils';
 import { AppLayout, AppLayoutProps } from './AppLayout';
+import { Business } from './AppLayoutDropdown';
 
 afterEach(cleanup);
 
 function renderAppLayout({
 	focusMode = false,
 	userName = 'Toto Wolff',
-	userOrganisation = 'Orange Meat Works',
 	unreadMessageCount = 6,
 	activePath = '/',
 	handleSignOut = async () => undefined,
-}: Partial<AppLayoutProps>) {
+}: Partial<AppLayoutProps<Business>>) {
 	return render(
 		<AppLayout
 			focusMode={focusMode}
 			userName={userName}
-			userOrganisation={userOrganisation}
 			unreadMessageCount={unreadMessageCount}
 			activePath={activePath}
 			handleSignOut={handleSignOut}

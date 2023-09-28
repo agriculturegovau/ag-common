@@ -87,7 +87,7 @@ exports[`AppLayout renders correctly 1`] = `
               <span
                 class="css-1hcdsyf-boxStyles-boxStyles-Text-AppLayoutHeaderAccount"
               >
-                Orange Meat Works
+                My account
               </span>
             </span>
             <span
@@ -146,7 +146,7 @@ exports[`AppLayout renders correctly 1`] = `
             <span
               class="css-1hcdsyf-boxStyles-boxStyles-Text-AppLayoutHeaderAccount"
             >
-              Orange Meat Works
+              My account
             </span>
           </span>
           <span

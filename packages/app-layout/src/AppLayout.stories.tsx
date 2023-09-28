@@ -3,9 +3,11 @@ import { StoryObj, Meta } from '@storybook/react';
 import { Prose } from '@ag.ds-next/react/prose';
 import { PageContent } from '@ag.ds-next/react/content';
 import { SkipLinks } from '@ag.ds-next/react/skip-link';
+import { ControlGroup } from '@ag.ds-next/react/control-group';
+import { Radio } from '@ag.ds-next/react/radio';
+import { Stack } from '@ag.ds-next/react/stack';
 import { AppLayout } from './AppLayout';
 import { Business, BusinessDetails } from './AppLayoutDropdown';
-import { TextLink } from '@ag.ds-next/react/text-link';
 
 type BusinessFromAPI = Business & { someExtraInfo: string };
 
@@ -132,21 +134,26 @@ export const BusinessDropdown: Story = {
 		userName: 'Toto Wolff',
 		unreadMessageCount: 6,
 		activePath: '/',
-		businessDetails: {
+	},
+	render: function Render(props) {
+		const [businessDetails, setBusinessDetails] = useState<
+			Omit<BusinessDetails<BusinessFromAPI>, 'setSelectedBusiness'>
+		>({
 			linkedBusinesses: exampleBusinesses,
 			selectedBusiness: exampleBusinesses[1],
-			setSelectedBusiness: () => {},
-		},
-	},
-	render: function Render({ businessDetails: businessDetails_, ...props }) {
-		const [selectedBusiness, setSelectedBusiness] = useState<
-			Business | undefined
-		>(businessDetails_?.selectedBusiness);
+		});
 
-		const businessDetails = {
-			...businessDetails_,
-			setSelectedBusiness,
-			selectedBusiness,
+		const setSelectedBusiness = (selectedBusiness: BusinessFromAPI) =>
+			setBusinessDetails((details) => ({ ...details, selectedBusiness }));
+
+		const onChange = (n: number) => () => {
+			const linkedBusinesses = exampleBusinesses.slice(0, n);
+			const selectedBusiness = linkedBusinesses.find(
+				(business) =>
+					business?.partyId === businessDetails?.selectedBusiness?.partyId
+			);
+
+			setBusinessDetails({ selectedBusiness, linkedBusinesses });
 		};
 
 		return (
@@ -154,66 +161,35 @@ export const BusinessDropdown: Story = {
 				<SkipLinks
 					links={[{ href: '#main-content', label: 'Skip to main content' }]}
 				/>
-				<AppLayout {...props} businessDetails={businessDetails}>
+				<AppLayout
+					{...props}
+					businessDetails={{ ...businessDetails, setSelectedBusiness }}
+				>
 					<PageContent>
-						<Prose>
-							<h1>Page heading</h1>
-						</Prose>
-					</PageContent>
-				</AppLayout>
-			</Fragment>
-		);
-	},
-};
-
-export const BusinessDropdownLengths: Story = {
-	args: {
-		focusMode: false,
-		userName: 'Toto Wolff',
-		unreadMessageCount: 6,
-		activePath: '/',
-	},
-	render: function Render(props) {
-		const [businessDetails, setBusinessDetails] = useState<
-			BusinessDetails<BusinessFromAPI>
-		>({
-			linkedBusinesses: exampleBusinesses,
-			selectedBusiness: exampleBusinesses[1],
-			setSelectedBusiness: () => {},
-		});
-
-		const setBusinessLength = (n: number) => () =>
-			setBusinessDetails((details) => ({
-				...details,
-				linkedBusinesses: exampleBusinesses.slice(0, n),
-			}));
-
-		return (
-			<Fragment>
-				<SkipLinks
-					links={[{ href: '#main-content', label: 'Skip to main content' }]}
-				/>
-				<AppLayout {...props} businessDetails={businessDetails}>
-					<PageContent>
-						<Prose>
-							<h1>Number of linked businesses</h1>
-
-							<p>
-								<TextLink onClick={setBusinessLength(4)}>4 businesses</TextLink>
-							</p>
-							<p>
-								<TextLink onClick={setBusinessLength(3)}>3 businesses</TextLink>
-							</p>
-							<p>
-								<TextLink onClick={setBusinessLength(2)}>2 businesses</TextLink>
-							</p>
-							<p>
-								<TextLink onClick={setBusinessLength(1)}>1 businesses</TextLink>
-							</p>
-							<p>
-								<TextLink onClick={setBusinessLength(0)}>0 businesses</TextLink>
-							</p>
-						</Prose>
+						<Stack gap={3}>
+							<Prose>
+								<h1>Number of linked businesses</h1>
+							</Prose>
+							<ControlGroup
+								label="Number of linked businesses"
+								block
+								hideOptionalLabel
+							>
+								{Array.from(new Array(exampleBusinesses.length).keys()).map(
+									(idx) => (
+										<Radio
+											key={idx}
+											checked={
+												businessDetails?.linkedBusinesses?.length === idx
+											}
+											onChange={onChange(idx)}
+										>
+											{idx} {idx === 0 ? 'business' : 'businesses'}
+										</Radio>
+									)
+								)}
+							</ControlGroup>
+						</Stack>
 					</PageContent>
 				</AppLayout>
 			</Fragment>

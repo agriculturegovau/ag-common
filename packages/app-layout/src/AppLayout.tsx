@@ -26,7 +26,6 @@ export type AppLayoutProps<B extends Business> = PropsWithChildren<{
 	mainContentId?: string;
 	unreadMessageCount?: number;
 	userName?: string;
-	userOrganisation?: string;
 	businessDetails?: BusinessDetails<B>;
 }>;
 
@@ -38,7 +37,6 @@ export function AppLayout<B extends Business>({
 	mainContentId = 'main-content',
 	unreadMessageCount,
 	userName,
-	userOrganisation,
 	businessDetails,
 }: AppLayoutProps<B>) {
 	const year = useMemo(() => new Date().getFullYear(), []);
@@ -77,13 +75,11 @@ export function AppLayout<B extends Business>({
 									name: userName,
 									secondaryText:
 										businessDetails?.selectedBusiness?.partyDisplayName ??
-										userOrganisation ??
 										'My account',
 									dropdown: businessDetails ? (
 										<BusinessDropdown
 											businessDetails={businessDetails}
 											unreadMessageCount={unreadMessageCount}
-											focusMode={focusMode}
 											onSignOutClick={onSignOutClick}
 										/>
 									) : undefined,
