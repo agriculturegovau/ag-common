@@ -12,10 +12,15 @@ yarn add @ag.common/app-layout
 
 ```tsx
 import { AppLayout } from '@ag.common/app-layout';
+import { useAuth } from '@ag.common/auth';
+import { useBusinessDetails } from '@ag.common/auth';
+import { useRouter } from 'next/router';
 
 function App() {
+	const businessDetails = useBusinessDetails();
+
 	return (
-		<AppLayout>
+		<AppLayout activePath={router.asPath} businessDetails={businessDetails}>
 			<YourApplication />
 		</AppLayout>
 	);

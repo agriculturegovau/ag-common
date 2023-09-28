@@ -19,7 +19,7 @@ export const hrefs = {
 	dashboard: '/account/dashboard',
 	messages: '/account/messages',
 	settings: '/account/settings',
-	linkBusiness: '/account/link-business',
+	linkBusiness: '/account/link-a-business',
 };
 
 export const footerNavigationItems = [
