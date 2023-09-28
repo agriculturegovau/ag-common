@@ -175,7 +175,7 @@ export const BusinessDropdown: Story = {
 								block
 								hideOptionalLabel
 							>
-								{Array.from(new Array(exampleBusinesses.length).keys()).map(
+								{Array.from(new Array(exampleBusinesses.length + 1).keys()).map(
 									(idx) => (
 										<Radio
 											key={idx}
