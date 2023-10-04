@@ -1,5 +1,11 @@
 # @ag.common/digital-identity
 
+## 0.4.0
+
+### Minor Changes
+
+- 8467dae: bump agds, support auth dropdown in app-layout
+
 ## 0.3.0
 
 ### Minor Changes

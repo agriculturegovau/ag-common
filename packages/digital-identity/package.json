@@ -1,6 +1,6 @@
 {
 	"name": "@ag.common/digital-identity",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"main": "dist/ag.common-digital-identity.cjs.js",
 	"module": "dist/ag.common-digital-identity.esm.js",
 	"license": "MIT",

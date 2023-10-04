@@ -1,5 +1,19 @@
 # @ag.common/app-layout
 
+## 1.0.0
+
+### Major Changes
+
+- 8467dae: integrate app-layout with new auth behaviour
+
+### Minor Changes
+
+- 8467dae: bump agds, support auth dropdown in app-layout
+
+### Patch Changes
+
+- 801046c: Made `userName` prop optional to allow client-side fetching of user name. If no `userName` is supplied, the account details in the top right of the header will not be rendered.
+
 ## 0.3.1
 
 ### Patch Changes
