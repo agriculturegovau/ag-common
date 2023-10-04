@@ -148,11 +148,7 @@ export const BusinessDropdown: Story = {
 
 		const onChange = (n: number) => () => {
 			const linkedBusinesses = exampleBusinesses.slice(0, n);
-			const selectedBusiness = linkedBusinesses.find(
-				(business) =>
-					business?.partyId === businessDetails?.selectedBusiness?.partyId
-			);
-
+			const selectedBusiness = linkedBusinesses[0];
 			setBusinessDetails({ selectedBusiness, linkedBusinesses });
 		};
 
