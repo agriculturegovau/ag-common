@@ -54,9 +54,9 @@ export function AppLayout<B extends Business>({
 	const sidebarLinks = useMemo(
 		() => [
 			...getBusinessSidebarLinks(businessDetails),
-			...getSidebarLinks({ unreadMessageCount, onSignOutClick }),
+			...getSidebarLinks({ onSignOutClick }),
 		],
-		[onSignOutClick, unreadMessageCount, businessDetails]
+		[onSignOutClick, businessDetails]
 	);
 
 	return (

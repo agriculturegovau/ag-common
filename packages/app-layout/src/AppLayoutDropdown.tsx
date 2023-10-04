@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { VisuallyHidden } from '@ag.ds-next/react/a11y';
 import {
 	DropdownMenuDivider,
@@ -138,25 +139,31 @@ export const getBusinessSidebarLinks = <T extends Business>(
 	details?.selectedBusiness === undefined
 		? []
 		: [
-				[
-					{
-						label: 'Back to my account',
-						icon: ChevronsLeftIcon,
-						href: '/account',
-					},
-				],
-				[
-					{
-						label: (
-							<>
-								<Text fontWeight="bold" fontSize="xs">
-									{details.selectedBusiness.partyDisplayName}
-								</Text>
-								<Text color="muted" fontSize="xs">
-									{details.selectedBusiness.formattedPartyExternalId}
-								</Text>
-							</>
-						),
-					},
-				],
+				{
+					options: { disableGroupPadding: true },
+					items: [
+						{
+							label: 'Back to my account',
+							icon: ChevronsLeftIcon,
+							href: '/account',
+						},
+					],
+				},
+				{
+					options: { disableGroupPadding: true },
+					items: [
+						{
+							label: (
+								<Fragment>
+									<Text fontWeight="bold" fontSize="xs">
+										{details.selectedBusiness.partyDisplayName}
+									</Text>
+									<Text color="muted" fontSize="xs">
+										{details.selectedBusiness.formattedPartyExternalId}
+									</Text>
+								</Fragment>
+							),
+						},
+					],
+				},
 		  ];

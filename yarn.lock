@@ -12,10 +12,10 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
-"@ag.ds-next/react@^1.12.0":
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/react/-/react-1.12.0.tgz#9ea4c2172791653523f3c7173eb8b5eae7f9f376"
-  integrity sha512-YD7KcrdSV+1MmkBhciyx+x7sXvJ/Yrfp4JdMfzJ+jUaoh7KwRLDsoVdLX5frhCZnPCota7JTosGc9LlRMZfmgw==
+"@ag.ds-next/react@^1.13.0":
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/react/-/react-1.13.0.tgz#ea737d5c28b3002e82c95cb09a4586ca6027de2b"
+  integrity sha512-O/4E4EnoK1ZLgFsjHRwSod4y2R3Nvtus+2bmL75xORqiRdQbVq5UVtPq24hm5J/V+HdGk9L8VpkEHQOOUHpfZA==
   dependencies:
     "@babel/runtime" "^7.4.5"
     "@floating-ui/react-dom" "^2.0.1"
@@ -23,7 +23,7 @@
     date-fns "^2.28.0"
     downshift "^8.1.0"
     react-day-picker "^8.3.5"
-    react-dropzone "^12.0.5"
+    react-dropzone "^14.2.3"
     react-focus-lock "^2.8.1"
     react-keyed-flatten-children "^2.2.1"
     use-debounce "^9.0.4"
@@ -6538,12 +6538,12 @@ file-entry-cache@^6.0.1:
   dependencies:
     flat-cache "^3.0.4"
 
-file-selector@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/file-selector/-/file-selector-0.5.0.tgz#21c7126dc9728b31a2742d91cab20d55e67e4fb4"
-  integrity sha512-s8KNnmIDTBoD0p9uJ9uD0XY38SCeBOtj0UMXyQSLg1Ypfrfj8+dAvwsLjYQkQ2GjhVtp2HrnF5cJzMhBjfD8HA==
+file-selector@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/file-selector/-/file-selector-0.6.0.tgz#fa0a8d9007b829504db4d07dd4de0310b65287dc"
+  integrity sha512-QlZ5yJC0VxHxQQsQhXvBaC7VRJ2uaxTf+Tfpu4Z/OcVQJVpZO+DGU0rkoVW5ce2SccxugvpBJoMvUs59iILYdw==
   dependencies:
-    tslib "^2.0.3"
+    tslib "^2.4.0"
 
 file-system-cache@2.3.0:
   version "2.3.0"
@@ -9711,13 +9711,13 @@ react-dom@18.1.0:
     loose-envify "^1.1.0"
     scheduler "^0.22.0"
 
-react-dropzone@^12.0.5:
-  version "12.1.0"
-  resolved "https://registry.yarnpkg.com/react-dropzone/-/react-dropzone-12.1.0.tgz#e097b37e9da6f9e324efc757b7434ebc6f3dc2cb"
-  integrity sha512-iBYHA1rbopIvtzokEX4QubO6qk5IF/x3BtKGu74rF2JkQDXnwC4uO/lHKpaw4PJIV6iIAYOlwLv2FpiGyqHNog==
+react-dropzone@^14.2.3:
+  version "14.2.3"
+  resolved "https://registry.yarnpkg.com/react-dropzone/-/react-dropzone-14.2.3.tgz#0acab68308fda2d54d1273a1e626264e13d4e84b"
+  integrity sha512-O3om8I+PkFKbxCukfIR3QAGftYXDZfOE2N1mr/7qebQJHs7U+/RSL/9xomJNpRg9kM5h9soQSdf0Gc7OHF5Fug==
   dependencies:
     attr-accept "^2.2.2"
-    file-selector "^0.5.0"
+    file-selector "^0.6.0"
     prop-types "^15.8.1"
 
 react-element-to-jsx-string@^15.0.0:

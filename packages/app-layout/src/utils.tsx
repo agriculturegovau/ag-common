@@ -1,16 +1,12 @@
-import { NotificationBadge } from '@ag.ds-next/react/notification-badge';
 import {
 	ChartLineIcon,
-	EmailIcon,
 	ExitIcon,
 	HelpIcon,
 	HomeIcon,
 	SuccessIcon,
-	SettingsIcon,
 	FactoryIcon,
 	ExternalLinkIcon,
 } from '@ag.ds-next/react/icon';
-import { VisuallyHidden } from '@ag.ds-next/react/a11y';
 import { Flex } from '@ag.ds-next/react/flex';
 import { ExternalLinkCallout } from '@ag.ds-next/react/a11y';
 
@@ -19,7 +15,7 @@ export const hrefs = {
 	dashboard: '/account/dashboard',
 	messages: '/account/messages',
 	settings: '/account/settings',
-	linkBusiness: '/account/link-business',
+	linkBusiness: '/account/link-a-business',
 };
 
 export const footerNavigationItems = [
@@ -46,10 +42,8 @@ export const footerNavigationItems = [
 ];
 
 export function getSidebarLinks({
-	unreadMessageCount,
 	onSignOutClick,
 }: {
-	unreadMessageCount?: number;
 	onSignOutClick: () => void;
 }) {
 	return [
@@ -76,28 +70,6 @@ export function getSidebarLinks({
 			},
 		],
 		[
-			{
-				label: 'Messages',
-				icon: EmailIcon,
-				href: hrefs.messages,
-				endElement:
-					typeof unreadMessageCount === 'number' && unreadMessageCount > 0 ? (
-						<span>
-							<NotificationBadge
-								tone="action"
-								value={unreadMessageCount}
-								max={99}
-								aria-hidden
-							/>
-							<VisuallyHidden>, {unreadMessageCount} unread</VisuallyHidden>
-						</span>
-					) : undefined,
-			},
-			{
-				label: 'Account settings',
-				icon: SettingsIcon,
-				href: hrefs.settings,
-			},
 			{
 				label: (
 					<Flex as="span" alignItems="center" gap={0.5}>
