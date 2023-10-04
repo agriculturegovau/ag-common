@@ -17,6 +17,7 @@ import { useBusinessDetails } from '@ag.common/auth';
 import { useRouter } from 'next/router';
 
 function App() {
+	const router = useRouter();
 	const businessDetails = useBusinessDetails();
 
 	return (
