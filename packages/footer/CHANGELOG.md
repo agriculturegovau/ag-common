@@ -1,5 +1,11 @@
 # @ag.common/footer
 
+## 1.4.0
+
+### Minor Changes
+
+- 8467dae: bump agds, support auth dropdown in app-layout
+
 ## 1.3.0
 
 ### Minor Changes

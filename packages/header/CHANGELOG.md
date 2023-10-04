@@ -1,5 +1,16 @@
 # @ag.common/header
 
+## 2.0.0
+
+### Major Changes
+
+- e0e0314: - Added new `focusMode` prop.
+  - Removed `handleSignOut` prop. This functionality is no longer required as the "Sign out" button has been replaced by the "My account" link.
+
+### Minor Changes
+
+- 8467dae: bump agds, support auth dropdown in app-layout
+
 ## 1.3.0
 
 ### Minor Changes
