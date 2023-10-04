@@ -169,7 +169,7 @@ exports[`AppLayout renders correctly 1`] = `
           class="css-1l7zya1-boxStyles-boxStyles"
         >
           <li
-            class="css-1qdaebs-AppLayoutSidebarNavItemInner"
+            class="css-11lpl70-AppLayoutSidebarNavItemInner"
           >
             <a
               href="/account/dashboard"
@@ -198,7 +198,7 @@ exports[`AppLayout renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="css-1qdaebs-AppLayoutSidebarNavItemInner"
+            class="css-11lpl70-AppLayoutSidebarNavItemInner"
           >
             <a
               href="/establishments"
@@ -224,7 +224,7 @@ exports[`AppLayout renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="css-1qdaebs-AppLayoutSidebarNavItemInner"
+            class="css-11lpl70-AppLayoutSidebarNavItemInner"
           >
             <a
               href="/intelligence"
@@ -250,7 +250,7 @@ exports[`AppLayout renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="css-1qdaebs-AppLayoutSidebarNavItemInner"
+            class="css-11lpl70-AppLayoutSidebarNavItemInner"
           >
             <a
               href="/compliance"
@@ -282,14 +282,14 @@ exports[`AppLayout renders correctly 1`] = `
           </li>
           <li
             aria-hidden="true"
-            class="css-1bsnmn1-boxStyles-boxStyles"
+            class="css-ryhy6t-boxStyles-boxStyles"
           >
             <hr
               class="css-166wurb-AppLayoutSidebarNavDivider"
             />
           </li>
           <li
-            class="css-1qdaebs-AppLayoutSidebarNavItemInner"
+            class="css-11lpl70-AppLayoutSidebarNavItemInner"
           >
             <a
               href="/help"
@@ -351,14 +351,14 @@ exports[`AppLayout renders correctly 1`] = `
           </li>
           <li
             aria-hidden="true"
-            class="css-1bsnmn1-boxStyles-boxStyles"
+            class="css-ryhy6t-boxStyles-boxStyles"
           >
             <hr
               class="css-166wurb-AppLayoutSidebarNavDivider"
             />
           </li>
           <li
-            class="css-1qdaebs-AppLayoutSidebarNavItemInner"
+            class="css-11lpl70-AppLayoutSidebarNavItemInner"
           >
             <button
               class="css-6e6ykx-BaseButton"
