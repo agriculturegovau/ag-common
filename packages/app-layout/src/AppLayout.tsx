@@ -30,7 +30,7 @@ export type AppLayoutProps<B extends Business> = PropsWithChildren<{
 }>;
 
 export function AppLayout<B extends Business>({
-	activePath,
+	activePath: activePathProp,
 	children,
 	focusMode = false,
 	handleSignOut,
@@ -58,6 +58,18 @@ export function AppLayout<B extends Business>({
 		],
 		[onSignOutClick, businessDetails]
 	);
+
+	// Select the "Dashboard" link when we are on an account subpath
+	const activePath = useMemo(() => {
+		if (
+			activePathProp !== hrefs.account &&
+			activePathProp.startsWith(hrefs.account)
+		) {
+			// Select the "dashboard instead"
+			return hrefs.dashboard;
+		}
+		activePathProp;
+	}, [activePathProp]);
 
 	return (
 		<AgDsAppLayout focusMode={focusMode}>

@@ -81,7 +81,10 @@ const LinkedBusinesses = (props: {
 				</DropdownMenuItemRadio>
 			))}
 			{props.businesses.length > 3 ? (
-				<DropdownMenuItemLink href="/account" endElement={<ArrowRightIcon />}>
+				<DropdownMenuItemLink
+					href={hrefs.account}
+					endElement={<ArrowRightIcon />}
+				>
 					View all businesses
 				</DropdownMenuItemLink>
 			) : null}
@@ -145,7 +148,7 @@ export const getBusinessSidebarLinks = <T extends Business>(
 						{
 							label: 'Back to my account',
 							icon: ChevronsLeftIcon,
-							href: '/account',
+							href: hrefs.account,
 						},
 					],
 				},
