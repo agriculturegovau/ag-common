@@ -29,6 +29,43 @@ export type AppLayoutProps<B extends Business> = PropsWithChildren<{
 	businessDetails?: BusinessDetails<B>;
 }>;
 
+export type AppLayoutProps1<B extends Business> = PropsWithChildren<{
+	activePath: string;
+	focusMode?: boolean;
+	handleSignOut: () => Promise<void>;
+	mainContentId?: string;
+	unreadMessageCount?: number;
+	userName?: string;
+	linkedBusiness: BusinessDetails<B>['linkedBusinesses'];
+	selectedBusiness: BusinessDetails<B>['selectedBusiness'];
+	setSelectedBusiness: BusinessDetails<B>['setSelectedBusiness'];
+}>;
+
+export type AppLayoutProps2<B extends Business> = PropsWithChildren<{
+	activePath: string;
+	focusMode?: boolean;
+	handleSignOut: () => Promise<void>;
+	mainContentId?: string;
+	unreadMessageCount?: number;
+	userName?: string;
+	businessDetails?: BusinessDetails<B>;
+	onBusinessChange?: (business: B) => 'allow / reject change?';
+}>;
+
+export type AppLayoutProps3<B extends Business> = PropsWithChildren<{
+	activePath: string;
+	focusMode?: boolean;
+	handleSignOut: () => Promise<void>;
+	mainContentId?: string;
+	unreadMessageCount?: number;
+	userName?: string;
+	businessDetails?: BusinessDetails<B>;
+	onBusinessChange?:
+		| { redirect: string }
+		| { interrupt: boolean }
+		| { onChange: (b: B) => void };
+}>;
+
 export function AppLayout<B extends Business>({
 	activePath,
 	children,
