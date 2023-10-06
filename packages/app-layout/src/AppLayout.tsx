@@ -62,10 +62,9 @@ export function AppLayout<B extends Business>({
 	// Select the "Dashboard" link when we are on an account subpath
 	const activePath = useMemo(() => {
 		if (
-			activePathProp !== hrefs.account &&
-			activePathProp.startsWith(hrefs.account)
+			activePathProp.startsWith(hrefs.account) &&
+			activePathProp !== hrefs.account
 		) {
-			// Select the "dashboard instead"
 			return hrefs.dashboard;
 		}
 		activePathProp;
