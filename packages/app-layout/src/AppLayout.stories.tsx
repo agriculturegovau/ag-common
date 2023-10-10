@@ -162,11 +162,7 @@ export const BusinessDropdown: Story = {
 				/>
 				<AppLayout
 					{...props}
-					businessDetails={
-						businessDetails.linkedBusinesses?.length === 0
-							? undefined
-							: { ...businessDetails, setSelectedBusiness }
-					}
+					businessDetails={{ ...businessDetails, setSelectedBusiness }}
 				>
 					<PageContent>
 						<Stack gap={3}>
