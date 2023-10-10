@@ -6,8 +6,11 @@ import { SkipLinks } from '@ag.ds-next/react/skip-link';
 import { ControlGroup } from '@ag.ds-next/react/control-group';
 import { Radio } from '@ag.ds-next/react/radio';
 import { Stack } from '@ag.ds-next/react/stack';
+import { Modal } from '@ag.ds-next/react/modal';
 import { AppLayout } from './AppLayout';
 import { Business, BusinessDetails } from './AppLayoutDropdown';
+import { Button, ButtonGroup } from '@ag.ds-next/react/button';
+import { Text } from '@ag.ds-next/react/text';
 
 type BusinessFromAPI = Business & { someExtraInfo: string };
 
@@ -159,7 +162,11 @@ export const BusinessDropdown: Story = {
 				/>
 				<AppLayout
 					{...props}
-					businessDetails={{ ...businessDetails, setSelectedBusiness }}
+					businessDetails={
+						businessDetails.linkedBusinesses?.length === 0
+							? undefined
+							: { ...businessDetails, setSelectedBusiness }
+					}
 				>
 					<PageContent>
 						<Stack gap={3}>
@@ -185,6 +192,76 @@ export const BusinessDropdown: Story = {
 									)
 								)}
 							</ControlGroup>
+						</Stack>
+					</PageContent>
+				</AppLayout>
+			</Fragment>
+		);
+	},
+};
+
+export const BusinessDropdownModalInterrupt: Story = {
+	args: {
+		focusMode: false,
+		userName: 'Toto Wolff',
+		unreadMessageCount: 6,
+		activePath: '/',
+	},
+	render: function Render(props) {
+		const linkedBusinesses = exampleBusinesses;
+		const [selectedBusiness, setSelectedBusiness] = useState(
+			linkedBusinesses[1]
+		);
+		const [targetBusiness, setTargetBusiness] = useState<
+			BusinessFromAPI | undefined
+		>();
+		const clearTargetBusiness = () => setTargetBusiness(undefined);
+
+		const businessDetails = {
+			linkedBusinesses,
+			selectedBusiness,
+			setSelectedBusiness: setTargetBusiness,
+		};
+
+		return (
+			<Fragment>
+				<SkipLinks
+					links={[{ href: '#main-content', label: 'Skip to main content' }]}
+				/>
+				<AppLayout {...props} businessDetails={businessDetails}>
+					<Modal
+						isOpen={targetBusiness !== undefined}
+						onDismiss={clearTargetBusiness}
+						title="Are you sure you want to leave this page?"
+						actions={
+							<ButtonGroup>
+								<Button
+									onClick={() => {
+										if (targetBusiness !== undefined) {
+											setSelectedBusiness(targetBusiness);
+										}
+
+										setTargetBusiness(undefined);
+									}}
+								>
+									Leave this page
+								</Button>
+								<Button variant="secondary" onClick={clearTargetBusiness}>
+									Stay on this page
+								</Button>
+							</ButtonGroup>
+						}
+					>
+						<Text as="p">
+							You will lose all changes made since your last save.
+						</Text>
+					</Modal>
+
+					<PageContent>
+						<Stack gap={3}>
+							<Prose>
+								<h1>Active business: {selectedBusiness?.partyDisplayName}</h1>
+							</Prose>
 						</Stack>
 					</PageContent>
 				</AppLayout>
