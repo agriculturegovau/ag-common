@@ -11,10 +11,10 @@ import { Flex } from '@ag.ds-next/react/flex';
 import { ExternalLinkCallout } from '@ag.ds-next/react/a11y';
 
 export const hrefs = {
+	account: '/account',
 	profile: '/account/profile',
 	dashboard: '/account/dashboard',
 	messages: '/account/messages',
-	settings: '/account/settings',
 	linkBusiness: '/account/link-a-business',
 };
 

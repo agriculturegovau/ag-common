@@ -71,7 +71,7 @@ export function AppLayout<B extends Business>({
 					accountDetails={
 						userName
 							? {
-									href: hrefs.settings,
+									href: hrefs.account,
 									name: userName,
 									secondaryText:
 										businessDetails?.selectedBusiness?.partyDisplayName ??
