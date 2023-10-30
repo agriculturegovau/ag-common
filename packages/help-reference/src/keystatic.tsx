@@ -1,6 +1,6 @@
-import { PropsWithChildren } from 'react';
+import { Element } from './renderer';
 
-export interface DocumentElement {}
+export type DocumentElement = Element;
 
 export interface HelpReference {
 	slug: string;
@@ -17,7 +17,3 @@ export interface HelpArticle {
 	intro: DocumentElement[];
 	content: DocumentElement[];
 }
-
-export const DocumentRenderer = (
-	props: PropsWithChildren<{ document: DocumentElement[] }>
-) => <div>doc</div>;

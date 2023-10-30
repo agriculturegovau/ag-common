@@ -1,122 +1,116 @@
-import { PropsWithChildren, useCallback, useContext, useMemo } from 'react';
-import {
-	AppLayout as AgDsAppLayout,
-	AppLayoutHeader as AgDsAppLayoutHeader,
-	AppLayoutSidebar as AgDsAppLayoutSidebar,
-	AppLayoutContent as AgDSAppLayoutContent,
-	AppLayoutFooter as AgDsAppLayoutFooter,
-	AppLayoutFooterDivider as AgDsAppLayoutFooterDivider,
-} from '@ag.ds-next/react/app-layout';
-import { Logo } from '@ag.ds-next/react/ag-branding';
-import { CoreProvider, coreContext, tokens } from '@ag.ds-next/react/core';
-import { LinkList } from '@ag.ds-next/react/link-list';
+import { useState } from 'react';
+import useSWR from 'swr';
+import request, { gql } from 'graphql-request';
+
+import { Prose } from '@ag.ds-next/react/prose';
+import { Drawer } from '@ag.ds-next/react/drawer';
+import { Button } from '@ag.ds-next/react/button';
+import { Stack } from '@ag.ds-next/react/stack';
+import { TextLinkExternal } from '@ag.ds-next/react/text-link';
+import { Details } from '@ag.ds-next/react/details';
+import { HelpArticle, HelpReference } from './keystatic';
+import { H1 } from '@ag.ds-next/react/heading';
+import { DocumentRenderer, defaultRenderers } from './renderer';
 import { Text } from '@ag.ds-next/react/text';
-import { footerNavigationItems, getSidebarLinks, hrefs } from './utils';
-import {
-	Business,
-	BusinessDetails,
-	BusinessDropdown,
-	getBusinessSidebarLinks,
-} from './AppLayoutDropdown';
 
-export type AppLayoutProps<B extends Business> = PropsWithChildren<{
-	activePath: string;
-	focusMode?: boolean;
-	handleSignOut: () => Promise<void>;
-	mainContentId?: string;
-	unreadMessageCount?: number;
-	userName?: string;
-	businessDetails?: BusinessDetails<B>;
-}>;
+interface HelpReferenceProps {
+	tag: string;
+}
 
-export function AppLayout<B extends Business>({
-	activePath,
-	children,
-	focusMode = false,
-	handleSignOut,
-	mainContentId = 'main-content',
-	unreadMessageCount,
-	userName,
-	businessDetails,
-}: AppLayoutProps<B>) {
-	const year = useMemo(() => new Date().getFullYear(), []);
+const getReferenceQuery = gql`
+	query getReference($tag: String!) {
+		reference: reference(slug: $tag) {
+			slug
+			label
+			content
+			referenceText
 
-	// Preserve link behaviour for main content
-	const parentCoreContext = useContext(coreContext);
+			article {
+				slug
+				title
+				intro
+				content
+			}
+		}
+	}
+`;
 
-	const onSignOutClick = useCallback(
-		async function onSignOutClick() {
-			await handleSignOut();
-		},
-		[handleSignOut]
+export const HelpReference = (props: HelpReferenceProps) => {
+	const [expanded, setExpanded] = useState(false);
+
+	const variables = { tag: props.tag };
+
+	const { data, error } = useSWR(
+		{ document: getReferenceQuery, variables },
+		({ document, variables }) =>
+			request<{ reference: HelpReference }>({
+				url: '/api/graphql',
+				document,
+				variables,
+			})
 	);
 
-	const sidebarLinks = useMemo(
-		() => [
-			...getBusinessSidebarLinks(businessDetails),
-			...getSidebarLinks({ onSignOutClick }),
-		],
-		[onSignOutClick, businessDetails]
-	);
+	const reference = data?.reference;
+	if (!reference) {
+		return null;
+	}
 
 	return (
-		<AgDsAppLayout focusMode={focusMode}>
-			<CoreProvider>
-				<AgDsAppLayoutHeader
-					href="/account"
-					heading="Export Service"
-					subLine="Supporting Australian agricultural exports"
-					badgeLabel="Beta"
-					logo={<Logo />}
-					accountDetails={
-						userName
-							? {
-									href: hrefs.account,
-									name: userName,
-									secondaryText:
-										businessDetails?.selectedBusiness?.partyDisplayName ??
-										'My account',
-									dropdown: businessDetails ? (
-										<BusinessDropdown
-											businessDetails={businessDetails}
-											unreadMessageCount={unreadMessageCount}
-											onSignOutClick={onSignOutClick}
-										/>
-									) : undefined,
-							  }
-							: undefined
+		<>
+			<Details label={reference?.label} iconBefore>
+				<Prose>
+					<DocumentRenderer document={reference.content ?? []} />
+
+					<p>
+						<Button variant="text" onClick={() => setExpanded(true)}>
+							{reference.referenceText}
+						</Button>
+					</p>
+				</Prose>
+			</Details>
+
+			{reference.article ? (
+				<Drawer
+					isOpen={expanded}
+					onDismiss={() => setExpanded(false)}
+					title={'Help'}
+					actions={
+						<TextLinkExternal href={`/help/page/${reference.article.slug}`}>
+							Open in new window
+						</TextLinkExternal>
 					}
-				/>
-				<AgDsAppLayoutSidebar activePath={activePath} items={sidebarLinks} />
-
-				<AgDSAppLayoutContent>
-					<CoreProvider {...parentCoreContext}>
-						<main
-							id={mainContentId}
-							tabIndex={-1}
-							css={{ '&:focus': { outline: 'none' } }}
-						>
-							{children}
-						</main>
-					</CoreProvider>
-
-					<AgDsAppLayoutFooter>
-						<nav aria-label="footer">
-							<LinkList links={footerNavigationItems} horizontal />
-						</nav>
-						<AgDsAppLayoutFooterDivider />
-						<Text fontSize="xs" maxWidth={tokens.maxWidth.bodyText}>
-							We acknowledge the traditional owners of country throughout
-							Australia and recognise their continuing connection to land,
-							waters and culture. We pay our respects to their Elders past,
-							present and emerging.
-						</Text>
-						<Text fontSize="xs" maxWidth={tokens.maxWidth.bodyText}>
-							&copy; {year} Department of Agriculture, Fisheries and Forestry
-						</Text>
-					</AgDsAppLayoutFooter>
-				</AgDSAppLayoutContent>
-			</CoreProvider>
-		</AgDsAppLayout>
+				>
+					<Stack gap={3}>
+						<HelpContent article={reference.article} />
+					</Stack>
+				</Drawer>
+			) : null}
+		</>
 	);
-}
+};
+
+export const HelpContent = (props: { article: HelpArticle }) => (
+	<>
+		<Stack gap={1.5}>
+			<H1 maxWidth={'42rem'}>{props.article.title}</H1>
+			<DocumentRenderer
+				document={props.article.intro}
+				renderers={{
+					block: {
+						...defaultRenderers.block,
+						paragraph: ({ children }) => (
+							<Text as="p" fontSize="md" color="muted">
+								{children}
+							</Text>
+						),
+					},
+					inline: defaultRenderers.inline,
+				}}
+			/>
+		</Stack>
+
+		<Prose>
+			<DocumentRenderer document={props.article.content} />
+		</Prose>
+	</>
+);
