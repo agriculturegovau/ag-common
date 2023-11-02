@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 import useSWR from 'swr';
 import request, { gql } from 'graphql-request';
 
@@ -8,7 +8,7 @@ import { Button } from '@ag.ds-next/react/button';
 import { Stack } from '@ag.ds-next/react/stack';
 import { TextLinkExternal } from '@ag.ds-next/react/text-link';
 import { Details } from '@ag.ds-next/react/details';
-import { HelpArticle, HelpReference } from './keystatic';
+import { HelpArticleT, HelpReferenceT } from './keystatic';
 import { H1 } from '@ag.ds-next/react/heading';
 import { DocumentRenderer, defaultRenderers } from './renderer';
 import { Text } from '@ag.ds-next/react/text';
@@ -16,6 +16,12 @@ import { Text } from '@ag.ds-next/react/text';
 interface HelpReferenceProps {
 	tag: string;
 }
+
+const HelpReferenceContext = createContext({
+	providerURL: 'https://exports.agriculture.gov.au',
+});
+
+export const HelpReferenceProvider = HelpReferenceContext.Provider;
 
 const getReferenceQuery = gql`
 	query getReference($tag: String!) {
@@ -37,14 +43,15 @@ const getReferenceQuery = gql`
 
 export const HelpReference = (props: HelpReferenceProps) => {
 	const [expanded, setExpanded] = useState(false);
+	const { providerURL } = useContext(HelpReferenceContext);
 
 	const variables = { tag: props.tag };
 
 	const { data, error } = useSWR(
 		{ document: getReferenceQuery, variables },
 		({ document, variables }) =>
-			request<{ reference: HelpReference }>({
-				url: '/api/graphql',
+			request<{ reference: HelpReferenceT }>({
+				url: `${providerURL}/api/graphql`,
 				document,
 				variables,
 			})
@@ -75,7 +82,9 @@ export const HelpReference = (props: HelpReferenceProps) => {
 					onDismiss={() => setExpanded(false)}
 					title={'Help'}
 					actions={
-						<TextLinkExternal href={`/help/page/${reference.article.slug}`}>
+						<TextLinkExternal
+							href={`${providerURL}/help/page/${reference.article.slug}`}
+						>
 							Open in new window
 						</TextLinkExternal>
 					}
@@ -89,7 +98,7 @@ export const HelpReference = (props: HelpReferenceProps) => {
 	);
 };
 
-export const HelpContent = (props: { article: HelpArticle }) => (
+export const HelpContent = (props: { article: HelpArticleT }) => (
 	<>
 		<Stack gap={1.5}>
 			<H1 maxWidth={'42rem'}>{props.article.title}</H1>
