@@ -6,16 +6,25 @@ import { Prose } from '@ag.ds-next/react/prose';
 import { Drawer } from '@ag.ds-next/react/drawer';
 import { Button } from '@ag.ds-next/react/button';
 import { Stack } from '@ag.ds-next/react/stack';
-import { TextLinkExternal } from '@ag.ds-next/react/text-link';
+import {
+	TextLinkExternal,
+	TextLinkExternalProps,
+} from '@ag.ds-next/react/text-link';
 import { Details } from '@ag.ds-next/react/details';
 import { HelpArticleT, HelpReferenceT } from './keystatic';
 import { H1 } from '@ag.ds-next/react/heading';
 import { DocumentRenderer, defaultRenderers } from './renderer';
 import { Text } from '@ag.ds-next/react/text';
 
-interface HelpReferenceProps {
-	tag: string;
-}
+type HelpReferenceProps = {
+	reference: string;
+};
+
+type ArticleLinkProps = {
+	article: string;
+} & Omit<TextLinkExternalProps, 'onClick' | 'href'>;
+
+type SlugParam = { slug: string };
 
 const HelpReferenceContext = createContext({
 	providerURL: 'https://exports.agriculture.gov.au',
@@ -24,8 +33,8 @@ const HelpReferenceContext = createContext({
 export const HelpReferenceProvider = HelpReferenceContext.Provider;
 
 const getReferenceQuery = gql`
-	query getReference($tag: String!) {
-		reference: reference(slug: $tag) {
+	query getReference($slug: String!) {
+		reference: reference(slug: $slug) {
 			slug
 			label
 			content
@@ -41,16 +50,71 @@ const getReferenceQuery = gql`
 	}
 `;
 
+const getArticleQuery = gql`
+	query getArticle($slug: String!) {
+		article: article(slug: $slug) {
+			slug
+			title
+			intro
+			content
+		}
+	}
+`;
+
+export const ArticleLink = ({ article, ...props }: ArticleLinkProps) => {
+	const [expanded, setExpanded] = useState(false);
+	const { providerURL } = useContext(HelpReferenceContext);
+
+	const variables = { slug: article };
+
+	const { data, error } = useSWR(
+		{ document: getArticleQuery, variables },
+		({ document, variables }) =>
+			request<{ article: HelpArticleT | null }, SlugParam>({
+				url: `${providerURL}/api/graphql`,
+				document,
+				variables,
+			})
+	);
+
+	const href = `${providerURL}/help/page/${article}`;
+	const t = data?.article;
+
+	if (!t) {
+		return <TextLinkExternal {...props} href={href} />;
+	}
+
+	return (
+		<>
+			<TextLinkExternal
+				{...props}
+				href={href}
+				onClick={(e) => {
+					setExpanded(true);
+					e.preventDefault();
+				}}
+			/>
+
+			<HelpDrawer
+				article={t}
+				href={href}
+				setShowing={setExpanded}
+				showing={expanded}
+			/>
+		</>
+	);
+};
+
 export const HelpReference = (props: HelpReferenceProps) => {
 	const [expanded, setExpanded] = useState(false);
 	const { providerURL } = useContext(HelpReferenceContext);
 
-	const variables = { tag: props.tag };
+	const variables = { slug: props.reference };
 
 	const { data, error } = useSWR(
 		{ document: getReferenceQuery, variables },
 		({ document, variables }) =>
-			request<{ reference: HelpReferenceT }>({
+			request<{ reference: HelpReferenceT | null }, SlugParam>({
 				url: `${providerURL}/api/graphql`,
 				document,
 				variables,
@@ -77,22 +141,12 @@ export const HelpReference = (props: HelpReferenceProps) => {
 			</Details>
 
 			{reference.article ? (
-				<Drawer
-					isOpen={expanded}
-					onDismiss={() => setExpanded(false)}
-					title={'Help'}
-					actions={
-						<TextLinkExternal
-							href={`${providerURL}/help/page/${reference.article.slug}`}
-						>
-							Open in new window
-						</TextLinkExternal>
-					}
-				>
-					<Stack gap={3}>
-						<HelpContent article={reference.article} />
-					</Stack>
-				</Drawer>
+				<HelpDrawer
+					article={reference.article}
+					href={`${providerURL}/help/page/${reference.article.slug}`}
+					showing={expanded}
+					setShowing={setExpanded}
+				/>
 			) : null}
 		</>
 	);
@@ -122,4 +176,26 @@ export const HelpContent = (props: { article: HelpArticleT }) => (
 			<DocumentRenderer document={props.article.content} />
 		</Prose>
 	</>
+);
+
+interface HelpDrawerProps {
+	article: HelpArticleT;
+	href: string;
+	showing: boolean;
+	setShowing: (showing: boolean) => void;
+}
+
+export const HelpDrawer = (props: HelpDrawerProps) => (
+	<Drawer
+		isOpen={props.showing}
+		onDismiss={() => props.setShowing(false)}
+		title={'Help'}
+		actions={
+			<TextLinkExternal href={props.href}>Open in new window</TextLinkExternal>
+		}
+	>
+		<Stack gap={3}>
+			<HelpContent article={props.article} />
+		</Stack>
+	</Drawer>
 );

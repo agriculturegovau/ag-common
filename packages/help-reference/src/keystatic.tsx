@@ -8,7 +8,7 @@ export interface HelpReferenceT {
 	referenceText: string;
 	content: DocumentElement[];
 
-	article?: HelpArticleT;
+	article?: HelpArticleT | null;
 }
 
 export interface HelpArticleT {
