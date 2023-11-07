@@ -1,7 +1,9 @@
 import { StoryObj, Meta } from '@storybook/react';
 import {
 	ArticleLink,
+	ArticleLink2,
 	HelpReference,
+	HelpReference2,
 	HelpReferenceProvider,
 } from './HelpReference';
 
@@ -15,13 +17,14 @@ const meta: Meta<typeof HelpReference> = {
 		<HelpReferenceProvider value={{ providerURL: 'http://localhost:3000' }}>
 			<HelpReference {...props} />
 			<br />
-			<HelpReference reference="example" />
 			<HelpReference reference="example-reference" />
-			<HelpReference reference="example" />
+			<HelpReference2 reference="example-reference" />
 			<br />
 			<ArticleLink article="link-business">link one</ArticleLink>
-			<ArticleLink article="linkbusiness">link two</ArticleLink>
-			<ArticleLink article="linksiness">link three</ArticleLink>
+			<ArticleLink2 article="link-business">link one</ArticleLink2>
+
+			<ArticleLink article="link">link one</ArticleLink>
+			<ArticleLink2 article="link">link one</ArticleLink2>
 		</HelpReferenceProvider>
 	),
 };
