@@ -1,11 +1,4 @@
-import {
-	PropsWithChildren,
-	ReactElement,
-	ReactNode,
-	createContext,
-	useContext,
-	useState,
-} from 'react';
+import { createContext, useContext, useState } from 'react';
 import useSWR from 'swr';
 import request, { gql } from 'graphql-request';
 
@@ -18,10 +11,11 @@ import {
 	TextLinkExternalProps,
 } from '@ag.ds-next/react/text-link';
 import { Details } from '@ag.ds-next/react/details';
-import { HelpArticleT, HelpReferenceT } from './keystatic';
 import { H1 } from '@ag.ds-next/react/heading';
-import { DocumentRenderer, defaultRenderers } from './renderer';
 import { Text } from '@ag.ds-next/react/text';
+
+import { HelpArticleT, HelpReferenceT } from './keystatic';
+import { DocumentRenderer, defaultRenderers } from './renderer';
 
 type HelpReferenceProps = {
 	reference: string;
@@ -46,6 +40,7 @@ const getReferenceQuery = gql`
 			label
 			content
 			referenceText
+			articleSlug
 
 			article {
 				slug
@@ -82,15 +77,12 @@ const useQuery = <T,>(document: string, variables: SlugParam) => {
 export const ArticleLink = ({ article, ...props }: ArticleLinkProps) => {
 	const [expanded, setExpanded] = useState(false);
 	const { providerURL } = useContext(HelpReferenceContext);
-
-	const { data, error } = useQuery<{ article: HelpArticleT | null }>(
-		getArticleQuery,
-		{ slug: article }
-	);
+	const { data } = useQuery<{ article: HelpArticleT | null }>(getArticleQuery, {
+		slug: article,
+	});
 
 	const href = `${providerURL}/help/page/${article}`;
 	const t = data?.article;
-
 	if (!t) {
 		return <TextLinkExternal {...props} href={href} />;
 	}
@@ -109,7 +101,7 @@ export const ArticleLink = ({ article, ...props }: ArticleLinkProps) => {
 			<HelpDrawer
 				article={t}
 				href={href}
-				setShowing={setExpanded}
+				dismiss={() => setExpanded(false)}
 				showing={expanded}
 			/>
 		</>
@@ -119,7 +111,7 @@ export const ArticleLink = ({ article, ...props }: ArticleLinkProps) => {
 export const HelpReference = (props: HelpReferenceProps) => {
 	const [expanded, setExpanded] = useState(false);
 	const { providerURL } = useContext(HelpReferenceContext);
-	const { data, error } = useQuery<{ reference: HelpReferenceT | null }>(
+	const { data } = useQuery<{ reference: HelpReferenceT | null }>(
 		getReferenceQuery,
 		{ slug: props.reference }
 	);
@@ -129,6 +121,7 @@ export const HelpReference = (props: HelpReferenceProps) => {
 		return null;
 	}
 
+	const href = `${providerURL}/help/page/${reference.articleSlug}`;
 	return (
 		<>
 			<Details label={reference?.label} iconBefore>
@@ -136,9 +129,15 @@ export const HelpReference = (props: HelpReferenceProps) => {
 					<DocumentRenderer document={reference.content ?? []} />
 
 					<p>
-						<Button variant="text" onClick={() => setExpanded(true)}>
-							{reference.referenceText}
-						</Button>
+						{reference.article ? (
+							<Button variant="text" onClick={() => setExpanded(true)}>
+								{reference.referenceText}
+							</Button>
+						) : (
+							<TextLinkExternal href={href}>
+								{reference.referenceText}
+							</TextLinkExternal>
+						)}
 					</p>
 				</Prose>
 			</Details>
@@ -146,16 +145,16 @@ export const HelpReference = (props: HelpReferenceProps) => {
 			{reference.article ? (
 				<HelpDrawer
 					article={reference.article}
-					href={`${providerURL}/help/page/${reference.article.slug}`}
+					href={href}
+					dismiss={() => setExpanded(false)}
 					showing={expanded}
-					setShowing={setExpanded}
 				/>
 			) : null}
 		</>
 	);
 };
 
-export const HelpContent = (props: { article: HelpArticleT }) => (
+const HelpContent = (props: { article: HelpArticleT }) => (
 	<>
 		<Stack gap={1.5}>
 			<H1 maxWidth={'42rem'}>{props.article.title}</H1>
@@ -184,122 +183,21 @@ export const HelpContent = (props: { article: HelpArticleT }) => (
 interface HelpDrawerProps {
 	article: HelpArticleT;
 	showing: boolean;
-	setShowing: (showing: boolean) => void;
+	dismiss: () => void;
+	href: string;
 }
 
-export const HelpDrawer = (props: HelpDrawerProps) => {
-	const { providerURL } = useContext(HelpReferenceContext);
-
-	return (
-		<Drawer
-			isOpen={props.showing}
-			onDismiss={() => props.setShowing(false)}
-			title={'Help'}
-			actions={
-				<TextLinkExternal
-					href={`${providerURL}/help/page/${props.article.slug}`}
-				>
-					Open in new window
-				</TextLinkExternal>
-			}
-		>
-			<Stack gap={3}>
-				<HelpContent article={props.article} />
-			</Stack>
-		</Drawer>
-	);
-};
-
-export const Reegegegegege = (props: HelpReferenceProps | ArticleLinkProps) => {
-	if ('reference' in props) {
-		return <HelpReference {...props} />;
-	}
-
-	return <ArticleLink {...props} />;
-};
-
-interface G_Props<Data> {
-	document: string;
-	variables: SlugParam;
-	getArticle: (t: Data) => HelpArticleT | null | undefined;
-	children: (props: {
-		data: Data | undefined;
-		setShowing: () => void;
-	}) => ReactElement | null;
-}
-
-export const G = <Data,>(props: G_Props<Data>) => {
-	const [expanded, setExpanded] = useState(false);
-	const { data, error } = useQuery<Data>(props.document, props.variables);
-	const setShowing = () => setExpanded(true);
-
-	if (data === undefined) {
-		return props.children({ data, setShowing });
-	}
-
-	const article = props.getArticle(data);
-	return (
-		<>
-			{props.children({ data, setShowing })}
-
-			{article ? (
-				<HelpDrawer
-					article={article}
-					showing={expanded}
-					setShowing={setExpanded}
-				/>
-			) : null}
-		</>
-	);
-};
-
-export const HelpReference2 = (props: HelpReferenceProps) => (
-	<G<{ reference: HelpReferenceT | null }>
-		document={getReferenceQuery}
-		variables={{ slug: props.reference }}
-		getArticle={(data) => data?.reference?.article}
-	>
-		{({ data, setShowing }) =>
-			data?.reference ? (
-				<Details label={data.reference.label} iconBefore>
-					<Prose>
-						<DocumentRenderer document={data.reference.content ?? []} />
-
-						<p>
-							<Button variant="text" onClick={setShowing}>
-								{data.reference.referenceText}
-							</Button>
-						</p>
-					</Prose>
-				</Details>
-			) : null
+export const HelpDrawer = (props: HelpDrawerProps) => (
+	<Drawer
+		isOpen={props.showing}
+		onDismiss={props.dismiss}
+		title={'Help'}
+		actions={
+			<TextLinkExternal href={props.href}>Open in new window</TextLinkExternal>
 		}
-	</G>
+	>
+		<Stack gap={3}>
+			<HelpContent article={props.article} />
+		</Stack>
+	</Drawer>
 );
-
-export const ArticleLink2 = (props: ArticleLinkProps) => {
-	const href = `/help/page/${props.article}`;
-
-	return (
-		<G<{ article: HelpArticleT | null }>
-			document={getArticleQuery}
-			variables={{ slug: props.article }}
-			getArticle={(data) => data?.article}
-		>
-			{({ data, setShowing }) =>
-				data?.article ? (
-					<TextLinkExternal
-						{...props}
-						href={href}
-						onClick={(e) => {
-							setShowing();
-							e.preventDefault();
-						}}
-					/>
-				) : (
-					<TextLinkExternal {...props} href={href} />
-				)
-			}
-		</G>
-	);
-};

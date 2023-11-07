@@ -5,6 +5,7 @@ export type DocumentElement = Element;
 export interface HelpReferenceT {
 	slug: string;
 	label: string;
+	articleSlug: string;
 	referenceText: string;
 	content: DocumentElement[];
 
