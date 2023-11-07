@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { PropsWithChildren, ReactElement, ReactNode, createContext, useContext, useState } from 'react';
 import useSWR from 'swr';
 import request, { gql } from 'graphql-request';
 
@@ -61,20 +61,24 @@ const getArticleQuery = gql`
 	}
 `;
 
+const useQuery = <T,>(document: string, variables: SlugParam) => {
+	const { providerURL } = useContext(HelpReferenceContext);
+	return useSWR({ document, variables }, ({ document, variables }) =>
+		request<T, SlugParam>({
+			url: `${providerURL}/api/graphql`,
+			document,
+			variables,
+		})
+	);
+};
+
 export const ArticleLink = ({ article, ...props }: ArticleLinkProps) => {
 	const [expanded, setExpanded] = useState(false);
 	const { providerURL } = useContext(HelpReferenceContext);
 
-	const variables = { slug: article };
-
-	const { data, error } = useSWR(
-		{ document: getArticleQuery, variables },
-		({ document, variables }) =>
-			request<{ article: HelpArticleT | null }, SlugParam>({
-				url: `${providerURL}/api/graphql`,
-				document,
-				variables,
-			})
+	const { data, error } = useQuery<{ article: HelpArticleT | null }>(
+		getArticleQuery,
+		{ slug: article }
 	);
 
 	const href = `${providerURL}/help/page/${article}`;
@@ -108,17 +112,9 @@ export const ArticleLink = ({ article, ...props }: ArticleLinkProps) => {
 export const HelpReference = (props: HelpReferenceProps) => {
 	const [expanded, setExpanded] = useState(false);
 	const { providerURL } = useContext(HelpReferenceContext);
-
-	const variables = { slug: props.reference };
-
-	const { data, error } = useSWR(
-		{ document: getReferenceQuery, variables },
-		({ document, variables }) =>
-			request<{ reference: HelpReferenceT | null }, SlugParam>({
-				url: `${providerURL}/api/graphql`,
-				document,
-				variables,
-			})
+	const { data, error } = useQuery<{ reference: HelpReferenceT | null }>(
+		getReferenceQuery,
+		{ slug: props.reference }
 	);
 
 	const reference = data?.reference;
@@ -199,3 +195,68 @@ export const HelpDrawer = (props: HelpDrawerProps) => (
 		</Stack>
 	</Drawer>
 );
+
+export const Reegegegegege = (props: HelpReferenceProps | ArticleLinkProps) => {
+	if ('reference' in props) {
+		return <HelpReference {...props} />;
+	}
+
+	return <ArticleLink {...props} />;
+};
+
+export const ReegegegegegeX = <T,>(props: {
+	C: (t: { data: T | undefined }) => ReactElement;
+	document: string;
+	variables: SlugParam;
+}) => {
+	const [expanded, setExpanded] = useState(false);
+	const { providerURL } = useContext(HelpReferenceContext);
+	const { data, error } = useQuery<T>(props.document, props.variables)
+
+	const C = props.C
+
+	return (
+		<>
+			<C data={data} />
+			<HelpDrawer />
+		</>
+	);
+};
+
+export const ReegegegegegeY = (props: PropsWithChildren<{article: HelpArticleT | null}>) => {
+	const [expanded, setExpanded] = useState(false);
+
+	return (
+		<>
+		{props.children}
+
+{ props.article ?
+
+}
+			<HelpDrawer
+			article={props.article}
+			showing={expanded}
+			setShowing={setExpanded}
+			href='FIXME'
+			/>
+		</>
+	);
+};
+
+export const SureXYZ = () => {
+	const { data, error } = useQuery<{ reference: HelpReferenceT | null }>(
+		getReferenceQuery,
+		{ slug: 'yes' }
+	);
+
+	const reference = data?.reference;
+	if (!reference) {
+		return null;
+	}
+
+	return <ReegegegegegeY article={reference.article}>
+
+	</ReegegegegegeY>
+
+
+}
