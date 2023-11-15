@@ -332,7 +332,12 @@ function set(
 }
 
 function createComponentBlockProps(node: Element, children: ReactElement[]) {
-	const formProps = JSON.parse(JSON.stringify(node.props));
+	const props_ = {
+		...(node?.props ?? {}),
+		embeddedDocument: node?.embeddedDocument,
+	};
+	const formProps = JSON.parse(JSON.stringify(props_));
+
 	node.children.forEach((child, i) => {
 		console.log({ child });
 		if (child.propPath) {
@@ -340,7 +345,8 @@ function createComponentBlockProps(node: Element, children: ReactElement[]) {
 			set(formProps, propPath, children[i]);
 		}
 	});
-	return { ...formProps, embeddedDocument: node.embeddedDocument };
+
+	return formProps;
 }
 
 export type DocumentRendererProps<

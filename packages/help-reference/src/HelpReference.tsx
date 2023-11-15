@@ -1,24 +1,21 @@
 import { createContext, useContext, useState } from 'react';
-import useSWR from 'swr';
 import request, { gql } from 'graphql-request';
+import useSWR from 'swr';
 
-import { Prose, proseBlockClassname } from '@ag.ds-next/react/prose';
-import { Drawer } from '@ag.ds-next/react/drawer';
 import { Button } from '@ag.ds-next/react/button';
+import { Details } from '@ag.ds-next/react/details';
+import { Drawer } from '@ag.ds-next/react/drawer';
+import { H1 } from '@ag.ds-next/react/heading';
+import { Prose } from '@ag.ds-next/react/prose';
 import { Stack } from '@ag.ds-next/react/stack';
 import {
 	TextLinkExternal,
 	TextLinkExternalProps,
 } from '@ag.ds-next/react/text-link';
-import { Details } from '@ag.ds-next/react/details';
-import { H1 } from '@ag.ds-next/react/heading';
 import { Text } from '@ag.ds-next/react/text';
 
-import { HelpArticleT, HelpReferenceT } from './keystatic';
-import { Box } from '@ag.ds-next/react/box';
-import { Callout } from '@ag.ds-next/react/callout';
-import { Card, CardInner } from '@ag.ds-next/react/card';
 import { DocumentRenderer } from './DocumentRenderer';
+import { HelpArticleT, HelpReferenceT } from './keystatic';
 
 type HelpReferenceProps = {
 	reference: string;
