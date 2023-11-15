@@ -16,6 +16,7 @@ import { Text } from '@ag.ds-next/react/text';
 
 import { DocumentRenderer } from './DocumentRenderer';
 import { HelpArticleT, HelpReferenceT } from './keystatic';
+import { HelpReferenceContext } from './HelpReferenceContext';
 
 type HelpReferenceProps = {
 	reference: string;
@@ -26,12 +27,6 @@ type ArticleLinkProps = {
 } & Omit<TextLinkExternalProps, 'onClick' | 'href'>;
 
 type SlugParam = { slug: string };
-
-const HelpReferenceContext = createContext({
-	providerURL: 'https://exports.agriculture.gov.au',
-});
-
-export const HelpReferenceProvider = HelpReferenceContext.Provider;
 
 const getReferenceQuery = gql`
 	query getReference($slug: String!) {
