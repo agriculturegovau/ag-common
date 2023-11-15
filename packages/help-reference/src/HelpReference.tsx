@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from 'react';
 import useSWR from 'swr';
 import request, { gql } from 'graphql-request';
 
-import { Prose } from '@ag.ds-next/react/prose';
+import { Prose, proseBlockClassname } from '@ag.ds-next/react/prose';
 import { Drawer } from '@ag.ds-next/react/drawer';
 import { Button } from '@ag.ds-next/react/button';
 import { Stack } from '@ag.ds-next/react/stack';
@@ -15,7 +15,10 @@ import { H1 } from '@ag.ds-next/react/heading';
 import { Text } from '@ag.ds-next/react/text';
 
 import { HelpArticleT, HelpReferenceT } from './keystatic';
-import { DocumentRenderer, defaultRenderers } from './renderer';
+import { Box } from '@ag.ds-next/react/box';
+import { Callout } from '@ag.ds-next/react/callout';
+import { Card, CardInner } from '@ag.ds-next/react/card';
+import { DocumentRenderer } from './DocumentRenderer';
 
 type HelpReferenceProps = {
 	reference: string;
@@ -162,14 +165,12 @@ const HelpContent = (props: { article: HelpArticleT }) => (
 				document={props.article.intro}
 				renderers={{
 					block: {
-						...defaultRenderers.block,
 						paragraph: ({ children }) => (
 							<Text as="p" fontSize="md" color="muted">
 								{children}
 							</Text>
 						),
 					},
-					inline: defaultRenderers.inline,
 				}}
 			/>
 		</Stack>
