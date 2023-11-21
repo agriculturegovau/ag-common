@@ -1,4 +1,4 @@
-import { ComponentProps, Fragment, ReactElement, ReactNode } from 'react';
+import { Fragment, ReactElement, ReactNode } from 'react';
 
 export type Node = Element | Text;
 

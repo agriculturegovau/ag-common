@@ -5,7 +5,7 @@ import { graphql, HttpResponse } from 'msw';
 import { Prose } from '@ag.ds-next/react/prose';
 import { Text } from '@ag.ds-next/react/text';
 import { Stack } from '@ag.ds-next/react/stack';
-import { HelpArticleT, HelpReferenceT } from './keystatic';
+import { HelpArticleT, HelpReferenceT } from './types';
 
 const exampleArticle = {
 	slug: 'example-reference-article',

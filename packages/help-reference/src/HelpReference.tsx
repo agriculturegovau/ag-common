@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import request, { gql } from 'graphql-request';
 import useSWR from 'swr';
 
@@ -15,7 +15,7 @@ import {
 import { Text } from '@ag.ds-next/react/text';
 
 import { DocumentRenderer } from './DocumentRenderer';
-import { HelpArticleT, HelpReferenceT } from './keystatic';
+import { HelpArticleT, HelpReferenceT } from './types';
 import { HelpReferenceContext } from './HelpReferenceContext';
 
 type HelpReferenceProps = {

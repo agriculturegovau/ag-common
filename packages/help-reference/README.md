@@ -1,114 +1,48 @@
-# App layout
+# HelpReference, ArticleLink
 
-Common application shell for apps in the user-facing authenticated space of the Export Service
+HelpReference and ArticleLink are components that allow an application to reference export service help content from the page itself without opening a new tab and breaking a users' flow.
 
 ## Installation
 
 ```sh
-yarn add @ag.common/app-layout
+yarn add @ag.common/help-reference
 ```
 
 ## Basic usage
 
 ```tsx
-import { AppLayout } from '@ag.common/app-layout';
-import { useAuth } from '@ag.common/auth';
-import { useBusinessDetails } from '@ag.common/auth';
-import { useRouter } from 'next/router';
+import { PageContent } from '@ag.ds-next/react/content';
+import { HelpReference } from '@ag.common/help-reference';
 
-function App() {
-	const router = useRouter();
-	const businessDetails = useBusinessDetails();
-
+function Page() {
 	return (
-		<AppLayout activePath={router.asPath} businessDetails={businessDetails}>
-			<YourApplication />
-		</AppLayout>
+		<PageContent>
+			<YourPageContent />
+			<HelpReference reference="your-reference" />
+		</PageContent>
 	);
 }
 ```
 
-## Redirect a user to app section on business selection
+## Using ArticleLink to trigger the drawer
 
-It may make sense for your application to start from its root when a user changes context.
-
-```tsx
-import { AppLayout } from '@ag.common/app-layout';
-import { useAuth } from '@ag.common/auth';
-import { useBusinessDetails } from '@ag.common/auth';
-import { useRouter } from 'next/router';
-
-function App() {
-	const router = useRouter();
-	const businessDetails = useBusinessDetails();
-	const onBusinessSelected = (business: Business) => {
-		businessDetails.setSelectedBusiness(business);
-		router.push('/your-app-base-path-here');
-	};
-
-	return (
-		<AppLayout
-			activePath={router.asPath}
-			businessDetails={{
-				...businessDetails,
-				setSelectedBusiness: onBusinessSelected,
-			}}
-		>
-			<YourApplication />
-		</AppLayout>
-	);
-}
-```
-
-## Display warning modal before setting business
-
-You may want to interrupt a user before allowing them to change their selected business if they have pending changes.
+You may reference an article in-app directly using an ArticleLink without needing to set up any reference content
 
 ```tsx
-import { AppLayout } from '@ag.common/app-layout';
-import { useAuth } from '@ag.common/auth';
-import { useBusinessDetails } from '@ag.common/auth';
-import { useRouter } from 'next/router';
+import { Text } from '@ag.ds-next/react/text';
+import { PageContent } from '@ag.ds-next/react/content';
+import { ArticleLink } from '@ag.common/help-reference';
 
-function App() {
-	const router = useRouter();
-	const businessDetails = useBusinessDetails();
-	const [targetBusiness, setTargetBusiness] = useState<Business | undefined>();
-
+function Page() {
 	return (
-		<AppLayout
-			activePath={router.asPath}
-			businessDetails={{
-				...businessDetails,
-				setSelectedBusiness: (business: Business) => {
-					setTargetBusiness(business);
-				},
-			}}
-		>
-			<Modal
-				isOpen={targetBusiness !== undefined}
-				onDismiss={setTargetBusiness(undefined)}
-				title="Are you sure you want to leave this page?"
-				actions={
-					<ButtonGroup>
-						<Button
-							onClick={() => {
-								businessDetails.setSelectedBusiness(targetBusiness);
-								setTargetBusiness(undefined);
-							}}
-						>
-							Leave this page
-						</Button>
-						<Button variant="secondary" onClick={setTargetBusiness(undefined)}>
-							Stay on this page
-						</Button>
-					</ButtonGroup>
-				}
-			>
-				<Text as="p">You will lose all changes made since your last save.</Text>
-			</Modal>
-			<YourApplication />
-		</AppLayout>
+		<PageContent>
+			<YourPageContent />
+			<Text as="p">
+				You can place an ArticleLink anywhere in your page and have it{' '}
+				<ArticleLink article="your-article">reference</ArticleLink> a help
+				article
+			</Text>
+		</PageContent>
 	);
 }
 ```

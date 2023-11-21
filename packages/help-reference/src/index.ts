@@ -1,1 +1,2 @@
-export * from './HelpReference';
+export { HelpReference, ArticleLink } from './HelpReference';
+export { HelpReferenceProvider } from './HelpReferenceContext';
