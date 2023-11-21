@@ -6,6 +6,7 @@ import { Callout } from '@ag.ds-next/react/callout';
 import { TextLinkExternal } from '@ag.ds-next/react/text-link';
 import { Card, CardInner } from '@ag.ds-next/react/card';
 import { HelpReferenceContext } from './HelpReferenceContext';
+import { DefinedMedia, definedMedia } from './DefinedMedia';
 
 export const DocumentRenderer = ({
 	document,
@@ -54,6 +55,12 @@ export const DocumentRenderer = ({
 						</CardInner>
 					</Card>
 				),
+				predefinedMedia: (props) =>
+					props?.label in definedMedia ? (
+						<Box className={proseBlockClassname}>
+							<DefinedMedia label={props.label} />
+						</Box>
+					) : null,
 			}}
 		/>
 	);
