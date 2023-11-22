@@ -1,6 +1,6 @@
-# HelpReference, ArticleLink
+# @ag.common/help-reference
 
-HelpReference and ArticleLink are components that allow an application to reference export service help content from the page itself without opening a new tab and breaking a users' flow.
+`HelpReference` and `ArticleLink` are components that allow an application to reference export service help content from the page itself without opening a new tab and breaking a users' flow.
 
 ## Installation
 
