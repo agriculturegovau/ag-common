@@ -1,14 +1,13 @@
 import { useContext, useState } from 'react';
 import request, { gql } from 'graphql-request';
 import useSWR from 'swr';
-
-import { Button } from '@ag.ds-next/react/button';
 import { Details } from '@ag.ds-next/react/details';
 import { Drawer } from '@ag.ds-next/react/drawer';
 import { H1 } from '@ag.ds-next/react/heading';
 import { Prose } from '@ag.ds-next/react/prose';
 import { Stack } from '@ag.ds-next/react/stack';
 import {
+	TextLink,
 	TextLinkExternal,
 	TextLinkExternalProps,
 } from '@ag.ds-next/react/text-link';
@@ -17,6 +16,7 @@ import { Text } from '@ag.ds-next/react/text';
 import { DocumentRenderer } from './DocumentRenderer';
 import { HelpArticleT, HelpReferenceT } from './types';
 import { HelpReferenceContext } from './HelpReferenceContext';
+import { tokens } from '@ag.ds-next/react/core';
 
 type HelpReferenceProps = {
 	reference: string;
@@ -87,12 +87,12 @@ export const ArticleLink = ({ article, ...props }: ArticleLinkProps) => {
 			<TextLinkExternal
 				{...props}
 				href={href}
-				onClick={(e) => {
+				onClick={(event) => {
+					if (event.metaKey) return;
 					setExpanded(true);
-					e.preventDefault();
+					event.preventDefault();
 				}}
 			/>
-
 			<HelpDrawer
 				article={t}
 				href={href}
@@ -112,22 +112,27 @@ export const HelpReference = (props: HelpReferenceProps) => {
 	);
 
 	const reference = data?.reference;
-	if (!reference) {
-		return null;
-	}
+	if (!reference) return null;
 
 	const href = `${providerURL}/help/page/${reference.articleSlug}`;
+
 	return (
 		<>
-			<Details label={reference?.label} iconBefore>
+			<Details label={reference.label} iconBefore>
 				<Prose>
 					<DocumentRenderer document={reference.content ?? []} />
-
 					<p>
 						{reference.article ? (
-							<Button variant="text" onClick={() => setExpanded(true)}>
+							<TextLink
+								href={href}
+								onClick={(event) => {
+									if (event.metaKey) return;
+									event.preventDefault();
+									setExpanded(true);
+								}}
+							>
 								{reference.referenceText}
-							</Button>
+							</TextLink>
 						) : (
 							<TextLinkExternal href={href}>
 								{reference.referenceText}
@@ -136,7 +141,6 @@ export const HelpReference = (props: HelpReferenceProps) => {
 					</p>
 				</Prose>
 			</Details>
-
 			{reference.article ? (
 				<HelpDrawer
 					article={reference.article}
@@ -152,7 +156,7 @@ export const HelpReference = (props: HelpReferenceProps) => {
 const HelpContent = (props: { article: HelpArticleT }) => (
 	<>
 		<Stack gap={1.5}>
-			<H1 maxWidth={'42rem'}>{props.article.title}</H1>
+			<H1 maxWidth={tokens.maxWidth.bodyText}>{props.article.title}</H1>
 			<DocumentRenderer
 				document={props.article.intro}
 				renderers={{
