@@ -100,8 +100,8 @@ export const defaultRenderers: Renderers = {
 		},
 		divider: 'hr',
 		heading: ({ level, children, textAlign }) => {
-			let Heading = `h${level}` as 'h1';
-			return <Heading style={{ textAlign }} children={children} />;
+			const Heading = `h${level}` as 'h1';
+			return <Heading style={{ textAlign }}>{children}</Heading>;
 		},
 		code({ children }) {
 			return (
