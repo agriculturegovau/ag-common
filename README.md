@@ -1,6 +1,6 @@
 # @ag.ds-common
 
-A set of common components for the Department of Agriculture, powered by the [Agriculture Design System (AgDS)](https://steelthreads.github.io/agds-next)
+A set of common components for the Department of Agriculture, powered by the [Agriculture Design System (AgDS)](https://agriculturegovau.github.io/agds-next)
 
 ## Contributing
 
@@ -22,7 +22,7 @@ For development run one or more of the following commands:
 
 ### Docs site
 
-Deployment of the Docs site is handled by [github actions](https://github.com/steelthreads/agds-next/actions/workflows/deploy-docs.yml). The site is deployed automatically anytime changes are merged to the `main` branch.
+Deployment of the Docs site is handled by [github actions](https://github.com/agriculturegovau/agds-next/actions/workflows/deploy-docs.yml). The site is deployed automatically anytime changes are merged to the `main` branch.
 
 You can run the builds locally for testing.
 
