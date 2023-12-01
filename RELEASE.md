@@ -64,7 +64,7 @@ Use the template below and update the following details:
 
 > ⚠️ Note: All releases under the `@ag.common` package scope should be considered alpha pre-releases. Expect breaking changes. Once we are happy with the state of the core packages we will migrate all packages to `@ag.ds`.
 
-### **View the [complete release notes on the AG DS website](https://steelthreads.github.io/ag-common/releases/YYYY-MM-DD)**.
+### **View the [complete release notes on the AG DS website](https://agriculturegovau.github.io/ag-common/releases/YYYY-MM-DD)**.
 
 ```sh
 "@ag.common/core": "x.x.x"
@@ -73,7 +73,7 @@ Use the template below and update the following details:
 
 ## Changelog
 
-Aside from the [complete release notes on the @ag.common website](https://steelthreads.github.io/ag-common/releases/YYYY-MM-DD), you can also view the [verbose change log](https://github.com/steelthreads/ag-common/pull/XXXX) in the related PR (https://github.com/steelthreads/ag-common/pull/XXXX) for this release.
+Aside from the [complete release notes on the @ag.common website](https://agriculturegovau.github.io/ag-common/releases/YYYY-MM-DD), you can also view the [verbose change log](https://github.com/agriculturegovau/ag-common/pull/XXXX) in the related PR (https://github.com/agriculturegovau/ag-common/pull/XXXX) for this release.
 
 ---
 
