@@ -1,7 +1,7 @@
 import { StoryObj, Meta } from '@storybook/react';
 import { ArticleLink, HelpReference } from './HelpReference';
 
-import { graphql, HttpResponse } from 'msw';
+import { http, HttpResponse } from 'msw';
 import { Prose } from '@ag.ds-next/react/prose';
 import { Text } from '@ag.ds-next/react/text';
 import { Stack } from '@ag.ds-next/react/stack';
@@ -105,13 +105,13 @@ const exampleHelpReference = {
 		},
 	],
 	referenceText: 'Learn more about roles in the Export Service',
-	articleSlug: 'example-reference-article',
-	article: exampleArticle,
+	article: 'example-reference-article',
+	helpArticle: exampleArticle,
 };
 
 const exampleHelpReferenceMissingArticle = {
 	...exampleHelpReference,
-	article: null,
+	helpArticle: null,
 };
 
 const handlers = {
@@ -131,26 +131,30 @@ const meta: Meta<typeof HelpReference> = {
 		layout: 'fullscreen',
 		msw: {
 			handlers: [
-				graphql.query('getReference', ({ query, variables }) => {
-					const { slug } = variables;
-					const reference = handlers.references?.[slug];
+				http.get(
+					'https://exports.agriculture.gov.au/api/help/references/:reference',
+					({ params }) => {
+						const data = handlers.references?.[params?.reference];
 
-					return reference
-						? HttpResponse.json({ data: { reference } })
-						: HttpResponse.json({
-								errors: [{ message: 'No help reference found' }],
-						  });
-				}),
-				graphql.query('getArticle', ({ query, variables }) => {
-					const { slug } = variables;
-					const article = handlers.articles?.[slug];
+						return data
+							? HttpResponse.json({ data })
+							: HttpResponse.json({
+									error: { message: 'No help reference found' },
+							  });
+					}
+				),
+				http.get(
+					'https://exports.agriculture.gov.au/api/help/articles/:article',
+					({ params }) => {
+						const data = handlers.articles?.[params?.article];
 
-					return article
-						? HttpResponse.json({ data: { article } })
-						: HttpResponse.json({
-								errors: [{ message: 'No article found' }],
-						  });
-				}),
+						return data
+							? HttpResponse.json({ data })
+							: HttpResponse.json({
+									error: { message: 'No article found' },
+							  });
+					}
+				),
 			],
 		},
 	},

@@ -242,9 +242,7 @@ function DocumentNode({
 		case 'component-block': {
 			const Comp = componentBlocks[node.component as string];
 			if (Comp) {
-				console.log({ node, children });
 				const props = createComponentBlockProps(node, children);
-				console.log({ props });
 				return (
 					<renderers.block.block>
 						<Comp {...props} />
@@ -339,7 +337,6 @@ function createComponentBlockProps(node: Element, children: ReactElement[]) {
 	const formProps = JSON.parse(JSON.stringify(props_));
 
 	node.children.forEach((child, i) => {
-		console.log({ child });
 		if (child.propPath) {
 			const propPath = [...(child.propPath as any)];
 			set(formProps, propPath, children[i]);
