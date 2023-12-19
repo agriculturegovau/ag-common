@@ -1,5 +1,4 @@
 import { useContext, useState } from 'react';
-import request, { gql } from 'graphql-request';
 import useSWR from 'swr';
 import { Details } from '@ag.ds-next/react/details';
 import { Drawer } from '@ag.ds-next/react/drawer';
@@ -14,9 +13,10 @@ import {
 import { Text } from '@ag.ds-next/react/text';
 
 import { DocumentRenderer } from './DocumentRenderer';
-import { HelpArticleT, HelpReferenceT } from './types';
+import { HelpArticleT, articleDecoder, referenceDecoder } from './types';
 import { HelpReferenceContext } from './HelpReferenceContext';
 import { tokens } from '@ag.ds-next/react/core';
+import { Decoder, decode } from './decoder';
 
 type HelpReferenceProps = {
 	reference: string;
@@ -28,56 +28,31 @@ type ArticleLinkProps = {
 
 type SlugParam = { slug: string };
 
-const getReferenceQuery = gql`
-	query getReference($slug: String!) {
-		reference: reference(slug: $slug) {
-			slug
-			label
-			content
-			referenceText
-			articleSlug
-
-			article {
-				slug
-				title
-				intro
-				content
-			}
-		}
-	}
-`;
-
-const getArticleQuery = gql`
-	query getArticle($slug: String!) {
-		article: article(slug: $slug) {
-			slug
-			title
-			intro
-			content
-		}
-	}
-`;
-
-const useQuery = <T,>(document: string, variables: SlugParam) => {
+const useQuery = <T,>(
+	decoder: Decoder<T>,
+	resource: 'references' | 'articles',
+	variables: SlugParam
+) => {
 	const { providerURL } = useContext(HelpReferenceContext);
-	return useSWR({ document, variables }, ({ document, variables }) =>
-		request<T, SlugParam>({
-			url: `${providerURL}/api/graphql`,
-			document,
-			variables,
-		})
+	return useSWR(variables, ({ slug }) =>
+		fetch(`${providerURL}/api/help/${resource}/${slug}`)
+			.then((res) => (res.ok ? res.json() : Promise.reject('error')))
+			.then((data) => {
+				const t = decode(decoder, data);
+				return t.status === 'ok' ? t.t : Promise.reject(t.msg);
+			})
 	);
 };
 
 export const ArticleLink = ({ article, ...props }: ArticleLinkProps) => {
 	const [expanded, setExpanded] = useState(false);
 	const { providerURL } = useContext(HelpReferenceContext);
-	const { data } = useQuery<{ article: HelpArticleT | null }>(getArticleQuery, {
+	const { data } = useQuery(articleDecoder, 'articles', {
 		slug: article,
 	});
 
 	const href = `${providerURL}/help/page/${article}`;
-	const t = data?.article;
+	const t = data;
 	if (!t) {
 		return <TextLinkExternal {...props} href={href} />;
 	}
@@ -106,15 +81,16 @@ export const ArticleLink = ({ article, ...props }: ArticleLinkProps) => {
 export const HelpReference = (props: HelpReferenceProps) => {
 	const [expanded, setExpanded] = useState(false);
 	const { providerURL } = useContext(HelpReferenceContext);
-	const { data } = useQuery<{ reference: HelpReferenceT | null }>(
-		getReferenceQuery,
-		{ slug: props.reference }
-	);
+	const { data } = useQuery(referenceDecoder, 'references', {
+		slug: props.reference,
+	});
 
-	const reference = data?.reference;
-	if (!reference) return null;
+	const reference = data;
+	if (!reference) {
+		return null;
+	}
 
-	const href = `${providerURL}/help/page/${reference.articleSlug}`;
+	const href = `${providerURL}/help/page/${reference.article}`;
 
 	return (
 		<>
@@ -122,7 +98,7 @@ export const HelpReference = (props: HelpReferenceProps) => {
 				<Prose>
 					<DocumentRenderer document={reference.content ?? []} />
 					<p>
-						{reference.article ? (
+						{reference.helpArticle ? (
 							<TextLink
 								href={href}
 								onClick={(event) => {
@@ -141,9 +117,10 @@ export const HelpReference = (props: HelpReferenceProps) => {
 					</p>
 				</Prose>
 			</Details>
-			{reference.article ? (
+
+			{reference.helpArticle ? (
 				<HelpDrawer
-					article={reference.article}
+					article={reference.helpArticle}
 					href={href}
 					dismiss={() => setExpanded(false)}
 					showing={expanded}
