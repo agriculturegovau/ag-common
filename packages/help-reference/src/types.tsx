@@ -4,8 +4,8 @@ import {
 	jsonDecoder,
 	mapDecoder,
 	nullDecoder,
-	objDecoder,
 	oneOfDecoders,
+	record,
 	stringDecoder,
 	undefinedDecoder,
 } from './decoder';
@@ -34,9 +34,9 @@ const documentElementDecoder = arrayDecoder(
 );
 
 const dataDecoder = <T,>(decoder: Decoder<T>) =>
-	mapDecoder(objDecoder({ data: decoder }), (t) => t.data);
+	mapDecoder(record({ data: decoder }), (t) => t.data);
 
-const articleDecoder_ = objDecoder({
+const articleDecoder_ = record({
 	slug: stringDecoder,
 	title: stringDecoder,
 	intro: documentElementDecoder,
@@ -45,7 +45,7 @@ const articleDecoder_ = objDecoder({
 
 export const articleDecoder = dataDecoder(articleDecoder_);
 export const referenceDecoder = dataDecoder(
-	objDecoder({
+	record({
 		slug: stringDecoder,
 		label: stringDecoder,
 		article: stringDecoder,

@@ -16,7 +16,7 @@ import { DocumentRenderer } from './DocumentRenderer';
 import { HelpArticleT, articleDecoder, referenceDecoder } from './types';
 import { HelpReferenceContext } from './HelpReferenceContext';
 import { tokens } from '@ag.ds-next/react/core';
-import { Decoder, decode } from './decoder';
+import { Decoder, resolve } from './decoder';
 
 type HelpReferenceProps = {
 	reference: string;
@@ -37,10 +37,7 @@ const useQuery = <T,>(
 	return useSWR(variables, ({ slug }) =>
 		fetch(`${providerURL}/api/help/${resource}/${slug}`)
 			.then((res) => (res.ok ? res.json() : Promise.reject('error')))
-			.then((data) => {
-				const t = decode(decoder, data);
-				return t.status === 'ok' ? t.t : Promise.reject(t.msg);
-			})
+			.then(resolve(decoder))
 	);
 };
 
