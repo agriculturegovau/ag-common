@@ -6,12 +6,20 @@ type JObj = { [key: string]: JValue };
 type Value<T> = { status: 'ok'; t: T } | { status: 'err'; msg: string };
 
 export type Decoder<T> = (v: JValue) => Value<T>;
+export type Decoded<D> = D extends Decoder<infer T> ? T : never;
 
 const ok = <T>(t: T): Value<T> => ({ status: 'ok', t });
 
 const err = (msg: string): Value<never> => ({ status: 'err', msg });
 
 export const decode = <T>(f: Decoder<T>, v: JValue): Value<T> => f(v);
+
+export const resolve =
+	<T>(f: Decoder<T>) =>
+	(v: JValue) => {
+		const t = decode(f, v);
+		return t.status === 'ok' ? Promise.resolve(t.t) : Promise.reject(t.msg);
+	};
 
 export const succeed =
 	<T>(t: T): Decoder<T> =>
@@ -67,6 +75,9 @@ export const undefinedDecoder: Decoder<undefined> = (v: JValue) =>
 
 export const jsonDecoder = (v: JValue) => ok(v);
 
+export const fieldDecoder = <T>(field: string, f: Decoder<T>) =>
+	mapDecoder(record({ [field]: f }), (t) => t[field]);
+
 export const parseDecoder = <T>(
 	f: (term: string) => T | undefined
 ): Decoder<T> =>
@@ -105,15 +116,35 @@ export const objDecoder =
 		}
 
 		const result: Partial<T> = {};
+		for (const field in decoders) {
+			const decoded = decode(decoders[field], v);
+			if (decoded.status === 'ok') {
+				result[field] = decoded.t;
+			} else {
+				return err(`issue decoding 'obj.${field}': ${decoded.msg}`);
+			}
+		}
+
+		return ok(result as T);
+	};
+
+export const record =
+	<T>(decoders: { [K in keyof T]: Decoder<T[K]> }) =>
+	(v: JValue): Value<T> => {
+		if (typeof v !== 'object' || v === null || Array.isArray(v)) {
+			return err(`${v} is not an object`);
+		}
+
+		const result: Partial<T> = {};
 
 		for (const field in decoders) {
-			console.log('decodefield', field, decoders, v);
-
 			const decoded = decode(decoders[field], v[field]);
 			if (decoded.status === 'ok') {
 				result[field] = decoded.t;
 			} else {
-				return err(`issue decoding 'obj.${field}' ${v[field]}: ${decoded.msg}`);
+				return err(
+					`issue decoding 'record.${field}' ${v[field]}: ${decoded.msg}`
+				);
 			}
 		}
 
