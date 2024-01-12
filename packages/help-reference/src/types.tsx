@@ -1,14 +1,4 @@
-import {
-	Decoder,
-	arrayDecoder,
-	jsonDecoder,
-	mapDecoder,
-	nullDecoder,
-	oneOfDecoders,
-	record,
-	stringDecoder,
-	undefinedDecoder,
-} from './decoder';
+import { Decoder, withDecoders } from './decoder';
 import { Element } from './renderer';
 
 export type DocumentElement = Element;
@@ -29,28 +19,30 @@ export type HelpReferenceT = {
 	helpArticle?: HelpArticleT | null;
 };
 
-const documentElementDecoder = arrayDecoder(
-	mapDecoder(jsonDecoder, (v) => v as DocumentElement)
-);
+export const { articleDecoder, referenceDecoder } = withDecoders((t) => {
+	const documentelement = t.array(t.map(t.json, (v) => v as DocumentElement));
 
-const dataDecoder = <T,>(decoder: Decoder<T>) =>
-	mapDecoder(record({ data: decoder }), (t) => t.data);
+	const data = <T,>(decoder: Decoder<T>) =>
+		t.map(t.record({ data: decoder }), (t) => t.data);
 
-const articleDecoder_ = record({
-	slug: stringDecoder,
-	title: stringDecoder,
-	intro: documentElementDecoder,
-	content: documentElementDecoder,
+	const article_ = t.record({
+		slug: t.string,
+		title: t.string,
+		intro: documentelement,
+		content: documentelement,
+	});
+
+	const articleDecoder = data(article_);
+	const referenceDecoder = data(
+		t.record({
+			slug: t.string,
+			label: t.string,
+			article: t.string,
+			referenceText: t.string,
+			content: documentelement,
+			helpArticle: t.oneOf(article_, t.null, t.undefined),
+		})
+	);
+
+	return { articleDecoder, referenceDecoder };
 });
-
-export const articleDecoder = dataDecoder(articleDecoder_);
-export const referenceDecoder = dataDecoder(
-	record({
-		slug: stringDecoder,
-		label: stringDecoder,
-		article: stringDecoder,
-		referenceText: stringDecoder,
-		content: documentElementDecoder,
-		helpArticle: oneOfDecoders(articleDecoder_, nullDecoder, undefinedDecoder),
-	})
-);

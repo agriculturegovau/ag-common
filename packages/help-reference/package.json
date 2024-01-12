@@ -8,19 +8,16 @@
 		"@ag.ds-next/react": "^1.13.0",
 		"@emotion/react": "^11.7.0",
 		"facepaint": "^1.2.1",
-		"graphql": "^16.8.1",
 		"react": "^16.14.0 || ^17.0.0 || ^18.0.0"
 	},
 	"devDependencies": {
 		"@ag.ds-next/react": "^1.13.0",
 		"@emotion/react": "^11.7.0",
 		"facepaint": "^1.2.1",
-		"graphql": "^16.8.1",
 		"msw": "^2.0.8",
 		"react": "18.1.0"
 	},
 	"dependencies": {
-		"graphql-request": "^6.1.0",
 		"swr": "^2.2.4"
 	}
 }
