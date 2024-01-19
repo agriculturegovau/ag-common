@@ -9,7 +9,7 @@ const workerOptions =
 		? undefined
 		: {
 				serviceWorker: {
-					url: `${process.env.STORYBOOK_PREVIEW_BASE_PATH}/mockServiceWorker.js`,
+					url: `/ag-common/pr-preview/pr-81/mockServiceWorker.js`,
 				},
 		  };
 
