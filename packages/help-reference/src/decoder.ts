@@ -32,13 +32,13 @@ export const jsonDecoder = (v: JValue) => ok(v);
 // A decoder that always succeeds with the provided value
 export const succeed =
 	<T>(t: T): Decoder<T> =>
-	(v: JValue) =>
+	() =>
 		ok(t);
 
 // A decoder that always fails with the provided message
 export const fail =
 	(msg: string): Decoder<never> =>
-	(v: JValue) =>
+	() =>
 		err(msg);
 
 // Decode a json value

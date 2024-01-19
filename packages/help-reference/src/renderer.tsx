@@ -1,3 +1,6 @@
+/* eslint-disable */
+// all of this is lifted from keystatic: https://github.com/Thinkmill/keystatic/blob/main/packages/keystatic/src/renderer.tsx
+
 import { Fragment, ReactElement, ReactNode } from 'react';
 
 export type Node = Element | Text;
