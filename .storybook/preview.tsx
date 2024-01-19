@@ -4,14 +4,11 @@ import { Core } from '@ag.ds-next/react/core';
 import { theme } from '@ag.ds-next/react/ag-branding';
 import { setupWorker } from 'msw/browser';
 
-const workerOptions =
-	process.env.STORYBOOK_PREVIEW_BASE_PATH === undefined
-		? undefined
-		: {
-				serviceWorker: {
-					url: `/ag-common/pr-preview/pr-81/mockServiceWorker.js`,
-				},
-		  };
+const workerOptions = {
+	serviceWorker: {
+		url: `/ag-common/pr-preview/pr-81/mockServiceWorker.js`,
+	},
+};
 
 // mock out API calls using msw
 const worker = setupWorker();
