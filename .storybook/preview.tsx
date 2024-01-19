@@ -5,11 +5,11 @@ import { theme } from '@ag.ds-next/react/ag-branding';
 import { setupWorker } from 'msw/browser';
 
 const workerOptions =
-	process.env.NODE_ENV === 'development'
+	process.env.STORYBOOK_PREVIEW_BASE_PATH === undefined
 		? undefined
 		: {
 				serviceWorker: {
-					url: `/ag-common${process.env.BASE_PATH ?? ''}/mockServiceWorker.js`,
+					url: `${process.env.STORYBOOK_PREVIEW_BASE_PATH}/mockServiceWorker.js`,
 				},
 		  };
 
