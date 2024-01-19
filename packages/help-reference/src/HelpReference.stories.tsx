@@ -134,25 +134,35 @@ const meta: Meta<typeof HelpReference> = {
 				http.get(
 					'https://exports.agriculture.gov.au/api/help/references/:reference',
 					({ params }) => {
-						const data = handlers.references?.[params?.reference];
+						// we must do this because msw.StrictResponse does not unify these types if we return them separately
+						const data = handlers.references?.[params?.reference as string];
+						const [response, status] = data
+							? [{ data }, undefined]
+							: [
+									{
+										error: { message: 'No help reference found' },
+									},
+									404,
+							  ];
 
-						return data
-							? HttpResponse.json({ data })
-							: HttpResponse.json({
-									error: { message: 'No help reference found' },
-							  });
+						return HttpResponse.json(response, { status });
 					}
 				),
 				http.get(
 					'https://exports.agriculture.gov.au/api/help/articles/:article',
 					({ params }) => {
-						const data = handlers.articles?.[params?.article];
+						// we must do this because msw.StrictResponse does not unify these types if we return them separately
+						const data = handlers.articles?.[params?.article as string];
+						const [response, status] = data
+							? [{ data }, undefined]
+							: [
+									{
+										error: { message: 'No article found' },
+									},
+									404,
+							  ];
 
-						return data
-							? HttpResponse.json({ data })
-							: HttpResponse.json({
-									error: { message: 'No article found' },
-							  });
+						return HttpResponse.json(response, { status });
 					}
 				),
 			],
