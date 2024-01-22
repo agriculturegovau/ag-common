@@ -4,11 +4,14 @@ import { Core } from '@ag.ds-next/react/core';
 import { theme } from '@ag.ds-next/react/ag-branding';
 import { setupWorker } from 'msw/browser';
 
-const workerOptions = {
-	serviceWorker: {
-		url: `/ag-common/pr-preview/pr-81/mockServiceWorker.js`,
-	},
-};
+const workerOptions =
+	process.env.NODE_ENV === 'development'
+		? undefined
+		: {
+				serviceWorker: {
+					url: `/ag-common/mockServiceWorker.js`,
+				},
+		  };
 
 // mock out API calls using msw
 const worker = setupWorker();
