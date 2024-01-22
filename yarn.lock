@@ -12,19 +12,19 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
-"@ag.ds-next/react@^1.13.0":
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/@ag.ds-next/react/-/react-1.13.0.tgz#ea737d5c28b3002e82c95cb09a4586ca6027de2b"
-  integrity sha512-O/4E4EnoK1ZLgFsjHRwSod4y2R3Nvtus+2bmL75xORqiRdQbVq5UVtPq24hm5J/V+HdGk9L8VpkEHQOOUHpfZA==
+"@ag.ds-next/react@^1.18.0":
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/@ag.ds-next/react/-/react-1.18.0.tgz#e5a55a3747cd5be1dc7871869279d1045ebab756"
+  integrity sha512-yeTACQK1e8QRDWqMiLk49nxA0kEU1ajPvK32l9meCoSdnLIIqPhypNYXV65veAEWA6sUnBliOptc1iFKYjhdRA==
   dependencies:
     "@babel/runtime" "^7.4.5"
     "@floating-ui/react-dom" "^2.0.1"
     "@react-spring/web" "^9.4.5"
     date-fns "^2.28.0"
     downshift "^8.1.0"
-    react-day-picker "^8.3.5"
+    react-day-picker "^8.10.0"
     react-dropzone "^14.2.3"
-    react-focus-lock "^2.8.1"
+    react-focus-lock "^2.9.6"
     react-keyed-flatten-children "^2.2.1"
     use-debounce "^9.0.4"
 
@@ -6740,10 +6740,10 @@ flow-parser@0.*:
   resolved "https://registry.yarnpkg.com/flow-parser/-/flow-parser-0.203.1.tgz#04180e57e6b8b658212bd4371017d11bf917b257"
   integrity sha512-Nw2M8MPP/Zb+yhvmPDEjzkCXLtgyWGKXZjAYOVftm+wIf3xd4FKa7nRI9v67rODs0WzxMbPc8IPs/7o/dyxo/Q==
 
-focus-lock@^0.11.2:
-  version "0.11.2"
-  resolved "https://registry.yarnpkg.com/focus-lock/-/focus-lock-0.11.2.tgz#aeef3caf1cea757797ac8afdebaec8fd9ab243ed"
-  integrity sha512-pZ2bO++NWLHhiKkgP1bEXHhR1/OjVcSvlCJ98aNJDFeb7H5OOQaO+SKOZle6041O9rv2tmbrO4JzClAvDUHf0g==
+focus-lock@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/focus-lock/-/focus-lock-1.0.0.tgz#2c50d8ce59d3d6608cda2672be9e65812459206c"
+  integrity sha512-a8Ge6cdKh9za/GZR/qtigTAk7SrGore56EFcoMshClsh7FLk1zwszc/ltuMfKhx56qeuyL/jWQ4J4axou0iJ9w==
   dependencies:
     tslib "^2.0.3"
 
@@ -9848,10 +9848,10 @@ react-colorful@^5.1.2:
   resolved "https://registry.yarnpkg.com/react-colorful/-/react-colorful-5.6.1.tgz#7dc2aed2d7c72fac89694e834d179e32f3da563b"
   integrity sha512-1exovf0uGTGyq5mXQT0zgQ80uvj2PCwvF8zY1RN9/vbJVSjSo3fsB/4L3ObbF7u70NduSiK4xu4Y6q1MHoUGEw==
 
-react-day-picker@^8.3.5:
-  version "8.4.1"
-  resolved "https://registry.yarnpkg.com/react-day-picker/-/react-day-picker-8.4.1.tgz#341572d7110d7e286f311f8f173ed9cb304eae6a"
-  integrity sha512-uqp/d3POv7127MmL7A16BNW746zYM/CxwfFdVanHMunKh2/8Y2a188KUpiHZH2Ck8IQlcS0I5HgC7xpRbBxK9w==
+react-day-picker@^8.10.0:
+  version "8.10.0"
+  resolved "https://registry.yarnpkg.com/react-day-picker/-/react-day-picker-8.10.0.tgz#729c5b9564967a924213978fb9c0751884a60595"
+  integrity sha512-mz+qeyrOM7++1NCb1ARXmkjMkzWVh2GL9YiPbRjKe0zHccvekk4HE+0MPOZOrosn8r8zTHIIeOUXTmXRqmkRmg==
 
 react-docgen-typescript@^2.2.2:
   version "2.2.2"
@@ -9900,13 +9900,13 @@ react-element-to-jsx-string@^15.0.0:
     is-plain-object "5.0.0"
     react-is "18.1.0"
 
-react-focus-lock@^2.8.1:
-  version "2.9.1"
-  resolved "https://registry.yarnpkg.com/react-focus-lock/-/react-focus-lock-2.9.1.tgz#094cfc19b4f334122c73bb0bff65d77a0c92dd16"
-  integrity sha512-pSWOQrUmiKLkffPO6BpMXN7SNKXMsuOakl652IBuALAu1esk+IcpJyM+ALcYzPTTFz1rD0R54aB9A4HuP5t1Wg==
+react-focus-lock@^2.9.6:
+  version "2.9.6"
+  resolved "https://registry.yarnpkg.com/react-focus-lock/-/react-focus-lock-2.9.6.tgz#cad168a150fdd72d5ab2419ba8e62780788011b1"
+  integrity sha512-B7gYnCjHNrNYwY2juS71dHbf0+UpXXojt02svxybj8N5bxceAkzPChKEncHuratjUHkIFNCn06k2qj1DRlzTug==
   dependencies:
     "@babel/runtime" "^7.0.0"
-    focus-lock "^0.11.2"
+    focus-lock "^1.0.0"
     prop-types "^15.6.2"
     react-clientside-effect "^1.2.6"
     use-callback-ref "^1.3.0"

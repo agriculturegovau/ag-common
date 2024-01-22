@@ -165,6 +165,7 @@ export const HelpDrawer = (props: HelpDrawerProps) => (
 		actions={
 			<TextLinkExternal href={props.href}>Open in new window</TextLinkExternal>
 		}
+		width="lg"
 	>
 		<Stack gap={3}>
 			<HelpContent article={props.article} />
