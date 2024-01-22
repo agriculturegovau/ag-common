@@ -13,7 +13,7 @@ export const DocumentRenderer = ({
 	renderers,
 	componentBlocks,
 }: ComponentProps<typeof KeystaticRenderer>) => {
-	const { providerURL } = useContext(HelpReferenceContext);
+	const { exportServiceURL } = useContext(HelpReferenceContext);
 
 	return (
 		<KeystaticRenderer
@@ -28,7 +28,7 @@ export const DocumentRenderer = ({
 						href.startsWith('http') ? (
 							<TextLinkExternal href={href}>{children}</TextLinkExternal>
 						) : (
-							<TextLinkExternal href={`${providerURL}${href}`}>
+							<TextLinkExternal href={`${exportServiceURL}${href}`}>
 								{children}
 							</TextLinkExternal>
 						),

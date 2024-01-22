@@ -15,7 +15,6 @@ import { Text } from '@ag.ds-next/react/text';
 import { DocumentRenderer } from './DocumentRenderer';
 import { HelpArticleT, articleDecoder, referenceDecoder } from './types';
 import { HelpReferenceContext } from './HelpReferenceContext';
-import { tokens } from '@ag.ds-next/react/core';
 import { Decoder, resolve } from './decoder';
 
 type HelpReferenceProps = {
@@ -33,9 +32,9 @@ const useQuery = <T,>(
 	resource: 'references' | 'articles',
 	variables: SlugParam
 ) => {
-	const { providerURL } = useContext(HelpReferenceContext);
+	const { contentAPI } = useContext(HelpReferenceContext);
 	return useSWR(variables, ({ slug }) =>
-		fetch(`${providerURL}/api/help/${resource}/${slug}`)
+		fetch(`${contentAPI}/${resource}/${slug}`)
 			.then((res) => (res.ok ? res.json() : Promise.reject('error')))
 			.then(resolve(decoder))
 	);
@@ -43,12 +42,12 @@ const useQuery = <T,>(
 
 export const ArticleLink = ({ article, ...props }: ArticleLinkProps) => {
 	const [expanded, setExpanded] = useState(false);
-	const { providerURL } = useContext(HelpReferenceContext);
+	const { exportServiceURL } = useContext(HelpReferenceContext);
 	const { data } = useQuery(articleDecoder, 'articles', {
 		slug: article,
 	});
 
-	const href = `${providerURL}/help/page/${article}`;
+	const href = `${exportServiceURL}/help/page/${article}`;
 	const t = data;
 	if (!t) {
 		return <TextLinkExternal {...props} href={href} />;
@@ -77,7 +76,7 @@ export const ArticleLink = ({ article, ...props }: ArticleLinkProps) => {
 
 export const HelpReference = (props: HelpReferenceProps) => {
 	const [expanded, setExpanded] = useState(false);
-	const { providerURL } = useContext(HelpReferenceContext);
+	const { exportServiceURL } = useContext(HelpReferenceContext);
 	const { data } = useQuery(referenceDecoder, 'references', {
 		slug: props.reference,
 	});
@@ -87,7 +86,7 @@ export const HelpReference = (props: HelpReferenceProps) => {
 		return null;
 	}
 
-	const href = `${providerURL}/help/page/${reference.article}`;
+	const href = `${exportServiceURL}/help/page/${reference.article}`;
 
 	return (
 		<>
@@ -130,7 +129,7 @@ export const HelpReference = (props: HelpReferenceProps) => {
 const HelpContent = (props: { article: HelpArticleT }) => (
 	<>
 		<Stack gap={1.5}>
-			<H1 maxWidth={tokens.maxWidth.bodyText}>{props.article.title}</H1>
+			<H1>{props.article.title}</H1>
 			<DocumentRenderer
 				document={props.article.intro}
 				renderers={{
