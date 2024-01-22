@@ -20,7 +20,8 @@ export type HelpReferenceT = {
 };
 
 export const { articleDecoder, referenceDecoder } = withDecoders((t) => {
-	const documentelement = t.array(t.map(t.json, (v) => v as DocumentElement));
+	const documentelement = t.map(t.json, (v) => v as DocumentElement);
+	const documentelements = t.array(documentelement);
 
 	const data = <T,>(decoder: Decoder<T>) =>
 		t.map(t.record({ data: decoder }), (t) => t.data);
@@ -28,8 +29,8 @@ export const { articleDecoder, referenceDecoder } = withDecoders((t) => {
 	const article_ = t.record({
 		slug: t.string,
 		title: t.string,
-		intro: documentelement,
-		content: documentelement,
+		intro: documentelements,
+		content: documentelements,
 	});
 
 	const articleDecoder = data(article_);
@@ -39,7 +40,7 @@ export const { articleDecoder, referenceDecoder } = withDecoders((t) => {
 			label: t.string,
 			article: t.string,
 			referenceText: t.string,
-			content: documentelement,
+			content: documentelements,
 			helpArticle: t.oneOf(article_, t.null, t.undefined),
 		})
 	);
