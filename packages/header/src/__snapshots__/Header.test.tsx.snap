@@ -87,205 +87,143 @@ exports[`Header authenticated renders correctly 1`] = `
       </div>
     </header>
     <div
-      class="css-1vvugk7-boxStyles-boxStyles-NavContainer"
+      class="css-a59pdn-boxStyles-boxStyles-MainNavContainer-MainNavContainer"
       id="main-nav"
       tabindex="-1"
     >
       <div
-        class="css-1j9xn4a-boxStyles-boxStyles-BottomBar"
-      />
-      <div
-        class="css-1do7ch1-boxStyles-boxStyles-NavContainer"
+        class="css-1e32hry-boxStyles-boxStyles-MainNavContainer"
       >
-        <div
-          class="css-1321z7s-boxStyles-boxStyles"
+        <button
+          aria-controls="main-nav-dialog"
+          aria-expanded="false"
+          aria-label="Open main menu"
+          class="css-nkattk-BaseButton-boxStyles-boxStyles-MainNavOpenButton"
+          type="button"
         >
-          <div
-            class="css-r0elim-boxStyles-boxStyles"
+          <svg
+            aria-hidden="true"
+            class="css-9s3cfn-Icon"
+            clip-rule="evenodd"
+            fill-rule="evenodd"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <button
-              aria-controls="main-nav-dialog"
-              aria-expanded="false"
-              aria-label="Open main menu"
-              class="css-15b2miz-BaseButton-boxStyles-boxStyles-MainNavButton"
-              type="button"
-            >
-              <svg
-                aria-hidden="true"
-                class="css-9s3cfn-Icon"
-                clip-rule="evenodd"
-                focusable="false"
-                height="24"
-                role="img"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3 6H21"
-                />
-                <path
-                  d="M3 12H21"
-                />
-                <path
-                  d="M3 18H21"
-                />
-              </svg>
-              Menu
-            </button>
-          </div>
-          <div
-            class="css-1czok4-dark-dark-boxStyles-boxStyles-element"
-            id="main-nav-dialog"
-          >
-            <div
-              data-focus-guard="true"
-              style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
-              tabindex="-1"
+            <path
+              d="M3 6H21"
             />
-            <div
-              data-focus-lock-disabled="disabled"
-            >
-              <div
-                class="css-r0elim-boxStyles-boxStyles"
-              >
-                <button
-                  aria-controls="main-nav-dialog"
-                  aria-expanded="true"
-                  aria-label="Close main menu"
-                  class="css-15b2miz-BaseButton-boxStyles-boxStyles-MainNavButton"
-                  type="button"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="css-9s3cfn-Icon"
-                    clip-rule="evenodd"
-                    focusable="false"
-                    height="24"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <line
-                      x1="18"
-                      x2="6"
-                      y1="6"
-                      y2="18"
-                    />
-                    <line
-                      x1="6"
-                      x2="18"
-                      y1="6"
-                      y2="18"
-                    />
-                  </svg>
-                  Close
-                </button>
-              </div>
-              <nav
-                aria-label="main"
-                class="css-knez9h-boxStyles-boxStyles"
-              >
-                <ul
-                  class="css-qlv0q-boxStyles-boxStyles-NavListContainer"
-                >
-                  <li
-                    class="css-cb22ga-boxStyles-boxStyles-NavListItem-NavListItem"
-                  >
-                    <a
-                      aria-current="page"
-                      href="/"
-                    >
-                      <span>
-                        Home
-                      </span>
-                    </a>
-                  </li>
-                  <li
-                    class="css-1axgnc2-boxStyles-boxStyles-NavListItem-NavListItem"
-                  >
-                    <a
-                      href="/about"
-                    >
-                      <span>
-                        About
-                      </span>
-                    </a>
-                  </li>
-                  <li
-                    class="css-1axgnc2-boxStyles-boxStyles-NavListItem-NavListItem"
-                  >
-                    <a
-                      href="/services"
-                    >
-                      <span>
-                        Services
-                      </span>
-                    </a>
-                  </li>
-                  <li
-                    class="css-1axgnc2-boxStyles-boxStyles-NavListItem-NavListItem"
-                  >
-                    <a
-                      href="/help"
-                    >
-                      <span>
-                        Help
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-            <div
-              data-focus-guard="true"
-              style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
-              tabindex="-1"
+            <path
+              d="M3 12H21"
             />
-          </div>
-          <nav
-            aria-label="secondary"
-            class="css-4o8k9b-boxStyles-boxStyles"
+            <path
+              d="M3 18H21"
+            />
+          </svg>
+          Menu
+        </button>
+        <nav
+          aria-label="Main"
+          class="css-xwiofa-boxStyles-boxStyles"
+        >
+          <ul
+            class="css-1tpqkb7-boxStyles-boxStyles"
           >
-            <ul
-              class="css-4o8k9b-boxStyles-boxStyles"
+            <li
+              class="css-jmsk5f-boxStyles-boxStyles-MainNavListItem"
             >
-              <li
-                class="css-sxw0ck-boxStyles-boxStyles-NavListItem-NavListItem"
+              <a
+                aria-current="page"
+                href="/"
               >
-                <a
-                  href="/account"
+                <span>
+                  Home
+                </span>
+              </a>
+            </li>
+            <li
+              class="css-juf5id-boxStyles-boxStyles-MainNavListItem"
+            >
+              <a
+                href="/about"
+              >
+                <span>
+                  About
+                </span>
+              </a>
+            </li>
+            <li
+              class="css-juf5id-boxStyles-boxStyles-MainNavListItem"
+            >
+              <a
+                href="/services"
+              >
+                <span>
+                  Services
+                </span>
+              </a>
+            </li>
+            <li
+              class="css-juf5id-boxStyles-boxStyles-MainNavListItem"
+            >
+              <a
+                href="/help"
+              >
+                <span>
+                  Help
+                </span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <nav
+          aria-label="Supplementary"
+          class="css-1tpqkb7-boxStyles-boxStyles"
+        >
+          <ul
+            class="css-1tpqkb7-boxStyles-boxStyles"
+          >
+            <li
+              class="css-10mhhxe-boxStyles-boxStyles-MainNavListItem"
+            >
+              <a
+                href="/account"
+              >
+                <span>
+                  My account
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="css-9s3cfn-Icon"
+                  clip-rule="evenodd"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="24"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <span>
-                    My account
-                  </span>
-                  <svg
-                    aria-hidden="true"
-                    class="css-9s3cfn-Icon"
-                    clip-rule="evenodd"
-                    focusable="false"
-                    height="24"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M4.5 19.1773C6.74319 17.9616 9.42279 17.0003 11.9999 17.0003C14.5769 17.0003 17.2567 17.9618 19.4999 19.1775M15.2053 9.95293C15.2036 10.4573 15.0723 10.9535 14.823 11.3977C14.5737 11.842 14.2141 12.2205 13.7759 12.5C13.3377 12.7794 12.8345 12.9511 12.3106 13C11.7867 13.0489 11.2584 12.9733 10.7722 12.7801C10.286 12.5869 9.85698 12.2819 9.52298 11.892C9.18899 11.5022 8.96036 11.0396 8.85721 10.545C8.75406 10.0504 8.7796 9.53905 8.93158 9.05615C9.08357 8.57326 9.35732 8.13367 9.72865 7.77621C10.1769 7.34467 10.7489 7.05056 11.372 6.93123C11.9951 6.81191 12.6412 6.87274 13.2281 7.10602C13.815 7.3393 14.3164 7.73449 14.6684 8.2414C15.0204 8.7483 15.2073 9.34403 15.2053 9.95293Z"
-                    />
-                    <circle
-                      cx="12"
-                      cy="12"
-                      r="10.5"
-                    />
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+                  <path
+                    d="M4.5 19.1773C6.74319 17.9616 9.42279 17.0003 11.9999 17.0003C14.5769 17.0003 17.2567 17.9618 19.4999 19.1775M15.2053 9.95293C15.2036 10.4573 15.0723 10.9535 14.823 11.3977C14.5737 11.842 14.2141 12.2205 13.7759 12.5C13.3377 12.7794 12.8345 12.9511 12.3106 13C11.7867 13.0489 11.2584 12.9733 10.7722 12.7801C10.286 12.5869 9.85698 12.2819 9.52298 11.892C9.18899 11.5022 8.96036 11.0396 8.85721 10.545C8.75406 10.0504 8.7796 9.53905 8.93158 9.05615C9.08357 8.57326 9.35732 8.13367 9.72865 7.77621C10.1769 7.34467 10.7489 7.05056 11.372 6.93123C11.9951 6.81191 12.6412 6.87274 13.2281 7.10602C13.815 7.3393 14.3164 7.73449 14.6684 8.2414C15.0204 8.7483 15.2073 9.34403 15.2053 9.95293Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10.5"
+                  />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
+      <div
+        class="css-1ck2nd6-boxStyles-boxStyles"
+      />
     </div>
   </div>
 </div>
@@ -378,206 +316,144 @@ exports[`Header unauthenticated renders correctly 1`] = `
       </div>
     </header>
     <div
-      class="css-1vvugk7-boxStyles-boxStyles-NavContainer"
+      class="css-a59pdn-boxStyles-boxStyles-MainNavContainer-MainNavContainer"
       id="main-nav"
       tabindex="-1"
     >
       <div
-        class="css-1j9xn4a-boxStyles-boxStyles-BottomBar"
-      />
-      <div
-        class="css-1do7ch1-boxStyles-boxStyles-NavContainer"
+        class="css-1e32hry-boxStyles-boxStyles-MainNavContainer"
       >
-        <div
-          class="css-1321z7s-boxStyles-boxStyles"
+        <button
+          aria-controls="main-nav-dialog"
+          aria-expanded="false"
+          aria-label="Open main menu"
+          class="css-nkattk-BaseButton-boxStyles-boxStyles-MainNavOpenButton"
+          type="button"
         >
-          <div
-            class="css-r0elim-boxStyles-boxStyles"
+          <svg
+            aria-hidden="true"
+            class="css-9s3cfn-Icon"
+            clip-rule="evenodd"
+            fill-rule="evenodd"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <button
-              aria-controls="main-nav-dialog"
-              aria-expanded="false"
-              aria-label="Open main menu"
-              class="css-15b2miz-BaseButton-boxStyles-boxStyles-MainNavButton"
-              type="button"
-            >
-              <svg
-                aria-hidden="true"
-                class="css-9s3cfn-Icon"
-                clip-rule="evenodd"
-                focusable="false"
-                height="24"
-                role="img"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3 6H21"
-                />
-                <path
-                  d="M3 12H21"
-                />
-                <path
-                  d="M3 18H21"
-                />
-              </svg>
-              Menu
-            </button>
-          </div>
-          <div
-            class="css-1czok4-dark-dark-boxStyles-boxStyles-element"
-            id="main-nav-dialog"
-          >
-            <div
-              data-focus-guard="true"
-              style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
-              tabindex="-1"
+            <path
+              d="M3 6H21"
             />
-            <div
-              data-focus-lock-disabled="disabled"
-            >
-              <div
-                class="css-r0elim-boxStyles-boxStyles"
-              >
-                <button
-                  aria-controls="main-nav-dialog"
-                  aria-expanded="true"
-                  aria-label="Close main menu"
-                  class="css-15b2miz-BaseButton-boxStyles-boxStyles-MainNavButton"
-                  type="button"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="css-9s3cfn-Icon"
-                    clip-rule="evenodd"
-                    focusable="false"
-                    height="24"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <line
-                      x1="18"
-                      x2="6"
-                      y1="6"
-                      y2="18"
-                    />
-                    <line
-                      x1="6"
-                      x2="18"
-                      y1="6"
-                      y2="18"
-                    />
-                  </svg>
-                  Close
-                </button>
-              </div>
-              <nav
-                aria-label="main"
-                class="css-knez9h-boxStyles-boxStyles"
-              >
-                <ul
-                  class="css-qlv0q-boxStyles-boxStyles-NavListContainer"
-                >
-                  <li
-                    class="css-cb22ga-boxStyles-boxStyles-NavListItem-NavListItem"
-                  >
-                    <a
-                      aria-current="page"
-                      href="/"
-                    >
-                      <span>
-                        Home
-                      </span>
-                    </a>
-                  </li>
-                  <li
-                    class="css-1axgnc2-boxStyles-boxStyles-NavListItem-NavListItem"
-                  >
-                    <a
-                      href="/about"
-                    >
-                      <span>
-                        About
-                      </span>
-                    </a>
-                  </li>
-                  <li
-                    class="css-1axgnc2-boxStyles-boxStyles-NavListItem-NavListItem"
-                  >
-                    <a
-                      href="/services"
-                    >
-                      <span>
-                        Services
-                      </span>
-                    </a>
-                  </li>
-                  <li
-                    class="css-1axgnc2-boxStyles-boxStyles-NavListItem-NavListItem"
-                  >
-                    <a
-                      href="/help"
-                    >
-                      <span>
-                        Help
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-            <div
-              data-focus-guard="true"
-              style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
-              tabindex="-1"
+            <path
+              d="M3 12H21"
             />
-          </div>
-          <nav
-            aria-label="secondary"
-            class="css-4o8k9b-boxStyles-boxStyles"
+            <path
+              d="M3 18H21"
+            />
+          </svg>
+          Menu
+        </button>
+        <nav
+          aria-label="Main"
+          class="css-xwiofa-boxStyles-boxStyles"
+        >
+          <ul
+            class="css-1tpqkb7-boxStyles-boxStyles"
           >
-            <ul
-              class="css-4o8k9b-boxStyles-boxStyles"
+            <li
+              class="css-jmsk5f-boxStyles-boxStyles-MainNavListItem"
             >
-              <li
-                class="css-sxw0ck-boxStyles-boxStyles-NavListItem-NavListItem"
+              <a
+                aria-current="page"
+                href="/"
               >
-                <button
-                  class="css-6e6ykx-BaseButton"
-                  type="button"
+                <span>
+                  Home
+                </span>
+              </a>
+            </li>
+            <li
+              class="css-juf5id-boxStyles-boxStyles-MainNavListItem"
+            >
+              <a
+                href="/about"
+              >
+                <span>
+                  About
+                </span>
+              </a>
+            </li>
+            <li
+              class="css-juf5id-boxStyles-boxStyles-MainNavListItem"
+            >
+              <a
+                href="/services"
+              >
+                <span>
+                  Services
+                </span>
+              </a>
+            </li>
+            <li
+              class="css-juf5id-boxStyles-boxStyles-MainNavListItem"
+            >
+              <a
+                href="/help"
+              >
+                <span>
+                  Help
+                </span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <nav
+          aria-label="Supplementary"
+          class="css-1tpqkb7-boxStyles-boxStyles"
+        >
+          <ul
+            class="css-1tpqkb7-boxStyles-boxStyles"
+          >
+            <li
+              class="css-10mhhxe-boxStyles-boxStyles-MainNavListItem"
+            >
+              <button
+                class="css-6e6ykx-BaseButton"
+                type="button"
+              >
+                <span>
+                  Sign in
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="css-9s3cfn-Icon"
+                  clip-rule="evenodd"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="24"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <span>
-                    Sign in
-                  </span>
-                  <svg
-                    aria-hidden="true"
-                    class="css-9s3cfn-Icon"
-                    clip-rule="evenodd"
-                    focusable="false"
-                    height="24"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M4.5 19.1773C6.74319 17.9616 9.42279 17.0003 11.9999 17.0003C14.5769 17.0003 17.2567 17.9618 19.4999 19.1775M15.2053 9.95293C15.2036 10.4573 15.0723 10.9535 14.823 11.3977C14.5737 11.842 14.2141 12.2205 13.7759 12.5C13.3377 12.7794 12.8345 12.9511 12.3106 13C11.7867 13.0489 11.2584 12.9733 10.7722 12.7801C10.286 12.5869 9.85698 12.2819 9.52298 11.892C9.18899 11.5022 8.96036 11.0396 8.85721 10.545C8.75406 10.0504 8.7796 9.53905 8.93158 9.05615C9.08357 8.57326 9.35732 8.13367 9.72865 7.77621C10.1769 7.34467 10.7489 7.05056 11.372 6.93123C11.9951 6.81191 12.6412 6.87274 13.2281 7.10602C13.815 7.3393 14.3164 7.73449 14.6684 8.2414C15.0204 8.7483 15.2073 9.34403 15.2053 9.95293Z"
-                    />
-                    <circle
-                      cx="12"
-                      cy="12"
-                      r="10.5"
-                    />
-                  </svg>
-                </button>
-              </li>
-            </ul>
-          </nav>
-        </div>
+                  <path
+                    d="M4.5 19.1773C6.74319 17.9616 9.42279 17.0003 11.9999 17.0003C14.5769 17.0003 17.2567 17.9618 19.4999 19.1775M15.2053 9.95293C15.2036 10.4573 15.0723 10.9535 14.823 11.3977C14.5737 11.842 14.2141 12.2205 13.7759 12.5C13.3377 12.7794 12.8345 12.9511 12.3106 13C11.7867 13.0489 11.2584 12.9733 10.7722 12.7801C10.286 12.5869 9.85698 12.2819 9.52298 11.892C9.18899 11.5022 8.96036 11.0396 8.85721 10.545C8.75406 10.0504 8.7796 9.53905 8.93158 9.05615C9.08357 8.57326 9.35732 8.13367 9.72865 7.77621C10.1769 7.34467 10.7489 7.05056 11.372 6.93123C11.9951 6.81191 12.6412 6.87274 13.2281 7.10602C13.815 7.3393 14.3164 7.73449 14.6684 8.2414C15.0204 8.7483 15.2073 9.34403 15.2053 9.95293Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10.5"
+                  />
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </nav>
       </div>
+      <div
+        class="css-1ck2nd6-boxStyles-boxStyles"
+      />
     </div>
   </div>
 </div>

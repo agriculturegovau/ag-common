@@ -73,7 +73,7 @@ exports[`AppLayout renders correctly 1`] = `
           class="css-flzfhi-boxStyles-boxStyles"
         >
           <a
-            class="css-1bys8uw-boxStyles-boxStyles-AppLayoutHeaderAccount"
+            class="css-1m2pkui-boxStyles-boxStyles-AppLayoutHeaderAccount"
             href="/account"
           >
             <span
@@ -110,6 +110,7 @@ exports[`AppLayout renders correctly 1`] = `
             aria-hidden="true"
             class="css-9s3cfn-Icon"
             clip-rule="evenodd"
+            fill-rule="evenodd"
             focusable="false"
             height="24"
             role="img"
@@ -132,7 +133,7 @@ exports[`AppLayout renders correctly 1`] = `
           </span>
         </button>
         <a
-          class="css-1bys8uw-boxStyles-boxStyles-AppLayoutHeaderAccount"
+          class="css-1m2pkui-boxStyles-boxStyles-AppLayoutHeaderAccount"
           href="/account"
         >
           <span
@@ -158,7 +159,7 @@ exports[`AppLayout renders correctly 1`] = `
         </a>
       </div>
     </header>
-    <aside
+    <div
       class="css-17g9ee3-boxStyles-boxStyles-AppLayoutSidebar"
     >
       <nav
@@ -178,6 +179,7 @@ exports[`AppLayout renders correctly 1`] = `
                 aria-hidden="true"
                 class="css-qhpjst-Icon"
                 clip-rule="evenodd"
+                fill-rule="evenodd"
                 focusable="false"
                 height="24"
                 role="img"
@@ -207,6 +209,7 @@ exports[`AppLayout renders correctly 1`] = `
                 aria-hidden="true"
                 class="css-qhpjst-Icon"
                 clip-rule="evenodd"
+                fill-rule="evenodd"
                 focusable="false"
                 height="24"
                 role="img"
@@ -233,6 +236,7 @@ exports[`AppLayout renders correctly 1`] = `
                 aria-hidden="true"
                 class="css-qhpjst-Icon"
                 clip-rule="evenodd"
+                fill-rule="evenodd"
                 focusable="false"
                 height="24"
                 role="img"
@@ -259,6 +263,7 @@ exports[`AppLayout renders correctly 1`] = `
                 aria-hidden="true"
                 class="css-qhpjst-Icon"
                 clip-rule="evenodd"
+                fill-rule="evenodd"
                 focusable="false"
                 height="24"
                 role="img"
@@ -300,6 +305,7 @@ exports[`AppLayout renders correctly 1`] = `
                 aria-hidden="true"
                 class="css-qhpjst-Icon"
                 clip-rule="evenodd"
+                fill-rule="evenodd"
                 focusable="false"
                 height="24"
                 role="img"
@@ -325,6 +331,7 @@ exports[`AppLayout renders correctly 1`] = `
                     aria-hidden="true"
                     class="css-1krnro2-Icon"
                     clip-rule="evenodd"
+                    fill-rule="evenodd"
                     focusable="false"
                     height="24"
                     role="img"
@@ -368,6 +375,7 @@ exports[`AppLayout renders correctly 1`] = `
                 aria-hidden="true"
                 class="css-qhpjst-Icon"
                 clip-rule="evenodd"
+                fill-rule="evenodd"
                 focusable="false"
                 height="24"
                 role="img"
@@ -392,7 +400,7 @@ exports[`AppLayout renders correctly 1`] = `
           </li>
         </ul>
       </nav>
-    </aside>
+    </div>
     <div
       class="css-19bfxwr-boxStyles-boxStyles-AppLayoutContent"
     >

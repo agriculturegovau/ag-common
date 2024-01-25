@@ -9,7 +9,7 @@ exports[`DigitalIdentity renders correctly 1`] = `
       class="css-7yhir6-boxStyles-boxStyles-DigitalIdentity"
     >
       <a
-        class="css-1wayqxl-DigitalIdentityButton"
+        class="css-ytp1n9-DigitalIdentityButton"
         href="/account"
       >
         <div
@@ -623,6 +623,7 @@ exports[`DigitalIdentity renders correctly 1`] = `
             aria-hidden="true"
             class="css-5y4dg8-TextLinkExternal"
             clip-rule="evenodd"
+            fill-rule="evenodd"
             focusable="false"
             height="24"
             role="img"
