@@ -1,8 +1,8 @@
 {
-	"name": "@ag.common/app-layout",
+	"name": "@ag.common/help-reference",
 	"version": "1.0.0",
-	"main": "dist/ag.common-app-layout.cjs.js",
-	"module": "dist/ag.common-app-layout.esm.js",
+	"main": "dist/ag.common-help-reference.cjs.js",
+	"module": "dist/ag.common-help-reference.esm.js",
 	"license": "MIT",
 	"peerDependencies": {
 		"@ag.ds-next/react": "^1.18.0",
@@ -14,6 +14,10 @@
 		"@ag.ds-next/react": "^1.18.0",
 		"@emotion/react": "^11.7.0",
 		"facepaint": "^1.2.1",
+		"msw": "^2.0.8",
 		"react": "18.1.0"
+	},
+	"dependencies": {
+		"swr": "^2.2.4"
 	}
 }

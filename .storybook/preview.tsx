@@ -2,6 +2,21 @@ import { Preview } from '@storybook/react';
 import { Box } from '@ag.ds-next/react/box';
 import { Core } from '@ag.ds-next/react/core';
 import { theme } from '@ag.ds-next/react/ag-branding';
+import { setupWorker } from 'msw/browser';
+
+const workerOptions =
+	process.env.NODE_ENV === 'development'
+		? undefined
+		: {
+				serviceWorker: {
+					url: `/ag-common/mockServiceWorker.js`,
+				},
+		  };
+
+// mock out API calls using msw
+const worker = setupWorker();
+const api = worker;
+const server = worker.start(workerOptions);
 
 function makeViewports() {
 	const viewports = [
@@ -78,6 +93,20 @@ const preview: Preview = {
 					</Box>
 				</Core>
 			);
+		},
+	],
+
+	// grab any msw handlers from each story and apply them to the API
+	loaders: [
+		async (context) => {
+			const handlers = context.parameters?.msw?.handlers;
+
+			if (Array.isArray(handlers)) {
+				api.use(...handlers);
+				await server;
+			}
+
+			return {};
 		},
 	],
 };
