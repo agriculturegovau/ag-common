@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 
 export const HelpReferenceContext = createContext({
-	contentAPI: 'https://api.agriculture.gov.au/exports/guidance-support/v1/help',
+	contentAPI: 'https://api.agriculture.gov.au/exports/guidance/v1/help',
 	exportServiceURL: 'https://exports.agriculture.gov.au',
 });
 

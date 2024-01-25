@@ -44,7 +44,6 @@ jobs:
         run: yarn storybook:build
 
         env:
-          STORYBOOK_PREVIEW_BASE_PATH: /ag-common/pr-preview/pr-${{ github.event.number }}
           BASE_PATH: /pr-preview/pr-${{ github.event.number }}
 
       - name: Deploy preview

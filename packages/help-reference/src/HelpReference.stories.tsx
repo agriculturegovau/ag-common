@@ -132,7 +132,7 @@ const meta: Meta<typeof HelpReference> = {
 		msw: {
 			handlers: [
 				http.get(
-					'https://api.agriculture.gov.au/exports/guidance-support/v1/help/references/:reference',
+					'https://api.agriculture.gov.au/exports/guidance/v1/help/references/:reference',
 					({ params }) => {
 						// we must do this because msw.StrictResponse does not unify these types if we return them separately
 						const data = handlers.references?.[params?.reference as string];
@@ -149,7 +149,7 @@ const meta: Meta<typeof HelpReference> = {
 					}
 				),
 				http.get(
-					'https://api.agriculture.gov.au/exports/guidance-support/v1/help/articles/:article',
+					'https://api.agriculture.gov.au/exports/guidance/v1/help/articles/:article',
 					({ params }) => {
 						// we must do this because msw.StrictResponse does not unify these types if we return them separately
 						const data = handlers.articles?.[params?.article as string];
