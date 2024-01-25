@@ -6,7 +6,6 @@ import { Prose } from '@ag.ds-next/react/prose';
 import { Text } from '@ag.ds-next/react/text';
 import { Stack } from '@ag.ds-next/react/stack';
 import { HelpArticleT, HelpReferenceT } from './types';
-import { HelpReferenceProvider } from './HelpReferenceContext';
 
 const exampleArticle = {
 	slug: 'example-reference-article',
