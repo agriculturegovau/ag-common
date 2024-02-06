@@ -3,3 +3,4 @@ packages/**/dist
 .next
 .changeset
 CHANGELOG.md
+public
