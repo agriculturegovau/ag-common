@@ -1,5 +1,15 @@
 # @ag.common/app-layout
 
+## 1.1.0
+
+### Minor Changes
+
+- 578590f: updates AGDS version
+
+### Patch Changes
+
+- 91248c4: remove account settings url
+
 ## 1.0.0
 
 ### Major Changes

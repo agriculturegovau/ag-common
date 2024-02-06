@@ -1,5 +1,11 @@
 # @ag.common/help-callout
 
+## 1.1.0
+
+### Minor Changes
+
+- 578590f: updates AGDS version
+
 ## 1.0.0
 
 ### Major Changes

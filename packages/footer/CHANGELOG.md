@@ -1,5 +1,11 @@
 # @ag.common/footer
 
+## 1.5.0
+
+### Minor Changes
+
+- 578590f: updates AGDS version
+
 ## 1.4.0
 
 ### Minor Changes
