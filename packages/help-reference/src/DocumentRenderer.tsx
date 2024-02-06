@@ -1,4 +1,4 @@
-import { ComponentProps, useContext } from 'react';
+import { ComponentProps, Fragment, useContext } from 'react';
 import { KeystaticRenderer } from './renderer';
 import { Box } from '@ag.ds-next/react/box';
 import { Prose, proseBlockClassname } from '@ag.ds-next/react/prose';
@@ -20,7 +20,7 @@ export const DocumentRenderer = ({
 			document={document}
 			renderers={{
 				block: {
-					block: ({ children }) => <>{children}</>,
+					block: ({ children }) => <Fragment>{children}</Fragment>,
 					...renderers?.block,
 				},
 				inline: {

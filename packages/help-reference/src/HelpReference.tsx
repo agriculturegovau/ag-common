@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { Fragment, useContext, useState } from 'react';
 import useSWR from 'swr';
 import { Details } from '@ag.ds-next/react/details';
 import { Drawer } from '@ag.ds-next/react/drawer';
@@ -54,7 +54,7 @@ export const ArticleLink = ({ article, ...props }: ArticleLinkProps) => {
 	}
 
 	return (
-		<>
+		<Fragment>
 			<TextLinkExternal
 				{...props}
 				href={href}
@@ -70,7 +70,7 @@ export const ArticleLink = ({ article, ...props }: ArticleLinkProps) => {
 				dismiss={() => setExpanded(false)}
 				showing={expanded}
 			/>
-		</>
+		</Fragment>
 	);
 };
 
@@ -89,7 +89,7 @@ export const HelpReference = (props: HelpReferenceProps) => {
 	const href = `${exportServiceURL}/help/page/${reference.article}`;
 
 	return (
-		<>
+		<Fragment>
 			<Details label={reference.label} iconBefore>
 				<Prose>
 					<DocumentRenderer document={reference.content ?? []} />
@@ -122,12 +122,12 @@ export const HelpReference = (props: HelpReferenceProps) => {
 					showing={expanded}
 				/>
 			) : null}
-		</>
+		</Fragment>
 	);
 };
 
 const HelpContent = (props: { article: HelpArticleT }) => (
-	<>
+	<Fragment>
 		<Stack gap={1.5}>
 			<H1>{props.article.title}</H1>
 			<DocumentRenderer
@@ -147,7 +147,7 @@ const HelpContent = (props: { article: HelpArticleT }) => (
 		<Prose>
 			<DocumentRenderer document={props.article.content} />
 		</Prose>
-	</>
+	</Fragment>
 );
 
 interface HelpDrawerProps {
