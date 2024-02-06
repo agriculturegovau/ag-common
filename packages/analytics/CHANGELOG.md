@@ -1,5 +1,11 @@
 # @ag.common/analytics
 
+## 0.7.0
+
+### Minor Changes
+
+- 578590f: updates AGDS version
+
 ## 0.6.0
 
 ### Minor Changes
