@@ -1,6 +1,6 @@
 {
 	"name": "@ag.common/help-reference",
-	"version": "1.0.0",
+	"version": "0.0.1",
 	"main": "dist/ag.common-help-reference.cjs.js",
 	"module": "dist/ag.common-help-reference.esm.js",
 	"license": "MIT",
