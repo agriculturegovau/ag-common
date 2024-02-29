@@ -1,5 +1,11 @@
 # @ag.common/help-callout
 
+## 1.2.0
+
+### Minor Changes
+
+- c9c60cd: help-callout: update content and add 'internal' prop
+
 ## 1.1.0
 
 ### Minor Changes

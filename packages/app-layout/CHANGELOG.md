@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.1.1
+
+### Patch Changes
+
+- 7ec69f0: footers: add contact-us link
+
 ## 1.1.0
 
 ### Minor Changes
