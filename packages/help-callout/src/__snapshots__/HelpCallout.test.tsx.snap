@@ -11,12 +11,12 @@ exports[`HelpCallout renders correctly 1`] = `
       <h2
         class="css-1qsxf5s-boxStyles-boxStyles-Text"
       >
-        Need more help?
+        Need help?
       </h2>
       <span
         class="css-pn1kbs-boxStyles-boxStyles-Text"
       >
-        Access our
+        Search our
          
         <a
           class="css-rkqsq-TextLink-TextLink"
@@ -24,7 +24,7 @@ exports[`HelpCallout renders correctly 1`] = `
           rel="noopener"
           target="_blank"
         >
-          help articles
+          Help
           <span
             class="css-avudkd-VisuallyHidden"
           >
@@ -56,6 +56,8 @@ exports[`HelpCallout renders correctly 1`] = `
             />
           </svg>
         </a>
+         
+        pages
       </span>
       <span
         class="css-pn1kbs-boxStyles-boxStyles-Text"
