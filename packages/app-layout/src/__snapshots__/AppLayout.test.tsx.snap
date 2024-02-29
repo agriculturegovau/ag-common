@@ -446,8 +446,17 @@ exports[`AppLayout renders correctly 1`] = `
                   >
                     <a
                       class="css-rkqsq-TextLink-TextLink"
+                      href="/about/contact-us"
+                    >
+                      Contact us
+                    </a>
+                  </li>
+                  <li
+                    class="css-1b13c5y-boxStyles-boxStyles"
+                  >
+                    <a
+                      class="css-rkqsq-TextLink-TextLink"
                       href="/help"
-                      rel="external"
                     >
                       Help
                     </a>
