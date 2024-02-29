@@ -26,3 +26,9 @@ export const ProdHelpPages: Story = {
 		helpHref: 'https://exports.agriculture.gov.au/help',
 	},
 };
+
+export const InternalLink: Story = {
+	args: {
+		internal: true,
+	},
+};
