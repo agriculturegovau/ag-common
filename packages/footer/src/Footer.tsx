@@ -11,8 +11,11 @@ const footerLinks = [
 		label: 'About',
 	},
 	{
+		href: '/about/contact-us',
+		label: 'Contact us',
+	},
+	{
 		href: '/help',
-		rel: 'external',
 		label: 'Help',
 	},
 	{
