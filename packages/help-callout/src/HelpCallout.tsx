@@ -10,7 +10,7 @@ interface HelpCalloutProps {
 }
 
 export const HelpCallout = (props: HelpCalloutProps) => {
-  const LinkComponent = props?.internal ? TextLink : TextLinkExternal;
+  const LinkComponent = props?.internal === true ? TextLink : TextLinkExternal;
 
   return (
     <CoreProvider>
