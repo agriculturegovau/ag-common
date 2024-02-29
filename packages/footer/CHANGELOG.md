@@ -1,5 +1,11 @@
 # @ag.common/footer
 
+## 1.5.1
+
+### Patch Changes
+
+- 7ec69f0: footers: add contact-us link
+
 ## 1.5.0
 
 ### Minor Changes
