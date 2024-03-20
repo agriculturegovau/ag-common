@@ -286,6 +286,36 @@ exports[`AppLayout renders correctly 1`] = `
             </a>
           </li>
           <li
+            class="css-11lpl70-AppLayoutSidebarNavItemInner"
+          >
+            <a
+              href="/quota"
+            >
+              <svg
+                aria-hidden="true"
+                class="css-qhpjst-Icon"
+                clip-rule="evenodd"
+                fill-rule="evenodd"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21.21 15.89A10 10 0 1 1 8 2.83"
+                />
+                <path
+                  d="M22 12A10 10 0 0 0 12 2v10z"
+                />
+              </svg>
+              <span>
+                Quotas
+              </span>
+            </a>
+          </li>
+          <li
             aria-hidden="true"
             class="css-ryhy6t-boxStyles-boxStyles"
           >

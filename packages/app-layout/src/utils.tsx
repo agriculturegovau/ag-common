@@ -6,9 +6,11 @@ import {
 	SuccessIcon,
 	FactoryIcon,
 	ExternalLinkIcon,
+	createIcon,
 } from '@ag.ds-next/react/icon';
 import { Flex } from '@ag.ds-next/react/flex';
 import { ExternalLinkCallout } from '@ag.ds-next/react/a11y';
+import { Fragment } from 'react';
 
 export const hrefs = {
 	account: '/account',
@@ -17,6 +19,14 @@ export const hrefs = {
 	messages: '/account/messages',
 	linkBusiness: '/account/link-a-business',
 };
+
+const PieChartIcon = createIcon(
+	<Fragment>
+		<path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+		<path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+	</Fragment>,
+	'PieChartIcon'
+);
 
 export const footerNavigationItems = [
 	{
@@ -70,6 +80,11 @@ export function getSidebarLinks({
 				label: 'Compliance',
 				icon: SuccessIcon,
 				href: '/compliance',
+			},
+			{
+				label: 'Quotas',
+				icon: PieChartIcon,
+				href: '/quota',
 			},
 		],
 		[
