@@ -81,8 +81,5 @@
 		"ignoredRules": [
 			"ROOT_HAS_DEV_DEPENDENCIES"
 		]
-	},
-	"msw": {
-		"workerDirectory": "public"
 	}
 }
