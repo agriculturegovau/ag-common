@@ -17,7 +17,6 @@ const config: StorybookConfig = {
 		{ name: '@storybook/addon-essentials', options: { background: false } },
 	],
 	stories: ['../packages/*/src/**/*.stories.@(ts|tsx)'],
-	staticDirs: ['../public'],
 };
 
 export default config;
