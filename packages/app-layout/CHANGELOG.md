@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.1.2
+
+### Patch Changes
+
+- ec8369a: app-layout: add quota service to sidebar
+
 ## 1.1.1
 
 ### Patch Changes
