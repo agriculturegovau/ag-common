@@ -1,4 +1,4 @@
-# HelpCallout
+# NeedHelpCallout
 
 ## Installation
 
@@ -9,13 +9,13 @@ yarn add @ag.common/help-callout
 ## Usage
 
 ```tsx
-import { HelpCallout } from '@ag.common/HelpCallout';
+import { NeedHelpCallout } from '@ag.common/HelpCallout';
 
 function App() {
 	return (
 		<Layout>
 			<Component {...pageProps} />
-			<HelpCallout />
+			<NeedHelpCallout />
 		</Layout>
 	);
 }

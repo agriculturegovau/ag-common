@@ -3,13 +3,13 @@ import { CoreProvider } from '@ag.ds-next/react/core';
 import { Text } from '@ag.ds-next/react/text';
 import { TextLink, TextLinkExternal } from '@ag.ds-next/react/text-link';
 
-interface HelpCalloutProps {
+interface NeedHelpCalloutProps {
 	hideHelpArticles?: boolean;
 	helpHref?: string;
 	internal?: boolean;
 }
 
-export const HelpCallout = (props: HelpCalloutProps) => {
+export const NeedHelpCallout = (props: NeedHelpCalloutProps) => {
 	const LinkComponent = props?.internal === true ? TextLink : TextLinkExternal;
 
 	return (

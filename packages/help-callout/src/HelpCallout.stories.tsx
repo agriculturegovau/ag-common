@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { HelpCallout } from './HelpCallout';
+import { NeedHelpCallout } from './HelpCallout';
 
-const meta: Meta<typeof HelpCallout> = {
-	title: 'HelpCallout',
-	component: HelpCallout,
+const meta: Meta<typeof NeedHelpCallout> = {
+	title: 'NeedHelpCallout',
+	component: NeedHelpCallout,
 	parameters: {
 		layout: 'fullscreen',
 	},
@@ -11,7 +11,7 @@ const meta: Meta<typeof HelpCallout> = {
 
 export default meta;
 
-type Story = StoryObj<typeof HelpCallout>;
+type Story = StoryObj<typeof NeedHelpCallout>;
 
 export const Basic: Story = {};
 

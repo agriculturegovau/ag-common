@@ -1,1 +1,1 @@
-export * from './HelpCallout';
+export { NeedHelpCallout } from './HelpCallout';
