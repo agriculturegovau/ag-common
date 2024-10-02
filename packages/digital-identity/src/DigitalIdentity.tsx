@@ -111,12 +111,12 @@ const DigitalIdentityButton = ({
 		narrow === true ? (
 			<Stack gap={0.5}>
 				<DigitalIdentityLogo />
-				<span>Continue with Digital Identity</span>
+				<span>Continue with Digital ID</span>
 			</Stack>
 		) : (
 			<Flex gap={0.5} alignItems={'center'}>
 				<DigitalIdentityLogo />
-				<span>Continue with Digital Identity</span>
+				<span>Continue with Digital ID</span>
 			</Flex>
 		);
 
@@ -181,10 +181,10 @@ export const DigitalIdentity = ({
 			<Box css={innerCSS}>
 				<Text as="p" padding={1.5} css={textColour}>
 					<TextLinkExternal
-						href="https://www.digitalidentity.gov.au/"
+						href="https://www.digitalidsystem.gov.au/"
 						css={externalLinkCSS}
 					>
-						Digital Identity
+						Digital ID
 					</TextLinkExternal>{' '}
 					is a safe, secure and convenient way to prove and reuse your identity
 					online.
