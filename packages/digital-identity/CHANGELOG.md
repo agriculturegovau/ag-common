@@ -1,5 +1,11 @@
 # @ag.common/digital-identity
 
+## 0.7.0
+
+### Minor Changes
+
+- 61cc8f2: use new "digital id" icon branding
+
 ## 0.6.0
 
 ### Minor Changes
