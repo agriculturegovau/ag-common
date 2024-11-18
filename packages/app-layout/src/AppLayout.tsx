@@ -106,10 +106,13 @@ export function AppLayout<B extends Business>({
 						</nav>
 						<AgDsAppLayoutFooterDivider />
 						<Text fontSize="xs" maxWidth={tokens.maxWidth.bodyText}>
-							We acknowledge the traditional owners of country throughout
-							Australia and recognise their continuing connection to land,
-							waters and culture. We pay our respects to their Elders past,
-							present and emerging.
+							We acknowledge the continuous connection of First Nations
+							Traditional Owners and Custodians to the lands, seas and waters of
+							Australia. We recognise their care for and cultivation of Country.
+							We pay respect to Elders past and present, and recognise their
+							knowledge and contribution to the productivity, innovation and
+							sustainability of Australia&apos;s agriculture, fisheries and
+							forestry industries.
 						</Text>
 						<Text fontSize="xs" maxWidth={tokens.maxWidth.bodyText}>
 							&copy; {year} Department of Agriculture, Fisheries and Forestry
