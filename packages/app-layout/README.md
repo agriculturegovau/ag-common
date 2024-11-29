@@ -12,7 +12,7 @@ yarn add @ag.common/app-layout
 
 ```tsx
 import { AppLayout } from '@ag.common/app-layout';
-import { useAuth } from '@ag.common/auth';
+import { useAuthentication } from '@ag.common/auth';
 import { useBusinessDetails } from '@ag.common/auth';
 import { useRouter } from 'next/router';
 
@@ -34,7 +34,7 @@ It may make sense for your application to start from its root when a user change
 
 ```tsx
 import { AppLayout } from '@ag.common/app-layout';
-import { useAuth } from '@ag.common/auth';
+import { useAuthentication } from '@ag.common/auth';
 import { useBusinessDetails } from '@ag.common/auth';
 import { useRouter } from 'next/router';
 
@@ -66,7 +66,7 @@ You may want to interrupt a user before allowing them to change their selected b
 
 ```tsx
 import { AppLayout } from '@ag.common/app-layout';
-import { useAuth } from '@ag.common/auth';
+import { useAuthentication } from '@ag.common/auth';
 import { useBusinessDetails } from '@ag.common/auth';
 import { useRouter } from 'next/router';
 
@@ -107,6 +107,59 @@ function App() {
 			>
 				<Text as="p">You will lose all changes made since your last save.</Text>
 			</Modal>
+			<YourApplication />
+		</AppLayout>
+	);
+}
+```
+
+## Single names
+
+Your app may not handle single-named users. If you want to block these users from your app, pass through the auth claims
+and the app layout will display a helpful message instead.
+
+```tsx
+import { AppLayout } from '@ag.common/app-layout';
+import { authService } from '@ag.common/auth';
+import { useRouter } from 'next/router';
+
+function App() {
+	const router = useRouter();
+	const claims = authService.getAccountInfo()?.idTokenClaims;
+
+	return (
+		<AppLayout activePath={router.asPath} claims={claims}>
+			<YourApplication />
+		</AppLayout>
+	);
+}
+```
+
+You can provide your own error message or handle analytics by providing a component that overrides the default.
+
+```tsx
+import { AppLayout } from '@ag.common/app-layout';
+import { authService } from '@ag.common/auth';
+import { useRouter } from 'next/router';
+
+function App() {
+	const router = useRouter();
+	const claims = authService.getAccountInfo()?.idTokenClaims;
+
+	return (
+		<AppLayout
+			activePath={router.asPath}
+			claims={claims}
+			errorComponents={{
+				MissingGivenName: (props) => (
+					<Fragment>
+						<p>everything is fine, actually</p>
+
+						{props.children}
+					</Fragment>
+				),
+			}}
+		>
 			<YourApplication />
 		</AppLayout>
 	);

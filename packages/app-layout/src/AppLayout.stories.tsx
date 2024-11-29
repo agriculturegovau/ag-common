@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, PropsWithChildren, useEffect, useState } from 'react';
 import { StoryObj, Meta } from '@storybook/react';
 import { Prose } from '@ag.ds-next/react/prose';
 import { PageContent } from '@ag.ds-next/react/content';
@@ -11,6 +11,7 @@ import { AppLayout } from './AppLayout';
 import { Business, BusinessDetails } from './AppLayoutDropdown';
 import { Button, ButtonGroup } from '@ag.ds-next/react/button';
 import { Text } from '@ag.ds-next/react/text';
+import { AppErrorComponents } from './AppLayoutContent';
 
 type BusinessFromAPI = Business & { someExtraInfo: string };
 
@@ -263,5 +264,94 @@ export const BusinessDropdownModalInterrupt: Story = {
 				</AppLayout>
 			</Fragment>
 		);
+	},
+};
+
+export const Claims: Story = {
+	args: {
+		focusMode: false,
+		unreadMessageCount: 6,
+		activePath: '/',
+		claims: {
+			given_name: 'given_name',
+			family_name: 'family_name',
+		},
+	},
+};
+
+export const ClaimsMissingName: Story = {
+	args: {
+		focusMode: false,
+		unreadMessageCount: 6,
+		activePath: '/',
+		claims: {
+			family_name: 'family_name',
+		},
+	},
+};
+
+export const ClaimsMissingNameAnalytics: Story = {
+	args: {
+		focusMode: false,
+		unreadMessageCount: 6,
+		activePath: '/',
+		claims: {
+			family_name: 'family_name',
+		},
+		errorComponents: {
+			MissingName: (props: PropsWithChildren) => {
+				useEffect(() => {
+					console.log('report this situation to an analytics provider here');
+				}, []);
+
+				return <AppErrorComponents.MissingName {...props} />;
+			},
+		},
+	},
+};
+
+export const ClaimsMissingNameComponent: Story = {
+	args: {
+		focusMode: false,
+		unreadMessageCount: 6,
+		activePath: '/',
+		claims: {
+			family_name: 'family_name',
+		},
+		errorComponents: {
+			MissingName: (props: PropsWithChildren) => (
+				<PageContent>
+					<Prose>
+						<p>Our app works just fine even without a generic name.</p>
+						<hr />
+
+						{props.children}
+					</Prose>
+				</PageContent>
+			),
+		},
+	},
+};
+
+export const ClaimsMissingGivenNameComponent: Story = {
+	args: {
+		focusMode: false,
+		unreadMessageCount: 6,
+		activePath: '/',
+		claims: {
+			family_name: 'family_name',
+		},
+		errorComponents: {
+			MissingGivenName: (props: PropsWithChildren) => (
+				<PageContent>
+					<Prose>
+						<p>Our app works just fine even without a given name.</p>
+						<hr />
+
+						{props.children}
+					</Prose>
+				</PageContent>
+			),
+		},
 	},
 };
