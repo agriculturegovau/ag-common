@@ -18,6 +18,12 @@ import {
 	BusinessDropdown,
 	getBusinessSidebarLinks,
 } from './AppLayoutDropdown';
+import {
+	AppContent,
+	AppErrorComponents,
+	ExpectedClaims,
+	type ErrorComponents,
+} from './AppLayoutContent';
 
 export type AppLayoutProps<B extends Business> = PropsWithChildren<{
 	activePath: string;
@@ -27,6 +33,8 @@ export type AppLayoutProps<B extends Business> = PropsWithChildren<{
 	unreadMessageCount?: number;
 	userName?: string;
 	businessDetails?: BusinessDetails<B>;
+	claims?: ExpectedClaims; // Input for common error handling behaviour
+	errorComponents?: Partial<ErrorComponents>;
 }>;
 
 export function AppLayout<B extends Business>({
@@ -36,8 +44,10 @@ export function AppLayout<B extends Business>({
 	handleSignOut,
 	mainContentId = 'main-content',
 	unreadMessageCount,
-	userName,
+	userName: name,
 	businessDetails,
+	claims,
+	errorComponents,
 }: AppLayoutProps<B>) {
 	const year = useMemo(() => new Date().getFullYear(), []);
 
@@ -69,10 +79,10 @@ export function AppLayout<B extends Business>({
 					badgeLabel="Beta"
 					logo={<Logo />}
 					accountDetails={
-						userName
+						name
 							? {
 									href: hrefs.account,
-									name: userName,
+									name,
 									secondaryText:
 										businessDetails?.selectedBusiness?.partyDisplayName ??
 										'My account',
@@ -96,7 +106,15 @@ export function AppLayout<B extends Business>({
 							tabIndex={-1}
 							css={{ '&:focus': { outline: 'none' } }}
 						>
-							{children}
+							<AppContent
+								claims={claims}
+								errorComponents={{
+									...AppErrorComponents,
+									...errorComponents,
+								}}
+							>
+								{children}
+							</AppContent>
 						</main>
 					</CoreProvider>
 
