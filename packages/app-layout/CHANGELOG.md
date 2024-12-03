@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.2.0
+
+### Minor Changes
+
+- 9dff0d3: provide default error handling for single names
+
 ## 1.1.2
 
 ### Patch Changes
