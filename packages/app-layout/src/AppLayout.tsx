@@ -1,4 +1,4 @@
-import { PropsWithChildren, useCallback, useContext, useMemo } from 'react';
+import { createContext, PropsWithChildren, useContext, useMemo } from 'react';
 import {
 	AppLayout as AgDsAppLayout,
 	AppLayoutHeader as AgDsAppLayoutHeader,
@@ -8,7 +8,12 @@ import {
 	AppLayoutFooterDivider as AgDsAppLayoutFooterDivider,
 } from '@ag.ds-next/react/app-layout';
 import { Logo } from '@ag.ds-next/react/ag-branding';
-import { CoreProvider, coreContext, tokens } from '@ag.ds-next/react/core';
+import {
+	CoreProvider,
+	coreContext,
+	tokens,
+	useTernaryState,
+} from '@ag.ds-next/react/core';
 import { LinkList } from '@ag.ds-next/react/link-list';
 import { Text } from '@ag.ds-next/react/text';
 import {
@@ -29,6 +34,18 @@ import {
 	ExpectedClaims,
 	type ErrorComponents,
 } from './AppLayoutContent';
+import { Modal } from '@ag.ds-next/react/modal';
+import { Button, ButtonGroup } from '@ag.ds-next/react/button';
+
+type LayoutContext = {
+	onSignOutClick: () => void;
+};
+
+const LayoutContext = createContext<LayoutContext | undefined>(undefined);
+
+export const useOpenSignOutModal = () => {
+	return useContext(LayoutContext)?.onSignOutClick;
+};
 
 export type AppLayoutProps<B extends Business> = PropsWithChildren<{
 	activePath: string;
@@ -61,12 +78,10 @@ export function AppLayout<B extends Business>({
 	// Preserve link behaviour for main content
 	const parentCoreContext = useContext(coreContext);
 
-	const onSignOutClick = useCallback(
-		async function onSignOutClick() {
-			await handleSignOut();
-		},
-		[handleSignOut]
-	);
+	const [isModalOpen, openModal, closeModal] = useTernaryState(false);
+	const [isSigningOut, setSigningOut, setSignedOut] = useTernaryState(false);
+	const onSignOutClick = openModal;
+	const onModalSignOutClick = handleSignOut;
 
 	const sidebarLinks = useMemo(
 		() => [
@@ -78,70 +93,101 @@ export function AppLayout<B extends Business>({
 
 	return (
 		<AgDsAppLayout focusMode={focusMode}>
-			<CoreProvider>
-				<AgDsAppLayoutHeader
-					href="/account"
-					heading="Export Service"
-					subLine="Supporting Australian agricultural exports"
-					badgeLabel="Beta"
-					logo={<Logo />}
-					accountDetails={
-						name
-							? {
-									href: hrefs.account,
-									name,
-									secondaryText:
-										businessDetails?.selectedBusiness?.partyDisplayName ??
-										'My account',
-									dropdown: businessDetails ? (
-										<BusinessDropdown
-											businessDetails={businessDetails}
-											unreadMessageCount={unreadMessageCount}
-											onSignOutClick={onSignOutClick}
-										/>
-									) : undefined,
-							  }
-							: undefined
-					}
-				/>
-				<AgDsAppLayoutSidebar activePath={activePath} items={sidebarLinks} />
+			<LayoutContext.Provider value={{ onSignOutClick }}>
+				<CoreProvider>
+					<AgDsAppLayoutHeader
+						href="/account"
+						heading="Export Service"
+						subLine="Supporting Australian agricultural exports"
+						badgeLabel="Beta"
+						logo={<Logo />}
+						accountDetails={
+							name
+								? {
+										href: hrefs.account,
+										name,
+										secondaryText:
+											businessDetails?.selectedBusiness?.partyDisplayName ??
+											'My account',
+										dropdown: businessDetails ? (
+											<BusinessDropdown
+												businessDetails={businessDetails}
+												unreadMessageCount={unreadMessageCount}
+												onSignOutClick={onSignOutClick}
+											/>
+										) : undefined,
+								  }
+								: undefined
+						}
+					/>
+					<AgDsAppLayoutSidebar activePath={activePath} items={sidebarLinks} />
 
-				<AgDSAppLayoutContent>
-					<CoreProvider {...parentCoreContext}>
-						<main
-							id={mainContentId}
-							tabIndex={-1}
-							css={{ '&:focus': { outline: 'none' } }}
-						>
-							<AppContent
-								claims={claims}
-								errorComponents={{
-									...AppErrorComponents,
-									...errorComponents,
-								}}
+					<AgDSAppLayoutContent>
+						<CoreProvider {...parentCoreContext}>
+							<main
+								id={mainContentId}
+								tabIndex={-1}
+								css={{ '&:focus': { outline: 'none' } }}
 							>
-								{children}
-							</AppContent>
-						</main>
-					</CoreProvider>
+								<AppContent
+									claims={claims}
+									errorComponents={{
+										...AppErrorComponents,
+										...errorComponents,
+									}}
+								>
+									{children}
+								</AppContent>
+							</main>
+						</CoreProvider>
 
-					<AgDsAppLayoutFooter>
-						<nav aria-label="footer">
-							<LinkList links={footerNavigationItems} horizontal />
-						</nav>
-						<AgDsAppLayoutFooterDivider />
-						<Text fontSize="xs" maxWidth={tokens.maxWidth.bodyText}>
-							We acknowledge the traditional owners of country throughout
-							Australia and recognise their continuing connection to land,
-							waters and culture. We pay our respects to their Elders past,
-							present and emerging.
+						<AgDsAppLayoutFooter>
+							<nav aria-label="footer">
+								<LinkList links={footerNavigationItems} horizontal />
+							</nav>
+							<AgDsAppLayoutFooterDivider />
+							<Text fontSize="xs" maxWidth={tokens.maxWidth.bodyText}>
+								We acknowledge the traditional owners of country throughout
+								Australia and recognise their continuing connection to land,
+								waters and culture. We pay our respects to their Elders past,
+								present and emerging.
+							</Text>
+							<Text fontSize="xs" maxWidth={tokens.maxWidth.bodyText}>
+								&copy; {year} Department of Agriculture, Fisheries and Forestry
+							</Text>
+						</AgDsAppLayoutFooter>
+					</AgDSAppLayoutContent>
+
+					<Modal
+						isOpen={isModalOpen}
+						onDismiss={closeModal}
+						title="Do you want to sign out?"
+						actions={
+							<ButtonGroup>
+								<Button
+									onClick={async () => {
+										setSigningOut();
+										await onModalSignOutClick();
+										setSignedOut();
+										closeModal();
+									}}
+									loading={isSigningOut}
+									disabled={isSigningOut}
+								>
+									Sign out
+								</Button>
+								<Button variant="secondary" onClick={closeModal}>
+									Cancel
+								</Button>
+							</ButtonGroup>
+						}
+					>
+						<Text as="p">
+							This will end your current session with the Export Service.
 						</Text>
-						<Text fontSize="xs" maxWidth={tokens.maxWidth.bodyText}>
-							&copy; {year} Department of Agriculture, Fisheries and Forestry
-						</Text>
-					</AgDsAppLayoutFooter>
-				</AgDSAppLayoutContent>
-			</CoreProvider>
+					</Modal>
+				</CoreProvider>
+			</LayoutContext.Provider>
 		</AgDsAppLayout>
 	);
 }
