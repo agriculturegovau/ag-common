@@ -7,7 +7,7 @@ import { ControlGroup } from '@ag.ds-next/react/control-group';
 import { Radio } from '@ag.ds-next/react/radio';
 import { Stack } from '@ag.ds-next/react/stack';
 import { Modal } from '@ag.ds-next/react/modal';
-import { AppLayout } from './AppLayout';
+import { AppLayout, useOpenSignOutModal } from './AppLayout';
 import { Business, BusinessDetails } from './AppLayoutDropdown';
 import { Button, ButtonGroup } from '@ag.ds-next/react/button';
 import { Text } from '@ag.ds-next/react/text';
@@ -74,12 +74,20 @@ export default meta;
 
 type Story = StoryObj<typeof AppLayout>;
 
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const handleSignOut = async () => {
+	await delay(2000);
+	alert('You have been signed out.');
+};
+
 export const Basic: Story = {
 	args: {
 		focusMode: false,
 		userName: 'Toto Wolff',
 		unreadMessageCount: 6,
 		activePath: '/',
+		handleSignOut,
 	},
 };
 
@@ -89,6 +97,7 @@ export const FocusMode: Story = {
 		userName: 'Toto Wolff',
 		unreadMessageCount: 6,
 		activePath: '/',
+		handleSignOut,
 	},
 };
 
@@ -96,6 +105,7 @@ export const ClientSideFetch: Story = {
 	args: {
 		activePath: '/',
 		focusMode: false,
+		handleSignOut,
 	},
 	render: function Render(props) {
 		const [userDetails, setUserDetails] = useState(false);
@@ -138,6 +148,7 @@ export const BusinessDropdown: Story = {
 		userName: 'Toto Wolff',
 		unreadMessageCount: 6,
 		activePath: '/',
+		handleSignOut,
 	},
 	render: function Render(props) {
 		const [businessDetails, setBusinessDetails] = useState<
@@ -203,6 +214,7 @@ export const BusinessDropdownModalInterrupt: Story = {
 		userName: 'Toto Wolff',
 		unreadMessageCount: 6,
 		activePath: '/',
+		handleSignOut,
 	},
 	render: function Render(props) {
 		const linkedBusinesses = exampleBusinesses;
@@ -274,6 +286,56 @@ export const QuotasEnabled: Story = {
 		unreadMessageCount: 6,
 		activePath: '/',
 		features: { quotas: true },
+	}
+}
+
+export const SignOutModalTrigger: Story = {
+	args: {
+		focusMode: false,
+		userName: 'Toto Wolff',
+		unreadMessageCount: 6,
+		activePath: '/',
+		handleSignOut,
+	},
+
+	render: function Render(props) {
+		const businessDetails = {
+			linkedBusinesses: exampleBusinesses,
+			selectedBusiness: exampleBusinesses[0],
+			setSelectedBusiness: () => {},
+		};
+
+		const SignOut = () => {
+			const onclick = useOpenSignOutModal();
+			return <Button onClick={onclick}>Sign out</Button>;
+		};
+
+		return (
+			<Fragment>
+				<SkipLinks
+					links={[{ href: '#main-content', label: 'Skip to main content' }]}
+				/>
+				<AppLayout {...props} businessDetails={businessDetails}>
+					<PageContent>
+						<Stack gap={3}>
+							<Prose>
+								<h1>Sign out button</h1>
+
+								<p>
+									You can trigger the sign out modal using the{' '}
+									<code>useOpenSignOutModal</code> hook.
+								</p>
+							</Prose>
+
+							<ButtonGroup>
+								<SignOut />
+							</ButtonGroup>
+						</Stack>
+					</PageContent>
+				</AppLayout>
+			</Fragment>
+		);
+>>>>>>> 9669ae2 (app-layout: add signOut modal and update content)
 	},
 };
 
@@ -292,6 +354,7 @@ export const Claims: Story = {
 		focusMode: false,
 		unreadMessageCount: 6,
 		activePath: '/',
+		handleSignOut,
 		claims: {
 			given_name: 'given_name',
 			family_name: 'family_name',
@@ -304,6 +367,7 @@ export const ClaimsMissingName: Story = {
 		focusMode: false,
 		unreadMessageCount: 6,
 		activePath: '/',
+		handleSignOut,
 		claims: {
 			family_name: 'family_name',
 		},
@@ -315,6 +379,7 @@ export const ClaimsMissingNameAnalytics: Story = {
 		focusMode: false,
 		unreadMessageCount: 6,
 		activePath: '/',
+		handleSignOut,
 		claims: {
 			family_name: 'family_name',
 		},
@@ -335,6 +400,7 @@ export const ClaimsMissingNameComponent: Story = {
 		focusMode: false,
 		unreadMessageCount: 6,
 		activePath: '/',
+		handleSignOut,
 		claims: {
 			family_name: 'family_name',
 		},
@@ -358,20 +424,25 @@ export const ClaimsMissingGivenNameComponent: Story = {
 		focusMode: false,
 		unreadMessageCount: 6,
 		activePath: '/',
+		handleSignOut,
 		claims: {
 			family_name: 'family_name',
 		},
 		errorComponents: {
-			MissingGivenName: (props: PropsWithChildren) => (
-				<PageContent>
-					<Prose>
-						<p>Our app works just fine even without a given name.</p>
-						<hr />
+			MissingGivenName: (props: PropsWithChildren) => {
+				const onClick = useOpenSignOutModal();
 
-						{props.children}
-					</Prose>
-				</PageContent>
-			),
+				return (
+					<PageContent>
+						<Prose>
+							<p>Our app works just fine even without a given name.</p>
+							<hr />
+
+							{props.children}
+							<Button onClick={onClick}>Sign out</Button>
+						</Prose>
+					</PageContent>
+				),
 		},
 	},
 };
