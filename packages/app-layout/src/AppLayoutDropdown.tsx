@@ -60,16 +60,16 @@ const LinkedBusinesses = (props: {
 	onSelectBusiness: (business: BusinessOption) => () => void;
 }) =>
 	props.businesses.length === 0 ? (
-		<DropdownMenuGroup label="Link a business">
-			<DropdownMenuItemLink
-				href={hrefs.linkBusiness}
-				endElement={<ArrowRightIcon />}
-			>
-				Get started
+		<DropdownMenuGroup label="Get started">
+			<DropdownMenuItemLink href={hrefs.linkBusiness}>
+				Add a business to the Export Service
+			</DropdownMenuItemLink>
+			<DropdownMenuItemLink href={hrefs.acceptInvite}>
+				Accept an invite
 			</DropdownMenuItemLink>
 		</DropdownMenuGroup>
 	) : (
-		<DropdownMenuGroup label="Linked businesses">
+		<DropdownMenuGroup label="Businesses">
 			{props.businesses.slice(0, 3).map((business) => (
 				<DropdownMenuItemRadio
 					key={business.partyId}
@@ -122,7 +122,7 @@ export const BusinessDropdown = <T extends Business>(
 					Messages
 				</DropdownMenuItemLink>
 				<DropdownMenuItemLink href={hrefs.profile} icon={AvatarIcon}>
-					Profile
+					Profile and settings
 				</DropdownMenuItemLink>
 			</DropdownMenuGroup>
 			<DropdownMenuDivider />

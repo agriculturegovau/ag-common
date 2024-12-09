@@ -18,6 +18,7 @@ export const hrefs = {
 	dashboard: '/account/dashboard',
 	messages: '/account/messages',
 	linkBusiness: '/account/link-a-business',
+	acceptInvite: '/account/invitation/accept',
 };
 
 const PieChartIcon = createIcon(
