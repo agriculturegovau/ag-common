@@ -12,6 +12,10 @@ import { Flex } from '@ag.ds-next/react/flex';
 import { ExternalLinkCallout } from '@ag.ds-next/react/a11y';
 import { Fragment } from 'react';
 
+export type Features = {
+	quotas?: boolean;
+};
+
 export const hrefs = {
 	account: '/account',
 	profile: '/account/profile',
@@ -54,38 +58,48 @@ export const footerNavigationItems = [
 	{ href: '/privacy', label: 'Privacy' },
 ];
 
+const apps = {
+	dashboard: {
+		label: 'Dashboard',
+		icon: HomeIcon,
+		href: hrefs.dashboard,
+	},
+	establishments: {
+		label: 'Establishments',
+		icon: FactoryIcon,
+		href: '/establishments',
+	},
+	intelligence: {
+		label: 'Data and Insights',
+		icon: ChartLineIcon,
+		href: '/intelligence',
+	},
+	compliance: {
+		label: 'Compliance',
+		icon: SuccessIcon,
+		href: '/compliance',
+	},
+	quotas: {
+		label: 'Quotas',
+		icon: PieChartIcon,
+		href: '/quota',
+	},
+};
+
 export function getSidebarLinks({
 	onSignOutClick,
+	features,
 }: {
 	onSignOutClick: () => void;
+	features?: Features;
 }) {
 	return [
 		[
-			{
-				label: 'Dashboard',
-				icon: HomeIcon,
-				href: hrefs.dashboard,
-			},
-			{
-				label: 'Establishments',
-				icon: FactoryIcon,
-				href: '/establishments',
-			},
-			{
-				label: 'Data and Insights',
-				icon: ChartLineIcon,
-				href: '/intelligence',
-			},
-			{
-				label: 'Compliance',
-				icon: SuccessIcon,
-				href: '/compliance',
-			},
-			{
-				label: 'Quotas',
-				icon: PieChartIcon,
-				href: '/quota',
-			},
+			apps.dashboard,
+			apps.establishments,
+			apps.intelligence,
+			apps.compliance,
+			...(features?.quotas ? [apps.quotas] : []),
 		],
 		[
 			{
