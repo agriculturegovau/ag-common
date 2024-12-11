@@ -61,7 +61,7 @@ export const footerNavigationItems = [
 	{ href: '/privacy', label: 'Privacy' },
 ];
 
-const apps = {
+export const apps = {
 	dashboard: {
 		label: 'Dashboard',
 		icon: HomeIcon,
@@ -94,6 +94,15 @@ const apps = {
 	},
 };
 
+export const getAppLinks = (params?: { features?: Features }) => [
+	apps.dashboard,
+	apps.establishments,
+	apps.intelligence,
+	apps.compliance,
+	...(params?.features?.quotas ? [apps.quotas] : []),
+	...(params?.features?.exportDocumentation ? [apps.exportDocumentation] : []),
+];
+
 export function getSidebarLinks({
 	onSignOutClick,
 	features,
@@ -102,14 +111,7 @@ export function getSidebarLinks({
 	features?: Features;
 }) {
 	return [
-		[
-			apps.dashboard,
-			apps.establishments,
-			apps.intelligence,
-			apps.compliance,
-			...(features?.quotas ? [apps.quotas] : []),
-			...(features?.exportDocumentation ? [apps.exportDocumentation] : []),
-		],
+		getAppLinks({ features }),
 		[
 			{
 				label: (
@@ -134,3 +136,27 @@ export function getSidebarLinks({
 		],
 	];
 }
+
+export const findBestMatch = <T extends { href: string }>(
+	items: T[],
+	activePath?: string
+) => {
+	if (!activePath) return undefined;
+
+	let exactMatch, bestMatch;
+	for (const item of items) {
+		if (item.href === activePath) {
+			exactMatch = item;
+			break;
+		}
+
+		if (
+			activePath.startsWith(item.href) &&
+			item.href.length > (bestMatch?.href?.length ?? 0)
+		) {
+			bestMatch = item;
+		}
+	}
+
+	return exactMatch || bestMatch;
+};

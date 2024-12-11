@@ -18,7 +18,9 @@ import { LinkList } from '@ag.ds-next/react/link-list';
 import { Text } from '@ag.ds-next/react/text';
 import {
 	Features,
+	findBestMatch,
 	footerNavigationItems,
+	getAppLinks,
 	getSidebarLinks,
 	hrefs,
 } from './utils';
@@ -31,11 +33,12 @@ import {
 import {
 	AppContent,
 	AppErrorComponents,
-	ExpectedClaims,
 	type ErrorComponents,
 } from './AppLayoutContent';
 import { Modal } from '@ag.ds-next/react/modal';
 import { Button, ButtonGroup } from '@ag.ds-next/react/button';
+import { AuthDetails, ProofingLevel } from './proofing';
+import { ExpectedClaims, useAuthDetails } from './authDetails';
 
 type LayoutContext = {
 	onSignOutClick: () => void;
@@ -55,9 +58,11 @@ export type AppLayoutProps<B extends Business> = PropsWithChildren<{
 	unreadMessageCount?: number;
 	userName?: string;
 	businessDetails?: BusinessDetails<B>;
+	features?: Features;
 	claims?: ExpectedClaims; // Input for common error handling behaviour
 	errorComponents?: Partial<ErrorComponents>;
-	features?: Features;
+	requiredProofingLevel?: ProofingLevel | ProofingLevel[];
+	authDetails?: AuthDetails;
 }>;
 
 export function AppLayout<B extends Business>({
@@ -72,6 +77,8 @@ export function AppLayout<B extends Business>({
 	claims,
 	errorComponents,
 	features,
+	requiredProofingLevel,
+	authDetails,
 }: AppLayoutProps<B>) {
 	const year = useMemo(() => new Date().getFullYear(), []);
 
@@ -82,7 +89,6 @@ export function AppLayout<B extends Business>({
 	const [isSigningOut, setSigningOut, setSignedOut] = useTernaryState(false);
 	const onSignOutClick = openModal;
 	const onModalSignOutClick = handleSignOut;
-
 	const sidebarLinks = useMemo(
 		() => [
 			...getBusinessSidebarLinks(businessDetails),
@@ -90,6 +96,15 @@ export function AppLayout<B extends Business>({
 		],
 		[onSignOutClick, businessDetails, features]
 	);
+	const appLinks = useMemo(
+		() => getAppLinks({ features }),
+		[onSignOutClick, businessDetails, features]
+	);
+
+	// TODO: only accept authDetails and do not calculate fallback.
+	const details = authDetails ?? useAuthDetails(claims);
+	const activeApp = findBestMatch(appLinks, activePath);
+	const preventAddBusiness = details?.provider === 'B2CLocalUser';
 
 	return (
 		<AgDsAppLayout focusMode={focusMode}>
@@ -114,6 +129,7 @@ export function AppLayout<B extends Business>({
 												businessDetails={businessDetails}
 												unreadMessageCount={unreadMessageCount}
 												onSignOutClick={onSignOutClick}
+												preventAddBusiness={preventAddBusiness}
 											/>
 										) : undefined,
 								  }
@@ -131,10 +147,13 @@ export function AppLayout<B extends Business>({
 							>
 								<AppContent
 									claims={claims}
+									authDetails={details}
+									requiredProofingLevel={requiredProofingLevel}
 									errorComponents={{
 										...AppErrorComponents,
 										...errorComponents,
 									}}
+									activeApp={activeApp?.label}
 								>
 									{children}
 								</AppContent>

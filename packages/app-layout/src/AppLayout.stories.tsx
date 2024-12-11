@@ -12,6 +12,7 @@ import { Business, BusinessDetails } from './AppLayoutDropdown';
 import { Button, ButtonGroup } from '@ag.ds-next/react/button';
 import { Text } from '@ag.ds-next/react/text';
 import { AppErrorComponents } from './AppLayoutContent';
+import { AuthDetails, getReadableProof } from './proofing';
 
 type BusinessFromAPI = Business & { someExtraInfo: string };
 
@@ -158,6 +159,10 @@ export const BusinessDropdown: Story = {
 			selectedBusiness: exampleBusinesses[1],
 		});
 
+		const [authDetails, setAuthDetails] = useState<AuthDetails>({
+			provider: 'myID',
+		});
+
 		const setSelectedBusiness = (selectedBusiness: BusinessFromAPI) =>
 			setBusinessDetails((details) => ({ ...details, selectedBusiness }));
 
@@ -175,12 +180,14 @@ export const BusinessDropdown: Story = {
 				<AppLayout
 					{...props}
 					businessDetails={{ ...businessDetails, setSelectedBusiness }}
+					authDetails={authDetails}
 				>
 					<PageContent>
 						<Stack gap={3}>
 							<Prose>
-								<h1>Number of linked businesses</h1>
+								<h1>Business dropdown configuration</h1>
 							</Prose>
+
 							<ControlGroup
 								label="Number of linked businesses"
 								block
@@ -199,6 +206,23 @@ export const BusinessDropdown: Story = {
 										</Radio>
 									)
 								)}
+							</ControlGroup>
+
+							<ControlGroup label="Auth provider" block hideOptionalLabel>
+								{['myID', 'B2CLocalUser'].map((provider) => (
+									<Radio
+										key={provider}
+										checked={authDetails?.provider === provider}
+										onChange={(e) =>
+											setAuthDetails((previous) => ({
+												...previous,
+												provider,
+											}))
+										}
+									>
+										{provider}
+									</Radio>
+								))}
 							</ControlGroup>
 						</Stack>
 					</PageContent>
@@ -286,8 +310,8 @@ export const QuotasEnabled: Story = {
 		unreadMessageCount: 6,
 		activePath: '/',
 		features: { quotas: true },
-	}
-}
+	},
+};
 
 export const SignOutModalTrigger: Story = {
 	args: {
@@ -335,7 +359,6 @@ export const SignOutModalTrigger: Story = {
 				</AppLayout>
 			</Fragment>
 		);
->>>>>>> 9669ae2 (app-layout: add signOut modal and update content)
 	},
 };
 
@@ -442,7 +465,136 @@ export const ClaimsMissingGivenNameComponent: Story = {
 							<Button onClick={onClick}>Sign out</Button>
 						</Prose>
 					</PageContent>
-				),
+				);
+			},
 		},
+	},
+};
+
+export const RequiredProofingPaywall: Story = {
+	args: {
+		focusMode: false,
+		unreadMessageCount: 6,
+		activePath: '/',
+		handleSignOut,
+		claims: {
+			given_name: 'given_name',
+			family_name: 'family_name',
+
+			AARM_acr: 'urn:id.gov.au:tdif:acr:ip1:cl1',
+		},
+		requiredProofingLevel: 'IP2',
+	},
+};
+
+export const RequiredProofingPaywallAuthDetails: Story = {
+	args: {
+		focusMode: false,
+		unreadMessageCount: 6,
+		activePath: '/',
+		handleSignOut,
+		authDetails: {
+			proofingLevel: 'IP1',
+		},
+		requiredProofingLevel: 'IP2',
+	},
+};
+
+export const RequiredProofingPaywallActiveApp: Story = {
+	args: {
+		focusMode: false,
+		unreadMessageCount: 6,
+		activePath: '/establishments/123',
+		handleSignOut,
+		authDetails: {
+			proofingLevel: 'IP1',
+		},
+		requiredProofingLevel: 'IP2',
+	},
+};
+
+export const RequiredProofingPaywallCustom: Story = {
+	args: {
+		focusMode: false,
+		unreadMessageCount: 6,
+		activePath: '/establishments/123',
+		handleSignOut,
+		authDetails: {
+			proofingLevel: 'IP1',
+		},
+		requiredProofingLevel: 'custom',
+	},
+};
+
+export const RequiredProofingPaywallCustomComponent: Story = {
+	args: {
+		focusMode: false,
+		unreadMessageCount: 6,
+		activePath: '/',
+		handleSignOut,
+		authDetails: {
+			proofingLevel: 'IP1',
+		},
+		requiredProofingLevel: 'IP3',
+		errorComponents: {
+			ProofMissing: (props) => {
+				return (
+					<PageContent>
+						<Prose>
+							<p>
+								Your proofing level is insufficient at{' '}
+								{getReadableProof(props.providedProofingLevel)}. Please fix it.
+							</p>
+
+							<p>
+								you should provide at least "
+								{getReadableProof(props.requiredProofingLevel)}"
+							</p>
+						</Prose>
+					</PageContent>
+				);
+			},
+		},
+	},
+};
+
+export const RequiredProofingMet: Story = {
+	args: {
+		focusMode: false,
+		unreadMessageCount: 6,
+		activePath: '/',
+		handleSignOut,
+		authDetails: {
+			proofingLevel: 'IP2',
+		},
+		requiredProofingLevel: 'IP2',
+	},
+};
+
+export const RequiredProofingMetMany: Story = {
+	args: {
+		focusMode: false,
+		unreadMessageCount: 6,
+		activePath: '/',
+		handleSignOut,
+		authDetails: {
+			proofingLevel: ['IP1', 'IP2', 'IP3'],
+		},
+		requiredProofingLevel: 'IP3',
+	},
+};
+
+export const RequiredProofingMetAlias: Story = {
+	args: {
+		focusMode: false,
+		unreadMessageCount: 6,
+		activePath: '/',
+		handleSignOut,
+		claims: {
+			given_name: 'given_name',
+			family_name: 'family_name',
+			AARM_acr: 'urn:id.gov.au:tdif:acr:ip3:cl2',
+		},
+		requiredProofingLevel: 'IP1', // IP1 is met by the ip3 claim above ^
 	},
 };

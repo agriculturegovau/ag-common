@@ -53,17 +53,21 @@ export interface BusinessDropdownProps<T extends Business> {
 	businessDetails: BusinessDetails<T>;
 	unreadMessageCount?: number;
 	onSignOutClick: () => void;
+	preventAddBusiness?: boolean;
 }
 
 const LinkedBusinesses = (props: {
 	businesses: BusinessOption[];
 	onSelectBusiness: (business: BusinessOption) => () => void;
+	preventAddBusiness?: boolean;
 }) =>
 	props.businesses.length === 0 ? (
 		<DropdownMenuGroup label="Get started">
-			<DropdownMenuItemLink href={hrefs.linkBusiness}>
-				Add a business to the Export Service
-			</DropdownMenuItemLink>
+			{props?.preventAddBusiness ? null : (
+				<DropdownMenuItemLink href={hrefs.linkBusiness}>
+					Add a business to the Export Service
+				</DropdownMenuItemLink>
+			)}
 			<DropdownMenuItemLink href={hrefs.acceptInvite}>
 				Accept an invite
 			</DropdownMenuItemLink>
@@ -96,7 +100,11 @@ export const BusinessDropdown = <T extends Business>(
 
 	return (
 		<DropdownMenuPanel palette="light">
-			<LinkedBusinesses businesses={options} onSelectBusiness={setBusiness} />
+			<LinkedBusinesses
+				businesses={options}
+				onSelectBusiness={setBusiness}
+				preventAddBusiness={props.preventAddBusiness}
+			/>
 			<DropdownMenuDivider />
 			<DropdownMenuGroup label="My account">
 				<DropdownMenuItemLink
