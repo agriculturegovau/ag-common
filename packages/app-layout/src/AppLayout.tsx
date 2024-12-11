@@ -11,7 +11,12 @@ import { Logo } from '@ag.ds-next/react/ag-branding';
 import { CoreProvider, coreContext, tokens } from '@ag.ds-next/react/core';
 import { LinkList } from '@ag.ds-next/react/link-list';
 import { Text } from '@ag.ds-next/react/text';
-import { footerNavigationItems, getSidebarLinks, hrefs } from './utils';
+import {
+	Features,
+	footerNavigationItems,
+	getSidebarLinks,
+	hrefs,
+} from './utils';
 import {
 	Business,
 	BusinessDetails,
@@ -35,6 +40,7 @@ export type AppLayoutProps<B extends Business> = PropsWithChildren<{
 	businessDetails?: BusinessDetails<B>;
 	claims?: ExpectedClaims; // Input for common error handling behaviour
 	errorComponents?: Partial<ErrorComponents>;
+	features?: Features;
 }>;
 
 export function AppLayout<B extends Business>({
@@ -48,6 +54,7 @@ export function AppLayout<B extends Business>({
 	businessDetails,
 	claims,
 	errorComponents,
+	features,
 }: AppLayoutProps<B>) {
 	const year = useMemo(() => new Date().getFullYear(), []);
 
@@ -64,9 +71,9 @@ export function AppLayout<B extends Business>({
 	const sidebarLinks = useMemo(
 		() => [
 			...getBusinessSidebarLinks(businessDetails),
-			...getSidebarLinks({ onSignOutClick }),
+			...getSidebarLinks({ onSignOutClick, features }),
 		],
-		[onSignOutClick, businessDetails]
+		[onSignOutClick, businessDetails, features]
 	);
 
 	return (

@@ -267,6 +267,16 @@ export const BusinessDropdownModalInterrupt: Story = {
 	},
 };
 
+export const QuotasEnabled: Story = {
+	args: {
+		focusMode: false,
+		userName: 'Toto Wolff',
+		unreadMessageCount: 6,
+		activePath: '/',
+		features: { quotas: true },
+	},
+};
+
 export const Claims: Story = {
 	args: {
 		focusMode: false,
