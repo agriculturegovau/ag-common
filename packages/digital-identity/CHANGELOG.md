@@ -1,5 +1,11 @@
 # @ag.common/digital-identity
 
+## 0.8.0
+
+### Minor Changes
+
+- 64353ce: deps: update ag.ds version to 1.25.0
+
 ## 0.7.0
 
 ### Minor Changes
