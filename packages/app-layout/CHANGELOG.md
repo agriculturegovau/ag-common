@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.3.0
+
+### Minor Changes
+
+- 64353ce: deps: update ag.ds version to 1.25.0
+
 ## 1.2.1
 
 ### Patch Changes

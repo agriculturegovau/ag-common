@@ -1,5 +1,11 @@
 # @ag.common/footer
 
+## 1.6.0
+
+### Minor Changes
+
+- 64353ce: deps: update ag.ds version to 1.25.0
+
 ## 1.5.1
 
 ### Patch Changes
