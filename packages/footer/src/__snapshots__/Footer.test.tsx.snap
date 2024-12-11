@@ -3,7 +3,7 @@
 exports[`Footer renders correctly 1`] = `
 <div>
   <div
-    class="css-vjk8gl-dark-dark-boxStyles-boxStyles"
+    class="css-v7su81-dark-dark-boxStyles-boxStyles"
   >
     <footer
       class="css-16rf0on-boxStyles-boxStyles-Footer"
@@ -21,7 +21,7 @@ exports[`Footer renders correctly 1`] = `
               class="css-1b13c5y-boxStyles-boxStyles"
             >
               <a
-                class="css-rkqsq-TextLink-TextLink"
+                class="css-1kl9y73-TextLink-TextLink"
                 href="/about"
               >
                 About
@@ -31,7 +31,7 @@ exports[`Footer renders correctly 1`] = `
               class="css-1b13c5y-boxStyles-boxStyles"
             >
               <a
-                class="css-rkqsq-TextLink-TextLink"
+                class="css-1kl9y73-TextLink-TextLink"
                 href="/about/contact-us"
               >
                 Contact us
@@ -41,7 +41,7 @@ exports[`Footer renders correctly 1`] = `
               class="css-1b13c5y-boxStyles-boxStyles"
             >
               <a
-                class="css-rkqsq-TextLink-TextLink"
+                class="css-1kl9y73-TextLink-TextLink"
                 href="/help"
               >
                 Help
@@ -51,7 +51,7 @@ exports[`Footer renders correctly 1`] = `
               class="css-1b13c5y-boxStyles-boxStyles"
             >
               <a
-                class="css-rkqsq-TextLink-TextLink"
+                class="css-1kl9y73-TextLink-TextLink"
                 href="https://www.agriculture.gov.au/about/commitment/accessibility"
                 rel="external"
               >
@@ -62,7 +62,7 @@ exports[`Footer renders correctly 1`] = `
               class="css-1b13c5y-boxStyles-boxStyles"
             >
               <a
-                class="css-rkqsq-TextLink-TextLink"
+                class="css-1kl9y73-TextLink-TextLink"
                 href="https://www.agriculture.gov.au/about/disclaimer"
                 rel="external"
               >
@@ -73,7 +73,7 @@ exports[`Footer renders correctly 1`] = `
               class="css-1b13c5y-boxStyles-boxStyles"
             >
               <a
-                class="css-rkqsq-TextLink-TextLink"
+                class="css-1kl9y73-TextLink-TextLink"
                 href="/privacy"
               >
                 Privacy
@@ -83,15 +83,15 @@ exports[`Footer renders correctly 1`] = `
         </nav>
         <hr
           aria-hidden="true"
-          class="css-jcokw4-FooterDivider"
+          class="css-23xxsd-boxStyles-boxStyles-FooterDivider"
         />
         <span
-          class="css-1owyagw-boxStyles-boxStyles-Text"
+          class="css-a4lzj2-boxStyles-boxStyles"
         >
           We acknowledge the traditional owners of country throughout Australia and recognise their continuing connection to land, waters and culture. We pay our respects to their Elders past, present and emerging.
         </span>
         <span
-          class="css-1owyagw-boxStyles-boxStyles-Text"
+          class="css-a4lzj2-boxStyles-boxStyles"
         >
           © 
           2024
