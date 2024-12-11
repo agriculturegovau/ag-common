@@ -50,10 +50,10 @@ exports[`DigitalIdentity renders correctly 1`] = `
       class="css-hv305t-boxStyles-boxStyles-DigitalIdentity"
     >
       <p
-        class="css-1scmya3-boxStyles-boxStyles-Text-DigitalIdentity"
+        class="css-jqz9q0-boxStyles-boxStyles-DigitalIdentity"
       >
         <a
-          class="css-ftmsoe-TextLink-TextLink-DigitalIdentity"
+          class="css-1d79xgx-TextLink-TextLink-DigitalIdentity"
           href="https://www.digitalidsystem.gov.au/"
           rel="noopener"
           target="_blank"
@@ -66,7 +66,7 @@ exports[`DigitalIdentity renders correctly 1`] = `
           </span>
           <svg
             aria-hidden="true"
-            class="css-5y4dg8-TextLinkExternal"
+            class="css-1e3wj1s-TextLinkExternal"
             clip-rule="evenodd"
             fill-rule="evenodd"
             focusable="false"

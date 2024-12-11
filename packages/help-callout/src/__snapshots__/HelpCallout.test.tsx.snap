@@ -9,17 +9,17 @@ exports[`HelpCallout renders correctly 1`] = `
       class="css-3to6sz-boxStyles-boxStyles-Callout"
     >
       <h2
-        class="css-1qsxf5s-boxStyles-boxStyles-Text"
+        class="css-a3bu42-boxStyles-boxStyles"
       >
         Need help?
       </h2>
       <span
-        class="css-pn1kbs-boxStyles-boxStyles-Text"
+        class="css-2gaxw0-boxStyles-boxStyles"
       >
         Search our
          
         <a
-          class="css-rkqsq-TextLink-TextLink"
+          class="css-1kl9y73-TextLink-TextLink"
           href="/help"
           rel="noopener"
           target="_blank"
@@ -32,7 +32,7 @@ exports[`HelpCallout renders correctly 1`] = `
           </span>
           <svg
             aria-hidden="true"
-            class="css-5y4dg8-TextLinkExternal"
+            class="css-1e3wj1s-TextLinkExternal"
             clip-rule="evenodd"
             fill-rule="evenodd"
             focusable="false"
@@ -60,23 +60,23 @@ exports[`HelpCallout renders correctly 1`] = `
         pages
       </span>
       <span
-        class="css-pn1kbs-boxStyles-boxStyles-Text"
+        class="css-2gaxw0-boxStyles-boxStyles"
       >
         Email
          
         <a
-          class="css-rkqsq-TextLink-TextLink"
+          class="css-1kl9y73-TextLink-TextLink"
           href="mailto:exportservice@aff.gov.au"
         >
           exportservice@aff.gov.au
         </a>
       </span>
       <span
-        class="css-pn1kbs-boxStyles-boxStyles-Text"
+        class="css-2gaxw0-boxStyles-boxStyles"
       >
         Call 
         <a
-          class="css-rkqsq-TextLink-TextLink"
+          class="css-1kl9y73-TextLink-TextLink"
           href="tel:1800571125"
         >
           1800 571 125
