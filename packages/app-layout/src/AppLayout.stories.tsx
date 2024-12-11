@@ -5,13 +5,25 @@ import { PageContent } from '@ag.ds-next/react/content';
 import { SkipLinks } from '@ag.ds-next/react/skip-link';
 import { ControlGroup } from '@ag.ds-next/react/control-group';
 import { Radio } from '@ag.ds-next/react/radio';
+import { Checkbox } from '@ag.ds-next/react/checkbox';
+import { Select } from '@ag.ds-next/react/select';
+import { Drawer } from '@ag.ds-next/react/drawer';
 import { Stack } from '@ag.ds-next/react/stack';
 import { Modal } from '@ag.ds-next/react/modal';
 import { AppLayout, useOpenSignOutModal } from './AppLayout';
 import { Business, BusinessDetails } from './AppLayoutDropdown';
 import { Button, ButtonGroup } from '@ag.ds-next/react/button';
 import { Text } from '@ag.ds-next/react/text';
+import { produce } from 'immer';
 import { AppErrorComponents } from './AppLayoutContent';
+import {
+	AuthDetails,
+	getReadableProof,
+	highestLevelProof,
+	lowestLevelProof,
+} from './proofing';
+import { Box } from '@ag.ds-next/react/box';
+import { getProofLevelFromClaims } from './authDetails';
 
 type BusinessFromAPI = Business & { someExtraInfo: string };
 
@@ -158,6 +170,10 @@ export const BusinessDropdown: Story = {
 			selectedBusiness: exampleBusinesses[1],
 		});
 
+		const [authDetails, setAuthDetails] = useState<AuthDetails>({
+			provider: 'myID',
+		});
+
 		const setSelectedBusiness = (selectedBusiness: BusinessFromAPI) =>
 			setBusinessDetails((details) => ({ ...details, selectedBusiness }));
 
@@ -175,12 +191,14 @@ export const BusinessDropdown: Story = {
 				<AppLayout
 					{...props}
 					businessDetails={{ ...businessDetails, setSelectedBusiness }}
+					authDetails={authDetails}
 				>
 					<PageContent>
 						<Stack gap={3}>
 							<Prose>
-								<h1>Number of linked businesses</h1>
+								<h1>Business dropdown configuration</h1>
 							</Prose>
+
 							<ControlGroup
 								label="Number of linked businesses"
 								block
@@ -199,6 +217,23 @@ export const BusinessDropdown: Story = {
 										</Radio>
 									)
 								)}
+							</ControlGroup>
+
+							<ControlGroup label="Auth provider" block hideOptionalLabel>
+								{['myID', 'B2CLocalUser'].map((provider) => (
+									<Radio
+										key={provider}
+										checked={authDetails?.provider === provider}
+										onChange={() =>
+											setAuthDetails((previous) => ({
+												...previous,
+												provider,
+											}))
+										}
+									>
+										{provider}
+									</Radio>
+								))}
 							</ControlGroup>
 						</Stack>
 					</PageContent>
@@ -286,8 +321,8 @@ export const QuotasEnabled: Story = {
 		unreadMessageCount: 6,
 		activePath: '/',
 		features: { quotas: true },
-	}
-}
+	},
+};
 
 export const SignOutModalTrigger: Story = {
 	args: {
@@ -335,7 +370,6 @@ export const SignOutModalTrigger: Story = {
 				</AppLayout>
 			</Fragment>
 		);
->>>>>>> 9669ae2 (app-layout: add signOut modal and update content)
 	},
 };
 
@@ -442,7 +476,327 @@ export const ClaimsMissingGivenNameComponent: Story = {
 							<Button onClick={onClick}>Sign out</Button>
 						</Prose>
 					</PageContent>
-				),
+				);
+			},
+		},
+	},
+};
+
+export const RequiredProofingPaywall: Story = {
+	args: {
+		focusMode: false,
+		unreadMessageCount: 6,
+		activePath: '/',
+		handleSignOut,
+		claims: {
+			given_name: 'given_name',
+			family_name: 'family_name',
+
+			AARM_acr: 'urn:id.gov.au:tdif:acr:ip1:cl1',
+		},
+		requiredProofingLevel: 'IP2',
+	},
+};
+
+export const RequiredProofingPaywallOptions: Story = {
+	args: {
+		focusMode: false,
+		unreadMessageCount: 6,
+		activePath: '/',
+		handleSignOut,
+	},
+
+	render: function Render(props) {
+		const proofs = ['IP1', 'IP2', 'IP3', 'IP4'];
+		const urns = [
+			'urn:id.gov.au:tdif:acr:ip1:cl1',
+			'urn:id.gov.au:tdif:acr:ip1:cl2',
+			'urn:id.gov.au:tdif:acr:ip1:cl3',
+			'urn:id.gov.au:tdif:acr:ip1p:cl1',
+			'urn:id.gov.au:tdif:acr:ip1p:cl2',
+			'urn:id.gov.au:tdif:acr:ip1p:cl3',
+			'urn:id.gov.au:tdif:acr:ip2:cl2',
+			'urn:id.gov.au:tdif:acr:ip2:cl3',
+			'urn:id.gov.au:tdif:acr:ip2p:cl2',
+			'urn:id.gov.au:tdif:acr:ip2p:cl3',
+			'urn:id.gov.au:tdif:acr:ip3:cl2',
+			'urn:id.gov.au:tdif:acr:ip3:cl3',
+			'urn:id.gov.au:tdif:acr:ip4:cl3',
+		];
+
+		const [showing, setShowing] = useState(true);
+		const [options, setOptions] = useState({
+			method: 'urn',
+			claims: {
+				given_name: 'given_name', // needed to bypass single name paywall
+				family_name: 'family_name',
+				AARM_acr: [urns[0]],
+			},
+			authDetails: { proofingLevel: ['IP1'] },
+			requiredProofingLevel: ['IP2'],
+		});
+
+		const Bordered = (
+			props: PropsWithChildren<{
+				kind: 'min' | 'max';
+				active?: boolean;
+				extraText?: string;
+			}>
+		) => {
+			const color = props.kind === 'max' ? '#df185a' : '#287be0';
+			const extra = props?.extraText ? ` (${props.extraText})` : '';
+			return props?.active ? (
+				<Box
+					css={{
+						position: 'relative',
+						padding: '4px',
+						border: `2px dashed ${color}`,
+						'& + &': {
+							marginTop: '1em',
+						},
+						':after': {
+							position: 'absolute',
+							right: 0,
+							bottom: '120%',
+							content: `"${
+								props.kind === 'max'
+									? 'maximum provided proof'
+									: 'minimum required proof'
+							}${extra}"`,
+							color,
+							fontSize: '0.8em',
+						},
+					}}
+				>
+					{props.children}
+				</Box>
+			) : (
+				<>{props.children}</>
+			);
+		};
+
+		return (
+			<Fragment>
+				<SkipLinks
+					links={[{ href: '#main-content', label: 'Skip to main content' }]}
+				/>
+				<Box css={{ position: 'relative' }}>
+					<Box
+						css={{
+							border: '2px solid red',
+							backgroundColor: '#fec0ff',
+							position: 'fixed',
+							transform: 'rotate(90deg)',
+							transformOrigin: 'top right',
+							fontSize: '1.2em',
+							padding: '.4em 1em',
+							top: '55vh',
+							right: 0,
+							zIndex: 99,
+							cursor: 'pointer',
+						}}
+						onClick={() => setShowing(true)}
+					>
+						show config options
+					</Box>
+
+					<AppLayout
+						{...props}
+						requiredProofingLevel={options.requiredProofingLevel}
+						{...(options.method === 'claims'
+							? { claims: options.claims }
+							: { authDetails: options.authDetails })}
+					>
+						<PageContent>
+							<Stack gap={1.5}>
+								<Text as="p" fontSize={'lg'}>
+									You made it!
+								</Text>
+
+								<Text as="p">
+									Your proofing level means that you can see this page.
+								</Text>
+							</Stack>
+						</PageContent>
+					</AppLayout>
+				</Box>
+
+				<Drawer
+					title="Config"
+					isOpen={showing}
+					onClose={() => setShowing(false)}
+				>
+					<Stack gap={1.5}>
+						<Select
+							label="Proofing method"
+							required
+							options={[
+								{ value: 'authDetails', label: 'AuthDetails' },
+								{ value: 'claims', label: 'Claims' },
+							]}
+							onChange={(e) =>
+								setOptions(
+									produce((opt) => {
+										opt.method = e.target.value;
+									})
+								)
+							}
+						/>
+
+						{options.method === 'claims' ? (
+							<ControlGroup label="Provided ACR" block hideOptionalLabel>
+								{urns.map((urn) => (
+									<Bordered
+										key={urn}
+										kind="max"
+										active={
+											highestLevelProof(
+												getProofLevelFromClaims({ AARM_acr: urn })
+											) ===
+											highestLevelProof(getProofLevelFromClaims(options.claims))
+										}
+										extraText={
+											highestLevelProof(
+												getProofLevelFromClaims(options.claims)
+											) as string
+										}
+									>
+										<Checkbox
+											key={urn}
+											checked={new Set(options.claims.AARM_acr).has(urn)}
+											onChange={(e) =>
+												setOptions(
+													produce((opt) => {
+														if (e.target.checked) {
+															opt.claims.AARM_acr.push(urn);
+														} else {
+															opt.claims.AARM_acr.splice(
+																opt.claims.AARM_acr.indexOf(urn),
+																1
+															);
+														}
+													})
+												)
+											}
+										>
+											{urn}
+										</Checkbox>
+									</Bordered>
+								))}
+							</ControlGroup>
+						) : (
+							<ControlGroup
+								label="Provided proofing level"
+								block
+								hideOptionalLabel
+							>
+								{proofs.map((proof) => (
+									<Bordered
+										key={proof}
+										kind="max"
+										active={
+											highestLevelProof(options.authDetails.proofingLevel) ===
+											proof
+										}
+									>
+										<Checkbox
+											key={proof}
+											checked={new Set(options.authDetails.proofingLevel).has(
+												proof
+											)}
+											onChange={(e) =>
+												setOptions(
+													produce((opt) => {
+														if (e.target.checked) {
+															opt.authDetails.proofingLevel.push(proof);
+														} else {
+															opt.authDetails.proofingLevel.splice(
+																opt.authDetails.proofingLevel.indexOf(proof),
+																1
+															);
+														}
+													})
+												)
+											}
+										>
+											{proof}
+										</Checkbox>
+									</Bordered>
+								))}
+							</ControlGroup>
+						)}
+
+						<ControlGroup
+							label="Required proofing level"
+							block
+							hideOptionalLabel
+						>
+							{proofs.map((proof) => (
+								<Bordered
+									key={proof}
+									kind="min"
+									active={
+										lowestLevelProof(options.requiredProofingLevel) === proof
+									}
+								>
+									<Checkbox
+										key={proof}
+										checked={new Set(options.requiredProofingLevel).has(proof)}
+										onChange={(e) =>
+											setOptions(
+												produce((opt) => {
+													if (e.target.checked) {
+														opt.requiredProofingLevel.push(proof);
+													} else {
+														opt.requiredProofingLevel.splice(
+															opt.requiredProofingLevel.indexOf(proof),
+															1
+														);
+													}
+												})
+											)
+										}
+									>
+										{proof}
+									</Checkbox>
+								</Bordered>
+							))}
+						</ControlGroup>
+					</Stack>
+				</Drawer>
+			</Fragment>
+		);
+	},
+};
+
+export const RequiredProofingPaywallCustomComponent: Story = {
+	args: {
+		focusMode: false,
+		unreadMessageCount: 6,
+		activePath: '/',
+		handleSignOut,
+		authDetails: {
+			proofingLevel: 'IP1',
+		},
+		requiredProofingLevel: 'IP3',
+		errorComponents: {
+			ProofMissing: (props) => {
+				return (
+					<PageContent>
+						<Prose>
+							<p>
+								Your proofing level is insufficient at{' '}
+								{getReadableProof(props.providedProofingLevel)}. Please fix it.
+							</p>
+
+							<p>
+								you should provide at least &apos;
+								{getReadableProof(props.requiredProofingLevel)}&apos;
+							</p>
+						</Prose>
+					</PageContent>
+				);
+			},
 		},
 	},
 };
