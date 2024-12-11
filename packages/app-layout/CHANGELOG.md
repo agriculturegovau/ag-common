@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.2.1
+
+### Patch Changes
+
+- 60e0859: add feature toggle and disable quotas by default
+
 ## 1.2.0
 
 ### Minor Changes
