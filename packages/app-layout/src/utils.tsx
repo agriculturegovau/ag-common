@@ -3,6 +3,7 @@ import {
 	ExitIcon,
 	HelpIcon,
 	HomeIcon,
+	FileIcon,
 	SuccessIcon,
 	FactoryIcon,
 	ExternalLinkIcon,
@@ -14,6 +15,7 @@ import { Fragment } from 'react';
 
 export type Features = {
 	quotas?: boolean;
+	exportDocumentation?: boolean;
 };
 
 export const hrefs = {
@@ -84,6 +86,11 @@ const apps = {
 		icon: PieChartIcon,
 		href: '/quota',
 	},
+	exportDocumentation: {
+		label: 'Export documentation',
+		icon: FileIcon,
+		href: '/export-documentation',
+	},
 };
 
 export function getSidebarLinks({
@@ -100,6 +107,7 @@ export function getSidebarLinks({
 			apps.intelligence,
 			apps.compliance,
 			...(features?.quotas ? [apps.quotas] : []),
+			...(features?.exportDocumentation ? [apps.exportDocumentation] : []),
 		],
 		[
 			{

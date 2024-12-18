@@ -277,6 +277,16 @@ export const QuotasEnabled: Story = {
 	},
 };
 
+export const ExportDocumentationEnabled: Story = {
+	args: {
+		focusMode: false,
+		userName: 'Toto Wolff',
+		unreadMessageCount: 6,
+		activePath: '/',
+		features: { exportDocumentation: true },
+	},
+};
+
 export const Claims: Story = {
 	args: {
 		focusMode: false,
