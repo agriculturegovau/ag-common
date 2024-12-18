@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.3.1
+
+### Patch Changes
+
+- 9896214: add export documentation feature toggle, disabled by default
+
 ## 1.3.0
 
 ### Minor Changes
