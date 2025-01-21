@@ -1,15 +1,16 @@
 const orderedProofs = ['IP1', 'IP2', 'IP3', 'IP4'] as const;
 
+type Relaxed<T extends string> = T | (string & {});
 type Proof = (typeof orderedProofs)[number];
 
-export type ProofingLevel = Proof | (string & {});
+export type ProofingLevel = Relaxed<Proof>;
 type ProofDescription = { level?: Proof; descriptor: string };
 type ReadableProof = {
 	[P in Proof]: ProofDescription;
 };
 
 export type AuthDetails = {
-	provider?: 'myID' | 'B2CLocalUser' | (string & {});
+	provider?: Relaxed<'myID' | 'B2CLocalUser'>;
 	proofingLevel?: ProofingLevel | ProofingLevel[];
 };
 

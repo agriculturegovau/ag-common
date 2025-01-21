@@ -213,7 +213,7 @@ export const BusinessDropdown: Story = {
 									<Radio
 										key={provider}
 										checked={authDetails?.provider === provider}
-										onChange={(e) =>
+										onChange={() =>
 											setAuthDetails((previous) => ({
 												...previous,
 												provider,
@@ -547,8 +547,8 @@ export const RequiredProofingPaywallCustomComponent: Story = {
 							</p>
 
 							<p>
-								you should provide at least "
-								{getReadableProof(props.requiredProofingLevel)}"
+								you should provide at least &apos;
+								{getReadableProof(props.requiredProofingLevel)}&apos;
 							</p>
 						</Prose>
 					</PageContent>

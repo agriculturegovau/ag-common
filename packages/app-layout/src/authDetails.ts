@@ -1,5 +1,7 @@
 // All of this logic can be moved to @ag.common/auth.
 
+type Relaxed<T extends string> = T | (string & {});
+
 type Values<T> = T[keyof T];
 
 type Entries<T> = {
@@ -56,7 +58,7 @@ type PossibleProofs = UnionToIntersection<
 >;
 
 type ProofingURN = Values<PossibleProofs>;
-type ProofingLevel = Proof | (string & {});
+type ProofingLevel = Relaxed<Proof>;
 
 const orderedProofs: TupleUnion<Proof> = ['IP1', 'IP2', 'IP3', 'IP4'];
 
@@ -107,8 +109,8 @@ type AuthOptions = {
 	removeUnknownACRs?: boolean;
 };
 
-type AuthProvider = 'myID' | 'B2CLocalUser' | (string & {});
-type AARCM_Acr = ProofingURN | (string & {});
+type AuthProvider = Relaxed<'myID' | 'B2CLocalUser'>;
+type AARCM_Acr = Relaxed<ProofingURN>;
 
 export type ExpectedClaims = {
 	name?: string;
@@ -116,8 +118,8 @@ export type ExpectedClaims = {
 	family_name?: string;
 
 	AARM_acr?: AARCM_Acr | AARCM_Acr[];
-	credentialType?: 'B2CLocalUser' | 'myGovID' | (string & {});
-	idp?: 'B2CLocalAccount' | 'auth.identity.gov.au' | (string & {});
+	credentialType?: Relaxed<'B2CLocalUser' | 'myGovID'>;
+	idp?: Relaxed<'B2CLocalAccount' | 'auth.identity.gov.au'>;
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	[others: string]: any;

@@ -101,8 +101,11 @@ export function AppLayout<B extends Business>({
 		[onSignOutClick, businessDetails, features]
 	);
 
+	// we always build these in order to respect hook conditional rules
 	// TODO: only accept authDetails and do not calculate fallback.
-	const details = authDetails ?? useAuthDetails(claims);
+	const computedAuthDetails = useAuthDetails(claims);
+
+	const details = authDetails ?? computedAuthDetails;
 	const activeApp = findBestMatch(appLinks, activePath);
 	const preventAddBusiness = details?.provider === 'B2CLocalUser';
 
