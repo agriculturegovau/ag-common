@@ -89,15 +89,12 @@ export function AppLayout<B extends Business>({
 	const [isSigningOut, setSigningOut, setSignedOut] = useTernaryState(false);
 	const onSignOutClick = openModal;
 	const onModalSignOutClick = handleSignOut;
+	const appLinks = useMemo(() => getAppLinks({ features }), [features]);
 	const sidebarLinks = useMemo(
 		() => [
 			...getBusinessSidebarLinks(businessDetails),
 			...getSidebarLinks({ onSignOutClick, features }),
 		],
-		[onSignOutClick, businessDetails, features]
-	);
-	const appLinks = useMemo(
-		() => getAppLinks({ features }),
 		[onSignOutClick, businessDetails, features]
 	);
 

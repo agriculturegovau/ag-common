@@ -17,12 +17,6 @@ type UnionToIntersection<U> = (U extends any ? (x: U) => void : never) extends (
 	? I
 	: never;
 
-type TupleUnion<U extends string, R extends any[] = []> = {
-	[S in U]: Exclude<U, S> extends never
-		? [...R, S]
-		: TupleUnion<Exclude<U, S>, [...R, S]>;
-}[U];
-
 const getEntries = Object.entries as <T>(obj: T) => Entries<T>;
 
 const proofs = {
@@ -62,7 +56,7 @@ type PossibleProofs = UnionToIntersection<
 type ProofingURN = Values<PossibleProofs>;
 type ProofingLevel = Relaxed<Proof>;
 
-const orderedProofs: TupleUnion<Proof> = ['IP1', 'IP2', 'IP3', 'IP4'];
+const orderedProofs = ['IP1', 'IP2', 'IP3', 'IP4'] as const;
 
 type ProofingLevelAliases = {
 	[P in Proof]: Proof[];
