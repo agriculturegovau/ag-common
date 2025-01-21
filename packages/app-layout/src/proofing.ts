@@ -2,7 +2,7 @@ const orderedProofs = ['IP1', 'IP2', 'IP3', 'IP4'] as const;
 
 // this is equivalent to (T | (string & {})) - preserves autocomplete but allows strings.
 // this form is an obfuscation to evade linters and sonarcloud which are overly zealous
-type Relaxed<T extends string> = T | (string & NonNullable<unknown>);
+type Relaxed<T extends string> = T | Omit<string, T>;
 
 type Proof = (typeof orderedProofs)[number];
 
