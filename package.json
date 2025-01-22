@@ -29,8 +29,8 @@
 		"@babel/preset-env": "^7.22.10",
 		"@babel/preset-typescript": "^7.22.5",
 		"@changesets/cli": "^2.26.2",
-		"@emotion/babel-preset-css-prop": "^11.2.0",
-		"@emotion/react": "^11.7.0",
+		"@emotion/babel-preset-css-prop": "^11.12",
+		"@emotion/react": "^11.12",
 		"@manypkg/cli": "^0.21.0",
 		"@preconstruct/cli": "^2.8.1",
 		"@preconstruct/next": "^4.0.0",
@@ -47,9 +47,9 @@
 		"@testing-library/user-event": "^14.4.3",
 		"@types/jest": "^29.5.3",
 		"@types/node": "20.4.9",
-		"@types/react": "18.2.19",
-		"@typescript-eslint/eslint-plugin": "^6.3.0",
-		"@typescript-eslint/parser": "^6.3.0",
+		"@types/react": "^19",
+		"@typescript-eslint/eslint-plugin": "^8",
+		"@typescript-eslint/parser": "^8",
 		"babel-jest": "^29.6.2",
 		"eslint": "^8.46.0",
 		"eslint-config-next": "^13.4.13",
@@ -63,7 +63,7 @@
 		"react-dom": "18.1.0",
 		"rimraf": "^3.0.2",
 		"storybook": "^7.2.1",
-		"typescript": "^4.7.4",
+		"typescript": "^5",
 		"vite": "^4.4.9"
 	},
 	"workspaces": [
@@ -81,5 +81,6 @@
 		"ignoredRules": [
 			"ROOT_HAS_DEV_DEPENDENCIES"
 		]
-	}
+	},
+	"packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
 }
