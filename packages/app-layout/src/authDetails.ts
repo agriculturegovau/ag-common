@@ -6,18 +6,15 @@ type Relaxed<T extends string> = T | Omit<string, T>;
 
 type Values<T> = T[keyof T];
 
-type Entries<T> = {
-	[K in keyof T]: [K, T[K]];
-}[keyof T][];
-
 // A | B | C -> A & B & C
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type UnionToIntersection<U> = (U extends any ? (x: U) => void : never) extends (
 	x: infer I
 ) => void
 	? I
 	: never;
 
-const getEntries = Object.entries as <T>(obj: T) => Entries<T>;
+const getValues = Object.values as <T>(obj: T) => Values<T>[];
 
 const proofs = {
 	// "Identity proofing level"
@@ -82,9 +79,7 @@ type ProofingLevelByURN = UnionToIntersection<
 const createProofingLevelURNs = <P extends Proof>(
 	proof: P
 ): ProofingLevelURNs<P> =>
-	Object.fromEntries(
-		getEntries(proofs[proof]).map(([level, acr]) => [acr, proof])
-	);
+	Object.fromEntries(getValues(proofs[proof]).map((acr) => [acr, proof]));
 
 // direct lookup from URN -> Proofing level
 const proofingLevelByURN: ProofingLevelByURN = {
