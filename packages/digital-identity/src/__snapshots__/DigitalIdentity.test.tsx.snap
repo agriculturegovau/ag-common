@@ -3,17 +3,17 @@
 exports[`DigitalIdentity renders correctly 1`] = `
 <div>
   <div
-    class="css-a3510j-boxStyles-boxStyles-DigitalIdentity"
+    class="css-1018r88-boxStyles-boxStyles"
   >
     <div
-      class="css-7yhir6-boxStyles-boxStyles-DigitalIdentity"
+      class="css-1hpdu3p-boxStyles-boxStyles-DigitalIdentity"
     >
       <a
-        class="css-ytp1n9-DigitalIdentityButton"
+        class="css-ziv3h8"
         href="/account"
       >
         <div
-          class="css-1gwousv-boxStyles-boxStyles"
+          class="css-ky5sff-boxStyles-boxStyles"
         >
           <svg
             aria-hidden="true"
@@ -47,26 +47,26 @@ exports[`DigitalIdentity renders correctly 1`] = `
       </a>
     </div>
     <div
-      class="css-hv305t-boxStyles-boxStyles-DigitalIdentity"
+      class="css-tb3m6b-boxStyles-boxStyles"
     >
       <p
-        class="css-jqz9q0-boxStyles-boxStyles-DigitalIdentity"
+        class="css-qchtiw-boxStyles-boxStyles"
       >
         <a
-          class="css-1d79xgx-TextLink-TextLink-DigitalIdentity"
+          class="css-jxcvu3-TextLink-TextLink"
           href="https://www.digitalidsystem.gov.au/"
           rel="noopener"
           target="_blank"
         >
           Digital ID
           <span
-            class="css-avudkd-VisuallyHidden"
+            class="css-5ur8x"
           >
             , opens in a new tab
           </span>
           <svg
             aria-hidden="true"
-            class="css-1e3wj1s-TextLinkExternal"
+            class="css-vfme68-TextLinkExternal"
             clip-rule="evenodd"
             fill-rule="evenodd"
             focusable="false"

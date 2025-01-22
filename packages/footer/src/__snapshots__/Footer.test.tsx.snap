@@ -3,55 +3,55 @@
 exports[`Footer renders correctly 1`] = `
 <div>
   <div
-    class="css-v7su81-dark-dark-boxStyles-boxStyles"
+    class="css-1dqiy40-dark-dark-boxStyles-boxStyles"
   >
     <footer
-      class="css-16rf0on-boxStyles-boxStyles-Footer"
+      class="css-svu9rm-boxStyles-boxStyles-Footer"
     >
       <div
-        class="css-1a1hdgf-boxStyles-boxStyles"
+        class="css-8wcvxu-boxStyles-boxStyles"
       >
         <nav
           aria-label="footer"
         >
           <ul
-            class="css-q7n2pk-boxStyles-boxStyles"
+            class="css-3r289b-boxStyles-boxStyles"
           >
             <li
-              class="css-1b13c5y-boxStyles-boxStyles"
+              class="css-cah0jj-boxStyles-boxStyles"
             >
               <a
-                class="css-1kl9y73-TextLink-TextLink"
+                class="css-1yrg8ne-TextLink-TextLink"
                 href="/about"
               >
                 About
               </a>
             </li>
             <li
-              class="css-1b13c5y-boxStyles-boxStyles"
+              class="css-cah0jj-boxStyles-boxStyles"
             >
               <a
-                class="css-1kl9y73-TextLink-TextLink"
+                class="css-1yrg8ne-TextLink-TextLink"
                 href="/about/contact-us"
               >
                 Contact us
               </a>
             </li>
             <li
-              class="css-1b13c5y-boxStyles-boxStyles"
+              class="css-cah0jj-boxStyles-boxStyles"
             >
               <a
-                class="css-1kl9y73-TextLink-TextLink"
+                class="css-1yrg8ne-TextLink-TextLink"
                 href="/help"
               >
                 Help
               </a>
             </li>
             <li
-              class="css-1b13c5y-boxStyles-boxStyles"
+              class="css-cah0jj-boxStyles-boxStyles"
             >
               <a
-                class="css-1kl9y73-TextLink-TextLink"
+                class="css-1yrg8ne-TextLink-TextLink"
                 href="https://www.agriculture.gov.au/about/commitment/accessibility"
                 rel="external"
               >
@@ -59,10 +59,10 @@ exports[`Footer renders correctly 1`] = `
               </a>
             </li>
             <li
-              class="css-1b13c5y-boxStyles-boxStyles"
+              class="css-cah0jj-boxStyles-boxStyles"
             >
               <a
-                class="css-1kl9y73-TextLink-TextLink"
+                class="css-1yrg8ne-TextLink-TextLink"
                 href="https://www.agriculture.gov.au/about/disclaimer"
                 rel="external"
               >
@@ -70,10 +70,10 @@ exports[`Footer renders correctly 1`] = `
               </a>
             </li>
             <li
-              class="css-1b13c5y-boxStyles-boxStyles"
+              class="css-cah0jj-boxStyles-boxStyles"
             >
               <a
-                class="css-1kl9y73-TextLink-TextLink"
+                class="css-1yrg8ne-TextLink-TextLink"
                 href="/privacy"
               >
                 Privacy
@@ -83,15 +83,15 @@ exports[`Footer renders correctly 1`] = `
         </nav>
         <hr
           aria-hidden="true"
-          class="css-23xxsd-boxStyles-boxStyles-FooterDivider"
+          class="css-5fxb6w-boxStyles-boxStyles-FooterDivider"
         />
         <span
-          class="css-a4lzj2-boxStyles-boxStyles"
+          class="css-11r66jt-boxStyles-boxStyles"
         >
           We acknowledge the traditional owners of country throughout Australia and recognise their continuing connection to land, waters and culture. We pay our respects to their Elders past, present and emerging.
         </span>
         <span
-          class="css-a4lzj2-boxStyles-boxStyles"
+          class="css-11r66jt-boxStyles-boxStyles"
         >
           © 
           2025
