@@ -2,6 +2,7 @@
 
 // this is equivalent to (T | (string & {})) - preserves autocomplete but allows strings.
 // this form is an obfuscation to evade linters and sonarcloud which are overly zealous
+
 type Relaxed<T extends string> = T | Omit<string, T>;
 
 type Values<T> = T[keyof T];
@@ -89,8 +90,8 @@ const proofingLevelByURN: ProofingLevelByURN = {
 	...createProofingLevelURNs('IP4'),
 };
 
-const isURN = (level: string): level is ProofingURN =>
-	level in proofingLevelByURN;
+const isURN = (level: Relaxed<ProofingURN>): level is ProofingURN =>
+	(level as string) in proofingLevelByURN;
 
 type AuthOptions = {
 	// prevents a provided IP2 from being valid for an IP1 requirement

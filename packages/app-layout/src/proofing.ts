@@ -19,8 +19,14 @@ export type AuthDetails = {
 
 type ArrayOrSingleton<T> = T extends Array<infer V> ? V[] : [T];
 
+const reversed = <T>(t: T[]): T[] => {
+	const xyz = [...t];
+	xyz.reverse();
+	return xyz;
+};
+
 const orderedProofSet = new Set(orderedProofs);
-const reverseProofSet = new Set(orderedProofs.toReversed());
+const reverseProofSet = new Set(reversed(orderedProofs));
 
 const unknown: ProofDescription = { descriptor: 'Unknown' };
 const readable: ReadableProof = {
@@ -47,6 +53,14 @@ export const getReadableProof = (
 	return `${t.descriptor} (${t.level})`;
 };
 
+// some old browsers / node versions do not support set operations.
+// We return an array here instead of a set as a small optimisation.
+const intersection = <T>(a: Set<T>, b: Set<T>): T[] =>
+	Array.from(a).filter((t) => b.has(t));
+
+const difference = <T>(a: Set<T>, b: Set<T>): T[] =>
+	Array.from(a).filter((t) => !b.has(t));
+
 export const highestLevelProof = (
 	proofs?: ProofingLevel[]
 ): ProofingLevel | undefined => {
@@ -54,8 +68,8 @@ export const highestLevelProof = (
 
 	// ensure the proofs we know about come before unknown ones
 	return [
-		...Array.from(reverseProofSet.intersection(given)),
-		...Array.from(given.difference(reverseProofSet)),
+		...intersection(reverseProofSet, given),
+		...difference(given, reverseProofSet),
 	]?.[0];
 };
 
@@ -66,8 +80,8 @@ export const lowestLevelProof = (
 
 	// ensure the proofs we know about come before unknown ones
 	return [
-		...Array.from(orderedProofSet.intersection(given)),
-		...Array.from(given.difference(orderedProofSet)),
+		...intersection(orderedProofSet, given),
+		...difference(given, orderedProofSet),
 	]?.[0];
 };
 
