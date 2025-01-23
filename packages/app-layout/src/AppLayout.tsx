@@ -99,7 +99,7 @@ export function AppLayout<B extends Business>({
 	);
 
 	// we always build these in order to respect hook conditional rules
-	// TODO: only accept authDetails and do not calculate fallback.
+	// we should accept authDetails ONLY instead of claims in the future.
 	const computedAuthDetails = useAuthDetails(claims);
 
 	const details = authDetails ?? computedAuthDetails;
