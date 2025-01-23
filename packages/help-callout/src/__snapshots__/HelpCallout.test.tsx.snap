@@ -3,36 +3,36 @@
 exports[`HelpCallout renders correctly 1`] = `
 <div>
   <div
-    class="css-18nsscc-boxStyles-boxStyles"
+    class="css-3awlch-boxStyles-boxStyles"
   >
     <div
-      class="css-xzgiaj-boxStyles-boxStyles-Callout"
+      class="css-3to6sz-boxStyles-boxStyles-Callout"
     >
       <h2
-        class="css-6shfzg-boxStyles-boxStyles"
+        class="css-a3bu42-boxStyles-boxStyles"
       >
         Need help?
       </h2>
       <span
-        class="css-75gsty-boxStyles-boxStyles"
+        class="css-2gaxw0-boxStyles-boxStyles"
       >
         Search our
          
         <a
-          class="css-1yrg8ne-TextLink-TextLink"
+          class="css-1kl9y73-TextLink-TextLink"
           href="/help"
           rel="noopener"
           target="_blank"
         >
           Help
           <span
-            class="css-5ur8x"
+            class="css-avudkd-VisuallyHidden"
           >
             , opens in a new tab
           </span>
           <svg
             aria-hidden="true"
-            class="css-vfme68-TextLinkExternal"
+            class="css-1e3wj1s-TextLinkExternal"
             clip-rule="evenodd"
             fill-rule="evenodd"
             focusable="false"
@@ -60,23 +60,23 @@ exports[`HelpCallout renders correctly 1`] = `
         pages
       </span>
       <span
-        class="css-75gsty-boxStyles-boxStyles"
+        class="css-2gaxw0-boxStyles-boxStyles"
       >
         Email
          
         <a
-          class="css-1yrg8ne-TextLink-TextLink"
+          class="css-1kl9y73-TextLink-TextLink"
           href="mailto:exportservice@aff.gov.au"
         >
           exportservice@aff.gov.au
         </a>
       </span>
       <span
-        class="css-75gsty-boxStyles-boxStyles"
+        class="css-2gaxw0-boxStyles-boxStyles"
       >
         Call 
         <a
-          class="css-1yrg8ne-TextLink-TextLink"
+          class="css-1kl9y73-TextLink-TextLink"
           href="tel:1800571125"
         >
           1800 571 125

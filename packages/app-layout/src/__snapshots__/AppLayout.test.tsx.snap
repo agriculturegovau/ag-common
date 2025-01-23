@@ -3,16 +3,16 @@
 exports[`AppLayout renders correctly 1`] = `
 <div>
   <div
-    class="css-3s22mq"
+    class="css-jlzmfo-AppLayoutGrid"
   >
     <header
-      class="css-clkeip-dark-dark-boxStyles-boxStyles-AppLayoutHeader"
+      class="css-1r1paah-dark-dark-boxStyles-boxStyles-AppLayoutHeader"
     >
       <div
-        class="css-cxi960-boxStyles-boxStyles"
+        class="css-19h5n20-boxStyles-boxStyles"
       >
         <a
-          class="css-basz8a-boxStyles-boxStyles-AppLayoutHeaderBrand"
+          class="css-1ct92i8-boxStyles-boxStyles-AppLayoutHeaderBrand"
           href="/account"
         >
           <svg
@@ -46,56 +46,56 @@ exports[`AppLayout renders correctly 1`] = `
             />
           </svg>
           <div
-            class="css-1c3adsz-boxStyles-boxStyles-DividingLine"
+            class="css-1d87bxq-boxStyles-boxStyles-DividingLine"
           />
           <div
-            class="css-1blo5g6-boxStyles-boxStyles"
+            class="css-1t800dg-boxStyles-boxStyles"
           >
             <div
-              class="css-cwcu3q-boxStyles-boxStyles"
+              class="css-ljo5s0-boxStyles-boxStyles"
             >
               <span
-                class="css-1nliowd-boxStyles-boxStyles"
+                class="css-1fqgzn3-boxStyles-boxStyles"
               >
                 Export Service
               </span>
               <div
-                class="css-cjl4zp-boxStyles-boxStyles-AppLayoutHeaderBrandBadge"
+                class="css-1ye9tbs-boxStyles-boxStyles-AppLayoutHeaderBrandBadge"
               >
                 Beta
               </div>
             </div>
             <span
-              class="css-1w06m6s-boxStyles-boxStyles"
+              class="css-1da6rsp-boxStyles-boxStyles"
             >
               Supporting Australian agricultural exports
             </span>
           </div>
         </a>
         <div
-          class="css-5tecrq-boxStyles-boxStyles"
+          class="css-z3gj62-boxStyles-boxStyles"
         >
           <a
-            class="css-1ku7cwt-boxStyles-boxStyles"
+            class="css-7yfokk-boxStyles-boxStyles-AppLayoutHeaderAccount"
             href="/account"
           >
             <span
-              class="css-19uhykt-boxStyles-boxStyles-AppLayoutHeaderAccount"
+              class="css-ais1wj-boxStyles-boxStyles-AppLayoutHeaderAccount"
             >
               <span
-                class="css-1o8ursn-boxStyles-boxStyles"
+                class="css-nkvrar-boxStyles-boxStyles-AppLayoutHeaderAccount"
               >
                 Toto Wolff
               </span>
               <span
-                class="css-ift2o4-boxStyles-boxStyles"
+                class="css-1dmdbyj-boxStyles-boxStyles-AppLayoutHeaderAccount"
               >
                 My account
               </span>
             </span>
             <span
               aria-hidden="true"
-              class="css-1s8bbtn-boxStyles-boxStyles-Avatar"
+              class="css-1vq6953-boxStyles-boxStyles-Avatar"
             >
               TW
             </span>
@@ -103,17 +103,17 @@ exports[`AppLayout renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="css-drwlcb-boxStyles-boxStyles"
+        class="css-90x555-boxStyles-boxStyles"
       >
         <button
           aria-expanded="false"
           aria-haspopup="dialog"
-          class="css-j81qy1-BaseButton-boxStyles-boxStyles-AppLayoutHeaderNavMenuButton"
+          class="css-1rhznvp-BaseButton-boxStyles-boxStyles-AppLayoutHeaderNavMenuButton"
           type="button"
         >
           <svg
             aria-hidden="true"
-            class="css-1yxmhzb"
+            class="css-lq07bo-Icon"
             clip-rule="evenodd"
             fill-rule="evenodd"
             focusable="false"
@@ -138,26 +138,26 @@ exports[`AppLayout renders correctly 1`] = `
           </span>
         </button>
         <a
-          class="css-1ku7cwt-boxStyles-boxStyles"
+          class="css-7yfokk-boxStyles-boxStyles-AppLayoutHeaderAccount"
           href="/account"
         >
           <span
-            class="css-19uhykt-boxStyles-boxStyles-AppLayoutHeaderAccount"
+            class="css-ais1wj-boxStyles-boxStyles-AppLayoutHeaderAccount"
           >
             <span
-              class="css-1o8ursn-boxStyles-boxStyles"
+              class="css-nkvrar-boxStyles-boxStyles-AppLayoutHeaderAccount"
             >
               Toto Wolff
             </span>
             <span
-              class="css-ift2o4-boxStyles-boxStyles"
+              class="css-1dmdbyj-boxStyles-boxStyles-AppLayoutHeaderAccount"
             >
               My account
             </span>
           </span>
           <span
             aria-hidden="true"
-            class="css-1s8bbtn-boxStyles-boxStyles-Avatar"
+            class="css-1vq6953-boxStyles-boxStyles-Avatar"
           >
             TW
           </span>
@@ -165,24 +165,24 @@ exports[`AppLayout renders correctly 1`] = `
       </div>
     </header>
     <div
-      class="css-1q028b6-boxStyles-boxStyles-AppLayoutSidebar"
+      class="css-17g9ee3-boxStyles-boxStyles-AppLayoutSidebar"
     >
       <nav
         aria-label="main"
-        class="css-7jk2rf-boxStyles-boxStyles"
+        class="css-1h7u8v-boxStyles-boxStyles"
       >
         <ul
-          class="css-y5luwj-boxStyles-boxStyles"
+          class="css-1l7zya1-boxStyles-boxStyles"
         >
           <li
-            class="css-11zdtm7-AppLayoutSidebarNavItemInner"
+            class="css-1oxkyzz-AppLayoutSidebarNavItemInner"
           >
             <a
               href="/account/dashboard"
             >
               <svg
                 aria-hidden="true"
-                class="css-1z0c8dw"
+                class="css-fyxrud-Icon"
                 clip-rule="evenodd"
                 fill-rule="evenodd"
                 focusable="false"
@@ -207,14 +207,14 @@ exports[`AppLayout renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="css-11zdtm7-AppLayoutSidebarNavItemInner"
+            class="css-1oxkyzz-AppLayoutSidebarNavItemInner"
           >
             <a
               href="/establishments"
             >
               <svg
                 aria-hidden="true"
-                class="css-1z0c8dw"
+                class="css-fyxrud-Icon"
                 clip-rule="evenodd"
                 fill-rule="evenodd"
                 focusable="false"
@@ -236,14 +236,14 @@ exports[`AppLayout renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="css-11zdtm7-AppLayoutSidebarNavItemInner"
+            class="css-1oxkyzz-AppLayoutSidebarNavItemInner"
           >
             <a
               href="/intelligence"
             >
               <svg
                 aria-hidden="true"
-                class="css-1z0c8dw"
+                class="css-fyxrud-Icon"
                 clip-rule="evenodd"
                 fill-rule="evenodd"
                 focusable="false"
@@ -265,14 +265,14 @@ exports[`AppLayout renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="css-11zdtm7-AppLayoutSidebarNavItemInner"
+            class="css-1oxkyzz-AppLayoutSidebarNavItemInner"
           >
             <a
               href="/compliance"
             >
               <svg
                 aria-hidden="true"
-                class="css-1z0c8dw"
+                class="css-fyxrud-Icon"
                 clip-rule="evenodd"
                 fill-rule="evenodd"
                 focusable="false"
@@ -298,14 +298,14 @@ exports[`AppLayout renders correctly 1`] = `
           </li>
           <li
             aria-hidden="true"
-            class="css-3mf790-boxStyles-boxStyles"
+            class="css-ryhy6t-boxStyles-boxStyles"
           >
             <hr
-              class="css-1iex8gh-AppLayoutSidebarNavDivider"
+              class="css-166wurb-AppLayoutSidebarNavDivider"
             />
           </li>
           <li
-            class="css-11zdtm7-AppLayoutSidebarNavItemInner"
+            class="css-1oxkyzz-AppLayoutSidebarNavItemInner"
           >
             <a
               href="/help"
@@ -314,7 +314,7 @@ exports[`AppLayout renders correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="css-1z0c8dw"
+                class="css-fyxrud-Icon"
                 clip-rule="evenodd"
                 fill-rule="evenodd"
                 focusable="false"
@@ -332,17 +332,17 @@ exports[`AppLayout renders correctly 1`] = `
                 class="css-yzd50u-AppLayoutSidebarNavListItem"
               >
                 <span
-                  class="css-ky5sff-boxStyles-boxStyles"
+                  class="css-1gwousv-boxStyles-boxStyles"
                 >
                   Help
                   <span
-                    class="css-5ur8x"
+                    class="css-avudkd-VisuallyHidden"
                   >
                     , opens in a new tab
                   </span>
                   <svg
                     aria-hidden="true"
-                    class="css-1bxcfjp"
+                    class="css-ub2kzo-Icon"
                     clip-rule="evenodd"
                     fill-rule="evenodd"
                     focusable="false"
@@ -371,22 +371,22 @@ exports[`AppLayout renders correctly 1`] = `
           </li>
           <li
             aria-hidden="true"
-            class="css-3mf790-boxStyles-boxStyles"
+            class="css-ryhy6t-boxStyles-boxStyles"
           >
             <hr
-              class="css-1iex8gh-AppLayoutSidebarNavDivider"
+              class="css-166wurb-AppLayoutSidebarNavDivider"
             />
           </li>
           <li
-            class="css-16mkspy-AppLayoutSidebarNavItemInner"
+            class="css-mjl15f-AppLayoutSidebarNavItemInner"
           >
             <button
-              class="css-1dmwe4t-BaseButton"
+              class="css-6e6ykx-BaseButton"
               type="button"
             >
               <svg
                 aria-hidden="true"
-                class="css-1z0c8dw"
+                class="css-fyxrud-Icon"
                 clip-rule="evenodd"
                 fill-rule="evenodd"
                 focusable="false"
@@ -415,7 +415,7 @@ exports[`AppLayout renders correctly 1`] = `
       </nav>
     </div>
     <div
-      class="css-1quq04e-boxStyles-boxStyles-AppLayoutContent"
+      class="css-7o7or6-boxStyles-boxStyles-AppLayoutContent"
     >
       <main
         class="css-1dkabg7-AppLayout"
@@ -427,58 +427,58 @@ exports[`AppLayout renders correctly 1`] = `
         </p>
       </main>
       <footer
-        class="css-1h6jkrb-boxStyles-boxStyles-AppLayoutFooter"
+        class="css-dwytcz-boxStyles-boxStyles-AppLayoutFooter"
       >
         <div
-          class="css-1xvh8me-boxStyles-boxStyles"
+          class="css-1wz9130-boxStyles-boxStyles"
         >
           <div
-            class="css-16prxr0-boxStyles-boxStyles"
+            class="css-1thowe4-boxStyles-boxStyles"
           >
             <div
-              class="css-1ctsvbj-boxStyles-boxStyles"
+              class="css-107mbwq-boxStyles-boxStyles"
             >
               <nav
                 aria-label="footer"
               >
                 <ul
-                  class="css-3r289b-boxStyles-boxStyles"
+                  class="css-q7n2pk-boxStyles-boxStyles"
                 >
                   <li
-                    class="css-cah0jj-boxStyles-boxStyles"
+                    class="css-1b13c5y-boxStyles-boxStyles"
                   >
                     <a
-                      class="css-1yrg8ne-TextLink-TextLink"
+                      class="css-1kl9y73-TextLink-TextLink"
                       href="/about"
                     >
                       About
                     </a>
                   </li>
                   <li
-                    class="css-cah0jj-boxStyles-boxStyles"
+                    class="css-1b13c5y-boxStyles-boxStyles"
                   >
                     <a
-                      class="css-1yrg8ne-TextLink-TextLink"
+                      class="css-1kl9y73-TextLink-TextLink"
                       href="/about/contact-us"
                     >
                       Contact us
                     </a>
                   </li>
                   <li
-                    class="css-cah0jj-boxStyles-boxStyles"
+                    class="css-1b13c5y-boxStyles-boxStyles"
                   >
                     <a
-                      class="css-1yrg8ne-TextLink-TextLink"
+                      class="css-1kl9y73-TextLink-TextLink"
                       href="/help"
                     >
                       Help
                     </a>
                   </li>
                   <li
-                    class="css-cah0jj-boxStyles-boxStyles"
+                    class="css-1b13c5y-boxStyles-boxStyles"
                   >
                     <a
-                      class="css-1yrg8ne-TextLink-TextLink"
+                      class="css-1kl9y73-TextLink-TextLink"
                       href="https://www.agriculture.gov.au/about/commitment/accessibility"
                       rel="external"
                     >
@@ -486,10 +486,10 @@ exports[`AppLayout renders correctly 1`] = `
                     </a>
                   </li>
                   <li
-                    class="css-cah0jj-boxStyles-boxStyles"
+                    class="css-1b13c5y-boxStyles-boxStyles"
                   >
                     <a
-                      class="css-1yrg8ne-TextLink-TextLink"
+                      class="css-1kl9y73-TextLink-TextLink"
                       href="https://www.agriculture.gov.au/about/disclaimer"
                       rel="external"
                     >
@@ -497,10 +497,10 @@ exports[`AppLayout renders correctly 1`] = `
                     </a>
                   </li>
                   <li
-                    class="css-cah0jj-boxStyles-boxStyles"
+                    class="css-1b13c5y-boxStyles-boxStyles"
                   >
                     <a
-                      class="css-1yrg8ne-TextLink-TextLink"
+                      class="css-1kl9y73-TextLink-TextLink"
                       href="/privacy"
                     >
                       Privacy
@@ -510,15 +510,15 @@ exports[`AppLayout renders correctly 1`] = `
               </nav>
               <hr
                 aria-hidden="true"
-                class="css-1adg5ni-AppLayoutFooterDivider"
+                class="css-14u6sul-AppLayoutFooterDivider"
               />
               <span
-                class="css-11r66jt-boxStyles-boxStyles"
+                class="css-a4lzj2-boxStyles-boxStyles"
               >
                 We acknowledge the traditional owners of country throughout Australia and recognise their continuing connection to land, waters and culture. We pay our respects to their Elders past, present and emerging.
               </span>
               <span
-                class="css-11r66jt-boxStyles-boxStyles"
+                class="css-a4lzj2-boxStyles-boxStyles"
               >
                 © 
                 2025

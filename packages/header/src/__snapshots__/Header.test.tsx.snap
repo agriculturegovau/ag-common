@@ -3,26 +3,26 @@
 exports[`Header authenticated renders correctly 1`] = `
 <div>
   <div
-    class="css-1dqiy40-dark-dark-boxStyles-boxStyles"
+    class="css-v7su81-dark-dark-boxStyles-boxStyles"
   >
     <header
-      class="css-5wwkd9-boxStyles-boxStyles"
+      class="css-13u6a4p-boxStyles-boxStyles"
     >
       <div
-        class="css-p12n5y-boxStyles-boxStyles"
+        class="css-1e866yb-boxStyles-boxStyles"
       >
         <div
-          class="css-fg16jg-boxStyles-boxStyles"
+          class="css-1bjqvsh-boxStyles-boxStyles-Columns"
         >
           <div
-            class="css-1e4q4o5-boxStyles-boxStyles"
+            class="css-19x0q49-boxStyles-boxStyles-Column"
           >
             <a
-              class="css-1njct01-boxStyles-boxStyles-HeaderBrand"
+              class="css-1oqp1fk-boxStyles-boxStyles-HeaderBrand"
               href="/account"
             >
               <div
-                class="css-1c55dd2-boxStyles-boxStyles-HeaderBrand"
+                class="css-18bsoro-boxStyles-boxStyles-HeaderBrand"
               >
                 <svg
                   aria-label="Australian Government, Department of Agriculture, Fisheries and Forestry"
@@ -56,27 +56,27 @@ exports[`Header authenticated renders correctly 1`] = `
                 </svg>
               </div>
               <div
-                class="css-1mfnfxo-boxStyles-boxStyles"
+                class="css-a0912p-boxStyles-boxStyles-HeaderBrand"
               />
               <div
-                class="css-1b2u4x7-boxStyles-boxStyles"
+                class="css-1a4nao3-boxStyles-boxStyles"
               >
                 <div
-                  class="css-cwcu3q-boxStyles-boxStyles"
+                  class="css-ljo5s0-boxStyles-boxStyles"
                 >
                   <span
-                    class="css-aql1t3-boxStyles-boxStyles"
+                    class="css-1534oi7-boxStyles-boxStyles"
                   >
                     Export Service
                   </span>
                   <div
-                    class="css-whbs61-boxStyles-boxStyles-HeaderBadge"
+                    class="css-1alodg4-boxStyles-boxStyles-HeaderBadge"
                   >
                     beta
                   </div>
                 </div>
                 <span
-                  class="css-18nk9rk-boxStyles-boxStyles"
+                  class="css-1g7awov-boxStyles-boxStyles"
                 >
                   Supporting Australian agricultural exports
                 </span>
@@ -87,23 +87,23 @@ exports[`Header authenticated renders correctly 1`] = `
       </div>
     </header>
     <div
-      class="css-16q42gk-boxStyles-boxStyles-MainNavContainer-MainNavContainer"
+      class="css-a59pdn-boxStyles-boxStyles-MainNavContainer-MainNavContainer"
       id="main-nav"
       tabindex="-1"
     >
       <div
-        class="css-1ciu4yd-boxStyles-boxStyles-MainNavContainer"
+        class="css-1pe12v3-boxStyles-boxStyles-MainNavContainer"
       >
         <button
           aria-expanded="false"
           aria-haspopup="dialog"
           aria-label="Menu (Open main menu)"
-          class="css-rwapmt-BaseButton-boxStyles-boxStyles-MainNavOpenButton"
+          class="css-1url04z-BaseButton-boxStyles-boxStyles-MainNavOpenButton"
           type="button"
         >
           <svg
             aria-hidden="true"
-            class="css-1yxmhzb"
+            class="css-lq07bo-Icon"
             clip-rule="evenodd"
             fill-rule="evenodd"
             focusable="false"
@@ -127,13 +127,13 @@ exports[`Header authenticated renders correctly 1`] = `
         </button>
         <nav
           aria-label="Main"
-          class="css-3tlwxy-boxStyles-boxStyles"
+          class="css-1kzhiyl-boxStyles-boxStyles"
         >
           <ul
-            class="css-7rnrsa-boxStyles-boxStyles"
+            class="css-1tpqkb7-boxStyles-boxStyles"
           >
             <li
-              class="css-1ck808h-boxStyles-boxStyles"
+              class="css-1c6llgn-boxStyles-boxStyles-MainNavListItem"
             >
               <a
                 aria-current="page"
@@ -145,7 +145,7 @@ exports[`Header authenticated renders correctly 1`] = `
               </a>
             </li>
             <li
-              class="css-1rxwx3r-boxStyles-boxStyles"
+              class="css-mschg4-boxStyles-boxStyles-MainNavListItem"
             >
               <a
                 href="/about"
@@ -156,7 +156,7 @@ exports[`Header authenticated renders correctly 1`] = `
               </a>
             </li>
             <li
-              class="css-1rxwx3r-boxStyles-boxStyles"
+              class="css-mschg4-boxStyles-boxStyles-MainNavListItem"
             >
               <a
                 href="/services"
@@ -167,7 +167,7 @@ exports[`Header authenticated renders correctly 1`] = `
               </a>
             </li>
             <li
-              class="css-1rxwx3r-boxStyles-boxStyles"
+              class="css-mschg4-boxStyles-boxStyles-MainNavListItem"
             >
               <a
                 href="/help"
@@ -181,13 +181,13 @@ exports[`Header authenticated renders correctly 1`] = `
         </nav>
         <nav
           aria-label="Supplementary"
-          class="css-1p4vpxe-boxStyles-boxStyles"
+          class="css-c9vmb7-boxStyles-boxStyles-MainNavList"
         >
           <ul
-            class="css-7rnrsa-boxStyles-boxStyles"
+            class="css-1tpqkb7-boxStyles-boxStyles"
           >
             <li
-              class="css-6sa09p-boxStyles-boxStyles"
+              class="css-11qznyg-boxStyles-boxStyles-MainNavListItem"
             >
               <a
                 href="/account"
@@ -197,7 +197,7 @@ exports[`Header authenticated renders correctly 1`] = `
                 </span>
                 <svg
                   aria-hidden="true"
-                  class="css-1yxmhzb"
+                  class="css-lq07bo-Icon"
                   clip-rule="evenodd"
                   fill-rule="evenodd"
                   focusable="false"
@@ -222,7 +222,7 @@ exports[`Header authenticated renders correctly 1`] = `
         </nav>
       </div>
       <div
-        class="css-1eh5u3v-boxStyles-boxStyles"
+        class="css-1ck2nd6-boxStyles-boxStyles"
       />
     </div>
   </div>
@@ -232,26 +232,26 @@ exports[`Header authenticated renders correctly 1`] = `
 exports[`Header unauthenticated renders correctly 1`] = `
 <div>
   <div
-    class="css-1dqiy40-dark-dark-boxStyles-boxStyles"
+    class="css-v7su81-dark-dark-boxStyles-boxStyles"
   >
     <header
-      class="css-5wwkd9-boxStyles-boxStyles"
+      class="css-13u6a4p-boxStyles-boxStyles"
     >
       <div
-        class="css-p12n5y-boxStyles-boxStyles"
+        class="css-1e866yb-boxStyles-boxStyles"
       >
         <div
-          class="css-fg16jg-boxStyles-boxStyles"
+          class="css-1bjqvsh-boxStyles-boxStyles-Columns"
         >
           <div
-            class="css-1e4q4o5-boxStyles-boxStyles"
+            class="css-19x0q49-boxStyles-boxStyles-Column"
           >
             <a
-              class="css-1njct01-boxStyles-boxStyles-HeaderBrand"
+              class="css-1oqp1fk-boxStyles-boxStyles-HeaderBrand"
               href="/"
             >
               <div
-                class="css-1c55dd2-boxStyles-boxStyles-HeaderBrand"
+                class="css-18bsoro-boxStyles-boxStyles-HeaderBrand"
               >
                 <svg
                   aria-label="Australian Government, Department of Agriculture, Fisheries and Forestry"
@@ -285,27 +285,27 @@ exports[`Header unauthenticated renders correctly 1`] = `
                 </svg>
               </div>
               <div
-                class="css-1mfnfxo-boxStyles-boxStyles"
+                class="css-a0912p-boxStyles-boxStyles-HeaderBrand"
               />
               <div
-                class="css-1b2u4x7-boxStyles-boxStyles"
+                class="css-1a4nao3-boxStyles-boxStyles"
               >
                 <div
-                  class="css-cwcu3q-boxStyles-boxStyles"
+                  class="css-ljo5s0-boxStyles-boxStyles"
                 >
                   <span
-                    class="css-aql1t3-boxStyles-boxStyles"
+                    class="css-1534oi7-boxStyles-boxStyles"
                   >
                     Export Service
                   </span>
                   <div
-                    class="css-whbs61-boxStyles-boxStyles-HeaderBadge"
+                    class="css-1alodg4-boxStyles-boxStyles-HeaderBadge"
                   >
                     beta
                   </div>
                 </div>
                 <span
-                  class="css-18nk9rk-boxStyles-boxStyles"
+                  class="css-1g7awov-boxStyles-boxStyles"
                 >
                   Supporting Australian agricultural exports
                 </span>
@@ -316,23 +316,23 @@ exports[`Header unauthenticated renders correctly 1`] = `
       </div>
     </header>
     <div
-      class="css-16q42gk-boxStyles-boxStyles-MainNavContainer-MainNavContainer"
+      class="css-a59pdn-boxStyles-boxStyles-MainNavContainer-MainNavContainer"
       id="main-nav"
       tabindex="-1"
     >
       <div
-        class="css-1ciu4yd-boxStyles-boxStyles-MainNavContainer"
+        class="css-1pe12v3-boxStyles-boxStyles-MainNavContainer"
       >
         <button
           aria-expanded="false"
           aria-haspopup="dialog"
           aria-label="Menu (Open main menu)"
-          class="css-rwapmt-BaseButton-boxStyles-boxStyles-MainNavOpenButton"
+          class="css-1url04z-BaseButton-boxStyles-boxStyles-MainNavOpenButton"
           type="button"
         >
           <svg
             aria-hidden="true"
-            class="css-1yxmhzb"
+            class="css-lq07bo-Icon"
             clip-rule="evenodd"
             fill-rule="evenodd"
             focusable="false"
@@ -356,13 +356,13 @@ exports[`Header unauthenticated renders correctly 1`] = `
         </button>
         <nav
           aria-label="Main"
-          class="css-3tlwxy-boxStyles-boxStyles"
+          class="css-1kzhiyl-boxStyles-boxStyles"
         >
           <ul
-            class="css-7rnrsa-boxStyles-boxStyles"
+            class="css-1tpqkb7-boxStyles-boxStyles"
           >
             <li
-              class="css-1ck808h-boxStyles-boxStyles"
+              class="css-1c6llgn-boxStyles-boxStyles-MainNavListItem"
             >
               <a
                 aria-current="page"
@@ -374,7 +374,7 @@ exports[`Header unauthenticated renders correctly 1`] = `
               </a>
             </li>
             <li
-              class="css-1rxwx3r-boxStyles-boxStyles"
+              class="css-mschg4-boxStyles-boxStyles-MainNavListItem"
             >
               <a
                 href="/about"
@@ -385,7 +385,7 @@ exports[`Header unauthenticated renders correctly 1`] = `
               </a>
             </li>
             <li
-              class="css-1rxwx3r-boxStyles-boxStyles"
+              class="css-mschg4-boxStyles-boxStyles-MainNavListItem"
             >
               <a
                 href="/services"
@@ -396,7 +396,7 @@ exports[`Header unauthenticated renders correctly 1`] = `
               </a>
             </li>
             <li
-              class="css-1rxwx3r-boxStyles-boxStyles"
+              class="css-mschg4-boxStyles-boxStyles-MainNavListItem"
             >
               <a
                 href="/help"
@@ -410,16 +410,16 @@ exports[`Header unauthenticated renders correctly 1`] = `
         </nav>
         <nav
           aria-label="Supplementary"
-          class="css-1p4vpxe-boxStyles-boxStyles"
+          class="css-c9vmb7-boxStyles-boxStyles-MainNavList"
         >
           <ul
-            class="css-7rnrsa-boxStyles-boxStyles"
+            class="css-1tpqkb7-boxStyles-boxStyles"
           >
             <li
-              class="css-6sa09p-boxStyles-boxStyles"
+              class="css-11qznyg-boxStyles-boxStyles-MainNavListItem"
             >
               <button
-                class="css-1dmwe4t-BaseButton"
+                class="css-6e6ykx-BaseButton"
                 type="button"
               >
                 <span>
@@ -427,7 +427,7 @@ exports[`Header unauthenticated renders correctly 1`] = `
                 </span>
                 <svg
                   aria-hidden="true"
-                  class="css-1yxmhzb"
+                  class="css-lq07bo-Icon"
                   clip-rule="evenodd"
                   fill-rule="evenodd"
                   focusable="false"
@@ -452,7 +452,7 @@ exports[`Header unauthenticated renders correctly 1`] = `
         </nav>
       </div>
       <div
-        class="css-1eh5u3v-boxStyles-boxStyles"
+        class="css-1ck2nd6-boxStyles-boxStyles"
       />
     </div>
   </div>

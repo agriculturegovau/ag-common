@@ -1,11 +1,12 @@
-const orderedProofs = ['IP1', 'IP2', 'IP3', 'IP4'] as const;
+const proofs = ['IP1', 'IP2', 'IP3', 'IP4'] as const;
+const orderedProofs = Array.from(proofs); // drops readonly
 
 // This is rougly equivalent (but worse) to (T | (string & {})).
 // It preserves autocomplete but allows strings.
 // This form is an obfuscation to evade linters and sonarcloud which are overly zealous about '& {}'.
 type Relaxed<T extends string> = T | Omit<string, T>;
 
-type Proof = (typeof orderedProofs)[number];
+type Proof = (typeof proofs)[number];
 
 export type ProofingLevel = Relaxed<Proof>;
 type ProofDescription = { level?: Proof; descriptor: string };
@@ -20,8 +21,14 @@ export type AuthDetails = {
 
 type ArrayOrSingleton<T> = T extends Array<infer V> ? V[] : [T];
 
+const toReversed = <T>(t: T[]): T[] => {
+	const reversed: T[] = [];
+	t.forEach((v) => reversed.unshift(v));
+	return reversed;
+};
+
 const orderedProofSet = new Set(orderedProofs);
-const reverseProofSet = new Set(orderedProofs.toReversed());
+const reverseProofSet = new Set(toReversed(orderedProofs));
 
 const unknown: ProofDescription = { descriptor: 'Unknown' };
 const readable: ReadableProof = {
