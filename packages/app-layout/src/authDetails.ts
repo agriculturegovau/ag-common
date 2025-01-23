@@ -96,8 +96,6 @@ const isURN = (level: Relaxed<ProofingURN>): level is ProofingURN =>
 type AuthOptions = {
 	// prevents a provided IP2 from being valid for an IP1 requirement
 	requireExactProofingMatch?: boolean;
-
-	//
 	removeUnknownACRs?: boolean;
 };
 

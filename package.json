@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"private": true,
 	"engines": {
-		"node": "20"
+		"node": "18"
 	},
 	"scripts": {
 		"postinstall": "manypkg check && preconstruct dev",
@@ -24,13 +24,13 @@
 	},
 	"devDependencies": {
 		"@ag.ds-next/react": "^1.25.0",
-		"@babel/core": "^7.25",
-		"@babel/plugin-transform-runtime": "^7.25",
-		"@babel/preset-env": "^7.25",
-		"@babel/preset-typescript": "^7.25",
+		"@babel/core": "^7.22.10",
+		"@babel/plugin-transform-runtime": "^7.22.10",
+		"@babel/preset-env": "^7.22.10",
+		"@babel/preset-typescript": "^7.22.5",
 		"@changesets/cli": "^2.26.2",
-		"@emotion/babel-preset-css-prop": "^11.12",
-		"@emotion/react": "^11.12",
+		"@emotion/babel-preset-css-prop": "^11.2.0",
+		"@emotion/react": "^11.7.0",
 		"@manypkg/cli": "^0.21.0",
 		"@preconstruct/cli": "^2.8.1",
 		"@preconstruct/next": "^4.0.0",
@@ -47,9 +47,9 @@
 		"@testing-library/user-event": "^14.4.3",
 		"@types/jest": "^29.5.3",
 		"@types/node": "20.4.9",
-		"@types/react": "^19",
-		"@typescript-eslint/eslint-plugin": "^8",
-		"@typescript-eslint/parser": "^8",
+		"@types/react": "18.2.19",
+		"@typescript-eslint/eslint-plugin": "^6.3.0",
+		"@typescript-eslint/parser": "^6.3.0",
 		"babel-jest": "^29.6.2",
 		"eslint": "^8.46.0",
 		"eslint-config-next": "^13.4.13",
@@ -64,7 +64,7 @@
 		"react-dom": "18.1.0",
 		"rimraf": "^3.0.2",
 		"storybook": "^7.2.1",
-		"typescript": "^5",
+		"typescript": "^4.7.4",
 		"vite": "^4.4.9"
 	},
 	"workspaces": [
