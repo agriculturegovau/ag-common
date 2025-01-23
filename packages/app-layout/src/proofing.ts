@@ -1,7 +1,8 @@
 const orderedProofs = ['IP1', 'IP2', 'IP3', 'IP4'] as const;
 
-// this is rougly equivalent to (T | (string & {})) - preserves autocomplete but allows strings.
-// this form is an obfuscation to evade linters and sonarcloud which are overly zealous
+// This is rougly equivalent (but worse) to (T | (string & {})).
+// It preserves autocomplete but allows strings.
+// This form is an obfuscation to evade linters and sonarcloud which are overly zealous about '& {}'.
 type Relaxed<T extends string> = T | Omit<string, T>;
 
 type Proof = (typeof orderedProofs)[number];
@@ -47,6 +48,16 @@ export const getReadableProof = (
 	return `${t.descriptor} (${t.level})`;
 };
 
+// Set.intersection exists but its output order depends on input length and is variable.
+// We require specific ordering of output and consequently must reimplement it.
+// Return an array here instead of a set as a small optimisation.
+const intersection = <T>(a: Set<T>, b: Set<T>): T[] =>
+	Array.from(a).filter((t) => b.has(t));
+
+// Return an array here instead of a set as a small optimisation.
+const difference = <T>(a: Set<T>, b: Set<T>): T[] =>
+	Array.from(a).filter((t) => !b.has(t));
+
 export const highestLevelProof = (
 	proofs?: ProofingLevel[]
 ): ProofingLevel | undefined => {
@@ -54,8 +65,8 @@ export const highestLevelProof = (
 
 	// ensure the proofs we know about come before unknown ones
 	return [
-		...Array.from(reverseProofSet.intersection(given)),
-		...Array.from(given.difference(reverseProofSet)),
+		...intersection(reverseProofSet, given),
+		...difference(given, reverseProofSet),
 	]?.[0];
 };
 
@@ -66,8 +77,8 @@ export const lowestLevelProof = (
 
 	// ensure the proofs we know about come before unknown ones
 	return [
-		...Array.from(orderedProofSet.intersection(given)),
-		...Array.from(given.difference(orderedProofSet)),
+		...intersection(orderedProofSet, given),
+		...difference(given, orderedProofSet),
 	]?.[0];
 };
 

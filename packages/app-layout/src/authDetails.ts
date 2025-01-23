@@ -130,7 +130,7 @@ const ensureArray = <T>(t?: T): ArrayOrSingleton<T> =>
 
 // getProofLevelFromClaims returns the entire set of proofing levels that a claim may represent.
 // If there are any custom values
-const getProofLevelFromClaims = (
+export const getProofLevelFromClaims = (
 	claims: ExpectedClaims,
 	options?: AuthOptions
 ): ProofingLevel[] => {
