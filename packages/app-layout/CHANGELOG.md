@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.5.0
+
+### Minor Changes
+
+- 0d25b31: app-layout: no longer use deprecated ag.ds prop
+
 ## 1.4.0
 
 ### Minor Changes
