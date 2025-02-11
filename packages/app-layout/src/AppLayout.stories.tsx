@@ -275,7 +275,7 @@ export const BusinessDropdownModalInterrupt: Story = {
 				<AppLayout {...props} businessDetails={businessDetails}>
 					<Modal
 						isOpen={targetBusiness !== undefined}
-						onDismiss={clearTargetBusiness}
+						onClose={clearTargetBusiness}
 						title="Are you sure you want to leave this page?"
 						actions={
 							<ButtonGroup>

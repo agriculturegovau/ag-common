@@ -179,7 +179,7 @@ export function AppLayout<B extends Business>({
 
 					<Modal
 						isOpen={isModalOpen}
-						onDismiss={closeModal}
+						onClose={closeModal}
 						title="Do you want to sign out?"
 						actions={
 							<ButtonGroup>
