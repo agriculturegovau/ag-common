@@ -87,7 +87,7 @@ function App() {
 		>
 			<Modal
 				isOpen={targetBusiness !== undefined}
-				onDismiss={setTargetBusiness(undefined)}
+				onClose={setTargetBusiness(undefined)}
 				title="Are you sure you want to leave this page?"
 				actions={
 					<ButtonGroup>
