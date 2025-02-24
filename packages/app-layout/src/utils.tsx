@@ -8,6 +8,7 @@ import {
 	FactoryIcon,
 	ExternalLinkIcon,
 	createIcon,
+	LicenceBusinessIcon,
 } from '@ag.ds-next/react/icon';
 import { Flex } from '@ag.ds-next/react/flex';
 import { ExternalLinkCallout } from '@ag.ds-next/react/a11y';
@@ -16,6 +17,7 @@ import { Fragment } from 'react';
 export type Features = {
 	quotas?: boolean;
 	exportDocumentation?: boolean;
+	licences?: boolean;
 };
 
 export const hrefs = {
@@ -92,6 +94,11 @@ export const apps = {
 		icon: FileIcon,
 		href: '/export-documentation',
 	},
+	licences: {
+		label: 'Licences',
+		icon: LicenceBusinessIcon,
+		href: '/licences',
+	},
 };
 
 export const getAppLinks = (params?: { features?: Features }) => [
@@ -101,6 +108,7 @@ export const getAppLinks = (params?: { features?: Features }) => [
 	apps.compliance,
 	...(params?.features?.quotas ? [apps.quotas] : []),
 	...(params?.features?.exportDocumentation ? [apps.exportDocumentation] : []),
+	...(params?.features?.licences ? [apps.licences] : []),
 ];
 
 export function getSidebarLinks({
