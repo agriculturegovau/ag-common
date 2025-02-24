@@ -314,16 +314,6 @@ export const BusinessDropdownModalInterrupt: Story = {
 	},
 };
 
-export const QuotasEnabled: Story = {
-	args: {
-		focusMode: false,
-		userName: 'Toto Wolff',
-		unreadMessageCount: 6,
-		activePath: '/',
-		features: { quotas: true },
-	},
-};
-
 export const SignOutModalTrigger: Story = {
 	args: {
 		focusMode: false,
@@ -373,13 +363,13 @@ export const SignOutModalTrigger: Story = {
 	},
 };
 
-export const ExportDocumentationEnabled: Story = {
+export const OptionalAppsEnabled: Story = {
 	args: {
 		focusMode: false,
 		userName: 'Toto Wolff',
 		unreadMessageCount: 6,
 		activePath: '/',
-		features: { exportDocumentation: true },
+		features: { quotas: true, exportDocumentation: true, licences: true },
 	},
 };
 
