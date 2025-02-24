@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.6.0
+
+### Minor Changes
+
+- 8c8b4b2: app-layout: add licences sidenav item
+
 ## 1.5.0
 
 ### Minor Changes
