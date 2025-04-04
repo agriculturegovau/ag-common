@@ -108,7 +108,7 @@ export const BusinessDropdown = <T extends Business>(
 			<DropdownMenuDivider />
 			<DropdownMenuGroup label="My account">
 				<DropdownMenuItemLink
-					href={hrefs.messages}
+					href={hrefs.inbox}
 					icon={EmailIcon}
 					endElement={
 						typeof props.unreadMessageCount === 'number' &&
@@ -127,7 +127,7 @@ export const BusinessDropdown = <T extends Business>(
 						) : undefined
 					}
 				>
-					Messages
+					Inbox
 				</DropdownMenuItemLink>
 				<DropdownMenuItemLink href={hrefs.profile} icon={AvatarIcon}>
 					Profile and settings

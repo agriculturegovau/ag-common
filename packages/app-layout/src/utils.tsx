@@ -24,7 +24,7 @@ export const hrefs = {
 	account: '/account',
 	profile: '/account/profile',
 	dashboard: '/account/dashboard',
-	messages: '/account/messages',
+	inbox: '/account/messages',
 	linkBusiness: '/account/link-a-business',
 	acceptInvite: '/account/invitation/accept',
 };
