@@ -24,6 +24,7 @@ import {
 } from './proofing';
 import { Box } from '@ag.ds-next/react/box';
 import { getProofLevelFromClaims } from './authDetails';
+import { FactoryIcon, PieChartIcon } from '@ag.ds-next/react/icon';
 
 type BusinessFromAPI = Business & { someExtraInfo: string };
 
@@ -788,5 +789,23 @@ export const RequiredProofingPaywallCustomComponent: Story = {
 				);
 			},
 		},
+	},
+};
+
+export const CustomSidenav: Story = {
+	args: {
+		focusMode: false,
+		userName: 'Toto Wolff',
+		unreadMessageCount: 6,
+		activePath: '/custom',
+		handleSignOut,
+		sidebarItems: [
+			{
+				items: [
+					{ label: 'Custom sidenav', href: '/custom', icon: FactoryIcon },
+					{ label: 'Other item', href: '/other', icon: PieChartIcon },
+				],
+			},
+		],
 	},
 };

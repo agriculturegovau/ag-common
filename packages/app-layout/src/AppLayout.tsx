@@ -6,6 +6,7 @@ import {
 	AppLayoutContent as AgDSAppLayoutContent,
 	AppLayoutFooter as AgDsAppLayoutFooter,
 	AppLayoutFooterDivider as AgDsAppLayoutFooterDivider,
+	AppLayoutSidebarProps,
 } from '@ag.ds-next/react/app-layout';
 import { Logo } from '@ag.ds-next/react/ag-branding';
 import {
@@ -44,6 +45,8 @@ type LayoutContext = {
 	onSignOutClick: () => void;
 };
 
+type SidebarItems = AppLayoutSidebarProps['items'];
+
 const LayoutContext = createContext<LayoutContext | undefined>(undefined);
 
 export const useOpenSignOutModal = () => {
@@ -63,6 +66,7 @@ export type AppLayoutProps<B extends Business> = PropsWithChildren<{
 	errorComponents?: Partial<ErrorComponents>;
 	requiredProofingLevel?: ProofingLevel | ProofingLevel[];
 	authDetails?: AuthDetails;
+	sidebarItems?: SidebarItems;
 }>;
 
 export function AppLayout<B extends Business>({
@@ -79,6 +83,7 @@ export function AppLayout<B extends Business>({
 	features,
 	requiredProofingLevel,
 	authDetails,
+	sidebarItems,
 }: AppLayoutProps<B>) {
 	const year = useMemo(() => new Date().getFullYear(), []);
 
@@ -136,7 +141,19 @@ export function AppLayout<B extends Business>({
 								: undefined
 						}
 					/>
-					<AgDsAppLayoutSidebar activePath={activePath} items={sidebarLinks} />
+					{sidebarItems ? (
+						<CoreProvider {...parentCoreContext}>
+							<AgDsAppLayoutSidebar
+								activePath={activePath}
+								items={sidebarItems}
+							/>
+						</CoreProvider>
+					) : (
+						<AgDsAppLayoutSidebar
+							activePath={activePath}
+							items={sidebarLinks}
+						/>
+					)}
 
 					<AgDSAppLayoutContent>
 						<CoreProvider {...parentCoreContext}>
