@@ -1,5 +1,15 @@
 # @ag.common/app-layout
 
+## 1.7.0
+
+### Minor Changes
+
+- f8fb893: app-layout: allow custom sidenav
+
+### Patch Changes
+
+- cb08270: app-layout: update inbox label text
+
 ## 1.6.0
 
 ### Minor Changes
