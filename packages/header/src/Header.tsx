@@ -64,14 +64,14 @@ export const Header = ({
 											href: '/account',
 											endElement: <AvatarIcon />,
 										},
-								  ]
+									]
 								: [
 										{
 											label: 'Sign in',
 											onClick: handleSignIn,
 											endElement: <AvatarIcon />,
 										},
-								  ]
+									]
 						}
 					/>
 				) : (

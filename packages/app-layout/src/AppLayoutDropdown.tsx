@@ -174,4 +174,4 @@ export const getBusinessSidebarLinks = <T extends Business>(
 						},
 					],
 				},
-		  ];
+			];

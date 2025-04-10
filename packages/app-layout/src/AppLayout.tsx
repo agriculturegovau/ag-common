@@ -137,7 +137,7 @@ export function AppLayout<B extends Business>({
 												preventAddBusiness={preventAddBusiness}
 											/>
 										) : undefined,
-								  }
+									}
 								: undefined
 						}
 					/>

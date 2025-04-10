@@ -139,8 +139,8 @@ export const getProofLevelFromClaims = (
 				? [proofingLevelByURN[acr]]
 				: [proofingLevelByURN[acr], ...proofingAliases[proofingLevelByURN[acr]]]
 			: options?.removeUnknownACRs
-			? []
-			: [acr]
+				? []
+				: [acr]
 	);
 
 	// dedupe. aliases can create a lot of double-ups
@@ -151,8 +151,8 @@ const getAuthProvider = (claims?: ExpectedClaims): AuthProvider | undefined =>
 	claims?.credentialType === 'myGovID'
 		? 'myID'
 		: claims?.credentialType === 'B2CLocalUser'
-		? 'B2CLocalUser'
-		: undefined;
+			? 'B2CLocalUser'
+			: undefined;
 
 export const useAuthDetails = (
 	claims?: ExpectedClaims,
@@ -162,5 +162,5 @@ export const useAuthDetails = (
 		? {
 				provider: getAuthProvider(claims),
 				proofingLevel: getProofLevelFromClaims(claims, options),
-		  }
+			}
 		: undefined;
