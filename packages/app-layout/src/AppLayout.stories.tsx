@@ -807,5 +807,6 @@ export const CustomSidenav: Story = {
 				],
 			},
 		],
+		internal: 'sidebar',
 	},
 };

@@ -168,3 +168,23 @@ export const findBestMatch = <T extends { href: string }>(
 
 	return exactMatch || bestMatch;
 };
+
+export type InternalTheme = boolean | 'header' | 'sidebar';
+
+const isInternal =
+	(section: 'header' | 'sidebar') => (internal?: InternalTheme) =>
+		internal === true || internal == section;
+
+const ifInternal =
+	<Props,>(section: 'header' | 'sidebar', props: Props) =>
+	(internal?: InternalTheme): Props | object =>
+		isInternal(section)(internal) ? props : {};
+
+export const internalHeaderProps = ifInternal('header', {
+	palette: 'light',
+	borderColor: 'selected',
+} as const);
+
+export const internalSidebarProps = ifInternal('sidebar', {
+	background: 'body',
+} as const);
