@@ -24,6 +24,9 @@ import {
 	getAppLinks,
 	getSidebarLinks,
 	hrefs,
+	internalHeaderProps,
+	internalSidebarProps,
+	InternalTheme,
 } from './utils';
 import {
 	Business,
@@ -67,6 +70,7 @@ export type AppLayoutProps<B extends Business> = PropsWithChildren<{
 	requiredProofingLevel?: ProofingLevel | ProofingLevel[];
 	authDetails?: AuthDetails;
 	sidebarItems?: SidebarItems;
+	internal?: InternalTheme;
 }>;
 
 export function AppLayout<B extends Business>({
@@ -84,6 +88,7 @@ export function AppLayout<B extends Business>({
 	requiredProofingLevel,
 	authDetails,
 	sidebarItems,
+	internal,
 }: AppLayoutProps<B>) {
 	const year = useMemo(() => new Date().getFullYear(), []);
 
@@ -140,18 +145,21 @@ export function AppLayout<B extends Business>({
 								  }
 								: undefined
 						}
+						{...internalHeaderProps(internal)}
 					/>
 					{sidebarItems ? (
 						<CoreProvider {...parentCoreContext}>
 							<AgDsAppLayoutSidebar
 								activePath={activePath}
 								items={sidebarItems}
+								{...internalSidebarProps(internal)}
 							/>
 						</CoreProvider>
 					) : (
 						<AgDsAppLayoutSidebar
 							activePath={activePath}
 							items={sidebarLinks}
+							{...internalSidebarProps(internal)}
 						/>
 					)}
 
