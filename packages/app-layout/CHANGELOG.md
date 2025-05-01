@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.8.0
+
+### Minor Changes
+
+- 29a3fdf: app-layout: add prop to support internal theme
+
 ## 1.7.0
 
 ### Minor Changes
