@@ -1,3 +1,4 @@
+import React from 'react';
 import { Preview } from '@storybook/react';
 import { Box } from '@ag.ds-next/react/box';
 import { Core } from '@ag.ds-next/react/core';
@@ -49,7 +50,6 @@ function makeViewports() {
 }
 
 const parameters = {
-	actions: { argTypesRegex: '^on[A-Z].*' },
 	controls: {
 		matchers: {
 			color: /(background|color)$/i,
