@@ -1,87 +1,87 @@
 {
-  "name": "ag-common",
-  "version": "0.0.1",
-  "main": "index.js",
-  "license": "MIT",
-  "private": true,
-  "engines": {
-    "node": "18"
-  },
-  "scripts": {
-    "postinstall": "manypkg check && preconstruct dev",
-    "clean": "rimraf \"**/node_modules\" \"**/yarn-error.log\" \"**/out.log\" \"**/.DS_Store\" \"**/dist\" \"**/out\" \"**/.next\"",
-    "fresh": "yarn clean && yarn",
-    "build": "preconstruct build",
-    "publish-changed": "yarn build && yarn changeset publish",
-    "lint": "yarn lint:packages && yarn lint:prettier && yarn lint:typescript",
-    "lint:packages": "yarn eslint packages/**",
-    "lint:prettier": "prettier --list-different \"**/*.{js,jsx,json,ts,tsx,md,mdx,yml,yaml}\"",
-    "lint:typescript": "tsc --noEmit",
-    "test": "jest",
-    "format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx}\"",
-    "storybook:dev": "storybook dev --port 6006 --no-open",
-    "storybook:build": "storybook build -o docs/public/storybook"
-  },
-  "devDependencies": {
-    "@ag.ds-next/react": "^1.28.0",
-    "@babel/core": "^7.25",
-    "@babel/plugin-transform-runtime": "^7.25",
-    "@babel/preset-env": "^7.25",
-    "@babel/preset-typescript": "^7.25",
-    "@changesets/cli": "^2.26.2",
-    "@chromatic-com/storybook": "^3",
-    "@emotion/babel-preset-css-prop": "^11.2.0",
-    "@emotion/react": "^11.7.0",
-    "@manypkg/cli": "^0.21.0",
-    "@preconstruct/cli": "^2.8.1",
-    "@preconstruct/next": "^4.0.0",
-    "@storybook/addon-a11y": "^8.6.12",
-    "@storybook/addon-actions": "^8.6.12",
-    "@storybook/addon-essentials": "^8.6.12",
-    "@storybook/addon-interactions": "^8.6.12",
-    "@storybook/addon-links": "^8.6.12",
-    "@storybook/builder-vite": "^8.6.12",
-    "@storybook/react": "^8.6.12",
-    "@storybook/react-vite": "^8.6.12",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^14.0.0",
-    "@testing-library/user-event": "^14.4.3",
-    "@types/jest": "^29.5.3",
-    "@types/node": "20.4.9",
-    "@types/react": "18.2.19",
-    "@typescript-eslint/eslint-plugin": "^6.3.0",
-    "@typescript-eslint/parser": "^6.3.0",
-    "babel-jest": "^29.6.2",
-    "eslint": "^8.46.0",
-    "eslint-config-next": "^13.4.13",
-    "eslint-config-prettier": "^9.0.0",
-    "facepaint": "^1.2.1",
-    "html-validate": "^8.2.0",
-    "immer": "^10.1.1",
-    "jest": "^29.6.2",
-    "jest-environment-jsdom": "^29.6.2",
-    "prettier": "^3.0.1",
-    "react": "18.1.0 || 19.0.0",
-    "react-dom": "18.1.0 || 19.0.0",
-    "rimraf": "^3.0.2",
-    "storybook": "^8.6.12",
-    "typescript": "^4.7.4",
-    "vite": "^4.4.9"
-  },
-  "workspaces": [
-    "packages/*",
-    "docs",
-    "example-site"
-  ],
-  "preconstruct": {
-    "packages": [
-      "packages/*"
-    ]
-  },
-  "manypkg": {
-    "defaultBranch": "main",
-    "ignoredRules": [
-      "ROOT_HAS_DEV_DEPENDENCIES"
-    ]
-  }
+	"name": "ag-common",
+	"version": "0.0.1",
+	"main": "index.js",
+	"license": "MIT",
+	"private": true,
+	"engines": {
+		"node": "18"
+	},
+	"scripts": {
+		"postinstall": "manypkg check && preconstruct dev",
+		"clean": "rimraf \"**/node_modules\" \"**/yarn-error.log\" \"**/out.log\" \"**/.DS_Store\" \"**/dist\" \"**/out\" \"**/.next\"",
+		"fresh": "yarn clean && yarn",
+		"build": "preconstruct build",
+		"publish-changed": "yarn build && yarn changeset publish",
+		"lint": "yarn lint:packages && yarn lint:prettier && yarn lint:typescript",
+		"lint:packages": "yarn eslint packages/**",
+		"lint:prettier": "prettier --list-different \"**/*.{js,jsx,json,ts,tsx,md,mdx,yml,yaml}\"",
+		"lint:typescript": "tsc --noEmit",
+		"test": "jest",
+		"format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx}\"",
+		"storybook:dev": "storybook dev --port 6006 --no-open",
+		"storybook:build": "storybook build -o docs/public/storybook"
+	},
+	"devDependencies": {
+		"@ag.ds-next/react": "^1.28.0",
+		"@babel/core": "^7.25",
+		"@babel/plugin-transform-runtime": "^7.25",
+		"@babel/preset-env": "^7.25",
+		"@babel/preset-typescript": "^7.25",
+		"@changesets/cli": "^2.26.2",
+		"@chromatic-com/storybook": "^3",
+		"@emotion/babel-preset-css-prop": "^11.2.0",
+		"@emotion/react": "^11.7.0",
+		"@manypkg/cli": "^0.21.0",
+		"@preconstruct/cli": "^2.8.1",
+		"@preconstruct/next": "^4.0.0",
+		"@storybook/addon-a11y": "^8.6.12",
+		"@storybook/addon-actions": "^8.6.12",
+		"@storybook/addon-essentials": "^8.6.12",
+		"@storybook/addon-interactions": "^8.6.12",
+		"@storybook/addon-links": "^8.6.12",
+		"@storybook/builder-vite": "^8.6.12",
+		"@storybook/react": "^8.6.12",
+		"@storybook/react-vite": "^8.6.12",
+		"@testing-library/jest-dom": "^5.17.0",
+		"@testing-library/react": "^14.0.0",
+		"@testing-library/user-event": "^14.4.3",
+		"@types/jest": "^29.5.3",
+		"@types/node": "20.4.9",
+		"@types/react": "18.2.19",
+		"@typescript-eslint/eslint-plugin": "^6.3.0",
+		"@typescript-eslint/parser": "^6.3.0",
+		"babel-jest": "^29.6.2",
+		"eslint": "^8.46.0",
+		"eslint-config-next": "^13.4.13",
+		"eslint-config-prettier": "^9.0.0",
+		"facepaint": "^1.2.1",
+		"html-validate": "^8.2.0",
+		"immer": "^10.1.1",
+		"jest": "^29.6.2",
+		"jest-environment-jsdom": "^29.6.2",
+		"prettier": "^3.0.1",
+		"react": "18.1.0 || 19.0.0",
+		"react-dom": "18.1.0 || 19.0.0",
+		"rimraf": "^3.0.2",
+		"storybook": "^8.6.12",
+		"typescript": "^4.7.4",
+		"vite": "^4.4.9"
+	},
+	"workspaces": [
+		"packages/*",
+		"docs",
+		"example-site"
+	],
+	"preconstruct": {
+		"packages": [
+			"packages/*"
+		]
+	},
+	"manypkg": {
+		"defaultBranch": "main",
+		"ignoredRules": [
+			"ROOT_HAS_DEV_DEPENDENCIES"
+		]
+	}
 }

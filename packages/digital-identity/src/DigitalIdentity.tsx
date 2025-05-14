@@ -148,7 +148,7 @@ export const DigitalIdentity = ({
 					'&:hover': {
 						color: palette.babyBlue,
 					},
-			  } as const);
+				} as const);
 
 	const [outerCSS, innerCSS] =
 		container === true
@@ -165,13 +165,13 @@ export const DigitalIdentity = ({
 					{
 						borderTop: 'inherit',
 					} as const,
-			  ]
+				]
 			: [
 					{
 						alignItems: 'center',
 					} as const,
 					{},
-			  ];
+				];
 
 	return (
 		<Stack css={outerCSS}>

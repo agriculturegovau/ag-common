@@ -141,7 +141,7 @@ export const ClientSideFetch: Story = {
 						? {
 								userName: 'Toto Wolff',
 								unreadMessageCount: 6,
-						  }
+							}
 						: {})}
 				>
 					<PageContent>
