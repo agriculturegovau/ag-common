@@ -1,4 +1,6 @@
-module.exports = () => {
+module.exports = (api) => {
+	api.cache(true);
+
 	const isStorybook = process.env.STORYBOOK === 'true';
 
 	return {
