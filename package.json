@@ -19,8 +19,8 @@
 		"lint:typescript": "tsc --noEmit",
 		"test": "jest",
 		"format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx}\"",
-		"storybook:dev": "storybook dev --port 6006 --no-open",
-		"storybook:build": "storybook build -o docs/public/storybook"
+		"storybook:dev": "STORYBOOK=true storybook dev --port 6006 --no-open",
+		"storybook:build": "STORYBOOK=true storybook build -o docs/public/storybook"
 	},
 	"devDependencies": {
 		"@ag.ds-next/react": "^1.28.0",
