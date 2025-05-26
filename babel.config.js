@@ -1,3 +1,6 @@
+const emotionPlugin =
+	require('@emotion/babel-plugin').default || require('@emotion/babel-plugin');
+
 module.exports = (api) => {
 	api.cache(true);
 
@@ -13,6 +16,6 @@ module.exports = (api) => {
 				},
 			],
 		],
-		plugins: ['@babel/plugin-transform-runtime', '@emotion/babel-plugin'],
+		plugins: ['@babel/plugin-transform-runtime', emotionPlugin],
 	};
 };
