@@ -32,18 +32,23 @@ jobs:
           path: |
             ${{ steps.yarn-cache-dir-path.outputs.dir }}
             node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-yarn-v2-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
 
       - name: Install dependencies
         run: yarn install
 
-      - name: Build
+      - name: Clean old Storybook output
+        run: rm -rf docs/public/storybook
+
+      - name: Build Storybook
+        env:
+          STORYBOOK_BASE_HREF: /ag-common/
         run: yarn storybook:build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: docs/public/storybook # The folder the action should deploy.
+          branch: gh-pages
+          folder: docs/public/storybook
