@@ -16,5 +16,5 @@
 		"jsxImportSource": "@emotion/react",
 		"incremental": true
 	},
-	"exclude": ["node_modules", "packages/*/dist"]
+	"exclude": ["node_modules", "packages/*/dist", ".history"]
 }
