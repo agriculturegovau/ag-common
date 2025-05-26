@@ -5,7 +5,14 @@ module.exports = (api) => {
 		presets: [
 			['@babel/preset-env', { targets: { node: 'current' } }],
 			'@babel/preset-typescript',
-			'@emotion/babel-preset-css-prop',
+			[
+				'@babel/preset-react',
+				{
+					runtime: 'automatic',
+					importSource: '@emotion/react',
+				},
+			],
 		],
+		plugins: ['@babel/plugin-transform-runtime', '@emotion/babel-plugin'],
 	};
 };
