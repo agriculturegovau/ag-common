@@ -2,27 +2,27 @@ import { dirname, join } from 'path';
 import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
-	framework: {
-		name: getAbsolutePath('@storybook/react-vite'),
+    framework: {
+		name: getAbsolutePath("@storybook/react-vite"),
 		options: {},
 	},
 
-	core: {
-		builder: getAbsolutePath('@storybook/builder-vite'),
-	},
-
-	addons: [
+    addons: [
 		getAbsolutePath('@storybook/addon-links'),
 		getAbsolutePath('@storybook/addon-a11y'),
 		{ name: '@storybook/addon-essentials', options: { background: false } },
-		'@chromatic-com/storybook',
+		getAbsolutePath("@chromatic-com/storybook"),
 	],
 
-	stories: ['../packages/*/src/**/*.stories.@(ts|tsx)'],
+    stories: ['../packages/*/src/**/*.stories.@(ts|tsx)'],
 
-	typescript: {
+    typescript: {
 		reactDocgen: 'react-docgen-typescript',
 	},
+
+    docs: {
+        autodocs: true
+    }
 };
 
 export default config;
