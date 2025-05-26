@@ -17,5 +17,12 @@ module.exports = {
 				'@next/next/no-img-element': 'off',
 			},
 		},
+		// Scrips written in plain JS need to use require
+		{
+			files: ['*.js'],
+			rules: {
+				'@typescript-eslint/no-var-requires': 'off',
+			},
+		},
 	],
 };
