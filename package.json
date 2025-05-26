@@ -14,7 +14,7 @@
     "build": "preconstruct build",
     "publish-changed": "yarn build && yarn changeset publish",
     "lint": "yarn lint:packages && yarn lint:prettier && yarn lint:typescript",
-    "lint:packages": "yarn eslint packages/**",
+    "lint:packages": "yarn eslint \"packages/**/src/**/*.{ts,tsx}\"",
     "lint:prettier": "prettier --list-different \"**/*.{js,jsx,json,ts,tsx,md,mdx,yml,yaml}\"",
     "lint:typescript": "tsc --noEmit",
     "test": "jest",
