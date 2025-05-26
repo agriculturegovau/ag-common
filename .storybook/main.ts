@@ -1,30 +1,42 @@
-import { dirname, join } from 'path';
+import { mergeConfig } from 'vite';
 import type { StorybookConfig } from '@storybook/react-vite';
-
-function getAbsolutePath(value: string): string {
-	return dirname(require.resolve(join(value, 'package.json')));
-}
 
 const config: StorybookConfig = {
 	framework: {
-		name: getAbsolutePath('@storybook/react-vite'),
+		name: '@storybook/react-vite',
 		options: {},
 	},
 	addons: [
-		getAbsolutePath('@storybook/addon-links'),
-		getAbsolutePath('@storybook/addon-a11y'),
+		'@storybook/addon-links',
+		'@storybook/addon-a11y',
 		{
 			name: '@storybook/addon-essentials',
 			options: { background: false },
 		},
-		getAbsolutePath('@chromatic-com/storybook'),
+		'@chromatic-com/storybook',
 	],
 	stories: ['../packages/*/src/**/*.stories.@(ts|tsx)'],
 	typescript: {
-		reactDocgen: 'react-docgen-typescript',
+		reactDocgen: false,
 	},
-	docs: {
-		autodocs: true,
+	viteFinal: (config) => {
+		return mergeConfig(config, {
+			build: {
+				rollupOptions: {
+					onwarn(warning, warn) {
+						// Suppress "use client" and eval warnings
+						if (
+							warning.message.includes('Module level directives') ||
+							(warning.message.includes('Use of eval') &&
+								warning.id?.includes('@storybook/core'))
+						) {
+							return;
+						}
+						warn(warning);
+					},
+				},
+			},
+		});
 	},
 };
 
