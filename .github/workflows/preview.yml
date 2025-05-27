@@ -38,7 +38,7 @@ jobs:
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: gh-pages
-          build_dir: docs/public/storybook
+          build_dir: pr-preview/pr-${{ github.event.number }}
           commit_message: 'chore(preview): PR #${{ github.event.number }}'
           keep_history: true
           jekyll: false
