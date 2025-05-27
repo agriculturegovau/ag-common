@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.9.0
+
+### Minor Changes
+
+- 08b3e5b: deps: update ag.ds version to 1.28.0, storybook to 8.6.12, react to allow 19.0.0
+
 ## 1.8.0
 
 ### Minor Changes
