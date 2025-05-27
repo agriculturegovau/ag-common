@@ -42,5 +42,6 @@ jobs:
           commit_message: 'chore(preview): PR #${{ github.event.number }}'
           keep_history: true
           jekyll: false
+          fqdn: outline.phase2tech.com
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
