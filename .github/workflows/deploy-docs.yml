@@ -1,22 +1,18 @@
-name: Deploy PR previews
-
+name: Deploy Docs
 on:
-  pull_request:
-    types: [opened, reopened, synchronize, closed]
-
-concurrency:
-  group: preview-${{ github.event.pull_request.number }}
-  cancel-in-progress: true
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-  deploy-preview:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js 22
         uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -26,34 +22,38 @@ jobs:
           corepack enable
           corepack prepare yarn@4.9.1 --activate
 
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v4
+        id: yarn-cache
+        with:
+          path: |
+            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            node_modules
+          key: ${{ runner.os }}-yarn-v2-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
       - name: Install dependencies
         run: yarn install
 
+      - name: Clean old Storybook output
+        run: rm -rf docs/public/storybook
+
       - name: Build Storybook
-        if: github.event.action != 'closed'
-        run: yarn storybook:build --output-dir=pr-preview/pr-${{ github.event.number }}
-        env:
-          BASE_PATH: /pr-preview/pr-${{ github.event.number }}
+        run: yarn storybook:build
 
       - name: Deploy to GitHub Pages
-        if: github.event.action != 'closed'
+        if: success()
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: gh-pages
-          build_dir: pr-preview/pr-${{ github.event.number }}
-          commit_message: 'chore(preview): PR #${{ github.event.number }}'
-          keep_history: true
+          build_dir: docs/public/storybook
+          commit_message: 'chore(deploy): Storybook'
+          keep_history: false
           jekyll: false
+          fqdn: outline.phase2tech.com
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Remove PR Preview
-        if: github.event.action == 'closed'
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-          git clone --depth 1 --branch gh-pages https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
-          cd gh-pages
-          git rm -rf pr-preview/pr-${{ github.event.number }}
-          git commit -m "chore(preview): remove PR #${{ github.event.number }}"
-          git push origin gh-pages

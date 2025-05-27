@@ -34,10 +34,13 @@ jobs:
       - name: Build
         run: yarn storybook:build
 
-        env:
-          BASE_PATH: /pr-preview/pr-${{ github.event.number }}
-
-      - name: Deploy preview
-        uses: rossjrw/pr-preview-action@v1
+      - name: Deploy to GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v4
         with:
-          source-dir: docs/public/storybook
+          target_branch: gh-pages
+          build_dir: docs/public/storybook
+          commit_message: 'chore(preview): PR #${{ github.event.number }}'
+          keep_history: true
+          jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
