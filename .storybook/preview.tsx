@@ -2,35 +2,7 @@ import React from 'react';
 import type { Preview } from '@storybook/react';
 import { Box } from '@ag.ds-next/react/box';
 import { Core } from '@ag.ds-next/react/core';
-import { theme as agriculture } from '@ag.ds-next/react/ag-branding';
-
-const storybookThemes = {
-	gold: {},
-	agriculture,
-} as const;
-
-type StorybookThemes = keyof typeof storybookThemes;
-
-const globalTypes = {
-	brand: {
-		name: 'Brand',
-		description: 'Global branding',
-		defaultValue: 'agriculture',
-		toolbar: {
-			title: 'Brand',
-			icon: 'circlehollow',
-			items: Object.keys(storybookThemes),
-		},
-	},
-	palette: {
-		name: 'Palette',
-		defaultValue: 'light',
-		toolbar: {
-			title: 'Palette',
-			items: ['light', 'dark'],
-		},
-	},
-};
+import { theme } from '@ag.ds-next/react/ag-branding';
 
 function makeViewports() {
 	const viewports = [
@@ -84,11 +56,6 @@ const parameters = {
 			date: /Date$/,
 		},
 	},
-	options: {
-		storySort: {
-			method: 'alphabetical',
-		},
-	},
 	viewport: {
 		viewports: makeViewports(),
 	},
@@ -96,12 +63,11 @@ const parameters = {
 
 const preview: Preview = {
 	parameters,
-	globalTypes,
 	decorators: [
 		(Story, context) => {
 			const palette = context.globals.palette;
 			return (
-				<Core theme={agriculture}>
+				<Core theme={theme}>
 					<Box
 						width="100%"
 						minHeight="100vh"
