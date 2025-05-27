@@ -13,40 +13,35 @@ concurrency: preview-${{ github.ref }}
 
 jobs:
   deploy-preview:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js 18.x
-        uses: actions/setup-node@v3
+      - name: Setup Node.js 22.x
+        uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 22
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
-            node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+      - name: Enable Corepack
+        run: |
+          corepack enable
+          corepack prepare yarn@4.9.1 --activate
 
       - name: Install dependencies
-        run: yarn
+        run: yarn install
 
       - name: Build
         run: yarn storybook:build
 
-        env:
-          BASE_PATH: /pr-preview/pr-${{ github.event.number }}
-
-      - name: Deploy preview
-        uses: rossjrw/pr-preview-action@v1
+      - name: Deploy to GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v4
         with:
-          source-dir: docs/public/storybook
+          target_branch: gh-pages
+          build_dir: docs/public/storybook
+          commit_message: 'chore(preview): PR #${{ github.event.number }}'
+          keep_history: true
+          jekyll: false
+          fqdn: outline.phase2tech.com
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

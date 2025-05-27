@@ -14,7 +14,7 @@
 		"build": "preconstruct build",
 		"publish-changed": "yarn build && yarn changeset publish",
 		"lint": "yarn lint:packages && yarn lint:prettier && yarn lint:typescript",
-		"lint:packages": "yarn eslint packages/**",
+		"lint:packages": "yarn eslint \"{packages/**/src/**/*.{ts,tsx},.storybook/**/*.{ts,tsx}}\"",
 		"lint:prettier": "prettier --list-different \"**/*.{js,jsx,json,ts,tsx,md,mdx,yml,yaml}\"",
 		"lint:typescript": "tsc --noEmit",
 		"test": "jest",
@@ -27,22 +27,23 @@
 		"@babel/core": "^7.24.0",
 		"@babel/plugin-transform-runtime": "^7.24.0",
 		"@babel/preset-env": "^7.24.0",
+		"@babel/preset-react": "^7.24.0",
 		"@babel/preset-typescript": "^7.24.0",
 		"@changesets/cli": "^2.26.2",
 		"@chromatic-com/storybook": "^3",
+		"@emotion/babel-plugin": "^11.11.0",
 		"@emotion/babel-preset-css-prop": "^11.12.0",
 		"@emotion/react": "^11.7.0",
 		"@manypkg/cli": "^0.21.0",
 		"@preconstruct/cli": "^2.8.1",
 		"@preconstruct/next": "^4.0.0",
-		"@storybook/addon-a11y": "^8.6.12",
-		"@storybook/addon-actions": "^8.6.12",
-		"@storybook/addon-essentials": "^8.6.12",
-		"@storybook/addon-interactions": "^8.6.12",
-		"@storybook/addon-links": "^8.6.12",
-		"@storybook/builder-vite": "^8.6.12",
-		"@storybook/react": "^8.6.12",
-		"@storybook/react-vite": "^8.6.12",
+		"@storybook/addon-a11y": "^8.6.14",
+		"@storybook/addon-actions": "^8.6.14",
+		"@storybook/addon-essentials": "^8.6.14",
+		"@storybook/addon-interactions": "^8.6.14",
+		"@storybook/addon-links": "^8.6.14",
+		"@storybook/react": "^8.6.14",
+		"@storybook/react-vite": "^8.6.14",
 		"@testing-library/jest-dom": "^5.17.0",
 		"@testing-library/react": "^14.0.0",
 		"@testing-library/user-event": "^14.4.3",
@@ -64,7 +65,7 @@
 		"react": "18.1.0 || 19.0.0",
 		"react-dom": "18.1.0 || 19.0.0",
 		"rimraf": "^3.0.2",
-		"storybook": "^8.6.12",
+		"storybook": "^8.6.14",
 		"typescript": "^4.7.4",
 		"vite": "^4.4.9"
 	},
@@ -83,5 +84,6 @@
 		"ignoredRules": [
 			"ROOT_HAS_DEV_DEPENDENCIES"
 		]
-	}
+	},
+	"packageManager": "yarn@4.9.1+sha512.f95ce356460e05be48d66401c1ae64ef84d163dd689964962c6888a9810865e39097a5e9de748876c2e0bf89b232d583c33982773e9903ae7a76257270986538"
 }

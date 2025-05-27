@@ -4,3 +4,4 @@ packages/**/dist
 .changeset
 CHANGELOG.md
 public
+.history
