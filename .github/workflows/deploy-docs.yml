@@ -43,13 +43,17 @@ jobs:
         run: rm -rf docs/public/storybook
 
       - name: Build Storybook
-        env:
-          STORYBOOK_BASE_HREF: /ag-common/
         run: yarn storybook:build
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v4
         with:
-          branch: gh-pages
-          folder: docs/public/storybook
-          clean: true
+          target_branch: gh-pages
+          build_dir: docs/public/storybook
+          commit_message: 'chore(deploy): Storybook'
+          keep_history: false
+          jekyll: false
+          fqdn: outline.phase2tech.com
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
