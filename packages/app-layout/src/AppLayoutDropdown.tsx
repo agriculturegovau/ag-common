@@ -12,8 +12,8 @@ import {
 	ArrowRightIcon,
 	AvatarIcon,
 	ChevronsLeftIcon,
-	EmailIcon,
 	ExitIcon,
+	InboxIcon,
 } from '@ag.ds-next/react/icon';
 import { NotificationBadge } from '@ag.ds-next/react/notification-badge';
 import { Text } from '@ag.ds-next/react/text';
@@ -109,7 +109,7 @@ export const BusinessDropdown = <T extends Business>(
 			<DropdownMenuGroup label="My account">
 				<DropdownMenuItemLink
 					href={hrefs.inbox}
-					icon={EmailIcon}
+					icon={InboxIcon}
 					endElement={
 						typeof props.unreadMessageCount === 'number' &&
 						props.unreadMessageCount > 0 ? (
