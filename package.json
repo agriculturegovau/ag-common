@@ -23,7 +23,7 @@
 		"storybook:build": "STORYBOOK=true storybook build -o docs/public/storybook"
 	},
 	"devDependencies": {
-		"@ag.ds-next/react": "^1.28.0",
+		"@ag.ds-next/react": "^1.29.0",
 		"@babel/core": "^7.24.0",
 		"@babel/plugin-transform-runtime": "^7.24.0",
 		"@babel/preset-env": "^7.24.0",

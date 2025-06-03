@@ -1,18 +1,17 @@
 import {
 	ChartLineIcon,
 	ExitIcon,
+	ExternalLinkIcon,
+	FactoryIcon,
+	FileIcon,
 	HelpIcon,
 	HomeIcon,
-	FileIcon,
-	SuccessIcon,
-	FactoryIcon,
-	ExternalLinkIcon,
-	createIcon,
 	LicenceBusinessIcon,
+	PieChartIcon,
+	SuccessIcon,
 } from '@ag.ds-next/react/icon';
 import { Flex } from '@ag.ds-next/react/flex';
 import { ExternalLinkCallout } from '@ag.ds-next/react/a11y';
-import { Fragment } from 'react';
 
 export type Features = {
 	quotas?: boolean;
@@ -28,14 +27,6 @@ export const hrefs = {
 	linkBusiness: '/account/link-a-business',
 	acceptInvite: '/account/invitation/accept',
 };
-
-const PieChartIcon = createIcon(
-	<Fragment>
-		<path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
-		<path d="M22 12A10 10 0 0 0 12 2v10z"></path>
-	</Fragment>,
-	'PieChartIcon'
-);
 
 export const footerNavigationItems = [
 	{
