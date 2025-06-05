@@ -3,7 +3,7 @@
 exports[`Header authenticated renders correctly 1`] = `
 <div>
   <div
-    class="css-9nju69-dark-dark-boxStyles-boxStyles"
+    class="css-yxthkp-dark-dark-boxStyles-boxStyles"
   >
     <header
       class="css-1yas2mc-boxStyles-boxStyles"
@@ -226,7 +226,7 @@ exports[`Header authenticated renders correctly 1`] = `
 exports[`Header unauthenticated renders correctly 1`] = `
 <div>
   <div
-    class="css-9nju69-dark-dark-boxStyles-boxStyles"
+    class="css-yxthkp-dark-dark-boxStyles-boxStyles"
   >
     <header
       class="css-1yas2mc-boxStyles-boxStyles"

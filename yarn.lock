@@ -16,13 +16,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ag.common/analytics@workspace:packages/analytics"
   dependencies:
-    "@ag.ds-next/react": "npm:^1.28.0"
+    "@ag.ds-next/react": "npm:^1.29.0"
     "@emotion/react": "npm:^11.7.0"
     "@types/gtag.js": "npm:^0.0.12"
     facepaint: "npm:^1.2.1"
     react: "npm:18.1.0 || 19.0.0"
   peerDependencies:
-    "@ag.ds-next/react": ^1.28.0
+    "@ag.ds-next/react": ^1.29.0
     "@emotion/react": ^11.7.0
     "@types/gtag.js": ^0.0.12
     facepaint: ^1.2.1
@@ -34,12 +34,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ag.common/app-layout@workspace:packages/app-layout"
   dependencies:
-    "@ag.ds-next/react": "npm:^1.28.0"
+    "@ag.ds-next/react": "npm:^1.29.0"
     "@emotion/react": "npm:^11.7.0"
     facepaint: "npm:^1.2.1"
     react: "npm:18.1.0 || 19.0.0"
   peerDependencies:
-    "@ag.ds-next/react": ^1.28.0
+    "@ag.ds-next/react": ^1.29.0
     "@emotion/react": ^11.7.0
     facepaint: ^1.2.1
     react: ^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -50,12 +50,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ag.common/digital-identity@workspace:packages/digital-identity"
   dependencies:
-    "@ag.ds-next/react": "npm:^1.28.0"
+    "@ag.ds-next/react": "npm:^1.29.0"
     "@emotion/react": "npm:^11.7.0"
     facepaint: "npm:^1.2.1"
     react: "npm:18.1.0 || 19.0.0"
   peerDependencies:
-    "@ag.ds-next/react": ^1.28.0
+    "@ag.ds-next/react": ^1.29.0
     "@emotion/react": ^11.7.0
     facepaint: ^1.2.1
     react: ^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -66,12 +66,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ag.common/footer@workspace:packages/footer"
   dependencies:
-    "@ag.ds-next/react": "npm:^1.28.0"
+    "@ag.ds-next/react": "npm:^1.29.0"
     "@emotion/react": "npm:^11.7.0"
     facepaint: "npm:^1.2.1"
     react: "npm:18.1.0 || 19.0.0"
   peerDependencies:
-    "@ag.ds-next/react": ^1.28.0
+    "@ag.ds-next/react": ^1.29.0
     "@emotion/react": ^11.7.0
     facepaint: ^1.2.1
     react: ^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -82,12 +82,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ag.common/header@workspace:packages/header"
   dependencies:
-    "@ag.ds-next/react": "npm:^1.28.0"
+    "@ag.ds-next/react": "npm:^1.29.0"
     "@emotion/react": "npm:^11.7.0"
     facepaint: "npm:^1.2.1"
     react: "npm:18.1.0 || 19.0.0"
   peerDependencies:
-    "@ag.ds-next/react": ^1.28.0
+    "@ag.ds-next/react": ^1.29.0
     "@emotion/react": ^11.7.0
     facepaint: ^1.2.1
     react: ^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -98,23 +98,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ag.common/help-callout@workspace:packages/help-callout"
   dependencies:
-    "@ag.ds-next/react": "npm:^1.28.0"
+    "@ag.ds-next/react": "npm:^1.29.0"
     "@emotion/react": "npm:^11.7.0"
     facepaint: "npm:^1.2.1"
     react: "npm:18.1.0 || 19.0.0"
   peerDependencies:
-    "@ag.ds-next/react": ^1.28.0
+    "@ag.ds-next/react": ^1.29.0
     "@emotion/react": ^11.7.0
     facepaint: ^1.2.1
     react: ^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
-"@ag.ds-next/react@npm:^1.28.0":
-  version: 1.28.0
-  resolution: "@ag.ds-next/react@npm:1.28.0"
+"@ag.ds-next/react@npm:^1.29.0":
+  version: 1.29.0
+  resolution: "@ag.ds-next/react@npm:1.29.0"
   dependencies:
-    "@babel/runtime": "npm:^7.4.5"
+    "@babel/runtime": "npm:^7.27.1"
     "@floating-ui/react-dom": "npm:^2.0.8"
     "@types/facepaint": "npm:^1.2.5"
     date-fns: "npm:^2.28.0"
@@ -129,7 +129,7 @@ __metadata:
     "@emotion/react": ^11.7.0
     react: ^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     react-dom: ^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/3caa6c9164ceaca4d626ed3eaa5439f3a4d02984c810c107d43c3766b48f77c78c47ecdcafb417f32bf5fd96fd8d03f5c65323e27fc343ddcd1a238fc754ce7d
+  checksum: 10c0/f537f6733decc7aea55ff4d70bf5070657bcfb1d69340ef5014a1991a485edd7d4afa1f2c5a4943502b6d1b724198ecd4c02ca032194fa0996ca70d156a1de24
   languageName: node
   linkType: hard
 
@@ -1470,10 +1470,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.24.5, @babel/runtime@npm:^7.4.5, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.7, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.24.5, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.7, @babel/runtime@npm:^7.9.2":
   version: 7.27.1
   resolution: "@babel/runtime@npm:7.27.1"
   checksum: 10c0/530a7332f86ac5a7442250456823a930906911d895c0b743bf1852efc88a20a016ed4cd26d442d0ca40ae6d5448111e02a08dd638a4f1064b47d080e2875dc05
+  languageName: node
+  linkType: hard
+
+"@babel/runtime@npm:^7.27.1":
+  version: 7.27.4
+  resolution: "@babel/runtime@npm:7.27.4"
+  checksum: 10c0/ca99e964179c31615e1352e058cc9024df7111c829631c90eec84caba6703cc32acc81503771847c306b3c70b815609fe82dde8682936debe295b0b283b2dc6e
   languageName: node
   linkType: hard
 
@@ -4335,7 +4342,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ag-common@workspace:."
   dependencies:
-    "@ag.ds-next/react": "npm:^1.28.0"
+    "@ag.ds-next/react": "npm:^1.29.0"
     "@babel/core": "npm:^7.24.0"
     "@babel/plugin-transform-runtime": "npm:^7.24.0"
     "@babel/preset-env": "npm:^7.24.0"

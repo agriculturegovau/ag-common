@@ -1,7 +1,9 @@
 import { MouseEventHandler } from 'react';
-import { Box, Flex, Stack } from '@ag.ds-next/react/box';
+import { Box } from '@ag.ds-next/react/box';
 import { BaseButton, buttonStyles } from '@ag.ds-next/react/button';
 import { packs, useLinkComponent } from '@ag.ds-next/react/core';
+import { Flex } from '@ag.ds-next/react/flex';
+import { Stack } from '@ag.ds-next/react/stack';
 import { Text } from '@ag.ds-next/react/text';
 import { TextLinkExternal } from '@ag.ds-next/react/text-link';
 import { DigitalIdentityLogo } from './Assets';
