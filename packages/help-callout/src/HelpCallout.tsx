@@ -1,5 +1,5 @@
-import { CoreProvider } from '@ag.ds-next/react/core';
 import { Callout } from '@ag.ds-next/react/callout';
+import { CoreProvider } from '@ag.ds-next/react/core';
 import { Text } from '@ag.ds-next/react/text';
 import { TextLink, TextLinkExternal } from '@ag.ds-next/react/text-link';
 
