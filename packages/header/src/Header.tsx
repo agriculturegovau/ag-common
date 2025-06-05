@@ -1,4 +1,5 @@
 import { MouseEventHandler } from 'react';
+import { CoreProvider } from '@ag.ds-next/react/core';
 import { Header as AgDsHeader } from '@ag.ds-next/react/header';
 import { AvatarIcon } from '@ag.ds-next/react/icon';
 import { MainNav } from '@ag.ds-next/react/main-nav';
@@ -40,38 +41,40 @@ export const Header = ({
 	focusMode,
 }: HeaderProps) => {
 	return (
-		<Box palette="dark">
-			<AgDsHeader
-				href={authenticated ? '/account' : '/'}
-				heading="Export Service"
-				subline="Supporting Australian agricultural exports"
-				logo={<Logo />}
-				badgeLabel="beta"
-				background="bodyAlt"
-			/>
-			<MainNav
-				id={mainNavId}
-				activePath={activePath}
-				focusMode={focusMode}
-				items={links}
-				secondaryItems={
-					authenticated
-						? [
-								{
-									label: 'My account',
-									href: '/account',
-									endElement: <AvatarIcon />,
-								},
-							]
-						: [
-								{
-									label: 'Sign in',
-									onClick: handleSignIn,
-									endElement: <AvatarIcon />,
-								},
-							]
-				}
-			/>
-		</Box>
+		<CoreProvider>
+			<Box palette="dark">
+				<AgDsHeader
+					href={authenticated ? '/account' : '/'}
+					heading="Export Service"
+					subline="Supporting Australian agricultural exports"
+					logo={<Logo />}
+					badgeLabel="beta"
+					background="bodyAlt"
+				/>
+				<MainNav
+					id={mainNavId}
+					activePath={activePath}
+					focusMode={focusMode}
+					items={links}
+					secondaryItems={
+						authenticated
+							? [
+									{
+										label: 'My account',
+										href: '/account',
+										endElement: <AvatarIcon />,
+									},
+								]
+							: [
+									{
+										label: 'Sign in',
+										onClick: handleSignIn,
+										endElement: <AvatarIcon />,
+									},
+								]
+					}
+				/>
+			</Box>
+		</CoreProvider>
 	);
 };

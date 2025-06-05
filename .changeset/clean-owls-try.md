@@ -15,9 +15,9 @@ app-layout: Add `'use client'` to all exports. Use AgDS’ `PieChartIcon` instea
 
 digital-identity: Add `'use client'` to all exports. Update internal layout components to not use deprecated versions.
 
-footer: Remove incorrect use of `CoreProvider`.
+footer: Add `'use client'` to all exports.
 
-header: Remove incorrect use of `CoreProvider`. Remove deprecated `MainNavBottomBar`.
+header: Add `'use client'` to all exports. Remove deprecated `MainNavBottomBar`.
 
-help-callout: Remove incorrect use of `CoreProvider`.
+help-callout: Add `'use client'` to all exports.
 
