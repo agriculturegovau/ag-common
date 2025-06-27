@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.11.0
+
+### Minor Changes
+
+- 64aff1c: app-layout: rename export-documentation to export-systems
+
 ## 1.10.0
 
 ### Minor Changes
