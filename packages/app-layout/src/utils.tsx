@@ -3,10 +3,10 @@ import {
 	ExitIcon,
 	ExternalLinkIcon,
 	FactoryIcon,
-	FileIcon,
 	HelpIcon,
 	HomeIcon,
 	LicenceBusinessIcon,
+	LinkIcon,
 	PieChartIcon,
 	SuccessIcon,
 } from '@ag.ds-next/react/icon';
@@ -15,8 +15,14 @@ import { ExternalLinkCallout } from '@ag.ds-next/react/a11y';
 
 export type Features = {
 	quotas?: boolean;
-	exportDocumentation?: boolean;
+	exportSystems?: boolean;
 	licences?: boolean;
+
+	/**
+	 * @deprecated Prefer the `exportSystems` flag as this system has been renamed.
+	 * This property is for compatibility and will be removed in a future version.
+	 */
+	exportDocumentation?: boolean;
 };
 
 export const hrefs = {
@@ -80,10 +86,10 @@ export const apps = {
 		icon: PieChartIcon,
 		href: '/quota',
 	},
-	exportDocumentation: {
-		label: 'Export documentation',
-		icon: FileIcon,
-		href: '/export-documentation',
+	exportSystems: {
+		label: 'Export systems',
+		icon: LinkIcon,
+		href: '/export-systems',
 	},
 	licences: {
 		label: 'Licences',
@@ -98,7 +104,9 @@ export const getAppLinks = (params?: { features?: Features }) => [
 	apps.intelligence,
 	apps.compliance,
 	...(params?.features?.quotas ? [apps.quotas] : []),
-	...(params?.features?.exportDocumentation ? [apps.exportDocumentation] : []),
+	...((params?.features?.exportSystems ?? params?.features?.exportDocumentation)
+		? [apps.exportSystems]
+		: []),
 	...(params?.features?.licences ? [apps.licences] : []),
 ];
 
