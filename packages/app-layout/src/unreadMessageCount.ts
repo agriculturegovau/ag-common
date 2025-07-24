@@ -1,6 +1,5 @@
 import { z, type ZodType } from 'zod';
 import useSWR from 'swr';
-import { createContext, useContext } from 'react';
 
 type AuthToken = {
 	accessToken: string;
@@ -24,13 +23,13 @@ export const unreadCountSchema = z.object({
 	}),
 	businesses: z.array(
 		z.object({
-			partyUniqueId: z.string().uuid(),
+			partyUniqueId: z.string(),
 			unreadMessageCount: z.number(),
 		})
 	),
 });
 
-type UnreadCounts = z.infer<typeof unreadCountSchema>;
+export type UnreadCounts = z.infer<typeof unreadCountSchema>;
 
 export const resolveSchema =
 	<Output>(schema: ZodType<Output>) =>
@@ -44,18 +43,6 @@ export const resolveSchema =
 const resolveUnreadCount = resolveSchema(unreadCountSchema);
 
 type MessageCentreConfig = AuthToken & RemoteDetails;
-
-/*
-type CountContext = AuthToken & RemoteDetails;
-
-const defaults = {
-	messageCentreURL:
-		'https://accounts.exports.agriculture.gov.au/message-centre',
-};
-
-const ClientContext = createContext<Partial<CountContext>>(defaults);
-const useClientContext = () => useContext(ClientContext);
-*/
 
 const resolveJSON = (res: Response) =>
 	res.ok
