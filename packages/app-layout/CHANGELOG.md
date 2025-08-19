@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.11.1
+
+### Patch Changes
+
+- c26ddf3: app-layout: add people item to sidenav
+
 ## 1.11.0
 
 ### Minor Changes
