@@ -204,6 +204,35 @@ exports[`AppLayout renders correctly 1`] = `
             class="css-10pno0x-AppLayoutSidebarNavItemInner"
           >
             <a
+              href="/account/manage-people"
+            >
+              <svg
+                aria-hidden="true"
+                class="css-1z0c8dw"
+                clip-rule="evenodd"
+                fill-rule="evenodd"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16.546 20.182v-1.818a3.637 3.637 0 0 0-3.637-3.637H5.636A3.636 3.636 0 0 0 2 18.364v1.818m20 0v-1.818a3.637 3.637 0 0 0-2.727-3.519M15.636 3.936a3.636 3.636 0 0 1 0 7.046M12.91 7.455a3.636 3.636 0 1 1-7.273 0 3.636 3.636 0 0 1 7.273 0Z"
+                />
+              </svg>
+              <span
+                class="css-yzd50u-AppLayoutSidebarNavListItem"
+              >
+                People
+              </span>
+            </a>
+          </li>
+          <li
+            class="css-10pno0x-AppLayoutSidebarNavItemInner"
+          >
+            <a
               href="/establishments"
             >
               <svg
