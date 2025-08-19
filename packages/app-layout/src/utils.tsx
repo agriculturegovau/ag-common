@@ -9,6 +9,7 @@ import {
 	LinkIcon,
 	PieChartIcon,
 	SuccessIcon,
+	UsersIcon,
 } from '@ag.ds-next/react/icon';
 import { Flex } from '@ag.ds-next/react/flex';
 import { ExternalLinkCallout } from '@ag.ds-next/react/a11y';
@@ -29,6 +30,7 @@ export const hrefs = {
 	account: '/account',
 	profile: '/account/profile',
 	dashboard: '/account/dashboard',
+	people: '/account/manage-people',
 	inbox: '/account/messages',
 	linkBusiness: '/account/link-a-business',
 	acceptInvite: '/account/invitation/accept',
@@ -66,6 +68,11 @@ export const apps = {
 		icon: HomeIcon,
 		href: hrefs.dashboard,
 	},
+	people: {
+		label: 'People',
+		icon: UsersIcon,
+		href: hrefs.people,
+	},
 	establishments: {
 		label: 'Establishments',
 		icon: FactoryIcon,
@@ -100,6 +107,7 @@ export const apps = {
 
 export const getAppLinks = (params?: { features?: Features }) => [
 	apps.dashboard,
+	apps.people,
 	apps.establishments,
 	apps.intelligence,
 	apps.compliance,
