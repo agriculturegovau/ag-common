@@ -85,35 +85,36 @@ export const ProofMissing = (
 
 	return (
 		<PageContent>
-			<Stack gap={3}>
-				<CoreProvider>
+			<CoreProvider>
+				<Stack gap={3}>
 					<DirectionLink href={hrefs.dashboard} direction="left">
 						Back
 					</DirectionLink>
-				</CoreProvider>
 
-				<Prose>
-					<h1>{props.activeApp ?? 'Use a higher identity strength'}</h1>
+					<Prose>
+						<h1>{props.activeApp ?? 'Use a higher identity strength'}</h1>
 
-					<Box className={proseBlockClassname}>
-						<PageAlert tone="info" title="You can't access this feature">
-							Sign in with myID and use a ‘{required}’ identity strength or
-							higher to access this feature.
-						</PageAlert>
-					</Box>
+						<Box className={proseBlockClassname}>
+							<PageAlert tone="info" title="You can't access this feature">
+								Sign in with myID and use a ‘{required}’ identity strength or
+								higher to access this feature.
+							</PageAlert>
+						</Box>
 
-					<h2>Review your profile and settings</h2>
+						<h2>Review your profile and settings</h2>
 
-					<p>
-						Your current identity strength is {provided}. To access this feature
-						you must add myID to your account from your{' '}
-						<TextLink href="TODO">Profile and settings</TextLink>, then sign in.
-					</p>
-				</Prose>
+						<p>
+							Your current identity strength is {provided}. To access this
+							feature you must add myID to your account from your{' '}
+							<TextLink href={hrefs.profile}>Profile and settings</TextLink>,
+							then sign in.
+						</p>
+					</Prose>
 
-				<Divider />
-				<HelpCallout />
-			</Stack>
+					<Divider />
+					<HelpCallout />
+				</Stack>
+			</CoreProvider>
 		</PageContent>
 	);
 };

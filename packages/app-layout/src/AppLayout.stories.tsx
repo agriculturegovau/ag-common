@@ -25,6 +25,34 @@ import {
 import { Box } from '@ag.ds-next/react/box';
 import { getProofLevelFromClaims } from './authDetails';
 import { FactoryIcon, PieChartIcon } from '@ag.ds-next/react/icon';
+import { http, HttpResponse } from 'msw';
+import { UnreadCounts, useUnreadMessageCount } from './unreadMessageCount';
+
+const exampleCounts = {
+	totalUnreadMessageCount: 7,
+	individual: {
+		unreadMessageCount: 4,
+	},
+	businesses: [
+		{
+			partyUniqueId: 'party-1',
+			unreadMessageCount: 2,
+		},
+		{
+			partyUniqueId: 'party-2',
+			unreadMessageCount: 1,
+		},
+	],
+};
+
+const fakeMessageCentreBaseURL =
+	'https://api.message-centre-example.agriculture.gov.au';
+const messageCountHandlers = {
+	counts: { ['Bearer example-access-token']: exampleCounts } as Record<
+		string,
+		UnreadCounts
+	>,
+};
 
 type BusinessFromAPI = Business & { someExtraInfo: string };
 
@@ -64,6 +92,24 @@ const meta: Meta<typeof AppLayout> = {
 	component: AppLayout,
 	parameters: {
 		layout: 'fullscreen',
+		msw: {
+			handlers: [
+				http.get(
+					`${fakeMessageCentreBaseURL}/inbox/unread-count-detail`,
+					({ request }) => {
+						const data =
+							messageCountHandlers.counts?.[
+								request.headers.get('authorization') ?? ''
+							];
+						const [response, status] = data
+							? [data, undefined]
+							: [{ error: { message: 'Bad access token' } }, 404];
+
+						return HttpResponse.json(response, { status });
+					}
+				),
+			],
+		},
 	},
 	render: function Render(props) {
 		return (
@@ -808,5 +854,38 @@ export const CustomSidenav: Story = {
 			},
 		],
 		internal: 'sidebar',
+	},
+};
+
+export const useUnreadMessageCountHook: Story = {
+	args: {
+		userName: 'Toto Wolff',
+		activePath: '/',
+	},
+	render: function Render(props) {
+		const unreadMessageCount = useUnreadMessageCount({
+			messageCentreBaseURL: fakeMessageCentreBaseURL,
+			accessToken: 'example-access-token',
+		});
+
+		const businessDetails = {
+			linkedBusinesses: exampleBusinesses,
+			selectedBusiness: exampleBusinesses[0],
+			setSelectedBusiness: () => {},
+		};
+
+		return (
+			<AppLayout
+				{...props}
+				businessDetails={businessDetails}
+				unreadMessageCount={unreadMessageCount}
+			>
+				<PageContent>
+					<Prose>
+						<p>unread message count comes from hook 👆</p>
+					</Prose>
+				</PageContent>
+			</AppLayout>
+		);
 	},
 };
