@@ -1,6 +1,8 @@
 import { Fragment } from 'react';
 import { VisuallyHidden } from '@ag.ds-next/react/a11y';
 import {
+	DropdownMenu,
+	DropdownMenuButton,
 	DropdownMenuDivider,
 	DropdownMenuGroup,
 	DropdownMenuItem,
@@ -9,15 +11,17 @@ import {
 	DropdownMenuPanel,
 } from '@ag.ds-next/react/dropdown-menu';
 import {
-	ArrowRightIcon,
-	AvatarIcon,
-	ChevronsLeftIcon,
 	ExitIcon,
+	HelpIcon,
 	InboxIcon,
+	SettingsIcon,
 } from '@ag.ds-next/react/icon';
 import { NotificationBadge } from '@ag.ds-next/react/notification-badge';
 import { Text } from '@ag.ds-next/react/text';
 import { hrefs } from './utils';
+import { CoreProvider } from '@ag.ds-next/react/core';
+import { ButtonLink } from '@ag.ds-next/react/button';
+import { OurDropdownMenuItem } from './OurDropdown';
 
 export interface Business {
 	partyId: number;
@@ -51,30 +55,22 @@ const createBusinessOptions = <T extends Business>(
 
 export interface BusinessDropdownProps<T extends Business> {
 	businessDetails: BusinessDetails<T>;
+	preventAddBusiness?: boolean;
+}
+
+export interface ProfileDropdownProps {
 	unreadMessageCount?: number;
 	onSignOutClick: () => void;
-	preventAddBusiness?: boolean;
 }
 
 const LinkedBusinesses = (props: {
 	businesses: BusinessOption[];
 	onSelectBusiness: (business: BusinessOption) => () => void;
 	preventAddBusiness?: boolean;
-}) =>
-	props.businesses.length === 0 ? (
-		<DropdownMenuGroup label="Get started">
-			{props?.preventAddBusiness ? null : (
-				<DropdownMenuItemLink href={hrefs.linkBusiness}>
-					Add a business to the Export Service
-				</DropdownMenuItemLink>
-			)}
-			<DropdownMenuItemLink href={hrefs.acceptInvite}>
-				Accept an invite
-			</DropdownMenuItemLink>
-		</DropdownMenuGroup>
-	) : (
+}) => (
+	<>
 		<DropdownMenuGroup label="Businesses">
-			{props.businesses.slice(0, 3).map((business) => (
+			{props.businesses.map((business) => (
 				<DropdownMenuItemRadio
 					key={business.partyId}
 					checked={business.selected ?? false}
@@ -84,13 +80,67 @@ const LinkedBusinesses = (props: {
 					{business.partyDisplayName}
 				</DropdownMenuItemRadio>
 			))}
-			{props.businesses.length > 3 ? (
-				<DropdownMenuItemLink href="/account" endElement={<ArrowRightIcon />}>
-					View all businesses
-				</DropdownMenuItemLink>
-			) : null}
+
+			{props?.preventAddBusiness ? null : (
+				<OurDropdownMenuItem>
+					<ButtonLink block variant="secondary" href={hrefs.linkBusiness}>
+						Add a business
+					</ButtonLink>
+				</OurDropdownMenuItem>
+			)}
+
+			<OurDropdownMenuItem>
+				<ButtonLink block variant="secondary" href={hrefs.acceptInvite}>
+					Accept an invite
+				</ButtonLink>
+			</OurDropdownMenuItem>
 		</DropdownMenuGroup>
+	</>
+);
+
+export const ProfileDropdown = (props: ProfileDropdownProps) => {
+	return (
+		<DropdownMenuPanel palette="light">
+			<DropdownMenuItemLink href={hrefs.profile} icon={SettingsIcon}>
+				Account settings
+			</DropdownMenuItemLink>
+
+			<DropdownMenuItemLink
+				href={hrefs.inbox}
+				icon={InboxIcon}
+				endElement={
+					typeof props.unreadMessageCount === 'number' &&
+					props.unreadMessageCount > 0 ? (
+						<span>
+							<NotificationBadge
+								tone="action"
+								value={props.unreadMessageCount}
+								max={99}
+								aria-hidden
+							/>
+							<VisuallyHidden>
+								, {props.unreadMessageCount} unread
+							</VisuallyHidden>
+						</span>
+					) : undefined
+				}
+			>
+				Inbox
+			</DropdownMenuItemLink>
+
+			<CoreProvider>
+				<DropdownMenuItemLink href="/help/account" icon={HelpIcon}>
+					Help
+				</DropdownMenuItemLink>
+			</CoreProvider>
+
+			<DropdownMenuDivider />
+			<DropdownMenuItem onClick={props.onSignOutClick} icon={ExitIcon}>
+				Sign out
+			</DropdownMenuItem>
+		</DropdownMenuPanel>
 	);
+};
 
 export const BusinessDropdown = <T extends Business>(
 	props: BusinessDropdownProps<T>
@@ -105,73 +155,77 @@ export const BusinessDropdown = <T extends Business>(
 				onSelectBusiness={setBusiness}
 				preventAddBusiness={props.preventAddBusiness}
 			/>
-			<DropdownMenuDivider />
-			<DropdownMenuGroup label="My account">
-				<DropdownMenuItemLink
-					href={hrefs.inbox}
-					icon={InboxIcon}
-					endElement={
-						typeof props.unreadMessageCount === 'number' &&
-						props.unreadMessageCount > 0 ? (
-							<span>
-								<NotificationBadge
-									tone="action"
-									value={props.unreadMessageCount}
-									max={99}
-									aria-hidden
-								/>
-								<VisuallyHidden>
-									, {props.unreadMessageCount} unread
-								</VisuallyHidden>
-							</span>
-						) : undefined
-					}
-				>
-					Inbox
-				</DropdownMenuItemLink>
-				<DropdownMenuItemLink href={hrefs.profile} icon={AvatarIcon}>
-					Profile and settings
-				</DropdownMenuItemLink>
-			</DropdownMenuGroup>
-			<DropdownMenuDivider />
-			<DropdownMenuItem onClick={props.onSignOutClick} icon={ExitIcon}>
-				Sign out
-			</DropdownMenuItem>
 		</DropdownMenuPanel>
 	);
 };
 
 export const getBusinessSidebarLinks = <T extends Business>(
-	details: BusinessDetails<T> | undefined
-) =>
-	details?.selectedBusiness === undefined
-		? []
-		: [
-				{
-					options: { disableGroupPadding: true },
-					items: [
-						{
-							label: 'Back to my account',
-							icon: ChevronsLeftIcon,
-							href: '/account',
-						},
-					],
-				},
+	details: BusinessDetails<T> | undefined,
+	preventAddBusiness?: boolean
+) => {
+	const linkedBusinesses = details?.linkedBusinesses ?? [];
+
+	return linkedBusinesses.length === 0 ||
+		details?.selectedBusiness === undefined
+		? [
 				{
 					options: { disableGroupPadding: true },
 					items: [
 						{
 							label: (
 								<Fragment>
-									<Text fontWeight="bold" fontSize="xs">
-										{details.selectedBusiness.partyDisplayName}
-									</Text>
-									<Text color="muted" fontSize="xs">
-										{details.selectedBusiness.formattedPartyExternalId}
-									</Text>
+									{preventAddBusiness ? null : (
+										<ButtonLink
+											block
+											variant="secondary"
+											href={hrefs.linkBusiness}
+										>
+											Add a business
+										</ButtonLink>
+									)}
+
+									<ButtonLink
+										block
+										variant="secondary"
+										href={hrefs.acceptInvite}
+									>
+										Accept an invite
+									</ButtonLink>
+								</Fragment>
+							),
+						},
+					],
+				},
+			]
+		: [
+				{
+					options: { disableGroupPadding: true },
+					items: [
+						{
+							label: (
+								<Fragment>
+									<DropdownMenu>
+										<DropdownMenuButton
+											css={{ display: 'flex', justifyContent: 'space-between' }}
+										>
+											<Text as="p" fontWeight="bold" fontSize="xs">
+												{details.selectedBusiness.partyDisplayName}
+											</Text>
+
+											<Text as="p" color="muted" fontSize="xs">
+												{details.selectedBusiness.formattedPartyExternalId}
+											</Text>
+										</DropdownMenuButton>
+
+										<BusinessDropdown
+											businessDetails={details}
+											preventAddBusiness={preventAddBusiness}
+										/>
+									</DropdownMenu>
 								</Fragment>
 							),
 						},
 					],
 				},
 			];
+};

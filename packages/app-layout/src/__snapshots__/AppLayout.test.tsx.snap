@@ -169,6 +169,34 @@ exports[`AppLayout renders correctly 1`] = `
           class="css-17tu34w-boxStyles-boxStyles"
         >
           <li
+            class="css-cvrhr8-AppLayoutSidebarNavItemInner"
+          >
+            <span
+              class="css-14fe1bf-boxStyles-boxStyles"
+            >
+              <a
+                class="css-v4rg35"
+                href="/account/link-a-business"
+              >
+                Add a business
+              </a>
+              <a
+                class="css-v4rg35"
+                href="/account/invitation/accept"
+              >
+                Accept an invite
+              </a>
+            </span>
+          </li>
+          <li
+            aria-hidden="true"
+            class="css-kju84s-boxStyles-boxStyles"
+          >
+            <hr
+              class="css-idz6ww-AppLayoutSidebarNavDivider"
+            />
+          </li>
+          <li
             class="css-10pno0x-AppLayoutSidebarNavItemInner"
           >
             <a

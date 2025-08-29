@@ -31,7 +31,7 @@ import {
 import {
 	Business,
 	BusinessDetails,
-	BusinessDropdown,
+	ProfileDropdown,
 	getBusinessSidebarLinks,
 } from './AppLayoutDropdown';
 import {
@@ -100,13 +100,6 @@ export function AppLayout<B extends Business>({
 	const onSignOutClick = openModal;
 	const onModalSignOutClick = handleSignOut;
 	const appLinks = useMemo(() => getAppLinks({ features }), [features]);
-	const sidebarLinks = useMemo(
-		() => [
-			...getBusinessSidebarLinks(businessDetails),
-			...getSidebarLinks({ onSignOutClick, features }),
-		],
-		[onSignOutClick, businessDetails, features]
-	);
 
 	// we always build these in order to respect hook conditional rules
 	// we should accept authDetails ONLY instead of claims in the future.
@@ -115,6 +108,14 @@ export function AppLayout<B extends Business>({
 	const details = authDetails ?? computedAuthDetails;
 	const activeApp = findBestMatch(appLinks, activePath);
 	const preventAddBusiness = details?.provider === 'B2CLocalUser';
+
+	const sidebarLinks = useMemo(
+		() => [
+			...getBusinessSidebarLinks(businessDetails, preventAddBusiness),
+			...getSidebarLinks({ onSignOutClick, features }),
+		],
+		[onSignOutClick, businessDetails, preventAddBusiness, features]
+	);
 
 	return (
 		<AgDsAppLayout focusMode={focusMode}>
@@ -135,11 +136,9 @@ export function AppLayout<B extends Business>({
 											businessDetails?.selectedBusiness?.partyDisplayName ??
 											'My account',
 										dropdown: businessDetails ? (
-											<BusinessDropdown
-												businessDetails={businessDetails}
+											<ProfileDropdown
 												unreadMessageCount={unreadMessageCount}
 												onSignOutClick={onSignOutClick}
-												preventAddBusiness={preventAddBusiness}
 											/>
 										) : undefined,
 									}
