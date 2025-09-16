@@ -18,6 +18,7 @@ export type Features = {
 	quotas?: boolean;
 	exportSystems?: boolean;
 	licences?: boolean;
+	invoices?: boolean;
 
 	/**
 	 * @deprecated Prefer the `exportSystems` flag as this system has been renamed.
@@ -103,6 +104,11 @@ export const apps = {
 		icon: LicenceBusinessIcon,
 		href: '/licences',
 	},
+	invoices: {
+		label: 'Invoices and Payments',
+		icon: SuccessIcon,
+		href: '/inexs',
+	},
 };
 
 export const getAppLinks = (params?: { features?: Features }) => [
@@ -116,6 +122,7 @@ export const getAppLinks = (params?: { features?: Features }) => [
 		? [apps.exportSystems]
 		: []),
 	...(params?.features?.licences ? [apps.licences] : []),
+	...(params?.features?.invoices ? [apps.invoices] : []),
 ];
 
 export function getSidebarLinks({

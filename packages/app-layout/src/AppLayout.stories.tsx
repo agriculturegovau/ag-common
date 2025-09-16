@@ -370,7 +370,7 @@ export const OptionalAppsEnabled: Story = {
 		userName: 'Toto Wolff',
 		unreadMessageCount: 6,
 		activePath: '/',
-		features: { quotas: true, exportSystems: true, licences: true },
+		features: { quotas: true, exportSystems: true, licences: true, invoices: true },
 	},
 };
 
