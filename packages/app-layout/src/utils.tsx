@@ -1,5 +1,6 @@
 import {
 	ChartLineIcon,
+	createIcon,
 	ExitIcon,
 	ExternalLinkIcon,
 	FactoryIcon,
@@ -13,6 +14,7 @@ import {
 } from '@ag.ds-next/react/icon';
 import { Flex } from '@ag.ds-next/react/flex';
 import { ExternalLinkCallout } from '@ag.ds-next/react/a11y';
+import { Fragment } from 'react';
 
 export type Features = {
 	quotas?: boolean;
@@ -36,6 +38,14 @@ export const hrefs = {
 	linkBusiness: '/account/link-a-business',
 	acceptInvite: '/account/invitation/accept',
 };
+
+const PaymentIcon = createIcon(
+	<Fragment>
+		<line x1="12" y1="1" x2="12" y2="23" />
+		<path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+	</Fragment>,
+	'PaymentIcon'
+);
 
 export const footerNavigationItems = [
 	{
@@ -105,8 +115,8 @@ export const apps = {
 		href: '/licences',
 	},
 	invoices: {
-		label: 'Invoices and Payments',
-		icon: SuccessIcon,
+		label: 'Invoices and payments',
+		icon: PaymentIcon,
 		href: '/inexs',
 	},
 };
