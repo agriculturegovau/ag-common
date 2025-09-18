@@ -1,5 +1,6 @@
 import {
 	ChartLineIcon,
+	createIcon,
 	ExitIcon,
 	ExternalLinkIcon,
 	FactoryIcon,
@@ -13,11 +14,13 @@ import {
 } from '@ag.ds-next/react/icon';
 import { Flex } from '@ag.ds-next/react/flex';
 import { ExternalLinkCallout } from '@ag.ds-next/react/a11y';
+import { Fragment } from 'react';
 
 export type Features = {
 	quotas?: boolean;
 	exportSystems?: boolean;
 	licences?: boolean;
+	invoices?: boolean;
 
 	/**
 	 * @deprecated Prefer the `exportSystems` flag as this system has been renamed.
@@ -35,6 +38,14 @@ export const hrefs = {
 	linkBusiness: '/account/link-a-business',
 	acceptInvite: '/account/invitation/accept',
 };
+
+const PaymentIcon = createIcon(
+	<Fragment>
+		<line x1="12" y1="1" x2="12" y2="23" />
+		<path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+	</Fragment>,
+	'PaymentIcon'
+);
 
 export const footerNavigationItems = [
 	{
@@ -103,6 +114,11 @@ export const apps = {
 		icon: LicenceBusinessIcon,
 		href: '/licences',
 	},
+	invoices: {
+		label: 'Invoices and payments',
+		icon: PaymentIcon,
+		href: '/inexs',
+	},
 };
 
 export const getAppLinks = (params?: { features?: Features }) => [
@@ -116,6 +132,7 @@ export const getAppLinks = (params?: { features?: Features }) => [
 		? [apps.exportSystems]
 		: []),
 	...(params?.features?.licences ? [apps.licences] : []),
+	...(params?.features?.invoices ? [apps.invoices] : []),
 ];
 
 export function getSidebarLinks({
