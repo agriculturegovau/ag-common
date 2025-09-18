@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.12.0
+
+### Minor Changes
+
+- c1ec610: sidenav: add invoices and payments sidenav item
+
 ## 1.11.1
 
 ### Patch Changes
