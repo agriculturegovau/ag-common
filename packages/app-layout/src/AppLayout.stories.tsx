@@ -32,30 +32,34 @@ const exampleBusinesses: BusinessFromAPI[] = [
 	{
 		partyId: 1,
 		partyDisplayName: 'Jefferson PTY LTD',
-		roleDisplayName: 'Role 1',
 		formattedPartyExternalId: 'ABN: 89 790 756 100',
 		someExtraInfo: 'our component allows this field but does not use it at all',
+		roleDisplayName: 'User',
+		roleName: 'USER',
 	},
 	{
 		partyId: 2,
-		partyDisplayName: 'Metaweb',
-		roleDisplayName: 'Role 2',
+		partyDisplayName: 'Metaweb (agent role)',
 		formattedPartyExternalId: 'ABN: 89 790 756 100',
 		someExtraInfo: 'our component allows this field but does not use it at all',
+		roleDisplayName: 'Agent',
+		roleName: 'AGENT',
 	},
 	{
 		partyId: 3,
 		partyDisplayName: 'Fresh Produce Australia',
-		roleDisplayName: 'Role 3',
 		formattedPartyExternalId: 'ABN: 92 635 964 018',
 		someExtraInfo: 'our component allows this field but does not use it at all',
+		roleDisplayName: 'Principal Authority (Owner)',
+		roleName: 'PRINCIPAL_AUTHORITY_OWNER',
 	},
 	{
 		partyId: 4,
 		partyDisplayName: 'Fresh Produce Australia',
-		roleDisplayName: 'Role 3',
 		formattedPartyExternalId: 'ABN: 92 635 964 018',
 		someExtraInfo: 'our component allows this field but does not use it at all',
+		roleDisplayName: 'Manager',
+		roleName: 'MANAGER',
 	},
 ];
 
@@ -375,6 +379,7 @@ export const OptionalAppsEnabled: Story = {
 			exportSystems: true,
 			licences: true,
 			invoices: true,
+			people: true,
 		},
 	},
 };

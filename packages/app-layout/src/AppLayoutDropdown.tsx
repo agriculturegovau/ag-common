@@ -17,13 +17,14 @@ import {
 } from '@ag.ds-next/react/icon';
 import { NotificationBadge } from '@ag.ds-next/react/notification-badge';
 import { Text } from '@ag.ds-next/react/text';
-import { hrefs } from './utils';
+import { hrefs, type Features } from './utils';
 
 export interface Business {
 	partyId: number;
 	partyDisplayName: string;
 	formattedPartyExternalId: string;
 	roleDisplayName: string;
+	roleName?: string;
 }
 
 export interface BusinessOption extends Business {
@@ -35,6 +36,13 @@ export interface BusinessDetails<T extends Business> {
 	selectedBusiness?: T;
 	linkedBusinesses?: T[];
 	setSelectedBusiness: (business: T) => void;
+}
+
+export interface BusinessDropdownProps<T extends Business> {
+	businessDetails: BusinessDetails<T>;
+	unreadMessageCount?: number;
+	onSignOutClick: () => void;
+	preventAddBusiness?: boolean;
 }
 
 const createBusinessOptions = <T extends Business>(
@@ -49,12 +57,14 @@ const createBusinessOptions = <T extends Business>(
 	);
 };
 
-export interface BusinessDropdownProps<T extends Business> {
-	businessDetails: BusinessDetails<T>;
-	unreadMessageCount?: number;
-	onSignOutClick: () => void;
-	preventAddBusiness?: boolean;
-}
+const canAccessPeopleRoles = new Set([
+	'MANAGER',
+	'PRINCIPAL_AUTHORITY_OWNER',
+	'USER',
+]);
+
+const canAccessPeople = (business?: Business) =>
+	business?.roleName ? canAccessPeopleRoles.has(business.roleName) : false;
 
 const LinkedBusinesses = (props: {
 	businesses: BusinessOption[];
@@ -175,3 +185,16 @@ export const getBusinessSidebarLinks = <T extends Business>(
 					],
 				},
 			];
+
+// agents should not be able to 'manage people' but allow feature toggle to take priority
+export const getComputedFeatures = (params: {
+	features?: Features;
+	selectedBusiness?: Business;
+}): Features | undefined =>
+	params.selectedBusiness
+		? {
+				...params?.features,
+				people:
+					params?.features?.people ?? canAccessPeople(params.selectedBusiness),
+			}
+		: params.features;

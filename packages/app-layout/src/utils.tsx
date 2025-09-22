@@ -21,6 +21,7 @@ export type Features = {
 	exportSystems?: boolean;
 	licences?: boolean;
 	invoices?: boolean;
+	people?: boolean;
 
 	/**
 	 * @deprecated Prefer the `exportSystems` flag as this system has been renamed.
@@ -123,7 +124,7 @@ export const apps = {
 
 export const getAppLinks = (params?: { features?: Features }) => [
 	apps.dashboard,
-	apps.people,
+	...(params?.features?.people ? [apps.people] : []),
 	apps.establishments,
 	apps.intelligence,
 	apps.compliance,
