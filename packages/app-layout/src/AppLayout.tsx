@@ -33,6 +33,7 @@ import {
 	BusinessDetails,
 	BusinessDropdown,
 	getBusinessSidebarLinks,
+	getComputedFeatures,
 } from './AppLayoutDropdown';
 import {
 	AppContent,
@@ -84,7 +85,7 @@ export function AppLayout<B extends Business>({
 	businessDetails,
 	claims,
 	errorComponents,
-	features,
+	features: features_,
 	requiredProofingLevel,
 	authDetails,
 	sidebarItems,
@@ -99,6 +100,11 @@ export function AppLayout<B extends Business>({
 	const [isSigningOut, setSigningOut, setSignedOut] = useTernaryState(false);
 	const onSignOutClick = openModal;
 	const onModalSignOutClick = handleSignOut;
+
+	const features = getComputedFeatures({
+		features: features_,
+		selectedBusiness: businessDetails?.selectedBusiness,
+	});
 	const appLinks = useMemo(() => getAppLinks({ features }), [features]);
 	const sidebarLinks = useMemo(
 		() => [
