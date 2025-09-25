@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.13.0
+
+### Minor Changes
+
+- 12dceb6: app-layout: disable people automatically when user is agent
+
 ## 1.12.0
 
 ### Minor Changes
