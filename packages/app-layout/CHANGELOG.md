@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.13.1
+
+### Patch Changes
+
+- f672900: app-layout: update invoicing icon
+
 ## 1.13.0
 
 ### Minor Changes
