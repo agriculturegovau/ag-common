@@ -7,6 +7,7 @@ import {
 	AppLayoutFooter as AgDsAppLayoutFooter,
 	AppLayoutFooterDivider as AgDsAppLayoutFooterDivider,
 	AppLayoutSidebarProps,
+	AppLayoutHeaderProps,
 } from '@ag.ds-next/react/app-layout';
 import { Logo } from '@ag.ds-next/react/ag-branding';
 import {
@@ -50,6 +51,14 @@ type LayoutContext = {
 };
 
 type SidebarItems = AppLayoutSidebarProps['items'];
+type SidebarSubLevelVisible = AppLayoutSidebarProps['subLevelVisible'];
+
+type HeaderProps = {
+	href?: AppLayoutHeaderProps['href'];
+	heading?: AppLayoutHeaderProps['heading'];
+	subLine?: AppLayoutHeaderProps['subLine'];
+	badgeLabel?: AppLayoutHeaderProps['badgeLabel'];
+};
 
 const LayoutContext = createContext<LayoutContext | undefined>(undefined);
 
@@ -71,6 +80,8 @@ export type AppLayoutProps<B extends Business> = PropsWithChildren<{
 	requiredProofingLevel?: ProofingLevel | ProofingLevel[];
 	authDetails?: AuthDetails;
 	sidebarItems?: SidebarItems;
+	sidebarSubLevelVisible?: SidebarSubLevelVisible;
+	headerProps?: HeaderProps;
 	internal?: InternalTheme;
 }>;
 
@@ -89,6 +100,8 @@ export function AppLayout<B extends Business>({
 	requiredProofingLevel,
 	authDetails,
 	sidebarItems,
+	sidebarSubLevelVisible,
+	headerProps,
 	internal,
 }: AppLayoutProps<B>) {
 	const year = useMemo(() => new Date().getFullYear(), []);
@@ -127,10 +140,13 @@ export function AppLayout<B extends Business>({
 			<LayoutContext.Provider value={{ onSignOutClick }}>
 				<CoreProvider>
 					<AgDsAppLayoutHeader
-						href="/account"
-						heading="Export Service"
-						subLine="Supporting Australian agricultural exports"
-						badgeLabel="Beta"
+						href={headerProps?.href ?? '/account'}
+						heading={headerProps?.heading ?? 'Export Service'}
+						subLine={
+							headerProps?.subLine ??
+							'Supporting Australian agricultural exports'
+						}
+						badgeLabel={headerProps?.badgeLabel ?? 'Beta'}
 						logo={<Logo />}
 						accountDetails={
 							name
@@ -158,6 +174,7 @@ export function AppLayout<B extends Business>({
 							<AgDsAppLayoutSidebar
 								activePath={activePath}
 								items={sidebarItems}
+								subLevelVisible={sidebarSubLevelVisible}
 								{...internalSidebarProps(internal)}
 							/>
 						</CoreProvider>

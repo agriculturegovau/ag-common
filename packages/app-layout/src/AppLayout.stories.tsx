@@ -24,7 +24,12 @@ import {
 } from './proofing';
 import { Box } from '@ag.ds-next/react/box';
 import { getProofLevelFromClaims } from './authDetails';
-import { FactoryIcon, PieChartIcon } from '@ag.ds-next/react/icon';
+import {
+	BusinessIcon,
+	FactoryIcon,
+	HelpIcon,
+	PieChartIcon,
+} from '@ag.ds-next/react/icon';
 
 type BusinessFromAPI = Business & { someExtraInfo: string };
 
@@ -818,5 +823,46 @@ export const CustomSidenav: Story = {
 			},
 		],
 		internal: 'sidebar',
+	},
+};
+
+export const HeaderProps: Story = {
+	args: {
+		focusMode: false,
+		userName: 'Toto Wolff',
+		unreadMessageCount: 6,
+		activePath: '/custom',
+		handleSignOut,
+		headerProps: {
+			heading: 'Service Portal',
+			subLine: 'Supporting Australian agriculture',
+		},
+		sidebarItems: [
+			{
+				items: [
+					{
+						label: 'Overview',
+						href: '/custom',
+						icon: FactoryIcon,
+						items: [
+							{ label: 'Business details', href: '#' },
+							{ label: 'People', href: '#' },
+						],
+					},
+					{
+						label: 'Country requirements',
+						href: '/country-requirements',
+						icon: BusinessIcon,
+						items: [
+							{ label: 'Other', href: '#' },
+							{ label: 'Options', href: '#' },
+						],
+					},
+				],
+			},
+			{
+				items: [{ label: 'Help', href: '/help', icon: HelpIcon }],
+			},
+		],
 	},
 };
