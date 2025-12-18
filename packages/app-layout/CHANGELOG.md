@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.14.0
+
+### Minor Changes
+
+- 398399e: app-layout: support custom header props and custom sidenav visibility
+
 ## 1.13.1
 
 ### Patch Changes
