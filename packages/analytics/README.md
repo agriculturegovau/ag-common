@@ -1,6 +1,6 @@
 # Analytics
 
-The `@ag.common/analytics` package aims to coordinate analytics capture across the export service. We ship the correct tracking codes out of the box for Hotjar and Google Analytics so that everything is reported to the right place.
+The `@ag.common/analytics` package aims to coordinate analytics capture across the export service. We ship the correct tracking codes out of the box for Google Analytics so that everything is reported to the right place.
 
 It also provides convenient helpers for reporting custom events and managing data contexts.
 
@@ -29,7 +29,7 @@ function App() {
 
 ## Disable an analytics script
 
-Hotjar and Google Analytics are enabled by default but can be turned off one by one.
+Google Analytics is enabled by default but can be turned off.
 
 ```tsx
 import Script from 'next/script';
@@ -37,11 +37,7 @@ import { Analytics } from '@ag.common/analytics';
 
 function App() {
 	return (
-		<Analytics
-			scriptComponents={{ Script }}
-			hotjar={false}
-			googleAnalytics={false}
-		>
+		<Analytics scriptComponents={{ Script }} googleAnalytics={false}>
 			<YourApplication />
 		</Analytics>
 	);
