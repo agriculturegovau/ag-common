@@ -2,7 +2,6 @@ import { PropsWithChildren } from 'react';
 import { AnalyticsEventHandler, AnalyticsListener } from './Events';
 import {
 	GoogleAnalytics,
-	Hotjar,
 	ScriptComponentProvider,
 	ScriptComponentsContextType,
 } from './Scripts';
@@ -14,10 +13,14 @@ export type AnalyticsProps = PropsWithChildren<{
 	onEvent?: AnalyticsEventHandler;
 	/** When false, prevent the Google Analytics gtag script from being loaded */
 	googleAnalytics?: boolean;
-	/** When false, prevent the Hotjar script from being loaded */
-	hotjar?: boolean;
 	/** Provide components that can render a script tag based on your web framework of choice */
 	scriptComponents: ScriptComponentsContextType;
+
+	/**
+	 * @deprecated Hotjar is no longer supported, setting this to true will have no effect.
+	 * This property is for compatibility and will be removed in a future version.
+	 */
+	hotjar?: boolean;
 }>;
 
 const emptyEvent: AnalyticsEventHandler = () => {
@@ -28,7 +31,6 @@ export const Analytics = ({
 	children,
 	onEvent,
 	googleAnalytics,
-	hotjar,
 	scriptComponents,
 }: AnalyticsProps) => {
 	return (
@@ -36,7 +38,6 @@ export const Analytics = ({
 			{googleAnalytics === false ? null : (
 				<GoogleAnalytics measurementID={vars.googleAnalyticsMeasurementID} />
 			)}
-			{hotjar === false ? null : <Hotjar hjid={vars.hotjarID} />}
 			<AnalyticsListener
 				onEvent={(...params) => {
 					/* !!! this is a load-bearing line.
