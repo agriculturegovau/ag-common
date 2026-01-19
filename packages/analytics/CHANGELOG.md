@@ -1,5 +1,11 @@
 # @ag.common/analytics
 
+## 0.10.1
+
+### Patch Changes
+
+- c74bca0: analytics: remove hotjar support
+
 ## 0.10.0
 
 ### Minor Changes
