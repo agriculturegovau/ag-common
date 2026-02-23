@@ -1,13 +1,18 @@
 import { AnalyticsEventHandler } from './Events';
 import { analyticsExportServiceVars as vars } from './vars';
 
+type onEventHandler = { onEvent: AnalyticsEventHandler };
+
 export const gtag = (): typeof window.gtag | undefined => window?.gtag;
 
-export const gtagEventHandler = ():
-	| { onEvent: AnalyticsEventHandler }
-	| undefined => ({
-	onEvent: (...params) => gtag()?.('event', ...params),
+const eventHandler = (src: Gtag.Gtag): onEventHandler => ({
+	onEvent: (...params) => src('event', ...params),
 });
+
+export const gtagEventHandler = (): onEventHandler | undefined => {
+	const tag = gtag();
+	return tag ? eventHandler(tag) : undefined;
+};
 
 export type ConfigParams =
 	| Gtag.ControlParams
