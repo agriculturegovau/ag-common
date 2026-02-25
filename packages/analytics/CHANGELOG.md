@@ -1,5 +1,11 @@
 # @ag.common/analytics
 
+## 0.10.2
+
+### Patch Changes
+
+- ce3b341: analytics: fix gtagEventHandler behaviour to properly return undefined
+
 ## 0.10.1
 
 ### Patch Changes
