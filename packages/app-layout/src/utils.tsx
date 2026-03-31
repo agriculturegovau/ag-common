@@ -28,6 +28,26 @@ export type Features = {
 	 * This property is for compatibility and will be removed in a future version.
 	 */
 	exportDocumentation?: boolean;
+} & Record<string, boolean | undefined>;
+
+/**
+ * Accepts either a `Features` object or an array of `Record<string, boolean>`.
+ * The array form is merged left-to-right into a single object, allowing
+ * feature flags to be composed from multiple sources.
+ */
+export type FeaturesInput = Features | Record<string, boolean>[];
+
+/**
+ * Normalizes a `FeaturesInput` value into a single `Features` object.
+ * If the input is an array, all records are merged left-to-right.
+ * If the input is already a `Features` object (or undefined), it is returned as-is.
+ */
+export const normalizeFeatures = (
+	input?: FeaturesInput
+): Features | undefined => {
+	if (!input) return undefined;
+	if (!Array.isArray(input)) return input;
+	return Object.assign({}, ...input) as Features;
 };
 
 export const hrefs = {

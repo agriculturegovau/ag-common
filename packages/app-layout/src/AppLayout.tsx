@@ -19,7 +19,7 @@ import {
 import { LinkList } from '@ag.ds-next/react/link-list';
 import { Text } from '@ag.ds-next/react/text';
 import {
-	Features,
+	type FeaturesInput,
 	findBestMatch,
 	footerNavigationItems,
 	getAppLinks,
@@ -28,6 +28,7 @@ import {
 	internalHeaderProps,
 	internalSidebarProps,
 	InternalTheme,
+	normalizeFeatures,
 } from './utils';
 import {
 	Business,
@@ -74,7 +75,7 @@ export type AppLayoutProps<B extends Business> = PropsWithChildren<{
 	unreadMessageCount?: number;
 	userName?: string;
 	businessDetails?: BusinessDetails<B>;
-	features?: Features;
+	features?: FeaturesInput;
 	claims?: ExpectedClaims; // Input for common error handling behaviour
 	errorComponents?: Partial<ErrorComponents>;
 	requiredProofingLevel?: ProofingLevel | ProofingLevel[];
@@ -115,7 +116,7 @@ export function AppLayout<B extends Business>({
 	const onModalSignOutClick = handleSignOut;
 
 	const features = getComputedFeatures({
-		features: features_,
+		features: normalizeFeatures(features_),
 		selectedBusiness: businessDetails?.selectedBusiness,
 	});
 	const appLinks = useMemo(() => getAppLinks({ features }), [features]);
