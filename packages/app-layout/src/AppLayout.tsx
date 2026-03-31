@@ -42,10 +42,12 @@ import {
 	Business,
 	BusinessDetails,
 	Features,
+	FeaturesInput,
 	getBusinessCategory,
 	getBusinessCategoryLabel,
 	getBusinessName,
 	InternalTheme,
+	normalizeFeatures,
 } from './defs';
 import { LayoutProvider } from './AppLayoutContext';
 import {
@@ -73,7 +75,7 @@ export type AppLayoutProps<B extends Business> = PropsWithChildren<{
 	mainContentId?: string;
 	userName?: string;
 	businessDetails?: BusinessDetails<B>;
-	features?: Features;
+	features?: FeaturesInput;
 	claims?: ExpectedClaims; // Input for common error handling behaviour
 	errorComponents?: Partial<ErrorComponents>;
 	requiredProofingLevel?: ProofingLevel | ProofingLevel[];
@@ -128,7 +130,7 @@ export function AppLayout<B extends Business>({
 
 	const selectedBusiness = businessDetails?.selectedBusiness;
 	const features = getComputedFeatures({
-		features: features_,
+		features: normalizeFeatures(features_),
 		selectedBusiness,
 	});
 	const activeRoute = createRoute(subdomain)(activePath_);

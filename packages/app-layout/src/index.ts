@@ -11,3 +11,8 @@ export {
 	type HostDomain,
 	type AppSubdomain,
 } from './routes';
+export {
+	type FeaturesInput,
+	type Features,
+	normalizeFeatures,
+} from './defs';
