@@ -2,6 +2,8 @@ import { PropsWithChildren } from 'react';
 import { AnalyticsEventHandler, AnalyticsListener } from './Events';
 import {
 	GoogleAnalytics,
+	Qualtrics,
+	QualtricsScriptProps,
 	ScriptComponentProvider,
 	ScriptComponentsContextType,
 } from './Scripts';
@@ -13,6 +15,10 @@ export type AnalyticsProps = PropsWithChildren<{
 	onEvent?: AnalyticsEventHandler;
 	/** When false, prevent the Google Analytics gtag script from being loaded */
 	googleAnalytics?: boolean;
+
+	/** When false or missing, prevent the Qualtrics script from being loaded */
+	qualtrics?: QualtricsScriptProps | false;
+
 	/** Provide components that can render a script tag based on your web framework of choice */
 	scriptComponents: ScriptComponentsContextType;
 
@@ -31,6 +37,7 @@ export const Analytics = ({
 	children,
 	onEvent,
 	googleAnalytics,
+	qualtrics,
 	scriptComponents,
 }: AnalyticsProps) => {
 	return (
@@ -38,6 +45,11 @@ export const Analytics = ({
 			{googleAnalytics === false ? null : (
 				<GoogleAnalytics measurementID={vars.googleAnalyticsMeasurementID} />
 			)}
+
+			{qualtrics ? (
+				<Qualtrics zone={qualtrics.zone} zoneID={qualtrics.zoneID} />
+			) : null}
+
 			<AnalyticsListener
 				onEvent={(...params) => {
 					/* !!! this is a load-bearing line.

@@ -47,6 +47,7 @@ export const Default: Story = {
 				</Box>
 			),
 		},
+		qualtrics: { zone: 'zone', zoneID: 'ZN_zoneID' },
 	},
 	render: (args) => (
 		<PageContent>
