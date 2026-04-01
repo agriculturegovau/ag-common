@@ -1,5 +1,15 @@
 # @ag.common/analytics
 
+## 0.11.0
+
+### Minor Changes
+
+- 749152f: analytics: add initial qualtrics support
+
+### Patch Changes
+
+- ce3b341: analytics: fix gtagEventHandler behaviour to properly return undefined
+
 ## 0.10.1
 
 ### Patch Changes
