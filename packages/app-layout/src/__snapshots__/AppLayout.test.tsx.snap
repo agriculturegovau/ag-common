@@ -6,7 +6,7 @@ exports[`AppLayout renders correctly 1`] = `
     class="css-3s22mq"
   >
     <header
-      class="css-ro3xi5-dark-dark-boxStyles-boxStyles-AppLayoutHeader"
+      class="css-1xipfei-dark-dark-boxStyles-boxStyles-AppLayoutHeader"
     >
       <div
         class="css-124u00k-boxStyles-boxStyles"
@@ -73,33 +73,32 @@ exports[`AppLayout renders correctly 1`] = `
           </div>
         </a>
         <div
-          class="css-1jf8ymt-boxStyles-boxStyles"
+          class="css-q5286k-boxStyles-boxStyles"
         >
-          <a
-            class="css-7ipzfi-boxStyles-boxStyles"
-            href="/account"
+          <div
+            class="css-1jf8ymt-boxStyles-boxStyles"
           >
-            <span
-              class="css-6pt8b1-boxStyles-boxStyles-AppLayoutHeaderAccount"
+            <a
+              class="css-7ipzfi-boxStyles-boxStyles"
+              href="https://services.agriculture.gov.au/account"
             >
               <span
-                class="css-1n8zgu1-boxStyles-boxStyles"
+                class="css-6pt8b1-boxStyles-boxStyles-AppLayoutHeaderAccount"
               >
-                Toto Wolff
+                <span
+                  class="css-1n8zgu1-boxStyles-boxStyles"
+                >
+                  Toto Wolff
+                </span>
               </span>
               <span
-                class="css-1xhiw94-boxStyles-boxStyles"
+                aria-hidden="true"
+                class="css-kcbg12-boxStyles-boxStyles-Avatar"
               >
-                My account
+                TW
               </span>
-            </span>
-            <span
-              aria-hidden="true"
-              class="css-kcbg12-boxStyles-boxStyles-Avatar"
-            >
-              TW
-            </span>
-          </a>
+            </a>
+          </div>
         </div>
       </div>
       <div
@@ -133,7 +132,7 @@ exports[`AppLayout renders correctly 1`] = `
         </button>
         <a
           class="css-7ipzfi-boxStyles-boxStyles"
-          href="/account"
+          href="https://services.agriculture.gov.au/account"
         >
           <span
             class="css-6pt8b1-boxStyles-boxStyles-AppLayoutHeaderAccount"
@@ -142,11 +141,6 @@ exports[`AppLayout renders correctly 1`] = `
               class="css-1n8zgu1-boxStyles-boxStyles"
             >
               Toto Wolff
-            </span>
-            <span
-              class="css-1xhiw94-boxStyles-boxStyles"
-            >
-              My account
             </span>
           </span>
           <span
@@ -169,10 +163,10 @@ exports[`AppLayout renders correctly 1`] = `
           class="css-17tu34w-boxStyles-boxStyles"
         >
           <li
-            class="css-10pno0x-AppLayoutSidebarNavItemInner"
+            class="css-1ythe32-AppLayoutSidebarNavItemInner"
           >
             <a
-              href="/account/dashboard"
+              href="https://services.agriculture.gov.au/account/exports/dashboard"
             >
               <svg
                 aria-hidden="true"
@@ -201,10 +195,10 @@ exports[`AppLayout renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="css-10pno0x-AppLayoutSidebarNavItemInner"
+            class="css-1ythe32-AppLayoutSidebarNavItemInner"
           >
             <a
-              href="/establishments"
+              href="https://exports.agriculture.gov.au/establishments"
             >
               <svg
                 aria-hidden="true"
@@ -230,10 +224,10 @@ exports[`AppLayout renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="css-10pno0x-AppLayoutSidebarNavItemInner"
+            class="css-1ythe32-AppLayoutSidebarNavItemInner"
           >
             <a
-              href="/intelligence"
+              href="https://exports.agriculture.gov.au/intelligence"
             >
               <svg
                 aria-hidden="true"
@@ -259,10 +253,10 @@ exports[`AppLayout renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="css-10pno0x-AppLayoutSidebarNavItemInner"
+            class="css-1ythe32-AppLayoutSidebarNavItemInner"
           >
             <a
-              href="/compliance"
+              href="https://exports.agriculture.gov.au/compliance"
             >
               <svg
                 aria-hidden="true"
@@ -295,14 +289,14 @@ exports[`AppLayout renders correctly 1`] = `
             class="css-1ihky11-boxStyles-boxStyles"
           >
             <hr
-              class="css-idz6ww-AppLayoutSidebarNavDivider"
+              class="css-1ob611y-AppLayoutSidebarNavDivider"
             />
           </li>
           <li
-            class="css-10pno0x-AppLayoutSidebarNavItemInner"
+            class="css-1ythe32-AppLayoutSidebarNavItemInner"
           >
             <a
-              href="/help"
+              href="https://services.agriculture.gov.au/help"
               rel="noopener"
               target="_blank"
             >
@@ -359,11 +353,11 @@ exports[`AppLayout renders correctly 1`] = `
             class="css-1ihky11-boxStyles-boxStyles"
           >
             <hr
-              class="css-idz6ww-AppLayoutSidebarNavDivider"
+              class="css-1ob611y-AppLayoutSidebarNavDivider"
             />
           </li>
           <li
-            class="css-cvrhr8-AppLayoutSidebarNavItemInner"
+            class="css-ih9zwa-AppLayoutSidebarNavItemInner"
           >
             <button
               class="css-p08sx1-BaseButton"
@@ -428,7 +422,7 @@ exports[`AppLayout renders correctly 1`] = `
                   >
                     <a
                       class="css-1wvbhdv-TextLink-TextLink"
-                      href="/about"
+                      href="https://services.agriculture.gov.au/about"
                     >
                       About
                     </a>
@@ -438,7 +432,7 @@ exports[`AppLayout renders correctly 1`] = `
                   >
                     <a
                       class="css-1wvbhdv-TextLink-TextLink"
-                      href="/about/contact-us"
+                      href="https://services.agriculture.gov.au/about/contact-us"
                     >
                       Contact us
                     </a>
@@ -448,7 +442,7 @@ exports[`AppLayout renders correctly 1`] = `
                   >
                     <a
                       class="css-1wvbhdv-TextLink-TextLink"
-                      href="/help"
+                      href="https://services.agriculture.gov.au/help"
                     >
                       Help
                     </a>
@@ -480,7 +474,7 @@ exports[`AppLayout renders correctly 1`] = `
                   >
                     <a
                       class="css-1wvbhdv-TextLink-TextLink"
-                      href="/privacy"
+                      href="https://services.agriculture.gov.au/privacy"
                     >
                       Privacy
                     </a>

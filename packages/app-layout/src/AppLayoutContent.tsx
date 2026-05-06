@@ -1,4 +1,4 @@
-import { Fragment, PropsWithChildren } from 'react';
+import { ComponentProps, Fragment, PropsWithChildren } from 'react';
 import { Prose, proseBlockClassname } from '@ag.ds-next/react/prose';
 import { PageContent } from '@ag.ds-next/react/content';
 import { Callout } from '@ag.ds-next/react/callout';
@@ -7,7 +7,6 @@ import { Text } from '@ag.ds-next/react/text';
 import { Box } from '@ag.ds-next/react/box';
 import { TextLink } from '@ag.ds-next/react/text-link';
 import { DirectionLink } from '@ag.ds-next/react/direction-link';
-import { hrefs } from './utils';
 import { Stack } from '@ag.ds-next/react/stack';
 import { Divider } from '@ag.ds-next/react/divider';
 import { PageAlert } from '@ag.ds-next/react/page-alert';
@@ -21,6 +20,7 @@ import {
 	ProofingLevel,
 } from './proofing';
 import { ExpectedClaims } from './authDetails';
+import { AppRoutes } from './utils';
 
 const isEmptyString = (t: string | undefined) => (t?.trim() ?? '') === '';
 
@@ -45,12 +45,11 @@ const HelpCallout = () => {
 	);
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const MissingName = (props: PropsWithChildren) => (
+const MissingName = (props: PropsWithChildren<{ routes: AppRoutes }>) => (
 	<PageContent>
 		<Stack gap={3}>
 			<CoreProvider>
-				<DirectionLink href={hrefs.dashboard} direction="left">
+				<DirectionLink href={props.routes.dashboard} direction="left">
 					Back to Dashboard
 				</DirectionLink>
 			</CoreProvider>
@@ -73,6 +72,7 @@ const MissingName = (props: PropsWithChildren) => (
 
 export const ProofMissing = (
 	props: PropsWithChildren<{
+		routes: AppRoutes;
 		requiredProofingLevel?: ProofingLevel;
 		providedProofingLevel?: ProofingLevel;
 		activeApp?: string;
@@ -87,7 +87,7 @@ export const ProofMissing = (
 		<PageContent>
 			<Stack gap={3}>
 				<CoreProvider>
-					<DirectionLink href={hrefs.dashboard} direction="left">
+					<DirectionLink href={props.routes.dashboard} direction="left">
 						Back
 					</DirectionLink>
 				</CoreProvider>
@@ -107,7 +107,10 @@ export const ProofMissing = (
 					<p>
 						Your current identity strength is {provided}. To access this feature
 						you must add myID to your account from your{' '}
-						<TextLink href="TODO">Profile and settings</TextLink>, then sign in.
+						<TextLink href={props.routes.profile}>
+							Profile and settings
+						</TextLink>
+						, then sign in.
 					</p>
 				</Prose>
 
@@ -125,6 +128,12 @@ export type ErrorComponents = {
 	ProofMissing: typeof ProofMissing;
 };
 
+export type ErrorComponentProps = {
+	[Component in keyof ErrorComponents]: ComponentProps<
+		NonNullable<ErrorComponents[Component]>
+	>;
+};
+
 export const AppErrorComponents = {
 	MissingName,
 	ProofMissing,
@@ -139,12 +148,14 @@ export const AppContent = ({
 	authDetails,
 	activeApp,
 	children,
+	routes,
 }: PropsWithChildren<{
 	claims?: ExpectedClaims;
 	errorComponents: ErrorComponents;
 	requiredProofingLevel?: ProofingLevel | ProofingLevel[];
 	authDetails?: AuthDetails;
 	activeApp?: string;
+	routes: AppRoutes;
 }>) => {
 	const MissingGivenName =
 		errorComponents.MissingGivenName ?? errorComponents.MissingName;
@@ -163,6 +174,7 @@ export const AppContent = ({
 				requiredProofingLevel={requiredProof}
 				providedProofingLevel={providedProof}
 				activeApp={activeApp}
+				routes={routes}
 			/>
 		);
 	}
@@ -173,11 +185,11 @@ export const AppContent = ({
 	}
 
 	if (isEmptyString(claims?.given_name)) {
-		return <MissingGivenName>{children}</MissingGivenName>;
+		return <MissingGivenName routes={routes}>{children}</MissingGivenName>;
 	}
 
 	if (isEmptyString(claims?.family_name)) {
-		return <MissingFamilyName>{children}</MissingFamilyName>;
+		return <MissingFamilyName routes={routes}>{children}</MissingFamilyName>;
 	}
 
 	// Everything looks right, render the apps' children

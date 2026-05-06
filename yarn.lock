@@ -16,14 +16,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ag.common/analytics@workspace:packages/analytics"
   dependencies:
-    "@ag.ds-next/react": "npm:^1.29.0"
+    "@ag.ds-next/react": "npm:^1.33.0"
     "@emotion/react": "npm:^11.7.0"
     "@types/gtag.js": "npm:^0.0.12"
     facepaint: "npm:^1.2.1"
     react: "npm:18.1.0 || 19.0.0"
     react-dom: "npm:18.1.0 || 19.0.0"
   peerDependencies:
-    "@ag.ds-next/react": ^1.29.0
+    "@ag.ds-next/react": ^1.33.0
     "@emotion/react": ^11.7.0
     "@types/gtag.js": ^0.0.12
     facepaint: ^1.2.1
@@ -36,12 +36,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ag.common/app-layout@workspace:packages/app-layout"
   dependencies:
-    "@ag.ds-next/react": "npm:^1.29.0"
+    "@ag.ds-next/react": "npm:^1.33.0"
     "@emotion/react": "npm:^11.7.0"
     facepaint: "npm:^1.2.1"
     react: "npm:18.1.0 || 19.0.0"
+    react-dom: "npm:18.1.0 || 19.0.0"
   peerDependencies:
-    "@ag.ds-next/react": ^1.29.0
+    "@ag.ds-next/react": ^1.33.0
     "@emotion/react": ^11.7.0
     facepaint: ^1.2.1
     react: ^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -52,12 +53,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ag.common/digital-identity@workspace:packages/digital-identity"
   dependencies:
-    "@ag.ds-next/react": "npm:^1.29.0"
+    "@ag.ds-next/react": "npm:^1.33.0"
     "@emotion/react": "npm:^11.7.0"
     facepaint: "npm:^1.2.1"
     react: "npm:18.1.0 || 19.0.0"
+    react-dom: "npm:18.1.0 || 19.0.0"
   peerDependencies:
-    "@ag.ds-next/react": ^1.29.0
+    "@ag.ds-next/react": ^1.33.0
     "@emotion/react": ^11.7.0
     facepaint: ^1.2.1
     react: ^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -68,12 +70,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ag.common/footer@workspace:packages/footer"
   dependencies:
-    "@ag.ds-next/react": "npm:^1.29.0"
+    "@ag.ds-next/react": "npm:^1.33.0"
     "@emotion/react": "npm:^11.7.0"
     facepaint: "npm:^1.2.1"
     react: "npm:18.1.0 || 19.0.0"
+    react-dom: "npm:18.1.0 || 19.0.0"
   peerDependencies:
-    "@ag.ds-next/react": ^1.29.0
+    "@ag.ds-next/react": ^1.33.0
     "@emotion/react": ^11.7.0
     facepaint: ^1.2.1
     react: ^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -84,12 +87,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ag.common/header@workspace:packages/header"
   dependencies:
-    "@ag.ds-next/react": "npm:^1.29.0"
+    "@ag.ds-next/react": "npm:^1.33.0"
     "@emotion/react": "npm:^11.7.0"
     facepaint: "npm:^1.2.1"
     react: "npm:18.1.0 || 19.0.0"
+    react-dom: "npm:18.1.0 || 19.0.0"
   peerDependencies:
-    "@ag.ds-next/react": ^1.29.0
+    "@ag.ds-next/react": ^1.33.0
     "@emotion/react": ^11.7.0
     facepaint: ^1.2.1
     react: ^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -100,21 +104,22 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ag.common/help-callout@workspace:packages/help-callout"
   dependencies:
-    "@ag.ds-next/react": "npm:^1.29.0"
+    "@ag.ds-next/react": "npm:^1.33.0"
     "@emotion/react": "npm:^11.7.0"
     facepaint: "npm:^1.2.1"
     react: "npm:18.1.0 || 19.0.0"
+    react-dom: "npm:18.1.0 || 19.0.0"
   peerDependencies:
-    "@ag.ds-next/react": ^1.29.0
+    "@ag.ds-next/react": ^1.33.0
     "@emotion/react": ^11.7.0
     facepaint: ^1.2.1
     react: ^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
-"@ag.ds-next/react@npm:^1.29.0":
-  version: 1.29.0
-  resolution: "@ag.ds-next/react@npm:1.29.0"
+"@ag.ds-next/react@npm:^1.33.0":
+  version: 1.33.0
+  resolution: "@ag.ds-next/react@npm:1.33.0"
   dependencies:
     "@babel/runtime": "npm:^7.27.1"
     "@floating-ui/react-dom": "npm:^2.0.8"
@@ -131,7 +136,7 @@ __metadata:
     "@emotion/react": ^11.7.0
     react: ^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     react-dom: ^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/f537f6733decc7aea55ff4d70bf5070657bcfb1d69340ef5014a1991a485edd7d4afa1f2c5a4943502b6d1b724198ecd4c02ca032194fa0996ca70d156a1de24
+  checksum: 10c0/970d749504441485d31c40717cb36f8ae97babfa29bb7f4991460998b649210d7c39dcc9b1e334ae0c83e60b69f45e5f61dafe057a9a153ca1926073c1abf2ee
   languageName: node
   linkType: hard
 
@@ -3757,6 +3762,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@testing-library/dom@npm:^10.4.1":
+  version: 10.4.1
+  resolution: "@testing-library/dom@npm:10.4.1"
+  dependencies:
+    "@babel/code-frame": "npm:^7.10.4"
+    "@babel/runtime": "npm:^7.12.5"
+    "@types/aria-query": "npm:^5.0.1"
+    aria-query: "npm:5.3.0"
+    dom-accessibility-api: "npm:^0.5.9"
+    lz-string: "npm:^1.5.0"
+    picocolors: "npm:1.1.1"
+    pretty-format: "npm:^27.0.2"
+  checksum: 10c0/19ce048012d395ad0468b0dbcc4d0911f6f9e39464d7a8464a587b29707eed5482000dad728f5acc4ed314d2f4d54f34982999a114d2404f36d048278db815b1
+  languageName: node
+  linkType: hard
+
 "@testing-library/jest-dom@npm:6.5.0":
   version: 6.5.0
   resolution: "@testing-library/jest-dom@npm:6.5.0"
@@ -4401,7 +4422,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ag-common@workspace:."
   dependencies:
-    "@ag.ds-next/react": "npm:^1.29.0"
+    "@ag.ds-next/react": "npm:^1.33.0"
     "@babel/core": "npm:^7.24.0"
     "@babel/plugin-transform-runtime": "npm:^7.24.0"
     "@babel/preset-env": "npm:^7.24.0"
@@ -4423,6 +4444,7 @@ __metadata:
     "@storybook/addon-links": "npm:^8.6.14"
     "@storybook/react": "npm:^8.6.14"
     "@storybook/react-vite": "npm:^8.6.14"
+    "@testing-library/dom": "npm:^10.4.1"
     "@testing-library/jest-dom": "npm:^5.17.0"
     "@testing-library/react": "npm:^16"
     "@testing-library/user-event": "npm:^14.4.3"
@@ -8718,7 +8740,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"picocolors@npm:^1.1.0, picocolors@npm:^1.1.1":
+"picocolors@npm:1.1.1, picocolors@npm:^1.1.0, picocolors@npm:^1.1.1":
   version: 1.1.1
   resolution: "picocolors@npm:1.1.1"
   checksum: 10c0/e2e3e8170ab9d7c7421969adaa7e1b31434f789afb9b3f115f6b96d91945041ac3ceb02e9ec6fe6510ff036bcc0bf91e69a1772edc0b707e12b19c0f2d6bcf58
