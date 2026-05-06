@@ -16,6 +16,21 @@ import { Flex } from '@ag.ds-next/react/flex';
 import { ExternalLinkCallout } from '@ag.ds-next/react/a11y';
 import { Fragment } from 'react';
 
+export type AppSubdomain = 'exports' | 'services';
+
+type RouteParams = { subdomain: AppSubdomain; path: string };
+
+type RouteSpec =
+	| ({ kind: 'scoped' } & RouteParams)
+	| { kind: 'standalone'; url: string };
+
+type RouteResolver = (params: RouteParams) => string;
+
+export type HostDomain =
+	| 'agriculture.gov.au'
+	| `${string}.agriculture.gov.au`
+	| RouteResolver;
+
 export type Features = {
 	quotas?: boolean;
 	exportSystems?: boolean;
@@ -30,15 +45,78 @@ export type Features = {
 	exportDocumentation?: boolean;
 };
 
-export const hrefs = {
-	account: '/account',
-	profile: '/account/profile',
-	dashboard: '/account/dashboard',
-	people: '/account/manage-people',
-	inbox: '/account/messages',
-	linkBusiness: '/account/link-a-business',
-	acceptInvite: '/account/invitation/accept',
+type RouteSpecs = Record<string, RouteSpec>;
+type Routes<T extends RouteSpecs> = { [K in keyof T]: string };
+
+const resolveRouteSpec = (route: RouteSpec, opts: { domain: HostDomain }) => {
+	const { domain } = opts;
+
+	if (route.kind === 'standalone') return route.url;
+	if (typeof domain === 'function') return domain(route);
+
+	return `https://${route.subdomain}.${domain}${route.path}`;
 };
+
+const createRoutes_ =
+	<T extends RouteSpecs>(src: T) =>
+	(domain: HostDomain): Routes<T> => {
+		const hrefs = {} as Routes<T>;
+
+		Object.entries(src).forEach(([label, route]) => {
+			hrefs[label as keyof T] = resolveRouteSpec(route, { domain });
+		});
+
+		return hrefs;
+	};
+
+const createRoute =
+	(subdomain: AppSubdomain) =>
+	(path: string): RouteSpec => ({
+		kind: 'scoped',
+		subdomain,
+		path,
+	});
+
+const createStandaloneRoute = (url: string): RouteSpec => ({
+	kind: 'standalone',
+	url,
+});
+
+export const createRoutes = (() => {
+	const exports = createRoute('exports');
+	const services = createRoute('services');
+	const standalone = createStandaloneRoute;
+
+	const routes = {
+		account: services('/account'),
+		profile: services('/account/profile'),
+		people: services('/account/exports/manage-people'),
+		dashboard: services('/account/exports/dashboard'),
+		exportsHub: services('/account/exports'),
+		importsHub: services('/account/imports'),
+
+		about: services('/about'),
+		contactUs: services('/about/contact-us'),
+		help: services('/help'),
+		privacy: services('/privacy'),
+		accessibility: standalone(
+			'https://www.agriculture.gov.au/about/commitment/accessibility'
+		),
+		disclaimer: standalone('https://www.agriculture.gov.au/about/disclaimer'),
+
+		establishments: exports('/establishments'),
+		intelligence: exports('/intelligence'),
+		compliance: exports('/compliance'),
+		quotas: exports('/quota'),
+		exportSystems: exports('/export-systems'),
+		licences: exports('/licences'),
+		invoices: exports('/inexs'),
+	};
+
+	return createRoutes_(routes);
+})();
+
+export type AppRoutes = ReturnType<typeof createRoutes>;
 
 const PaymentIcon = createIcon(
 	<Fragment>
@@ -49,127 +127,135 @@ const PaymentIcon = createIcon(
 	'PaymentIcon'
 );
 
-export const footerNavigationItems = [
-	{
-		href: '/about',
-		label: 'About',
-	},
-	{
-		href: '/about/contact-us',
-		label: 'Contact us',
-	},
-	{
-		href: '/help',
-		label: 'Help',
-	},
-	{
-		href: 'https://www.agriculture.gov.au/about/commitment/accessibility',
-		rel: 'external',
-		label: 'Accessibility',
-	},
-	{
-		href: 'https://www.agriculture.gov.au/about/disclaimer',
-		rel: 'external',
-		label: 'Disclaimer',
-	},
-	{ href: '/privacy', label: 'Privacy' },
-];
-
-export const apps = {
+const createAppLinks = (routes: AppRoutes) => ({
 	dashboard: {
 		label: 'Dashboard',
 		icon: HomeIcon,
-		href: hrefs.dashboard,
+		href: routes.dashboard,
 	},
 	people: {
 		label: 'People',
 		icon: UsersIcon,
-		href: hrefs.people,
+		href: routes.people,
 	},
 	establishments: {
 		label: 'Establishments',
 		icon: FactoryIcon,
-		href: '/establishments',
+		href: routes.establishments,
 	},
 	intelligence: {
 		label: 'Data and Insights',
 		icon: ChartLineIcon,
-		href: '/intelligence',
+		href: routes.intelligence,
 	},
 	compliance: {
 		label: 'Compliance',
 		icon: SuccessIcon,
-		href: '/compliance',
+		href: routes.compliance,
 	},
 	quotas: {
 		label: 'Quotas',
 		icon: PieChartIcon,
-		href: '/quota',
+		href: routes.quotas,
 	},
 	exportSystems: {
 		label: 'Export systems',
 		icon: LinkIcon,
-		href: '/export-systems',
+		href: routes.exportSystems,
 	},
 	licences: {
 		label: 'Licences',
 		icon: LicenceBusinessIcon,
-		href: '/licences',
+		href: routes.licences,
 	},
 	invoices: {
 		label: 'Invoices and payments',
 		icon: PaymentIcon,
-		href: '/inexs',
+		href: routes.invoices,
 	},
+});
+
+export const getAppLinks = (params: {
+	features?: Features;
+	routes: AppRoutes;
+}) => {
+	const apps = createAppLinks(params.routes);
+
+	return [
+		apps.dashboard,
+		...(params?.features?.people ? [apps.people] : []),
+		apps.establishments,
+		apps.intelligence,
+		apps.compliance,
+		...(params?.features?.quotas ? [apps.quotas] : []),
+		...((params?.features?.exportSystems ??
+		params?.features?.exportDocumentation)
+			? [apps.exportSystems]
+			: []),
+		...(params?.features?.licences ? [apps.licences] : []),
+		...(params?.features?.invoices ? [apps.invoices] : []),
+	];
 };
 
-export const getAppLinks = (params?: { features?: Features }) => [
-	apps.dashboard,
-	...(params?.features?.people ? [apps.people] : []),
-	apps.establishments,
-	apps.intelligence,
-	apps.compliance,
-	...(params?.features?.quotas ? [apps.quotas] : []),
-	...((params?.features?.exportSystems ?? params?.features?.exportDocumentation)
-		? [apps.exportSystems]
-		: []),
-	...(params?.features?.licences ? [apps.licences] : []),
-	...(params?.features?.invoices ? [apps.invoices] : []),
+export const getFooterLinks = (routes: AppRoutes) => [
+	{
+		href: routes.about,
+		label: 'About',
+	},
+	{
+		href: routes.contactUs,
+		label: 'Contact us',
+	},
+	{
+		href: routes.help,
+		label: 'Help',
+	},
+	{
+		href: routes.accessibility,
+		rel: 'external',
+		label: 'Accessibility',
+	},
+	{
+		href: routes.disclaimer,
+		rel: 'external',
+		label: 'Disclaimer',
+	},
+	{ href: routes.privacy, label: 'Privacy' },
 ];
 
-export function getSidebarLinks({
+export const getSidebarLinks = ({
 	onSignOutClick,
 	features,
+	routes,
 }: {
 	onSignOutClick: () => void;
 	features?: Features;
-}) {
-	return [
-		getAppLinks({ features }),
-		[
-			{
-				label: (
-					<Flex as="span" alignItems="center" gap={0.5}>
-						Help
-						<ExternalLinkCallout />
-						<ExternalLinkIcon weight="regular" size="sm" />
-					</Flex>
-				),
-				icon: HelpIcon,
-				href: '/help',
-				target: '_blank',
-				rel: 'noopener',
-			},
-		],
-		[
-			{
-				label: 'Sign out',
-				onClick: onSignOutClick,
-				icon: ExitIcon,
-			},
-		],
-	];
-}
+	routes: AppRoutes;
+}) => [
+	getAppLinks({ features, routes }),
+	[
+		{
+			label: (
+				<Flex as="span" alignItems="center" gap={0.5}>
+					Help
+					<ExternalLinkCallout />
+					<ExternalLinkIcon weight="regular" size="sm" />
+				</Flex>
+			),
+			icon: HelpIcon,
+			href: routes.help,
+			target: '_blank',
+			rel: 'noopener',
+		},
+	],
+	[
+		{
+			label: 'Sign out',
+			onClick: onSignOutClick,
+			icon: ExitIcon,
+		},
+	],
+];
 
 export const findBestMatch = <T extends { href: string }>(
 	items: T[],

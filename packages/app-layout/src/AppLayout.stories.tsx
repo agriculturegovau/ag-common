@@ -11,13 +11,12 @@ import { Drawer } from '@ag.ds-next/react/drawer';
 import { Stack } from '@ag.ds-next/react/stack';
 import { Modal } from '@ag.ds-next/react/modal';
 import { AppLayout, useOpenSignOutModal } from './AppLayout';
-import { Business, BusinessDetails } from './AppLayoutDropdown';
+import { Business } from './AppLayoutDropdown';
 import { Button, ButtonGroup } from '@ag.ds-next/react/button';
 import { Text } from '@ag.ds-next/react/text';
 import { produce } from 'immer';
 import { AppErrorComponents } from './AppLayoutContent';
 import {
-	AuthDetails,
 	getReadableProof,
 	highestLevelProof,
 	lowestLevelProof,
@@ -30,8 +29,9 @@ import {
 	HelpIcon,
 	PieChartIcon,
 } from '@ag.ds-next/react/icon';
+import { Flex } from '@ag.ds-next/react/flex';
 
-type BusinessFromAPI = Business & { someExtraInfo: string };
+type BusinessFromAPI = Business & { someExtraInfo?: string };
 
 const exampleBusinesses: BusinessFromAPI[] = [
 	{
@@ -65,6 +65,37 @@ const exampleBusinesses: BusinessFromAPI[] = [
 		someExtraInfo: 'our component allows this field but does not use it at all',
 		roleDisplayName: 'Manager',
 		roleName: 'MANAGER',
+	},
+];
+
+const exampleImportBusinesses: BusinessFromAPI[] = [
+	{
+		partyId: 5,
+		partyDisplayName: 'Business A',
+		formattedPartyExternalId: 'ABN: 88 888 888 888',
+		roleDisplayName: 'User',
+		roleGroupName: 'BIOSECURITY',
+	},
+	{
+		partyId: 6,
+		partyDisplayName: 'Business B',
+		formattedPartyExternalId: 'ABN: 88 888 888 888',
+		roleDisplayName: 'User',
+		roleGroupName: 'BIOSECURITY',
+	},
+	{
+		partyId: 7,
+		partyDisplayName: 'Business C',
+		formattedPartyExternalId: 'ABN: 88 888 888 888',
+		roleDisplayName: 'User',
+		roleGroupName: 'BIOSECURITY',
+	},
+	{
+		partyId: 8,
+		partyDisplayName: 'Business D',
+		formattedPartyExternalId: 'ABN: 88 888 888 888',
+		roleDisplayName: 'User',
+		roleGroupName: 'BIOSECURITY',
 	},
 ];
 
@@ -164,6 +195,29 @@ export const ClientSideFetch: Story = {
 	},
 };
 
+export const EnvironmentRouting: Story = {
+	args: {
+		focusMode: false,
+		userName: 'Toto Wolff',
+		unreadMessageCount: 6,
+		activePath: '/',
+		handleSignOut,
+		domain: 'test.agriculture.gov.au',
+	},
+};
+
+export const CustomRouting: Story = {
+	args: {
+		focusMode: false,
+		userName: 'Toto Wolff',
+		unreadMessageCount: 6,
+		activePath: '/',
+		handleSignOut,
+		domain: (route) =>
+			`http://${route.subdomain}.example.com/custom-prefix${route.path}`,
+	},
+};
+
 export const BusinessDropdown: Story = {
 	args: {
 		focusMode: false,
@@ -173,24 +227,35 @@ export const BusinessDropdown: Story = {
 		handleSignOut,
 	},
 	render: function Render(props) {
-		const [businessDetails, setBusinessDetails] = useState<
-			Omit<BusinessDetails<BusinessFromAPI>, 'setSelectedBusiness'>
-		>({
-			linkedBusinesses: exampleBusinesses,
+		const [businessDetails, setBusinessDetails] = useState({
+			exports: exampleBusinesses,
+			imports: exampleImportBusinesses,
 			selectedBusiness: exampleBusinesses[1],
-		});
-
-		const [authDetails, setAuthDetails] = useState<AuthDetails>({
-			provider: 'myID',
 		});
 
 		const setSelectedBusiness = (selectedBusiness: BusinessFromAPI) =>
 			setBusinessDetails((details) => ({ ...details, selectedBusiness }));
 
-		const onChange = (n: number) => () => {
-			const linkedBusinesses = exampleBusinesses.slice(0, n);
-			const selectedBusiness = linkedBusinesses[0];
-			setBusinessDetails({ selectedBusiness, linkedBusinesses });
+		const onChange = (area: 'exports' | 'imports', n: number) => () => {
+			if (area === 'imports') {
+				const imports = exampleImportBusinesses.slice(0, n);
+				const selectedBusiness = imports[0];
+				setBusinessDetails((existing) => ({
+					...existing,
+					imports,
+					selectedBusiness,
+				}));
+			}
+
+			if (area === 'exports') {
+				const exports = exampleBusinesses.slice(0, n);
+				const selectedBusiness = exports[0];
+				setBusinessDetails((existing) => ({
+					...existing,
+					exports,
+					selectedBusiness,
+				}));
+			}
 		};
 
 		return (
@@ -200,8 +265,14 @@ export const BusinessDropdown: Story = {
 				/>
 				<AppLayout
 					{...props}
-					businessDetails={{ ...businessDetails, setSelectedBusiness }}
-					authDetails={authDetails}
+					businessDetails={{
+						selectedBusiness: businessDetails.selectedBusiness,
+						linkedBusinesses: [
+							...businessDetails.exports,
+							...businessDetails.imports,
+						],
+						setSelectedBusiness,
+					}}
 				>
 					<PageContent>
 						<Stack gap={3}>
@@ -209,42 +280,44 @@ export const BusinessDropdown: Story = {
 								<h1>Business dropdown configuration</h1>
 							</Prose>
 
-							<ControlGroup
-								label="Number of linked businesses"
-								block
-								hideOptionalLabel
-							>
-								{Array.from(new Array(exampleBusinesses.length + 1).keys()).map(
-									(idx) => (
+							<Flex gap={1}>
+								<ControlGroup
+									label="Number of linked businesses"
+									block
+									hideOptionalLabel
+								>
+									{Array.from(
+										new Array(exampleBusinesses.length + 1).keys()
+									).map((idx) => (
 										<Radio
 											key={idx}
-											checked={
-												businessDetails?.linkedBusinesses?.length === idx
-											}
-											onChange={onChange(idx)}
+											checked={businessDetails?.exports?.length === idx}
+											onChange={onChange('exports', idx)}
 										>
 											{idx} {idx === 0 ? 'business' : 'businesses'}
 										</Radio>
-									)
-								)}
-							</ControlGroup>
+									))}
+								</ControlGroup>
 
-							<ControlGroup label="Auth provider" block hideOptionalLabel>
-								{['myID', 'B2CLocalUser'].map((provider) => (
-									<Radio
-										key={provider}
-										checked={authDetails?.provider === provider}
-										onChange={() =>
-											setAuthDetails((previous) => ({
-												...previous,
-												provider,
-											}))
-										}
-									>
-										{provider}
-									</Radio>
-								))}
-							</ControlGroup>
+								<ControlGroup
+									label="Number of linked biosecurity businesses"
+									block
+									hideOptionalLabel
+								>
+									{Array.from(
+										new Array(exampleImportBusinesses.length + 1).keys()
+									).map((idx) => (
+										<Radio
+											key={idx}
+											checked={businessDetails?.imports?.length === idx}
+											onChange={onChange('imports', idx)}
+										>
+											{idx}{' '}
+											{idx === 0 ? 'import business' : 'import businesses'}
+										</Radio>
+									))}
+								</ControlGroup>
+							</Flex>
 						</Stack>
 					</PageContent>
 				</AppLayout>
@@ -424,7 +497,7 @@ export const ClaimsMissingNameAnalytics: Story = {
 			family_name: 'family_name',
 		},
 		errorComponents: {
-			MissingName: (props: PropsWithChildren) => {
+			MissingName: (props) => {
 				useEffect(() => {
 					console.log('report this situation to an analytics provider here');
 				}, []);
@@ -445,7 +518,7 @@ export const ClaimsMissingNameComponent: Story = {
 			family_name: 'family_name',
 		},
 		errorComponents: {
-			MissingName: (props: PropsWithChildren) => (
+			MissingName: (props) => (
 				<PageContent>
 					<Prose>
 						<p>Our app works just fine even without a generic name.</p>
@@ -469,7 +542,7 @@ export const ClaimsMissingGivenNameComponent: Story = {
 			family_name: 'family_name',
 		},
 		errorComponents: {
-			MissingGivenName: (props: PropsWithChildren) => {
+			MissingGivenName: (props) => {
 				const onClick = useOpenSignOutModal();
 
 				return (

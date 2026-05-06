@@ -19,20 +19,23 @@ import {
 import { LinkList } from '@ag.ds-next/react/link-list';
 import { Text } from '@ag.ds-next/react/text';
 import {
+	HostDomain,
 	Features,
 	findBestMatch,
-	footerNavigationItems,
+	getFooterLinks,
 	getAppLinks,
 	getSidebarLinks,
-	hrefs,
 	internalHeaderProps,
 	internalSidebarProps,
 	InternalTheme,
+	createRoutes,
 } from './utils';
 import {
 	Business,
 	BusinessDetails,
 	BusinessDropdown,
+	getBusinessCategory,
+	getBusinessCategoryLabel,
 	getBusinessSidebarLinks,
 	getComputedFeatures,
 } from './AppLayoutDropdown';
@@ -83,6 +86,7 @@ export type AppLayoutProps<B extends Business> = PropsWithChildren<{
 	sidebarSubLevelVisible?: SidebarSubLevelVisible;
 	headerProps?: HeaderProps;
 	internal?: InternalTheme;
+	domain?: HostDomain;
 }>;
 
 export function AppLayout<B extends Business>({
@@ -91,8 +95,7 @@ export function AppLayout<B extends Business>({
 	focusMode = false,
 	handleSignOut,
 	mainContentId = 'main-content',
-	unreadMessageCount,
-	userName: name,
+	userName,
 	businessDetails,
 	claims,
 	errorComponents,
@@ -103,6 +106,7 @@ export function AppLayout<B extends Business>({
 	sidebarSubLevelVisible,
 	headerProps,
 	internal,
+	domain,
 }: AppLayoutProps<B>) {
 	const year = useMemo(() => new Date().getFullYear(), []);
 
@@ -113,16 +117,19 @@ export function AppLayout<B extends Business>({
 	const [isSigningOut, setSigningOut, setSignedOut] = useTernaryState(false);
 	const onSignOutClick = openModal;
 	const onModalSignOutClick = handleSignOut;
+	const routes = createRoutes(domain ?? 'agriculture.gov.au');
 
 	const features = getComputedFeatures({
 		features: features_,
 		selectedBusiness: businessDetails?.selectedBusiness,
 	});
-	const appLinks = useMemo(() => getAppLinks({ features }), [features]);
+
+	const appLinks = useMemo(() => getAppLinks({ features, routes }), [features]);
+	const footerLinks = getFooterLinks(routes);
 	const sidebarLinks = useMemo(
 		() => [
-			...getBusinessSidebarLinks(businessDetails),
-			...getSidebarLinks({ onSignOutClick, features }),
+			...getBusinessSidebarLinks({ details: businessDetails, routes }),
+			...getSidebarLinks({ onSignOutClick, features, routes }),
 		],
 		[onSignOutClick, businessDetails, features]
 	);
@@ -133,7 +140,6 @@ export function AppLayout<B extends Business>({
 
 	const details = authDetails ?? computedAuthDetails;
 	const activeApp = findBestMatch(appLinks, activePath);
-	const preventAddBusiness = details?.provider === 'B2CLocalUser';
 
 	return (
 		<AgDsAppLayout focusMode={focusMode}>
@@ -149,19 +155,26 @@ export function AppLayout<B extends Business>({
 						badgeLabel={headerProps?.badgeLabel ?? 'Beta'}
 						logo={<Logo />}
 						accountDetails={
-							name
+							userName
 								? {
-										href: hrefs.account,
-										name,
-										secondaryText:
+										href: routes.account,
+										name:
 											businessDetails?.selectedBusiness?.partyDisplayName ??
-											'My account',
+											userName,
+										avatarName: userName,
+										secondaryText:
+											businessDetails?.selectedBusiness === undefined
+												? undefined
+												: getBusinessCategoryLabel(
+														getBusinessCategory(
+															businessDetails.selectedBusiness
+														)
+													),
 										dropdown: businessDetails ? (
 											<BusinessDropdown
+												routes={routes}
 												businessDetails={businessDetails}
-												unreadMessageCount={unreadMessageCount}
 												onSignOutClick={onSignOutClick}
-												preventAddBusiness={preventAddBusiness}
 											/>
 										) : undefined,
 									}
@@ -202,6 +215,7 @@ export function AppLayout<B extends Business>({
 										...errorComponents,
 									}}
 									activeApp={activeApp?.label}
+									routes={routes}
 								>
 									{children}
 								</AppContent>
@@ -210,7 +224,7 @@ export function AppLayout<B extends Business>({
 
 						<AgDsAppLayoutFooter>
 							<nav aria-label="footer">
-								<LinkList links={footerNavigationItems} horizontal />
+								<LinkList links={footerLinks} horizontal />
 							</nav>
 							<AgDsAppLayoutFooterDivider />
 							<Text fontSize="xs" maxWidth={tokens.maxWidth.bodyText}>
