@@ -28,6 +28,36 @@ function App() {
 }
 ```
 
+## environment-aware links
+
+Starting in version ^1.15 you SHOULD specify a 'domain' to indicate which environment your app is running in.
+
+This allows the sidenav, footer, and profile dropdown links to link to the correct environment now that we can no longer rely on relative URLs.
+
+If you have unique requirements for local or dev check out the "routeResolver" type.
+
+```tsx
+import { AppLayout } from '@ag.common/app-layout';
+import { useAuthentication } from '@ag.common/auth';
+import { useBusinessDetails } from '@ag.common/auth';
+import { useRouter } from 'next/router';
+
+function App() {
+	const router = useRouter();
+	const businessDetails = useBusinessDetails();
+
+	return (
+		<AppLayout
+			activePath={router.asPath}
+			businessDetails={businessDetails}
+			domain="test.agriculture.gov.au"
+		>
+			<YourApplication />
+		</AppLayout>
+	);
+}
+```
+
 ## Redirect a user to app section on business selection
 
 It may make sense for your application to start from its root when a user changes context.
