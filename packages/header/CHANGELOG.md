@@ -1,5 +1,11 @@
 # @ag.common/header
 
+## 2.5.0
+
+### Minor Changes
+
+- c248920: deps: update agds peer dep version
+
 ## 2.4.0
 
 ### Minor Changes

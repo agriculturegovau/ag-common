@@ -1,5 +1,11 @@
 # @ag.common/footer
 
+## 1.9.0
+
+### Minor Changes
+
+- c248920: deps: update agds peer dep version
+
 ## 1.8.0
 
 ### Minor Changes

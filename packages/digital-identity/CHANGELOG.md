@@ -1,5 +1,11 @@
 # @ag.common/digital-identity
 
+## 0.11.0
+
+### Minor Changes
+
+- c248920: deps: update agds peer dep version
+
 ## 0.10.0
 
 ### Minor Changes
