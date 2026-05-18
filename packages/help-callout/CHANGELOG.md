@@ -1,5 +1,11 @@
 # @ag.common/help-callout
 
+## 1.6.0
+
+### Minor Changes
+
+- c248920: deps: update agds peer dep version
+
 ## 1.5.0
 
 ### Minor Changes

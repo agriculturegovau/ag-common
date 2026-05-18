@@ -1,5 +1,13 @@
 # @ag.common/app-layout
 
+## 1.15.0
+
+### Minor Changes
+
+- c248920: app-layout: support new portal dropdown and split domains
+- 0ba53f5: app-layout: expose agricultureDomain helper
+- c248920: deps: update agds peer dep version
+
 ## 1.14.0
 
 ### Minor Changes
