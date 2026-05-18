@@ -26,10 +26,18 @@ type RouteSpec =
 
 type RouteResolver = (params: RouteParams) => string;
 
-export type HostDomain =
-	| 'agriculture.gov.au'
-	| `${string}.agriculture.gov.au`
-	| RouteResolver;
+type AgricultureDomain = 'agriculture.gov.au' | `${string}.agriculture.gov.au`;
+
+export const isAgricultureDomain = (
+	domain: string
+): domain is AgricultureDomain =>
+	domain.endsWith('agriculture.gov.au') ||
+	domain.endsWith('.agriculture.gov.au');
+
+export const agricultureDomain = (domain: string) =>
+	isAgricultureDomain(domain) ? domain : undefined;
+
+export type HostDomain = AgricultureDomain | RouteResolver;
 
 export type Features = {
 	quotas?: boolean;
