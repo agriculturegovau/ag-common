@@ -1,6 +1,7 @@
 import { ComponentProps, ReactNode } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import { Box, Stack } from '@ag.ds-next/react/box';
+import { Box } from '@ag.ds-next/react/box';
+import { Stack } from '@ag.ds-next/react/stack';
 import { PageContent } from '@ag.ds-next/react/content';
 import { Prose } from '@ag.ds-next/react/prose';
 import { Button, ButtonGroup } from '@ag.ds-next/react/button';
@@ -18,6 +19,8 @@ import {
 	AnalyticsContext,
 	AnalyticsEventData,
 	AnalyticsListener,
+	csp,
+	cspPresets as presets,
 	useAnalytics,
 } from './index';
 
@@ -65,6 +68,51 @@ export const Default: Story = {
 			</Stack>
 		</PageContent>
 	),
+};
+
+export const ContentSecurityPolicy: Story = {
+	args: {
+		scriptComponents: {
+			Script: (props) => (
+				<Box border rounded padding={1}>
+					<pre>
+						<code>#{props.id}</code>
+						<br />
+						<code>nonce-{props.nonce}</code>
+					</pre>
+				</Box>
+			),
+			nonce: 'our-nonce-value',
+		},
+		qualtrics: { zone: 'zone', zoneID: 'ZN_zoneID' },
+	},
+	render: (args) => {
+		const policy = csp.render(
+			presets.nextJS({ nonce: args.scriptComponents.nonce! }),
+			presets.googleAnalytics,
+			presets.qualtrics,
+			{ 'font-src': 'arbitrary-value' }
+		);
+
+		return (
+			<PageContent>
+				<Stack gap={1}>
+					<Analytics {...args}>
+						<Prose>
+							<h1>sample CSP headers</h1>
+
+							<pre>
+								<code>
+									{policy.split('; ').join(`;
+`)}
+								</code>
+							</pre>
+						</Prose>
+					</Analytics>
+				</Stack>
+			</PageContent>
+		);
+	},
 };
 
 const EventButton = ({
