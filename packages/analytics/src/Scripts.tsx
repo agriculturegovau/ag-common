@@ -12,11 +12,13 @@ import { createPortal } from 'react-dom';
 export type ScriptComponentProps = PropsWithChildren<{
 	id: string;
 	src?: string;
+	nonce?: string;
 }>;
 
 export type ScriptComponentsContextType = {
 	/** Provide a component that can render a script tag for your web framework such as `next/script` */
 	Script: (props: ScriptComponentProps) => JSX.Element | null;
+	nonce?: string;
 };
 
 const ScriptComponentsContext = createContext<ScriptComponentsContextType>({
@@ -28,31 +30,30 @@ export type ScriptComponentProviderProps =
 
 export const ScriptComponentProvider = ({
 	children,
-	Script = () => null,
+	...values
 }: ScriptComponentProviderProps) => {
 	return (
-		<ScriptComponentsContext.Provider value={{ Script }}>
+		<ScriptComponentsContext.Provider value={values}>
 			{children}
 		</ScriptComponentsContext.Provider>
 	);
 };
 
-const useScriptComponents = () => {
-	const context = useContext(ScriptComponentsContext);
-	return { Script: context.Script };
-};
+const useScriptComponents = () => useContext(ScriptComponentsContext);
 
 export type GoogleAnalyticsProps = { measurementID: string };
 
 export const GoogleAnalytics = ({ measurementID }: GoogleAnalyticsProps) => {
-	const { Script } = useScriptComponents();
+	const { Script, nonce } = useScriptComponents();
+
 	return (
 		<Fragment>
 			<Script
+				nonce={nonce}
 				id="ag-common-analytics:google-src"
 				src={`https://www.googletagmanager.com/gtag/js?id=${measurementID}`}
 			/>
-			<Script id="ag-common-analytics:google-init">
+			<Script nonce={nonce} id="ag-common-analytics:google-init">
 				{`
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}
@@ -68,7 +69,7 @@ export const GoogleAnalytics = ({ measurementID }: GoogleAnalyticsProps) => {
 export type QualtricsScriptProps = { zone: string; zoneID: `ZN_${string}` };
 
 export const Qualtrics = ({ zone, zoneID }: QualtricsScriptProps) => {
-	const { Script } = useScriptComponents();
+	const { Script, nonce } = useScriptComponents();
 	const [mounted, setMounted] = useState(false);
 
 	useEffect(() => setMounted(true), []);
@@ -78,7 +79,7 @@ export const Qualtrics = ({ zone, zoneID }: QualtricsScriptProps) => {
 	const target = <div id={zoneID} aria-hidden="true" />;
 	return (
 		<Fragment>
-			<Script id="ag-common-analytics:qualtrics">
+			<Script nonce={nonce} id="ag-common-analytics:qualtrics">
 				{`(function(){var g=function(g){
       this.go=function(){var a=document.createElement("script");a.type="text/javascript";a.src=g;document.body&&document.body.appendChild(a)};
       this.start=function(){var t=this;"complete"!==document.readyState?window.addEventListener?window.addEventListener("load",function(){t.go()},!1):window.attachEvent&&window.attachEvent("onload",function(){t.go()}):t.go()};};
