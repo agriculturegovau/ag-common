@@ -30,7 +30,9 @@ function App() {
 
 ## environment-aware links
 
-Starting in version ^1.15 you SHOULD specify a 'domain' to indicate which environment your app is running in.
+Starting in version ^1.15 you SHOULD specify a `domain` prop to indicate which environment your app is running in.
+
+If your app is not running on the 'exports' subdomain you MUST also provide the `subdomain` prop.
 
 This allows the sidenav, footer, and profile dropdown links to link to the correct environment now that we can no longer rely on relative URLs.
 
@@ -51,9 +53,45 @@ function App() {
 			activePath={router.asPath}
 			businessDetails={businessDetails}
 			domain="test.agriculture.gov.au"
+			subdomain="services"
 		>
 			<YourApplication />
 		</AppLayout>
+	);
+}
+```
+
+## working with the type-safe domain prop
+
+The domain property demands either 'agriculture.gov.au' or a string ending with '.agriculture.gov.au'. This is done to 'make illegal states unrepresentable'. It is likely that this value comes from your environment configuration, which makes this annoying to interact with. Due to this, we also ship the `agricultureDomain` function which uses a type guard internally to cast your unknown input into either a valid `AgricultureDomain` or `undefined`.
+
+If you have a need to do something custom in your development environment or a unique use-case, you can also provide a function to this parameter which allows full customisation. Check out the `DevelopmentRouting` example in storybook.
+
+```tsx
+import { AppLayout, agricultureDomain } from '@ag.common/app-layout';
+import { useRouter } from 'next/router';
+
+function App() {
+	const router = useRouter();
+	const businessDetails = useBusinessDetails();
+	const env = getYourAppEnvironment(); // you should have some form of this in your codebase
+
+	return (
+		<React.Fragment>
+			<AppLayout
+				activePath={router.asPath}
+				domain={agricultureDomain(env.AG_DOMAIN)} // this is now type safe
+			>
+				<YourApplication />
+			</AppLayout>
+
+			<AppLayout
+				activePath={router.asPath}
+				domain={(route) => `http://localhost:3000${route.path}`} // dev env example
+			>
+				<YourApplication />
+			</AppLayout>
+		</React.Fragment>
 	);
 }
 ```
