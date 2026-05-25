@@ -30,6 +30,8 @@ import {
 	PieChartIcon,
 } from '@ag.ds-next/react/icon';
 import { Flex } from '@ag.ds-next/react/flex';
+import { AppSubdomain } from './utils';
+import { H1 } from '@ag.ds-next/react/heading';
 
 type BusinessFromAPI = Business & { someExtraInfo?: string };
 
@@ -211,10 +213,85 @@ export const CustomRouting: Story = {
 		focusMode: false,
 		userName: 'Toto Wolff',
 		unreadMessageCount: 6,
-		activePath: '/',
+		activePath: '/account/exports/dashboard',
 		handleSignOut,
+		subdomain: 'services',
 		domain: (route) =>
 			`http://${route.subdomain}.example.com/custom-prefix${route.path}`,
+	},
+};
+
+export const DevelopmentRouting: Story = {
+	args: {
+		focusMode: false,
+		userName: 'Toto Wolff',
+		unreadMessageCount: 6,
+		activePath: '/account/exports/dashboard',
+		handleSignOut,
+		subdomain: 'services',
+		features: {
+			people: true,
+			exportSystems: true,
+			invoices: true,
+			licences: true,
+			quotas: true,
+		},
+		domain: (route) =>
+			route.subdomain === 'services'
+				? `http://localhost:8080${route.path}`
+				: `http://localhost:3000${route.path}`,
+	},
+	render: (props) => {
+		const [activePath, setActivePath] = useState('/account/exports/dashboard');
+		const [subdomain, setSubdomain] = useState<AppSubdomain>('services');
+
+		return (
+			<Fragment>
+				<SkipLinks
+					links={[{ href: '#main-content', label: 'Skip to main content' }]}
+				/>
+				<AppLayout {...props} activePath={activePath} subdomain={subdomain}>
+					<PageContent>
+						<Stack gap={3}>
+							<H1>configure activePath / subdomain to test routing</H1>
+
+							<Select
+								label="activePath"
+								onChange={(e) => setActivePath(e.target.value)}
+								value={activePath}
+								options={[
+									{
+										value: '/account/exports/dashboard',
+										label: 'account-dashboard',
+									},
+									{
+										value: '/account/exports/manage-people',
+										label: 'manage-people',
+									},
+									{ value: '/establishments', label: 'establishments' },
+									{ value: '/intelligence', label: 'intelligence' },
+									{ value: '/compliance', label: 'compliance' },
+									{ value: '/quota', label: 'quota' },
+									{ value: '/export-systems', label: 'export-systems' },
+									{ value: '/licences', label: 'licences' },
+									{ value: '/inexs', label: 'inexs' },
+								]}
+							/>
+
+							<Select
+								label="subdomain"
+								onChange={(e) => setSubdomain(e.target.value as AppSubdomain)}
+								value={subdomain}
+								options={[
+									{ value: 'services', label: 'services' },
+									{ value: 'exports', label: 'exports' },
+								]}
+							/>
+						</Stack>
+					</PageContent>
+				</AppLayout>
+			</Fragment>
+		);
 	},
 };
 

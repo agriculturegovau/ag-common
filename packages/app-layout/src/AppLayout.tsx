@@ -29,6 +29,9 @@ import {
 	internalSidebarProps,
 	InternalTheme,
 	createRoutes,
+	resolveRouteSpec,
+	createRoute,
+	AppSubdomain,
 } from './utils';
 import {
 	Business,
@@ -87,10 +90,11 @@ export type AppLayoutProps<B extends Business> = PropsWithChildren<{
 	headerProps?: HeaderProps;
 	internal?: InternalTheme;
 	domain?: HostDomain;
+	subdomain?: AppSubdomain;
 }>;
 
 export function AppLayout<B extends Business>({
-	activePath,
+	activePath: activePath_,
 	children,
 	focusMode = false,
 	handleSignOut,
@@ -106,9 +110,12 @@ export function AppLayout<B extends Business>({
 	sidebarSubLevelVisible,
 	headerProps,
 	internal,
-	domain,
+	domain: domain_,
+	subdomain: subdomain_,
 }: AppLayoutProps<B>) {
 	const year = useMemo(() => new Date().getFullYear(), []);
+	const domain = domain_ ?? 'agriculture.gov.au';
+	const subdomain = subdomain_ ?? 'exports';
 
 	// Preserve link behaviour for main content
 	const parentCoreContext = useContext(coreContext);
@@ -117,13 +124,15 @@ export function AppLayout<B extends Business>({
 	const [isSigningOut, setSigningOut, setSignedOut] = useTernaryState(false);
 	const onSignOutClick = openModal;
 	const onModalSignOutClick = handleSignOut;
-	const routes = createRoutes(domain ?? 'agriculture.gov.au');
 
 	const features = getComputedFeatures({
 		features: features_,
 		selectedBusiness: businessDetails?.selectedBusiness,
 	});
 
+	const activeRoute = createRoute(subdomain)(activePath_);
+	const activePath = resolveRouteSpec(activeRoute, { domain });
+	const routes = createRoutes(domain);
 	const appLinks = useMemo(() => getAppLinks({ features, routes }), [features]);
 	const footerLinks = getFooterLinks(routes);
 	const sidebarLinks = useMemo(

@@ -56,7 +56,10 @@ export type Features = {
 type RouteSpecs = Record<string, RouteSpec>;
 type Routes<T extends RouteSpecs> = { [K in keyof T]: string };
 
-const resolveRouteSpec = (route: RouteSpec, opts: { domain: HostDomain }) => {
+export const resolveRouteSpec = (
+	route: RouteSpec,
+	opts: { domain: HostDomain }
+) => {
 	const { domain } = opts;
 
 	if (route.kind === 'standalone') return route.url;
@@ -77,7 +80,7 @@ const createRoutes_ =
 		return hrefs;
 	};
 
-const createRoute =
+export const createRoute =
 	(subdomain: AppSubdomain) =>
 	(path: string): RouteSpec => ({
 		kind: 'scoped',
