@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.16.0
+
+### Minor Changes
+
+- d256c9a: app-layout: support subdomain prop to indicate current app area
+
 ## 1.15.0
 
 ### Minor Changes
