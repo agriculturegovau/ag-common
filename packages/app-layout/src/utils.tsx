@@ -110,6 +110,7 @@ export const createRoutes = (() => {
 		contactUs: services('/about/contact-us'),
 		help: services('/help'),
 		privacy: services('/privacy'),
+		whatsNew: services('/whats-new'),
 		accessibility: standalone(
 			'https://www.agriculture.gov.au/about/commitment/accessibility'
 		),
@@ -220,6 +221,10 @@ export const getFooterLinks = (routes: AppRoutes) => [
 	{
 		href: routes.help,
 		label: 'Help',
+	},
+	{
+		href: routes.whatsNew,
+		label: "What's new",
 	},
 	{
 		href: routes.accessibility,

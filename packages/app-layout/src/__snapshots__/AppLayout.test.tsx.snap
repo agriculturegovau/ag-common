@@ -452,6 +452,16 @@ exports[`AppLayout renders correctly 1`] = `
                   >
                     <a
                       class="css-1wvbhdv-TextLink-TextLink"
+                      href="https://services.agriculture.gov.au/whats-new"
+                    >
+                      What's new
+                    </a>
+                  </li>
+                  <li
+                    class="css-3siufh-boxStyles-boxStyles"
+                  >
+                    <a
+                      class="css-1wvbhdv-TextLink-TextLink"
                       href="https://www.agriculture.gov.au/about/commitment/accessibility"
                       rel="external"
                     >
