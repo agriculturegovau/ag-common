@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.16.1
+
+### Patch Changes
+
+- b94ae5c: app-layout: add whats-new link to the footer
+
 ## 1.16.0
 
 ### Minor Changes
