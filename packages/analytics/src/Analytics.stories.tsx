@@ -19,10 +19,9 @@ import {
 	AnalyticsContext,
 	AnalyticsEventData,
 	AnalyticsListener,
-	csp,
-	cspPresets as presets,
 	useAnalytics,
 } from './index';
+import { csp, cspPresets as presets } from './csp';
 
 const meta: Meta<typeof Analytics> = {
 	title: 'Analytics',

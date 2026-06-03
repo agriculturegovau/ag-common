@@ -1,0 +1,4 @@
+{
+	"main": "dist/ag.common-analytics-csp.cjs.js",
+	"module": "dist/ag.common-analytics-csp.esm.js"
+}
