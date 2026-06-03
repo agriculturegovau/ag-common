@@ -1,5 +1,11 @@
 # @ag.common/analytics
 
+## 0.13.0
+
+### Minor Changes
+
+- d3ef4d2: analytics: add csp implementation to support qualtrics release
+
 ## 0.12.0
 
 ### Minor Changes
