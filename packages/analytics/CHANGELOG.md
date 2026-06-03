@@ -1,5 +1,11 @@
 # @ag.common/analytics
 
+## 0.13.1
+
+### Patch Changes
+
+- 87bb3a7: analytics: export csp without 'use client';
+
 ## 0.13.0
 
 ### Minor Changes
