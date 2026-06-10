@@ -1,5 +1,11 @@
 # @ag.common/digital-identity
 
+## 0.12.0
+
+### Minor Changes
+
+- dfeb949: deps: use agds at ^1.35.0
+
 ## 0.11.0
 
 ### Minor Changes
