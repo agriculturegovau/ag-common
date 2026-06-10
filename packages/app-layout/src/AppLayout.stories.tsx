@@ -39,7 +39,7 @@ const exampleBusinesses: BusinessFromAPI[] = [
 	{
 		partyId: 1,
 		partyDisplayName: 'Jefferson PTY LTD',
-		formattedPartyExternalId: 'ABN: 89 790 756 100',
+		formattedPartyExternalId: '89 790 756 100',
 		someExtraInfo: 'our component allows this field but does not use it at all',
 		roleDisplayName: 'User',
 		roleName: 'USER',
@@ -47,7 +47,7 @@ const exampleBusinesses: BusinessFromAPI[] = [
 	{
 		partyId: 2,
 		partyDisplayName: 'Metaweb (agent role)',
-		formattedPartyExternalId: 'ABN: 89 790 756 100',
+		formattedPartyExternalId: '89 790 756 100',
 		someExtraInfo: 'our component allows this field but does not use it at all',
 		roleDisplayName: 'Agent',
 		roleName: 'AGENT',
@@ -55,7 +55,7 @@ const exampleBusinesses: BusinessFromAPI[] = [
 	{
 		partyId: 3,
 		partyDisplayName: 'Fresh Produce Australia',
-		formattedPartyExternalId: 'ABN: 92 635 964 018',
+		formattedPartyExternalId: '92 635 964 018',
 		someExtraInfo: 'our component allows this field but does not use it at all',
 		roleDisplayName: 'Principal Authority (Owner)',
 		roleName: 'PRINCIPAL_AUTHORITY_OWNER',
@@ -63,7 +63,7 @@ const exampleBusinesses: BusinessFromAPI[] = [
 	{
 		partyId: 4,
 		partyDisplayName: 'Fresh Produce Australia',
-		formattedPartyExternalId: 'ABN: 92 635 964 018',
+		formattedPartyExternalId: '92 635 964 018',
 		someExtraInfo: 'our component allows this field but does not use it at all',
 		roleDisplayName: 'Manager',
 		roleName: 'MANAGER',

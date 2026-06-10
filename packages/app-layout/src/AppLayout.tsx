@@ -9,7 +9,7 @@ import {
 	AppLayoutSidebarProps,
 	AppLayoutHeaderProps,
 } from '@ag.ds-next/react/app-layout';
-import { Logo } from '@ag.ds-next/react/ag-branding';
+import { Logo } from '@ag.ds-next/react/daff-branding';
 import {
 	CoreProvider,
 	coreContext,
@@ -25,8 +25,6 @@ import {
 	getFooterLinks,
 	getAppLinks,
 	getSidebarLinks,
-	internalHeaderProps,
-	internalSidebarProps,
 	InternalTheme,
 	createRoutes,
 	resolveRouteSpec,
@@ -88,9 +86,13 @@ export type AppLayoutProps<B extends Business> = PropsWithChildren<{
 	sidebarItems?: SidebarItems;
 	sidebarSubLevelVisible?: SidebarSubLevelVisible;
 	headerProps?: HeaderProps;
-	internal?: InternalTheme;
 	domain?: HostDomain;
 	subdomain?: AppSubdomain;
+
+	/**
+	 * @deprecated the internal theme flag has lost all semantic meaning with the daff theme changes.
+	 */
+	internal?: InternalTheme;
 }>;
 
 export function AppLayout<B extends Business>({
@@ -109,7 +111,6 @@ export function AppLayout<B extends Business>({
 	sidebarItems,
 	sidebarSubLevelVisible,
 	headerProps,
-	internal,
 	domain: domain_,
 	subdomain: subdomain_,
 }: AppLayoutProps<B>) {
@@ -155,6 +156,8 @@ export function AppLayout<B extends Business>({
 			<LayoutContext.Provider value={{ onSignOutClick }}>
 				<CoreProvider>
 					<AgDsAppLayoutHeader
+						palette="light"
+						background="body"
 						href={headerProps?.href ?? '/account'}
 						heading={headerProps?.heading ?? 'Export Service'}
 						subLine={
@@ -189,7 +192,6 @@ export function AppLayout<B extends Business>({
 									}
 								: undefined
 						}
-						{...internalHeaderProps(internal)}
 					/>
 					{sidebarItems ? (
 						<CoreProvider {...parentCoreContext}>
@@ -197,14 +199,14 @@ export function AppLayout<B extends Business>({
 								activePath={activePath}
 								items={sidebarItems}
 								subLevelVisible={sidebarSubLevelVisible}
-								{...internalSidebarProps(internal)}
+								background="body"
 							/>
 						</CoreProvider>
 					) : (
 						<AgDsAppLayoutSidebar
 							activePath={activePath}
 							items={sidebarLinks}
-							{...internalSidebarProps(internal)}
+							background="body"
 						/>
 					)}
 
