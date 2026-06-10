@@ -1,5 +1,11 @@
 # @ag.common/help-callout
 
+## 1.7.0
+
+### Minor Changes
+
+- dfeb949: deps: use agds at ^1.35.0
+
 ## 1.6.0
 
 ### Minor Changes

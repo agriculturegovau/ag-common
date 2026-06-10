@@ -1,5 +1,11 @@
 # @ag.common/header
 
+## 2.6.0
+
+### Minor Changes
+
+- dfeb949: deps: use agds at ^1.35.0
+
 ## 2.5.0
 
 ### Minor Changes

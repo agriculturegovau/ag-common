@@ -1,5 +1,11 @@
 # @ag.common/footer
 
+## 1.10.0
+
+### Minor Changes
+
+- dfeb949: deps: use agds at ^1.35.0
+
 ## 1.9.0
 
 ### Minor Changes

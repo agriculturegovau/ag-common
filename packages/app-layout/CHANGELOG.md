@@ -1,5 +1,12 @@
 # @ag.common/app-layout
 
+## 1.17.0
+
+### Minor Changes
+
+- dfeb949: deps: use agds at ^1.35.0
+- dfeb949: app-layout: use new daff theme from agds 1.35
+
 ## 1.16.1
 
 ### Patch Changes

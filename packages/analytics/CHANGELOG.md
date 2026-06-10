@@ -1,5 +1,11 @@
 # @ag.common/analytics
 
+## 0.14.0
+
+### Minor Changes
+
+- dfeb949: deps: use agds at ^1.35.0
+
 ## 0.13.1
 
 ### Patch Changes
