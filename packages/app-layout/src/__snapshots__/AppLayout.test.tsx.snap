@@ -6,10 +6,10 @@ exports[`AppLayout renders correctly 1`] = `
     class="css-3s22mq"
   >
     <header
-      class="css-1xipfei-dark-dark-boxStyles-boxStyles-AppLayoutHeader"
+      class="css-g1p5bu-light-light-boxStyles-boxStyles-AppLayoutHeader"
     >
       <div
-        class="css-124u00k-boxStyles-boxStyles"
+        class="css-7co5m5-boxStyles-boxStyles"
       >
         <a
           class="css-cnzjwr-boxStyles-boxStyles-AppLayoutHeaderBrand"
@@ -153,7 +153,7 @@ exports[`AppLayout renders correctly 1`] = `
       </div>
     </header>
     <div
-      class="css-pymz5h-boxStyles-boxStyles-AppLayoutSidebar"
+      class="css-1cpsggn-boxStyles-boxStyles-AppLayoutSidebar"
     >
       <nav
         aria-label="main"
@@ -163,7 +163,7 @@ exports[`AppLayout renders correctly 1`] = `
           class="css-17tu34w-boxStyles-boxStyles"
         >
           <li
-            class="css-1ythe32-AppLayoutSidebarNavItemInner"
+            class="css-1vadzro-AppLayoutSidebarNavItemInner"
           >
             <a
               href="https://services.agriculture.gov.au/account/exports/dashboard"
@@ -181,10 +181,7 @@ exports[`AppLayout renders correctly 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M20 11v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V11"
-                />
-                <path
-                  d="M2 12C3.836 10.077 12 2 12 2s8.164 8.077 10 10"
+                  d="M15 21V3H3v18h12Zm0 0h6V7.5h-6V21ZM7 6v2m0 2v2m4-6v2m0 2v2m7 2v2m0-6v2M7 15h4v6H7v-6Z"
                 />
               </svg>
               <span
@@ -195,7 +192,7 @@ exports[`AppLayout renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="css-1ythe32-AppLayoutSidebarNavItemInner"
+            class="css-1vadzro-AppLayoutSidebarNavItemInner"
           >
             <a
               href="https://exports.agriculture.gov.au/establishments"
@@ -224,7 +221,7 @@ exports[`AppLayout renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="css-1ythe32-AppLayoutSidebarNavItemInner"
+            class="css-1vadzro-AppLayoutSidebarNavItemInner"
           >
             <a
               href="https://exports.agriculture.gov.au/intelligence"
@@ -253,7 +250,7 @@ exports[`AppLayout renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="css-1ythe32-AppLayoutSidebarNavItemInner"
+            class="css-1vadzro-AppLayoutSidebarNavItemInner"
           >
             <a
               href="https://exports.agriculture.gov.au/compliance"
@@ -293,7 +290,7 @@ exports[`AppLayout renders correctly 1`] = `
             />
           </li>
           <li
-            class="css-1ythe32-AppLayoutSidebarNavItemInner"
+            class="css-1vadzro-AppLayoutSidebarNavItemInner"
           >
             <a
               href="https://services.agriculture.gov.au/help"
@@ -357,7 +354,7 @@ exports[`AppLayout renders correctly 1`] = `
             />
           </li>
           <li
-            class="css-ih9zwa-AppLayoutSidebarNavItemInner"
+            class="css-umil7w-AppLayoutSidebarNavItemInner"
           >
             <button
               class="css-p08sx1-BaseButton"

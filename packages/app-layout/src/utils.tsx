@@ -1,11 +1,11 @@
 import {
+	BusinessIcon,
 	ChartLineIcon,
 	createIcon,
 	ExitIcon,
 	ExternalLinkIcon,
 	FactoryIcon,
 	HelpIcon,
-	HomeIcon,
 	LicenceBusinessIcon,
 	LinkIcon,
 	PieChartIcon,
@@ -142,7 +142,7 @@ const PaymentIcon = createIcon(
 const createAppLinks = (routes: AppRoutes) => ({
 	dashboard: {
 		label: 'Dashboard',
-		icon: HomeIcon,
+		icon: BusinessIcon,
 		href: routes.dashboard,
 	},
 	people: {
@@ -298,21 +298,3 @@ export const findBestMatch = <T extends { href: string }>(
 };
 
 export type InternalTheme = boolean | 'header' | 'sidebar';
-
-const isInternal =
-	(section: 'header' | 'sidebar') => (internal?: InternalTheme) =>
-		internal === true || internal == section;
-
-const ifInternal =
-	<Props,>(section: 'header' | 'sidebar', props: Props) =>
-	(internal?: InternalTheme): Props | object =>
-		isInternal(section)(internal) ? props : {};
-
-export const internalHeaderProps = ifInternal('header', {
-	palette: 'light',
-	borderColor: 'selected',
-} as const);
-
-export const internalSidebarProps = ifInternal('sidebar', {
-	background: 'body',
-} as const);

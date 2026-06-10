@@ -209,6 +209,7 @@ export const getBusinessSidebarLinks = <T extends Business>(params: {
 										{params.details.selectedBusiness.partyDisplayName}
 									</Text>
 									<Text color="muted" fontSize="xs">
+										ABN:{' '}
 										{params.details.selectedBusiness.formattedPartyExternalId}
 									</Text>
 								</Fragment>

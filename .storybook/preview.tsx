@@ -2,7 +2,7 @@ import React from 'react';
 import type { Preview } from '@storybook/react';
 import { Box } from '@ag.ds-next/react/box';
 import { Core } from '@ag.ds-next/react/core';
-import { theme } from '@ag.ds-next/react/ag-branding';
+import { theme } from '@ag.ds-next/react/daff-branding';
 
 function makeViewports() {
 	const viewports = [
