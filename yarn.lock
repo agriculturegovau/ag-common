@@ -18,14 +18,12 @@ __metadata:
   dependencies:
     "@ag.ds-next/react": "npm:^1.33.0"
     "@emotion/react": "npm:^11.7.0"
-    "@types/gtag.js": "npm:^0.0.12"
     facepaint: "npm:^1.2.1"
     react: "npm:18.1.0 || 19.0.0"
     react-dom: "npm:18.1.0 || 19.0.0"
   peerDependencies:
     "@ag.ds-next/react": ^1.33.0
     "@emotion/react": ^11.7.0
-    "@types/gtag.js": ^0.0.12
     facepaint: ^1.2.1
     react: ^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     react-dom: ^18.0.0 || ^19.0.0
@@ -3951,13 +3949,6 @@ __metadata:
   dependencies:
     "@types/node": "npm:*"
   checksum: 10c0/235d2fc69741448e853333b7c3d1180a966dd2b8972c8cbcd6b2a0c6cd7f8d582ab2b8e58219dbc62cce8f1b40aa317ff78ea2201cdd8249da5025adebed6f0b
-  languageName: node
-  linkType: hard
-
-"@types/gtag.js@npm:^0.0.12":
-  version: 0.0.12
-  resolution: "@types/gtag.js@npm:0.0.12"
-  checksum: 10c0/fee8f4c6e627301b89ab616c9e219bd53fa6ea1ffd1d0a8021e21363f0bdb2cf7eb1a5bcda0c6f1502186379bc7784ec29c932e21634f4e07f9e7a8c56887400
   languageName: node
   linkType: hard
 

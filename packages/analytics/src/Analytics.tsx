@@ -29,10 +29,6 @@ export type AnalyticsProps = PropsWithChildren<{
 	hotjar?: boolean;
 }>;
 
-const emptyEvent: AnalyticsEventHandler = () => {
-	return;
-};
-
 export const Analytics = ({
 	children,
 	onEvent,
@@ -59,7 +55,7 @@ export const Analytics = ({
 					const gtagHandler = gtagEventHandler();
 
 					// fail silently with emptyEvent if we don't have any event handlers
-					return (onEvent ?? gtagHandler?.onEvent ?? emptyEvent)(...params);
+					return (onEvent ?? gtagHandler?.onEvent)?.(...params);
 				}}
 			>
 				{children}
