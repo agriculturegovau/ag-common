@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.17.1
+
+### Patch Changes
+
+- 2d6122f: app-layout: tweak custom sidenav activepath behaviour to skip route resolution
+
 ## 1.17.0
 
 ### Minor Changes
