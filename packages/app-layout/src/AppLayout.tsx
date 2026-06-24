@@ -196,7 +196,7 @@ export function AppLayout<B extends Business>({
 					{sidebarItems ? (
 						<CoreProvider {...parentCoreContext}>
 							<AgDsAppLayoutSidebar
-								activePath={activePath}
+								activePath={activePath_} // use unmodified path here so that custom sidenav items don't need to be expanded into fully qualified urls
 								items={sidebarItems}
 								subLevelVisible={sidebarSubLevelVisible}
 								background="body"
