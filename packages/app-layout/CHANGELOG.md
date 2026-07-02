@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.17.3
+
+### Patch Changes
+
+- ff10cbf: app-layout: remove oxford comma from header
+
 ## 1.17.2
 
 ### Patch Changes
