@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.17.2
+
+### Patch Changes
+
+- 16525c3: app-layout: update header text and subline to support rebrand
+
 ## 1.17.1
 
 ### Patch Changes
