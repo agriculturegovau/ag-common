@@ -13,7 +13,7 @@ exports[`AppLayout renders correctly 1`] = `
       >
         <a
           class="css-cnzjwr-boxStyles-boxStyles-AppLayoutHeaderBrand"
-          href="/account"
+          href="https://services.agriculture.gov.au/account"
         >
           <svg
             aria-label="Australian Government, Department of Agriculture, Fisheries and Forestry"
@@ -57,7 +57,7 @@ exports[`AppLayout renders correctly 1`] = `
               <span
                 class="css-87sxyn-boxStyles-boxStyles"
               >
-                Export Service
+                TradeClear
               </span>
               <div
                 class="css-1m5a0x2-boxStyles-boxStyles-AppLayoutHeaderBrandBadge"
@@ -68,7 +68,7 @@ exports[`AppLayout renders correctly 1`] = `
             <span
               class="css-1by1ko6-boxStyles-boxStyles"
             >
-              Supporting Australian agricultural exports
+              Australian export, import, and biosecurity services
             </span>
           </div>
         </a>
