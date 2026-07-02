@@ -162,7 +162,7 @@ export function AppLayout<B extends Business>({
 						heading={headerProps?.heading ?? 'TradeClear'}
 						subLine={
 							headerProps?.subLine ??
-							'Australian export, import, and biosecurity services'
+							'Australian export, import and biosecurity services'
 						}
 						badgeLabel={headerProps?.badgeLabel ?? 'Beta'}
 						logo={<Logo />}
