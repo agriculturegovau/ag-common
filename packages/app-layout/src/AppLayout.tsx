@@ -158,11 +158,11 @@ export function AppLayout<B extends Business>({
 					<AgDsAppLayoutHeader
 						palette="light"
 						background="body"
-						href={headerProps?.href ?? '/account'}
-						heading={headerProps?.heading ?? 'Export Service'}
+						href={headerProps?.href ?? routes.account}
+						heading={headerProps?.heading ?? 'TradeClear'}
 						subLine={
 							headerProps?.subLine ??
-							'Supporting Australian agricultural exports'
+							'Australian export, import, and biosecurity services'
 						}
 						badgeLabel={headerProps?.badgeLabel ?? 'Beta'}
 						logo={<Logo />}
