@@ -1,5 +1,11 @@
 # @ag.common/help-callout
 
+## 1.7.1
+
+### Patch Changes
+
+- 290746e: help-callout: update email address to use tradeclear
+
 ## 1.7.0
 
 ### Minor Changes
