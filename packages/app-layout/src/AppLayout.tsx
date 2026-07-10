@@ -275,7 +275,8 @@ export function AppLayout<B extends Business>({
 						}
 					>
 						<Text as="p">
-							This will end your current session with the Export Service.
+							You will be signed out of your account and any services you are
+							currently using.
 						</Text>
 					</Modal>
 				</CoreProvider>

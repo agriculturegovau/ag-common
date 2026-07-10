@@ -55,11 +55,11 @@ const MissingName = (props: PropsWithChildren<{ routes: AppRoutes }>) => (
 			</CoreProvider>
 
 			<Prose>
-				<h1>Single names in the Export Service</h1>
+				<h1>Single names in TradeClear</h1>
 				<p>
-					If you are legally known by a single name, you can use it to access an
-					Export Service account. Other services we offer may not accept a
-					single name and you will need to use a given and family name.
+					If you are legally known by a single name, you can use it to access a
+					TradeClear account. Other services we offer may not accept a single
+					name and you will need to use a given and family name.
 				</p>
 				<p>Contact support if you need more help.</p>
 			</Prose>
