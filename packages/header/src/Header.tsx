@@ -2,9 +2,12 @@ import { MouseEventHandler } from 'react';
 import { CoreProvider } from '@ag.ds-next/react/core';
 import { Header as AgDsHeader } from '@ag.ds-next/react/header';
 import { AvatarIcon } from '@ag.ds-next/react/icon';
-import { MainNav } from '@ag.ds-next/react/main-nav';
-import { Logo } from '@ag.ds-next/react/ag-branding';
+import { MainNav, MainNavProps } from '@ag.ds-next/react/main-nav';
+import { Logo } from '@ag.ds-next/react/daff-branding';
 import { Box } from '@ag.ds-next/react/box';
+import { Flex } from '@ag.ds-next/react/flex';
+
+type HeaderItems = MainNavProps['items'];
 
 export type HeaderProps = {
 	activePath?: string;
@@ -12,7 +15,10 @@ export type HeaderProps = {
 	handleSignIn?: MouseEventHandler<HTMLButtonElement>;
 	mainNavId?: string;
 	focusMode?: boolean;
+	extraItems?: HeaderItems;
 };
+
+const leaf = 'https://static-content.p5.agriculture.gov.au/agds/brand-leaf.png';
 
 const links = [
 	{
@@ -20,12 +26,12 @@ const links = [
 		label: 'Home',
 	},
 	{
-		href: '/about',
-		label: 'About',
+		href: '/export',
+		label: 'Export',
 	},
 	{
-		href: '/services',
-		label: 'Services',
+		href: '/import-biosecurity',
+		label: 'Import and biosecurity',
 	},
 	{
 		href: '/help',
@@ -39,37 +45,51 @@ export const Header = ({
 	handleSignIn,
 	mainNavId = 'main-nav',
 	focusMode,
+	extraItems = [],
 }: HeaderProps) => {
+	const items = [...links, ...extraItems];
+	const signInProps = handleSignIn
+		? { onClick: handleSignIn }
+		: { href: '/account' };
+
 	return (
 		<CoreProvider>
-			<Box palette="dark">
+			<Box palette="light">
 				<AgDsHeader
 					href={authenticated ? '/account' : '/'}
-					heading="Export Service"
-					subline="Supporting Australian agricultural exports"
+					heading="TradeClear"
+					subline="Australian export, import and biosecurity services"
 					logo={<Logo />}
-					badgeLabel="beta"
-					background="bodyAlt"
+					badgeLabel="Beta"
+					background="body"
+					rightContent={
+						<Flex
+							justifyContent="flex-end"
+							display={{ xs: 'none', lg: 'flex' }}
+						>
+							<img src={leaf} height={'107px'} alt="Agriculture brand leaf" />
+						</Flex>
+					}
 				/>
 				<MainNav
 					id={mainNavId}
 					activePath={activePath}
 					focusMode={focusMode}
-					items={links}
+					items={items}
 					secondaryItems={
 						authenticated
 							? [
 									{
 										label: 'My account',
-										href: '/account',
 										endElement: <AvatarIcon />,
+										href: '/account',
 									},
 								]
 							: [
 									{
 										label: 'Sign in',
-										onClick: handleSignIn,
 										endElement: <AvatarIcon />,
+										...signInProps,
 									},
 								]
 					}

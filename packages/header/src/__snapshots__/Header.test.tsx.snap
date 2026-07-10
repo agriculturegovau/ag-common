@@ -3,10 +3,10 @@
 exports[`Header authenticated renders correctly 1`] = `
 <div>
   <div
-    class="css-yxthkp-dark-dark-boxStyles-boxStyles"
+    class="css-rg6h3h-light-light-boxStyles-boxStyles"
   >
     <header
-      class="css-1yas2mc-boxStyles-boxStyles"
+      class="css-u2hwh3-boxStyles-boxStyles"
     >
       <div
         class="css-167uusy-boxStyles-boxStyles"
@@ -15,7 +15,7 @@ exports[`Header authenticated renders correctly 1`] = `
           class="css-1rdmbtw-boxStyles-boxStyles"
         >
           <div
-            class="css-1nkfpn-boxStyles-boxStyles"
+            class="css-khrau0-boxStyles-boxStyles"
           >
             <a
               class="css-9h96rh-boxStyles-boxStyles-HeaderBrand"
@@ -67,21 +67,34 @@ exports[`Header authenticated renders correctly 1`] = `
                   <span
                     class="css-xij6c9-boxStyles-boxStyles"
                   >
-                    Export Service
+                    TradeClear
                   </span>
                   <div
                     class="css-cmgm44-boxStyles-boxStyles-HeaderBadge"
                   >
-                    beta
+                    Beta
                   </div>
                 </div>
                 <span
                   class="css-1hbca9h-boxStyles-boxStyles"
                 >
-                  Supporting Australian agricultural exports
+                  Australian export, import and biosecurity services
                 </span>
               </div>
             </a>
+          </div>
+          <div
+            class="css-1x2elya-boxStyles-boxStyles-Header-Header"
+          >
+            <div
+              class="css-nxhi5i-boxStyles-boxStyles"
+            >
+              <img
+                alt="Agriculture brand leaf"
+                height="107px"
+                src="https://static-content.p5.agriculture.gov.au/agds/brand-leaf.png"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -142,10 +155,10 @@ exports[`Header authenticated renders correctly 1`] = `
               class="css-1egadvt-boxStyles-boxStyles"
             >
               <a
-                href="/about"
+                href="/export"
               >
                 <span>
-                  About
+                  Export
                 </span>
               </a>
             </li>
@@ -153,10 +166,10 @@ exports[`Header authenticated renders correctly 1`] = `
               class="css-1egadvt-boxStyles-boxStyles"
             >
               <a
-                href="/services"
+                href="/import-biosecurity"
               >
                 <span>
-                  Services
+                  Import and biosecurity
                 </span>
               </a>
             </li>
@@ -226,10 +239,10 @@ exports[`Header authenticated renders correctly 1`] = `
 exports[`Header unauthenticated renders correctly 1`] = `
 <div>
   <div
-    class="css-yxthkp-dark-dark-boxStyles-boxStyles"
+    class="css-rg6h3h-light-light-boxStyles-boxStyles"
   >
     <header
-      class="css-1yas2mc-boxStyles-boxStyles"
+      class="css-u2hwh3-boxStyles-boxStyles"
     >
       <div
         class="css-167uusy-boxStyles-boxStyles"
@@ -238,7 +251,7 @@ exports[`Header unauthenticated renders correctly 1`] = `
           class="css-1rdmbtw-boxStyles-boxStyles"
         >
           <div
-            class="css-1nkfpn-boxStyles-boxStyles"
+            class="css-khrau0-boxStyles-boxStyles"
           >
             <a
               class="css-9h96rh-boxStyles-boxStyles-HeaderBrand"
@@ -290,21 +303,34 @@ exports[`Header unauthenticated renders correctly 1`] = `
                   <span
                     class="css-xij6c9-boxStyles-boxStyles"
                   >
-                    Export Service
+                    TradeClear
                   </span>
                   <div
                     class="css-cmgm44-boxStyles-boxStyles-HeaderBadge"
                   >
-                    beta
+                    Beta
                   </div>
                 </div>
                 <span
                   class="css-1hbca9h-boxStyles-boxStyles"
                 >
-                  Supporting Australian agricultural exports
+                  Australian export, import and biosecurity services
                 </span>
               </div>
             </a>
+          </div>
+          <div
+            class="css-1x2elya-boxStyles-boxStyles-Header-Header"
+          >
+            <div
+              class="css-nxhi5i-boxStyles-boxStyles"
+            >
+              <img
+                alt="Agriculture brand leaf"
+                height="107px"
+                src="https://static-content.p5.agriculture.gov.au/agds/brand-leaf.png"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -365,10 +391,10 @@ exports[`Header unauthenticated renders correctly 1`] = `
               class="css-1egadvt-boxStyles-boxStyles"
             >
               <a
-                href="/about"
+                href="/export"
               >
                 <span>
-                  About
+                  Export
                 </span>
               </a>
             </li>
@@ -376,10 +402,10 @@ exports[`Header unauthenticated renders correctly 1`] = `
               class="css-1egadvt-boxStyles-boxStyles"
             >
               <a
-                href="/services"
+                href="/import-biosecurity"
               >
                 <span>
-                  Services
+                  Import and biosecurity
                 </span>
               </a>
             </li>
@@ -406,9 +432,8 @@ exports[`Header unauthenticated renders correctly 1`] = `
             <li
               class="css-g94hao-boxStyles-boxStyles"
             >
-              <button
-                class="css-p08sx1-BaseButton"
-                type="button"
+              <a
+                href="/account"
               >
                 <span>
                   Sign in
@@ -434,7 +459,7 @@ exports[`Header unauthenticated renders correctly 1`] = `
                     r="10.5"
                   />
                 </svg>
-              </button>
+              </a>
             </li>
           </ul>
         </nav>

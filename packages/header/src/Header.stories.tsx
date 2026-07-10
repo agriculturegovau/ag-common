@@ -19,7 +19,6 @@ export const Authenticated: Story = {
 	args: {
 		activePath: '/',
 		authenticated: true,
-		handleSignIn: console.log,
 	},
 };
 
@@ -27,7 +26,6 @@ export const Unauthenticated: Story = {
 	args: {
 		activePath: '/',
 		authenticated: false,
-		handleSignIn: console.log,
 	},
 };
 
@@ -35,7 +33,6 @@ export const FocusMode: Story = {
 	args: {
 		activePath: '/',
 		authenticated: true,
-		handleSignIn: console.log,
 		focusMode: true,
 	},
 };
@@ -68,5 +65,12 @@ export const Authentication: Story = {
 				)}
 			</Fragment>
 		);
+	},
+};
+
+export const ExtraItems: Story = {
+	args: {
+		activePath: '/',
+		extraItems: [{ label: 'Search' }],
 	},
 };

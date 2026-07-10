@@ -3,100 +3,141 @@
 exports[`Footer renders correctly 1`] = `
 <div>
   <div
-    class="css-yxthkp-dark-dark-boxStyles-boxStyles"
+    class="css-rg6h3h-light-light-boxStyles-boxStyles"
   >
     <footer
-      class="css-1pez9ge-boxStyles-boxStyles"
+      class="css-12456on-boxStyles-boxStyles-Footer"
     >
       <div
-        class="css-10reg7n-boxStyles-boxStyles"
+        class="css-167uusy-boxStyles-boxStyles"
       >
-        <nav
-          aria-label="footer"
+        <div
+          class="css-1f5zy1a-boxStyles-boxStyles"
         >
-          <ul
-            class="css-1rzmb70-boxStyles-boxStyles"
+          <div
+            class="css-1aahpy5-boxStyles-boxStyles-Footer"
           >
-            <li
-              class="css-3siufh-boxStyles-boxStyles"
+            <nav
+              aria-label="footer"
+            >
+              <ul
+                class="css-1rzmb70-boxStyles-boxStyles"
+              >
+                <li
+                  class="css-3siufh-boxStyles-boxStyles"
+                >
+                  <a
+                    class="css-1wvbhdv-TextLink-TextLink"
+                    href="/about"
+                  >
+                    About
+                  </a>
+                </li>
+                <li
+                  class="css-3siufh-boxStyles-boxStyles"
+                >
+                  <a
+                    class="css-1wvbhdv-TextLink-TextLink"
+                    href="/about/contact-us"
+                  >
+                    Contact us
+                  </a>
+                </li>
+                <li
+                  class="css-3siufh-boxStyles-boxStyles"
+                >
+                  <a
+                    class="css-1wvbhdv-TextLink-TextLink"
+                    href="/help"
+                  >
+                    Help
+                  </a>
+                </li>
+                <li
+                  class="css-3siufh-boxStyles-boxStyles"
+                >
+                  <a
+                    class="css-1wvbhdv-TextLink-TextLink"
+                    href="/whats-new"
+                  >
+                    What's new
+                  </a>
+                </li>
+                <li
+                  class="css-3siufh-boxStyles-boxStyles"
+                >
+                  <a
+                    class="css-1wvbhdv-TextLink-TextLink"
+                    href="https://www.agriculture.gov.au/about/commitment/accessibility"
+                    rel="external"
+                  >
+                    Accessibility
+                  </a>
+                </li>
+                <li
+                  class="css-3siufh-boxStyles-boxStyles"
+                >
+                  <a
+                    class="css-1wvbhdv-TextLink-TextLink"
+                    href="https://www.agriculture.gov.au/about/disclaimer"
+                    rel="external"
+                  >
+                    Disclaimer
+                  </a>
+                </li>
+                <li
+                  class="css-3siufh-boxStyles-boxStyles"
+                >
+                  <a
+                    class="css-1wvbhdv-TextLink-TextLink"
+                    href="/privacy"
+                  >
+                    Privacy
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <span
+              class="css-e2b7z3-boxStyles-boxStyles"
             >
               <a
                 class="css-1wvbhdv-TextLink-TextLink"
-                href="/about"
+                href="https://www.agriculture.gov.au/about/copyright"
               >
-                About
+                © 
+                2026
+                 Department of Agriculture, Fisheries and Forestry
               </a>
-            </li>
-            <li
-              class="css-3siufh-boxStyles-boxStyles"
+            </span>
+            <hr
+              aria-hidden="true"
+              class="css-rgnzvv-boxStyles-boxStyles-FooterDivider"
+            />
+            <span
+              class="css-pu4plz-boxStyles-boxStyles"
             >
-              <a
-                class="css-1wvbhdv-TextLink-TextLink"
-                href="/about/contact-us"
-              >
-                Contact us
-              </a>
-            </li>
-            <li
-              class="css-3siufh-boxStyles-boxStyles"
+              We acknowledge the continuous connection of First Nations Traditional Owners and Custodians to the lands, seas and waters of Australia. We recognise their care for and cultivation of Country. We pay respect to Elders past and present, and recognise their knowledge and contribution to the productivity, innovation and sustainability of Australia's agriculture, fisheries and forestry industries.
+            </span>
+            <span
+              class="css-pu4plz-boxStyles-boxStyles"
             >
-              <a
-                class="css-1wvbhdv-TextLink-TextLink"
-                href="/help"
-              >
-                Help
-              </a>
-            </li>
-            <li
-              class="css-3siufh-boxStyles-boxStyles"
-            >
-              <a
-                class="css-1wvbhdv-TextLink-TextLink"
-                href="https://www.agriculture.gov.au/about/commitment/accessibility"
-                rel="external"
-              >
-                Accessibility
-              </a>
-            </li>
-            <li
-              class="css-3siufh-boxStyles-boxStyles"
-            >
-              <a
-                class="css-1wvbhdv-TextLink-TextLink"
-                href="https://www.agriculture.gov.au/about/disclaimer"
-                rel="external"
-              >
-                Disclaimer
-              </a>
-            </li>
-            <li
-              class="css-3siufh-boxStyles-boxStyles"
-            >
-              <a
-                class="css-1wvbhdv-TextLink-TextLink"
-                href="/privacy"
-              >
-                Privacy
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <hr
-          aria-hidden="true"
-          class="css-6682pz-boxStyles-boxStyles-FooterDivider"
-        />
-        <span
-          class="css-9e29bx-boxStyles-boxStyles"
-        >
-          We acknowledge the traditional owners of country throughout Australia and recognise their continuing connection to land, waters and culture. We pay our respects to their Elders past, present and emerging.
-        </span>
-        <span
-          class="css-9e29bx-boxStyles-boxStyles"
-        >
-          © 
-          2026
-           Department of Agriculture, Fisheries and Forestry
-        </span>
+              Artwork: 
+              <em>
+                Protecting our Country, Growing our Future
+              </em>
+              <br />
+              © Amy Allerton, contemporary Aboriginal Artist of the Gumbaynggirr, Bundjalung and Gamilaroi nations.
+            </span>
+          </div>
+          <div
+            class="css-rf3txd-boxStyles-boxStyles-Footer"
+          >
+            <img
+              alt="Agriculture brand artowrk"
+              src="https://static-content.p5.agriculture.gov.au/agds/brand-artwork.png"
+            />
+          </div>
+        </div>
       </div>
     </footer>
   </div>
