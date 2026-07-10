@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.17.4
+
+### Patch Changes
+
+- 2a64d98: app-layout: remove lingering references to export service
+
 ## 1.17.3
 
 ### Patch Changes
