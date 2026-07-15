@@ -28,8 +28,8 @@ export const HelpCallout = (props: HelpCalloutProps) => {
 				)}
 				<Text>
 					Email{' '}
-					<TextLink href="mailto:tradeclear@aff.gov.au">
-						tradeclear@aff.gov.au
+					<TextLink href="mailto:tradeclearsupport@aff.gov.au">
+						tradeclearsupport@aff.gov.au
 					</TextLink>
 				</Text>
 				<Text>

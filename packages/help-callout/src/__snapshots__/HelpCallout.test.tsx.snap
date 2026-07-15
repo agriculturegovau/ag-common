@@ -57,9 +57,9 @@ exports[`HelpCallout renders correctly 1`] = `
          
         <a
           class="css-1wvbhdv-TextLink-TextLink"
-          href="mailto:tradeclear@aff.gov.au"
+          href="mailto:tradeclearsupport@aff.gov.au"
         >
-          tradeclear@aff.gov.au
+          tradeclearsupport@aff.gov.au
         </a>
       </span>
       <span
