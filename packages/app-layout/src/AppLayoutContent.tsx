@@ -20,7 +20,7 @@ import {
 	ProofingLevel,
 } from './proofing';
 import { ExpectedClaims } from './authDetails';
-import { AppRoutes } from './utils';
+import { AppRoutes } from './routes';
 
 const isEmptyString = (t: string | undefined) => (t?.trim() ?? '') === '';
 

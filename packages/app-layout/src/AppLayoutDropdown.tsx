@@ -17,37 +17,24 @@ import {
 	PlaneTakeoffIcon,
 } from '@ag.ds-next/react/icon';
 import { Text } from '@ag.ds-next/react/text';
-import { AppRoutes, type Features } from './utils';
-
-export interface Business {
-	partyId: number;
-	partyDisplayName: string;
-	formattedPartyExternalId: string;
-	roleDisplayName: string;
-	roleName?: string;
-	roleGroupName?: string;
-}
-
-export interface BusinessOption extends Business {
-	selected?: boolean;
-	setSelected?: () => void;
-}
-
-export interface BusinessDetails<T extends Business> {
-	selectedBusiness?: T;
-	linkedBusinesses?: T[];
-	setSelectedBusiness: (business: T) => void;
-}
+import { AppRoutes } from './routes';
+import {
+	Business,
+	BusinessCategory,
+	BusinessDetails,
+	BusinessOption,
+	getBusinessABN,
+	getBusinessCategory,
+	getBusinessCategoryLabel,
+	getBusinessName,
+	type Features,
+} from './defs';
 
 export interface BusinessDropdownProps<T extends Business> {
 	businessDetails: BusinessDetails<T>;
 	onSignOutClick: () => void;
 	routes: AppRoutes;
 }
-
-// A business.roleGroupName should be BIOSECURITY | EXPORT_SERVICE
-// ...but in app-layout world this maps to imports or exports.
-type BusinessCategory = 'export' | 'import';
 
 const createBusinessOptions = <T extends Business>(
 	details: BusinessDetails<T>
@@ -88,17 +75,6 @@ const canAccessPeopleRoles = new Set([
 const canAccessPeople = (business?: Business) =>
 	business?.roleName ? canAccessPeopleRoles.has(business.roleName) : false;
 
-export const getBusinessCategory = (business?: Business): BusinessCategory =>
-	business?.roleGroupName === 'BIOSECURITY' ? 'import' : 'export';
-
-const businessCategoryLabel = {
-	export: 'Export',
-	import: 'Import',
-} as const;
-
-export const getBusinessCategoryLabel = (category: BusinessCategory) =>
-	businessCategoryLabel[category];
-
 const LinkedBusinesses = (props: {
 	businesses: BusinessOption[];
 	onSelectBusiness: (business: BusinessOption) => () => void;
@@ -113,10 +89,10 @@ const LinkedBusinesses = (props: {
 				<DropdownMenuItemRadio
 					key={business.partyId}
 					checked={business.selected ?? false}
-					secondaryText={business.formattedPartyExternalId}
+					secondaryText={getBusinessABN(business)}
 					onClick={props.onSelectBusiness(business)}
 				>
-					{business.partyDisplayName}
+					{getBusinessName(business)}
 				</DropdownMenuItemRadio>
 			))}
 			{props.businesses.length > 3 ? (
@@ -206,11 +182,10 @@ export const getBusinessSidebarLinks = <T extends Business>(params: {
 							label: (
 								<Fragment>
 									<Text fontWeight="bold" fontSize="xs">
-										{params.details.selectedBusiness.partyDisplayName}
+										{getBusinessName(params.details.selectedBusiness)}
 									</Text>
 									<Text color="muted" fontSize="xs">
-										ABN:{' '}
-										{params.details.selectedBusiness.formattedPartyExternalId}
+										ABN: {getBusinessABN(params.details.selectedBusiness)}
 									</Text>
 								</Fragment>
 							),
