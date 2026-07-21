@@ -59,11 +59,6 @@ exports[`AppLayout renders correctly 1`] = `
               >
                 TradeClear
               </span>
-              <div
-                class="css-1m5a0x2-boxStyles-boxStyles-AppLayoutHeaderBrandBadge"
-              >
-                Beta
-              </div>
             </div>
             <span
               class="css-1by1ko6-boxStyles-boxStyles"

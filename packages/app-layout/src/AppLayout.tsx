@@ -164,7 +164,7 @@ export function AppLayout<B extends Business>({
 							headerProps?.subLine ??
 							'Australian export, import and biosecurity services'
 						}
-						badgeLabel={headerProps?.badgeLabel ?? 'Beta'}
+						badgeLabel={headerProps?.badgeLabel}
 						logo={<Logo />}
 						accountDetails={
 							userName
