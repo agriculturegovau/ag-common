@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppLayout renders correctly 1`] = `
+<div>
+  <nav
+    aria-label="Breadcrumbs"
+  >
+    <ol
+      class="css-5u4z8x-boxStyles-boxStyles-BreadcrumbsContainer"
+    >
+      <li
+        class="css-17xxsfw-boxStyles-boxStyles"
+      >
+        <svg
+          aria-hidden="true"
+          class="css-b69cs4-BreadcrumbsDivider"
+          clip-rule="evenodd"
+          fill-rule="evenodd"
+          focusable="false"
+          height="24"
+          role="img"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m9 18 6-6-6-6"
+          />
+        </svg>
+        <a
+          class="css-1wvbhdv-TextLink-TextLink"
+          href="https://services.agriculture.gov.au/account"
+        >
+          Home
+        </a>
+      </li>
+      <li
+        class="css-17xxsfw-boxStyles-boxStyles"
+      >
+        <svg
+          aria-hidden="true"
+          class="css-b69cs4-BreadcrumbsDivider"
+          clip-rule="evenodd"
+          fill-rule="evenodd"
+          focusable="false"
+          height="24"
+          role="img"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m9 18 6-6-6-6"
+          />
+        </svg>
+        <button
+          aria-expanded="false"
+          aria-label="Show all breadcrumbs"
+          class="css-mdroif-BaseButton-boxStyles-boxStyles"
+          type="button"
+        >
+          …
+        </button>
+      </li>
+      <li
+        class="css-17xxsfw-boxStyles-boxStyles"
+      >
+        <svg
+          aria-hidden="true"
+          class="css-b69cs4-BreadcrumbsDivider"
+          clip-rule="evenodd"
+          fill-rule="evenodd"
+          focusable="false"
+          height="24"
+          role="img"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m9 18 6-6-6-6"
+          />
+        </svg>
+        <a
+          class="css-1wvbhdv-TextLink-TextLink"
+          href="https://services.agriculture.gov.au/account/exports"
+        >
+          Export
+        </a>
+      </li>
+      <li
+        class="css-17xxsfw-boxStyles-boxStyles"
+      >
+        <svg
+          aria-hidden="true"
+          class="css-b69cs4-BreadcrumbsDivider"
+          clip-rule="evenodd"
+          fill-rule="evenodd"
+          focusable="false"
+          height="24"
+          role="img"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m9 18 6-6-6-6"
+          />
+        </svg>
+        Data and insights
+        <span
+          class="css-5ur8x"
+        >
+           (current page)
+        </span>
+      </li>
+    </ol>
+  </nav>
+</div>
+`;

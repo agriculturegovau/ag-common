@@ -1,4 +1,4 @@
-import { createContext, PropsWithChildren, useContext, useMemo } from 'react';
+import { PropsWithChildren, useContext, useMemo } from 'react';
 import {
 	AppLayout as AgDsAppLayout,
 	AppLayoutHeader as AgDsAppLayoutHeader,
@@ -19,24 +19,13 @@ import {
 import { LinkList } from '@ag.ds-next/react/link-list';
 import { Text } from '@ag.ds-next/react/text';
 import {
-	HostDomain,
-	Features,
 	findBestMatch,
 	getFooterLinks,
 	getAppLinks,
 	getSidebarLinks,
-	InternalTheme,
-	createRoutes,
-	resolveRouteSpec,
-	createRoute,
-	AppSubdomain,
 } from './utils';
 import {
-	Business,
-	BusinessDetails,
 	BusinessDropdown,
-	getBusinessCategory,
-	getBusinessCategoryLabel,
 	getBusinessSidebarLinks,
 	getComputedFeatures,
 } from './AppLayoutDropdown';
@@ -49,10 +38,23 @@ import { Modal } from '@ag.ds-next/react/modal';
 import { Button, ButtonGroup } from '@ag.ds-next/react/button';
 import { AuthDetails, ProofingLevel } from './proofing';
 import { ExpectedClaims, useAuthDetails } from './authDetails';
-
-type LayoutContext = {
-	onSignOutClick: () => void;
-};
+import {
+	Business,
+	BusinessDetails,
+	Features,
+	getBusinessCategory,
+	getBusinessCategoryLabel,
+	getBusinessName,
+	InternalTheme,
+} from './defs';
+import { LayoutProvider } from './AppLayoutContext';
+import {
+	AppSubdomain,
+	createRoute,
+	createRoutes,
+	HostDomain,
+	resolveRouteSpec,
+} from './routes';
 
 type SidebarItems = AppLayoutSidebarProps['items'];
 type SidebarSubLevelVisible = AppLayoutSidebarProps['subLevelVisible'];
@@ -64,18 +66,11 @@ type HeaderProps = {
 	badgeLabel?: AppLayoutHeaderProps['badgeLabel'];
 };
 
-const LayoutContext = createContext<LayoutContext | undefined>(undefined);
-
-export const useOpenSignOutModal = () => {
-	return useContext(LayoutContext)?.onSignOutClick;
-};
-
 export type AppLayoutProps<B extends Business> = PropsWithChildren<{
 	activePath: string;
 	focusMode?: boolean;
 	handleSignOut: () => Promise<void>;
 	mainContentId?: string;
-	unreadMessageCount?: number;
 	userName?: string;
 	businessDetails?: BusinessDetails<B>;
 	features?: Features;
@@ -88,6 +83,11 @@ export type AppLayoutProps<B extends Business> = PropsWithChildren<{
 	headerProps?: HeaderProps;
 	domain?: HostDomain;
 	subdomain?: AppSubdomain;
+
+	/**
+	 * @deprecated unreadMessageCount no longer appears anywhere in the layout
+	 */
+	unreadMessageCount?: number;
 
 	/**
 	 * @deprecated the internal theme flag has lost all semantic meaning with the daff theme changes.
@@ -126,11 +126,11 @@ export function AppLayout<B extends Business>({
 	const onSignOutClick = openModal;
 	const onModalSignOutClick = handleSignOut;
 
+	const selectedBusiness = businessDetails?.selectedBusiness;
 	const features = getComputedFeatures({
 		features: features_,
-		selectedBusiness: businessDetails?.selectedBusiness,
+		selectedBusiness,
 	});
-
 	const activeRoute = createRoute(subdomain)(activePath_);
 	const activePath = resolveRouteSpec(activeRoute, { domain });
 	const routes = createRoutes(domain);
@@ -153,7 +153,7 @@ export function AppLayout<B extends Business>({
 
 	return (
 		<AgDsAppLayout focusMode={focusMode}>
-			<LayoutContext.Provider value={{ onSignOutClick }}>
+			<LayoutProvider value={{ onSignOutClick, routes, selectedBusiness }}>
 				<CoreProvider>
 					<AgDsAppLayoutHeader
 						palette="light"
@@ -170,17 +170,13 @@ export function AppLayout<B extends Business>({
 							userName
 								? {
 										href: routes.account,
-										name:
-											businessDetails?.selectedBusiness?.partyDisplayName ??
-											userName,
+										name: getBusinessName(selectedBusiness) ?? userName,
 										avatarName: userName,
 										secondaryText:
-											businessDetails?.selectedBusiness === undefined
+											selectedBusiness === undefined
 												? undefined
 												: getBusinessCategoryLabel(
-														getBusinessCategory(
-															businessDetails.selectedBusiness
-														)
+														getBusinessCategory(selectedBusiness)
 													),
 										dropdown: businessDetails ? (
 											<BusinessDropdown
@@ -280,7 +276,7 @@ export function AppLayout<B extends Business>({
 						</Text>
 					</Modal>
 				</CoreProvider>
-			</LayoutContext.Provider>
+			</LayoutProvider>
 		</AgDsAppLayout>
 	);
 }

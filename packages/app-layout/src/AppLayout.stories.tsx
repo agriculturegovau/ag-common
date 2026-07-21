@@ -10,8 +10,7 @@ import { Select } from '@ag.ds-next/react/select';
 import { Drawer } from '@ag.ds-next/react/drawer';
 import { Stack } from '@ag.ds-next/react/stack';
 import { Modal } from '@ag.ds-next/react/modal';
-import { AppLayout, useOpenSignOutModal } from './AppLayout';
-import { Business } from './AppLayoutDropdown';
+import { AppLayout } from './AppLayout';
 import { Button, ButtonGroup } from '@ag.ds-next/react/button';
 import { Text } from '@ag.ds-next/react/text';
 import { produce } from 'immer';
@@ -30,8 +29,11 @@ import {
 	PieChartIcon,
 } from '@ag.ds-next/react/icon';
 import { Flex } from '@ag.ds-next/react/flex';
-import { AppSubdomain } from './utils';
 import { H1 } from '@ag.ds-next/react/heading';
+import { Business, BusinessDetails } from './defs';
+import { useOpenSignOutModal } from './AppLayoutContext';
+import { AppLayoutBreadcrumbs } from './AppLayoutBreadcrumbs';
+import { AppSubdomain } from './routes';
 
 type BusinessFromAPI = Business & { someExtraInfo?: string };
 
@@ -100,6 +102,12 @@ const exampleImportBusinesses: BusinessFromAPI[] = [
 		roleGroupName: 'BIOSECURITY',
 	},
 ];
+
+const exampleBusinessDetails: BusinessDetails<BusinessFromAPI> = {
+	linkedBusinesses: [...exampleBusinesses, ...exampleImportBusinesses],
+	selectedBusiness: exampleBusinesses[0],
+	setSelectedBusiness: () => {},
+};
 
 const meta: Meta<typeof AppLayout> = {
 	title: 'AppLayout',
@@ -223,6 +231,7 @@ export const CustomRouting: Story = {
 
 export const DevelopmentRouting: Story = {
 	args: {
+		businessDetails: exampleBusinessDetails,
 		focusMode: false,
 		userName: 'Toto Wolff',
 		unreadMessageCount: 6,
@@ -300,7 +309,7 @@ export const BusinessDropdown: Story = {
 		focusMode: false,
 		userName: 'Toto Wolff',
 		unreadMessageCount: 6,
-		activePath: '/',
+		activePath: '/intelligence',
 		handleSignOut,
 	},
 	render: function Render(props) {
@@ -353,6 +362,13 @@ export const BusinessDropdown: Story = {
 				>
 					<PageContent>
 						<Stack gap={3}>
+							<AppLayoutBreadcrumbs
+								links={[
+									{ label: 'Data and insights', href: '/intelligence' },
+									{ label: 'Report 1', href: '/intelligence/report/report_1' },
+								]}
+							/>
+
 							<Prose>
 								<h1>Business dropdown configuration</h1>
 							</Prose>

@@ -12,7 +12,6 @@ yarn add @ag.common/app-layout
 
 ```tsx
 import { AppLayout } from '@ag.common/app-layout';
-import { useAuthentication } from '@ag.common/auth';
 import { useBusinessDetails } from '@ag.common/auth';
 import { useRouter } from 'next/router';
 
@@ -40,7 +39,6 @@ If you have unique requirements for local or dev check out the "routeResolver" t
 
 ```tsx
 import { AppLayout } from '@ag.common/app-layout';
-import { useAuthentication } from '@ag.common/auth';
 import { useBusinessDetails } from '@ag.common/auth';
 import { useRouter } from 'next/router';
 
@@ -102,7 +100,6 @@ It may make sense for your application to start from its root when a user change
 
 ```tsx
 import { AppLayout } from '@ag.common/app-layout';
-import { useAuthentication } from '@ag.common/auth';
 import { useBusinessDetails } from '@ag.common/auth';
 import { useRouter } from 'next/router';
 
@@ -134,7 +131,6 @@ You may want to interrupt a user before allowing them to change their selected b
 
 ```tsx
 import { AppLayout } from '@ag.common/app-layout';
-import { useAuthentication } from '@ag.common/auth';
 import { useBusinessDetails } from '@ag.common/auth';
 import { useRouter } from 'next/router';
 
@@ -228,6 +224,67 @@ function App() {
 				),
 			}}
 		>
+			<YourApplication />
+		</AppLayout>
+	);
+}
+```
+
+---
+
+# AppLayoutBreadcrumbs
+
+Business-aware breadcrumbs to be used by export service apps.
+
+These breadcrumbs will automatically sort out the `Home -> Export -> BusinessName` portion of your breadcrumbs, with your links following.
+
+Handles subdomain routing and selected business logic so that your app doesn't have to.
+
+## Basic usage
+
+```tsx
+import { AppLayout, AppLayoutBreadcrumbs } from '@ag.common/app-layout';
+import { useBusinessDetails } from '@ag.common/auth';
+import { useRouter } from 'next/router';
+
+function App() {
+	const router = useRouter();
+	const businessDetails = useBusinessDetails();
+
+	return (
+		<AppLayout activePath={router.asPath} businessDetails={businessDetails}>
+			<AppLayoutBreadcrumbs
+				links={[
+					{ label: 'Data and insights', href: '/intelligence' },
+					{ label: 'Report 1', href: '/intelligence/report/report_1' },
+				]}
+			/>
+			<YourApplication />
+		</AppLayout>
+	);
+}
+```
+
+## Overrides
+
+You can override the business name and category if for some reason your application requires custom behaviour.
+
+```tsx
+import { AppLayout, AppLayoutBreadcrumbs } from '@ag.common/app-layout';
+import { useBusinessDetails } from '@ag.common/auth';
+import { useRouter } from 'next/router';
+
+function App() {
+	const router = useRouter();
+	const businessDetails = useBusinessDetails();
+
+	return (
+		<AppLayout activePath={router.asPath} businessDetails={businessDetails}>
+			<AppLayoutBreadcrumbs
+				businessCategory="import"
+				selectedBusinessName="Custom business name"
+				links={[{ label: 'Data and insights', href: '/intelligence' }]}
+			/>
 			<YourApplication />
 		</AppLayout>
 	);

@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import 'html-validate/jest';
 import { render, cleanup } from '../../../test-utils';
 import { AppLayout, AppLayoutProps } from './AppLayout';
-import { Business } from './AppLayoutDropdown';
+import { Business } from './defs';
 
 afterEach(cleanup);
 
