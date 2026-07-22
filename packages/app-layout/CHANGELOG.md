@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.18.0
+
+### Minor Changes
+
+- 889028b: app-layout: add new component AppLayoutBreadcrumbs
+
 ## 1.17.5
 
 ### Patch Changes
