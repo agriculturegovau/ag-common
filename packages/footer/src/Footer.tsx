@@ -4,6 +4,7 @@ import { CoreProvider, tokens } from '@ag.ds-next/react/core';
 import { Footer as AgDsFooter, FooterDivider } from '@ag.ds-next/react/footer';
 import { LinkList } from '@ag.ds-next/react/link-list';
 import { Text } from '@ag.ds-next/react/text';
+import { TextLink } from '@ag.ds-next/react/text-link';
 
 const footerLinks = [
 	{
@@ -17,6 +18,10 @@ const footerLinks = [
 	{
 		href: '/help',
 		label: 'Help',
+	},
+	{
+		href: '/whats-new',
+		label: "What's new",
 	},
 	{
 		href: 'https://www.agriculture.gov.au/about/commitment/accessibility',
@@ -34,24 +39,52 @@ const footerLinks = [
 	},
 ];
 
+const artwork =
+	'https://static-content.p5.agriculture.gov.au/agds/brand-artwork.png';
+
 export const Footer = () => {
 	const year = useMemo(() => new Date().getFullYear(), []);
+
 	return (
 		<CoreProvider>
-			<Box palette="dark">
-				<AgDsFooter background="bodyAlt">
+			<Box palette="light">
+				<AgDsFooter
+					background="body"
+					borderColor={'selected'}
+					artwork={{
+						image: <img src={artwork} alt="Agriculture brand artowrk" />,
+						position: 'right bottom',
+						fit: 'none',
+					}}
+				>
 					<nav aria-label="footer">
 						<LinkList links={footerLinks} horizontal />
 					</nav>
-					<FooterDivider />
-					<Text fontSize="xs" maxWidth={tokens.maxWidth.bodyText}>
-						We acknowledge the traditional owners of country throughout
-						Australia and recognise their continuing connection to land, waters
-						and culture. We pay our respects to their Elders past, present and
-						emerging.
+
+					<Text maxWidth={tokens.maxWidth.bodyText}>
+						<TextLink href="https://www.agriculture.gov.au/about/copyright">
+							&copy; {year} Department of Agriculture, Fisheries and Forestry
+						</TextLink>
 					</Text>
-					<Text fontSize="xs" maxWidth={tokens.maxWidth.bodyText}>
-						&copy; {year} Department of Agriculture, Fisheries and Forestry
+
+					<FooterDivider color="muted" />
+
+					{/* intentionally differs from tokens.maxWith.bodyText to match design. design breaks content width rule. */}
+					<Text fontSize="xs" maxWidth="672px">
+						We acknowledge the continuous connection of First Nations
+						Traditional Owners and Custodians to the lands, seas and waters of
+						Australia. We recognise their care for and cultivation of Country.
+						We pay respect to Elders past and present, and recognise their
+						knowledge and contribution to the productivity, innovation and
+						sustainability of Australia&apos;s agriculture, fisheries and
+						forestry industries.
+					</Text>
+
+					<Text fontSize="xs" maxWidth="672px">
+						Artwork: <em>Protecting our Country, Growing our Future</em>
+						<br />
+						&copy; Amy Allerton, contemporary Aboriginal Artist of the
+						Gumbaynggirr, Bundjalung and Gamilaroi nations.
 					</Text>
 				</AgDsFooter>
 			</Box>
