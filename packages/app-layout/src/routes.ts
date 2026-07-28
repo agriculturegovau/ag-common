@@ -95,6 +95,7 @@ export const createRoutes = (() => {
 		exportSystems: exports('/export-systems'),
 		licences: exports('/licences'),
 		invoices: exports('/inexs'),
+		letterOfFreeSale: services('/forms/exports/LetterOfFreeSale'),
 	};
 
 	return createRoutes_(routes);
