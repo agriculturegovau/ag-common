@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.18.1
+
+### Patch Changes
+
+- 0033083: app-layout: add letter of free sale sidenav item
+
 ## 1.18.0
 
 ### Minor Changes
