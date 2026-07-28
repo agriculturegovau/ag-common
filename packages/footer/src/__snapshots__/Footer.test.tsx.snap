@@ -6,97 +6,105 @@ exports[`Footer renders correctly 1`] = `
     class="css-yxthkp-dark-dark-boxStyles-boxStyles"
   >
     <footer
-      class="css-1pez9ge-boxStyles-boxStyles"
+      class="css-1celzu3-boxStyles-boxStyles-Footer"
     >
       <div
-        class="css-10reg7n-boxStyles-boxStyles"
+        class="css-167uusy-boxStyles-boxStyles"
       >
-        <nav
-          aria-label="footer"
+        <div
+          class="css-1f5zy1a-boxStyles-boxStyles"
         >
-          <ul
-            class="css-1rzmb70-boxStyles-boxStyles"
+          <div
+            class="css-1p6tbj9-boxStyles-boxStyles-Footer"
           >
-            <li
-              class="css-3siufh-boxStyles-boxStyles"
+            <nav
+              aria-label="footer"
             >
-              <a
-                class="css-1wvbhdv-TextLink-TextLink"
-                href="/about"
+              <ul
+                class="css-1rzmb70-boxStyles-boxStyles"
               >
-                About
-              </a>
-            </li>
-            <li
-              class="css-3siufh-boxStyles-boxStyles"
+                <li
+                  class="css-3siufh-boxStyles-boxStyles"
+                >
+                  <a
+                    class="css-1wvbhdv-TextLink-TextLink"
+                    href="/about"
+                  >
+                    About
+                  </a>
+                </li>
+                <li
+                  class="css-3siufh-boxStyles-boxStyles"
+                >
+                  <a
+                    class="css-1wvbhdv-TextLink-TextLink"
+                    href="/about/contact-us"
+                  >
+                    Contact us
+                  </a>
+                </li>
+                <li
+                  class="css-3siufh-boxStyles-boxStyles"
+                >
+                  <a
+                    class="css-1wvbhdv-TextLink-TextLink"
+                    href="/help"
+                  >
+                    Help
+                  </a>
+                </li>
+                <li
+                  class="css-3siufh-boxStyles-boxStyles"
+                >
+                  <a
+                    class="css-1wvbhdv-TextLink-TextLink"
+                    href="https://www.agriculture.gov.au/about/commitment/accessibility"
+                    rel="external"
+                  >
+                    Accessibility
+                  </a>
+                </li>
+                <li
+                  class="css-3siufh-boxStyles-boxStyles"
+                >
+                  <a
+                    class="css-1wvbhdv-TextLink-TextLink"
+                    href="https://www.agriculture.gov.au/about/disclaimer"
+                    rel="external"
+                  >
+                    Disclaimer
+                  </a>
+                </li>
+                <li
+                  class="css-3siufh-boxStyles-boxStyles"
+                >
+                  <a
+                    class="css-1wvbhdv-TextLink-TextLink"
+                    href="/privacy"
+                  >
+                    Privacy
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <hr
+              aria-hidden="true"
+              class="css-6682pz-boxStyles-boxStyles-FooterDivider"
+            />
+            <span
+              class="css-9e29bx-boxStyles-boxStyles"
             >
-              <a
-                class="css-1wvbhdv-TextLink-TextLink"
-                href="/about/contact-us"
-              >
-                Contact us
-              </a>
-            </li>
-            <li
-              class="css-3siufh-boxStyles-boxStyles"
+              We acknowledge the traditional owners of country throughout Australia and recognise their continuing connection to land, waters and culture. We pay our respects to their Elders past, present and emerging.
+            </span>
+            <span
+              class="css-9e29bx-boxStyles-boxStyles"
             >
-              <a
-                class="css-1wvbhdv-TextLink-TextLink"
-                href="/help"
-              >
-                Help
-              </a>
-            </li>
-            <li
-              class="css-3siufh-boxStyles-boxStyles"
-            >
-              <a
-                class="css-1wvbhdv-TextLink-TextLink"
-                href="https://www.agriculture.gov.au/about/commitment/accessibility"
-                rel="external"
-              >
-                Accessibility
-              </a>
-            </li>
-            <li
-              class="css-3siufh-boxStyles-boxStyles"
-            >
-              <a
-                class="css-1wvbhdv-TextLink-TextLink"
-                href="https://www.agriculture.gov.au/about/disclaimer"
-                rel="external"
-              >
-                Disclaimer
-              </a>
-            </li>
-            <li
-              class="css-3siufh-boxStyles-boxStyles"
-            >
-              <a
-                class="css-1wvbhdv-TextLink-TextLink"
-                href="/privacy"
-              >
-                Privacy
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <hr
-          aria-hidden="true"
-          class="css-6682pz-boxStyles-boxStyles-FooterDivider"
-        />
-        <span
-          class="css-9e29bx-boxStyles-boxStyles"
-        >
-          We acknowledge the traditional owners of country throughout Australia and recognise their continuing connection to land, waters and culture. We pay our respects to their Elders past, present and emerging.
-        </span>
-        <span
-          class="css-9e29bx-boxStyles-boxStyles"
-        >
-          © 
-          2026
-           Department of Agriculture, Fisheries and Forestry
-        </span>
+              © 
+              2026
+               Department of Agriculture, Fisheries and Forestry
+            </span>
+          </div>
+        </div>
       </div>
     </footer>
   </div>
