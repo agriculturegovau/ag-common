@@ -41,7 +41,6 @@ import { ExpectedClaims, useAuthDetails } from './authDetails';
 import {
 	Business,
 	BusinessDetails,
-	Features,
 	FeaturesInput,
 	getBusinessCategory,
 	getBusinessCategoryLabel,
