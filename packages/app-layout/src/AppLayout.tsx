@@ -196,6 +196,7 @@ export function AppLayout<B extends Business>({
 								items={sidebarItems}
 								subLevelVisible={sidebarSubLevelVisible}
 								background="body"
+								backgroundMobile="body"
 							/>
 						</CoreProvider>
 					) : (
@@ -203,6 +204,7 @@ export function AppLayout<B extends Business>({
 							activePath={activePath}
 							items={sidebarLinks}
 							background="body"
+							backgroundMobile="body"
 						/>
 					)}
 
