@@ -1,5 +1,15 @@
 # @ag.common/app-layout
 
+## 1.19.0
+
+### Minor Changes
+
+- 2006667: deps: use agds at ^1.35.2
+
+### Patch Changes
+
+- 2006667: app-layout: use backgroundMobile on sidenav to set background color correctly
+
 ## 1.18.1
 
 ### Patch Changes

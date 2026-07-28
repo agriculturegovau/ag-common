@@ -1,5 +1,11 @@
 # @ag.common/help-callout
 
+## 1.8.0
+
+### Minor Changes
+
+- 2006667: deps: use agds at ^1.35.2
+
 ## 1.7.2
 
 ### Patch Changes

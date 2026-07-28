@@ -1,5 +1,11 @@
 # @ag.common/digital-identity
 
+## 0.13.0
+
+### Minor Changes
+
+- 2006667: deps: use agds at ^1.35.2
+
 ## 0.12.0
 
 ### Minor Changes
