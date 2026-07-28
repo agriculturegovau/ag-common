@@ -551,6 +551,7 @@ export const OptionalAppsEnabled: Story = {
 			licences: true,
 			invoices: true,
 			people: true,
+			letterOfFreeSale: true,
 		},
 	},
 };
