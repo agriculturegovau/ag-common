@@ -129,16 +129,15 @@ export const getFooterLinks = (routes: AppRoutes) => [
 	{ href: routes.privacy, label: 'Privacy' },
 ];
 
-export const getSidebarLinks = ({
+// Help + Sign out — kept separate from getAppLinks so callers supplying custom
+// sidebarItems can still be wrapped with this section for parity with the default sidebar.
+export const getBottomSidebarLinks = ({
 	onSignOutClick,
-	features,
 	routes,
 }: {
 	onSignOutClick: () => void;
-	features?: Features;
 	routes: AppRoutes;
 }) => [
-	getAppLinks({ features, routes }),
 	[
 		{
 			label: (
