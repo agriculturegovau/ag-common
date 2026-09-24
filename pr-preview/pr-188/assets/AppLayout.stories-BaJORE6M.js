@@ -347,7 +347,7 @@ import{j as a,c as v,a as D,g as h,b as u,B as L,t as I,m as $,_ as ne,p as _,G 
                         <ControlGroup label="features" block hideOptionalLabel>
                             {feats.map(feature => <Checkbox key={feature} checked={!!features[feature]} onChange={() => setFeatures({
               ...features,
-              [feature]: !!features[feature] ? undefined : true
+              [feature]: features[feature] ? undefined : true
             })}>
                                     {feature}
                                 </Checkbox>)}
