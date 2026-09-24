@@ -57,6 +57,7 @@ export type Features = {
 	invoices?: boolean;
 	people?: boolean;
 	letterOfFreeSale?: boolean;
+	accreditedProperties?: boolean;
 
 	/**
 	 * @deprecated Prefer the `exportSystems` flag as this system has been renamed.
