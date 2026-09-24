@@ -194,7 +194,9 @@ export const getBusinessSidebarLinks = <T extends Business>(params: {
 				},
 			];
 
-// agents should not be able to 'manage people' but allow feature toggle to take priority
+// domain-specific-logic:
+//   people: agents should not be able to 'manage people' but allow feature toggle to take priority
+//   accreditedProperties: only present when selectedBusiness active
 export const getComputedFeatures = (params: {
 	features?: Features;
 	selectedBusiness?: Business;
@@ -205,4 +207,4 @@ export const getComputedFeatures = (params: {
 				people:
 					params?.features?.people ?? canAccessPeople(params.selectedBusiness),
 			}
-		: params.features;
+		: { ...params?.features, accreditedProperties: false };
