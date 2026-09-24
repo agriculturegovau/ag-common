@@ -30,7 +30,7 @@ import {
 } from '@ag.ds-next/react/icon';
 import { Flex } from '@ag.ds-next/react/flex';
 import { H1 } from '@ag.ds-next/react/heading';
-import { Business, BusinessDetails } from './defs';
+import { Business, BusinessDetails, Features } from './defs';
 import { useOpenSignOutModal } from './AppLayoutContext';
 import { AppLayoutBreadcrumbs } from './AppLayoutBreadcrumbs';
 import { AppSubdomain } from './routes';
@@ -310,6 +310,9 @@ export const BusinessDropdown: Story = {
 		userName: 'Toto Wolff',
 		unreadMessageCount: 6,
 		activePath: '/intelligence',
+		features: {
+			accreditedProperties: true,
+		},
 		handleSignOut,
 	},
 	render: function Render(props) {
@@ -545,14 +548,76 @@ export const OptionalAppsEnabled: Story = {
 		userName: 'Toto Wolff',
 		unreadMessageCount: 6,
 		activePath: '/',
-		features: {
+	},
+	render: function Render(props) {
+		const exampleBusiness = exampleBusinesses[0];
+		const initial: {
+			[f in keyof Features]-?: true;
+		} = {
 			quotas: true,
 			exportSystems: true,
 			licences: true,
 			invoices: true,
 			people: true,
 			letterOfFreeSale: true,
-		},
+			accreditedProperties: true,
+			exportDocumentation: true,
+		};
+		const feats = Array.from(Object.keys(initial)) as (keyof Features)[];
+
+		const [features, setFeatures] = useState<Features>(initial);
+		const [selectedBusiness, setSelectedBusiness] = useState<
+			BusinessFromAPI | undefined
+		>(exampleBusiness);
+
+		return (
+			<AppLayout
+				{...props}
+				features={features}
+				businessDetails={{
+					setSelectedBusiness: () => {},
+					selectedBusiness,
+				}}
+			>
+				<PageContent>
+					<Stack gap={1.5}>
+						<ControlGroup label="features" block hideOptionalLabel>
+							{feats.map((feature) => (
+								<Checkbox
+									key={feature}
+									checked={!!features[feature]}
+									onChange={() =>
+										setFeatures({
+											...features,
+											[feature]: features[feature] ? undefined : true,
+										})
+									}
+								>
+									{feature}
+								</Checkbox>
+							))}
+						</ControlGroup>
+
+						<ControlGroup
+							label="selected business (affects some features)"
+							block
+							hideOptionalLabel
+						>
+							<Checkbox
+								checked={!!selectedBusiness}
+								onChange={() =>
+									setSelectedBusiness(
+										selectedBusiness ? undefined : exampleBusiness
+									)
+								}
+							>
+								{exampleBusiness.partyDisplayName}
+							</Checkbox>
+						</ControlGroup>
+					</Stack>
+				</PageContent>
+			</AppLayout>
+		);
 	},
 };
 
