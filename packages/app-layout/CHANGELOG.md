@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.19.1
+
+### Patch Changes
+
+- f2bf7b4: app-layout: add 'accredited properties' menu item
+
 ## 1.19.0
 
 ### Minor Changes
