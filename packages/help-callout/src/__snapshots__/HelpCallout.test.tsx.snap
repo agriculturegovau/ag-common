@@ -72,7 +72,8 @@ exports[`HelpCallout renders correctly 1`] = `
         >
           1800 571 125
         </a>
-        , Monday to Friday, 9 am to 5 pm AEST
+        , Monday to Friday, 9 am to 5 pm 
+        AEST
       </span>
     </div>
   </div>
