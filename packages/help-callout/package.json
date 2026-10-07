@@ -1,6 +1,6 @@
 {
 	"name": "@ag.common/help-callout",
-	"version": "1.8.0",
+	"version": "1.9.0",
 	"main": "dist/ag.common-help-callout.cjs.js",
 	"module": "dist/ag.common-help-callout.esm.js",
 	"license": "MIT",
