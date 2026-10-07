@@ -1,5 +1,11 @@
 # @ag.common/help-callout
 
+## 1.9.0
+
+### Minor Changes
+
+- c186eab: help-callout: auto-determine aest / aedt status from current date
+
 ## 1.8.0
 
 ### Minor Changes
