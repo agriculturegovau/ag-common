@@ -1,5 +1,11 @@
 # @ag.common/app-layout
 
+## 1.19.2
+
+### Patch Changes
+
+- 2ce93e4: app-layout: update accredited properties url
+
 ## 1.19.1
 
 ### Patch Changes
