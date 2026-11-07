@@ -22,7 +22,7 @@ import {
 	findBestMatch,
 	getFooterLinks,
 	getAppLinks,
-	getSidebarLinks,
+	getBottomSidebarLinks,
 } from './utils';
 import {
 	BusinessDropdown,
@@ -136,12 +136,17 @@ export function AppLayout<B extends Business>({
 	const routes = createRoutes(domain);
 	const appLinks = useMemo(() => getAppLinks({ features, routes }), [features]);
 	const footerLinks = getFooterLinks(routes);
+	const businessSidebarLinks = useMemo(
+		() => getBusinessSidebarLinks({ details: businessDetails, routes }),
+		[businessDetails, routes]
+	);
+	const bottomSidebarLinks = useMemo(
+		() => getBottomSidebarLinks({ onSignOutClick, routes }),
+		[onSignOutClick, routes]
+	);
 	const sidebarLinks = useMemo(
-		() => [
-			...getBusinessSidebarLinks({ details: businessDetails, routes }),
-			...getSidebarLinks({ onSignOutClick, features, routes }),
-		],
-		[onSignOutClick, businessDetails, features]
+		() => [...businessSidebarLinks, appLinks, ...bottomSidebarLinks],
+		[businessSidebarLinks, appLinks, bottomSidebarLinks]
 	);
 
 	// we always build these in order to respect hook conditional rules
@@ -193,7 +198,12 @@ export function AppLayout<B extends Business>({
 						<CoreProvider {...parentCoreContext}>
 							<AgDsAppLayoutSidebar
 								activePath={activePath_} // use unmodified path here so that custom sidenav items don't need to be expanded into fully qualified urls
-								items={sidebarItems}
+								// wrap custom items with the same business header + Help/Sign out sections as the default sidebar, so callers only need to supply the app-specific nav
+								items={[
+									...businessSidebarLinks,
+									...sidebarItems,
+									...bottomSidebarLinks,
+								]}
 								subLevelVisible={sidebarSubLevelVisible}
 								background="body"
 								backgroundMobile="body"
